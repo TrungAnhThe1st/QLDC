@@ -39,7 +39,8 @@ if (isset($_POST['ddlLanguage'])) {
     $image_url = $_POST['img_exist'];
   }
   uploadLanguageFile(); //upload lang zip file
-  $sql = "INSERT INTO tbl_settings(`lang_code`,`currency`,`currency_seperator`,`currency_position`,`currency_decimal`,`mail_protocol`,`super_admin_image`,`smtp_hostname`,`smtp_username`,`smtp_password`,`smtp_port`,`smtp_secure`,`cat_username`,`cat_password`,`cat_apikey`) values('$_POST[ddlLanguage]','$_POST[ddlCurrency]','$_POST[ddlCurrencySeparator]','$_POST[ddlCurrencyPosition]','$_POST[ddlCurrencyDecimal]','$_POST[ddlMailOption]','$image_url','$_POST[smtp_hostname]','$_POST[smtp_username]','$_POST[smtp_password]','$_POST[smtp_port]','$_POST[smtp_secure]','$_POST[cat_username]','$_POST[cat_password]','$_POST[cat_apikey]')";
+  $sql = "INSERT INTO tbl_settings(`lang_code`,`currency`,`currency_seperator`,`currency_position`,`currency_decimal`,`mail_protocol`,`super_admin_image`,`smtp_hostname`,`smtp_username`,`smtp_password`,`smtp_port`,`smtp_secure`,`cat_username`,`cat_password`,`cat_apikey`) 
+  values('$_POST[ddlLanguage]','$_POST[ddlCurrency]','$_POST[ddlCurrencySeparator]','$_POST[ddlCurrencyPosition]','$_POST[ddlCurrencyDecimal]','$_POST[ddlMailOption]','$image_url','$_POST[smtp_hostname]','$_POST[smtp_username]','$_POST[smtp_password]','$_POST[smtp_port]','$_POST[smtp_secure]','$_POST[cat_username]','$_POST[cat_password]','$_POST[cat_apikey]')";
   mysqli_query($link, $sql);
   $success = 'block';
   $msg = $_data['text_4'];

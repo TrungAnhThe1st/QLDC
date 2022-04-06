@@ -32,8 +32,8 @@ $image_rnt = WEB_URL . 'img/no_image.jpg';
 $img_track = '';
 
 if (isset($_POST['ddlLanguage'])) {
-  $sqlx = "DELETE FROM `tbl_settings`";
-  mysqli_query($link,$sqlx);
+  // $sqlx = "DELETE FROM `tbl_settings`";
+  // mysqli_query($link,$sqlx);
   $image_url = uploadImage();
   if ($image_url == '') {
     $image_url = $_POST['img_exist'];
@@ -107,8 +107,9 @@ function uploadLanguageFile()
     if ($res === TRUE) {
       $zip->extractTo(ROOT_PATH . '/language/');
       $zip->close();
+      echo "Unzip success";
     }
-    unlink(ROOT_PATH . '/language/'.$filename);
+    // unlink(ROOT_PATH . '/language/'.$filename);
   }
 }
 ?>
