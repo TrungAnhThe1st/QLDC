@@ -4,26 +4,26 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 			= "Tenant Notice Board";
-$_data['text_12'] 			= "Employee Notice Board";
-$_data['text_13'] 			= "Owner Notice Board";
-$_data['text_2'] 			= "Notice Entry Form";
-$_data['text_2a'] 			= "Notice Title";
-$_data['text_2b'] 			= "Notice Date";
-$_data['text_3'] 			= "Notice Title";
-$_data['text_33'] 			= "Notice Status";
-$_data['text_3a'] 			= "Notice Status";
-$_data['text_3b'] 			= "Publish Now";
-$_data['text_3bb'] 			= "Notice";
-$_data['text_3c'] 			= "Disable";
-$_data['text_4'] 			= "Notice List";
-$_data['text_5'] 			= "Please Reset First Before Insert and You can Publish one notice at a time that will display tenant dashboard";
-$_data['text_55'] 			= "Please Reset First Before Insert and You can Publish one notice at a time that will display employee dashboard";
-$_data['text_555'] 			= "Please Reset First Before Insert and You can Publish one notice at a time that will display owner dashboard";
-$_data['text_6'] 			= "Notice Details";
-$_data['text_7'] 			= "Added Notice Information Successfully";
-$_data['text_8'] 			= "Updated Notice Information Successfully";
-$_data['text_9'] 			= "Deleted Notice Information Successfully";
+$_data['text_1'] 			= "Bảng thông báo người thuê nhà";
+$_data['text_12'] 			= "Bảng thông báo nhân viên";
+$_data['text_13'] 			= "Bảng thông báo chủ sở hữu";
+$_data['text_2'] 			= "Mẫu điền thông báo";
+$_data['text_2a'] 			= "Tiêu đề thông báo";
+$_data['text_2b'] 			= "Ngày";
+$_data['text_3'] 			= "Tiêu đề thông báo";
+$_data['text_33'] 			= "Trạng thái";
+$_data['text_3a'] 			= "Trạng thái";
+$_data['text_3b'] 			= "Công bố ngay";
+$_data['text_3bb'] 			= "Thông báo";
+$_data['text_3c'] 			= "Vô hiệu hóa";
+$_data['text_4'] 			= "Danh sách thông báo";
+$_data['text_5'] 			= "Vui lòng làm mới lại trước khi thêm mới dữ liệu và bạn có thể đăng lên mỗi lần một thông báo sẽ hiển thị bảng điều khiển của người thuê";
+$_data['text_55'] 			= "Vui lòng làm mới lại trước khi thêm mới dữ liệu và bạn có thể đăng lên mỗi lần một thông báo sẽ hiển thị bảng điều khiển của nhân viên";
+$_data['text_555'] 			= "Vui lòng làm mới lại trước khi thêm mới dữ liệu và bạn có thể đăng lên mỗi lần một thông báo sẽ hiển thị bảng điều khiển của chủ sở hữu";
+$_data['text_6'] 			= "Chi tiết thông báo";
+$_data['text_7'] 			= "Thêm thông tin thông báo thành công";
+$_data['text_8'] 			= "Cập nhật thông tin thông báo thành công";
+$_data['text_9'] 			= "Xóa thông tin thông báo thành công";
 
 //validate
 $_data['v_1'] 				= "Notice Title Required !!!";

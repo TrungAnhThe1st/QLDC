@@ -3,18 +3,18 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Month Setup";
-$_data['text_2'] 		= "Month Entry Form";
-$_data['text_3'] 		= "Month Name";
-$_data['text_4'] 		= "Month List";
-$_data['text_5'] 		= "Added Month Information Successfully";
-$_data['text_6'] 		= "Updated Month Information Successfully";
-$_data['text_7'] 		= "Deleted Month Information Successfully";
-$_data['text_8'] 		= "Month Details";
+$_data['text_1'] 		= "Thiết lập tháng";
+$_data['text_2'] 		= "Mẫu điền thông tin tháng";
+$_data['text_3'] 		= "Tên tháng";
+$_data['text_4'] 		= "Danh sách tháng";
+$_data['text_5'] 		= "Thêm thông tin tháng thành công";
+$_data['text_6'] 		= "Cập nhật thông tin tháng thành công";
+$_data['text_7'] 		= "Xóa thông tin tháng thành công";
+$_data['text_8'] 		= "Thông tin tháng";
 
 //validation
-$_data['required_1'] 		= "Month text required !!!";
-$_data['confirm_delete'] 	= "Are you sure you want to delete this Month ?";
+$_data['required_1'] 		= "Hãy nhập tháng bằng chữ!!!";
+$_data['confirm_delete'] 	= "Bạn có chắn muốn xóa tháng này không?";
 
 
 ?>

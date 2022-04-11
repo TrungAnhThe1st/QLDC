@@ -3,20 +3,20 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Tenant Details";
-$_data['text_2'] 		= "Tenant Name";
-$_data['text_3'] 		= "Contact";
-$_data['text_4'] 		= "Unit No";
-$_data['text_5'] 		= "Advance Rent";
-$_data['text_6'] 		= "Rent Per Month";
-$_data['text_7'] 		= "Status";
+$_data['text_1'] 		= "Chi tiết người thuê";
+$_data['text_2'] 		= "Tên người thuê";
+$_data['text_3'] 		= "Số điện thoại";
+$_data['text_4'] 		= "Phòng";
+$_data['text_5'] 		= "Thuê trước";
+$_data['text_6'] 		= "Tiền thuê mỗi tháng";
+$_data['text_7'] 		= "Trạng thái";
 $_data['text_8'] 		= "Email";
-$_data['text_9'] 		= "Password";
-$_data['text_10'] 		= "Address";
-$_data['text_11'] 		= "NID(National ID)";
-$_data['text_12'] 		= "Rent Start Date";
-$_data['dashboard'] 	= "Dashboard";
-$_data['active'] 		= "Active";
-$_data['expired'] 		= "Expired";
+$_data['text_9'] 		= "Mật khẩu";
+$_data['text_10'] 		= "Địa chỉ";
+$_data['text_11'] 		= "Số chứng minh thư";
+$_data['text_12'] 		= "Ngày bắt đầu thuê";
+$_data['dashboard'] 	= "Bảng điều khiển";
+$_data['active'] 		= "Hoạt động";
+$_data['expired'] 		= "Hết hạn";
 
 ?>

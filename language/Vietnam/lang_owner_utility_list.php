@@ -3,31 +3,31 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['add_new_owner_list_utility_title'] 			= "Owner Utility List";
-$_data['owner_utility'] 							= "Owner Utility";
-$_data['owner_utility_details'] 					= "Owner Utility Details";
-$_data['add_owner_utility'] 						= "Add Owner Utility";
-$_data['add_owner_utility_entry_form'] 				= "Owner Utility Entry Form";
-$_data['add_new_form_field_text_1'] 				= "Floor No";
-$_data['add_new_form_field_text_2'] 				= "Select Floor";
-$_data['add_new_form_field_text_3'] 				= "Unit No";
-$_data['add_new_form_field_text_4'] 				= "Select Unit";
-$_data['add_new_form_field_text_5'] 				= "Select Month";
-$_data['add_new_form_field_text_6'] 				= "Owner Name";
-$_data['add_new_form_field_text_8'] 				= "Water Bill";
-$_data['add_new_form_field_text_9'] 				= "Electric Bill";
-$_data['add_new_form_field_text_10'] 				= "Gas Bill";
-$_data['add_new_form_field_text_11'] 				= "Security Bill";
-$_data['add_new_form_field_text_12'] 				= "Utility Bill";
-$_data['add_new_form_field_text_13'] 				= "Other Bill";
-$_data['add_new_form_field_text_14'] 				= "Total Rent ";
-$_data['add_new_form_field_text_15'] 				= "Issue Date";
-$_data['add_new_form_field_text_16'] 				= "Month Name";
-$_data['add_new_form_field_text_17'] 				= "Year Name";
-$_data['add_new_form_field_text_18'] 				= "Rent";
-$_data['added_owner_utility_successfully'] 			= "Added Owner Utility Information Successfully";
-$_data['update_owner_utility_successfully'] 		= "Updated Owner Utility Information Successfully";
-$_data['delete_owner_utility_information'] 			= "Deleted Owner Utility Information Successfully.";
-$_data['confirm'] 									= "Are you sure you want to delete this Owner Utility Information ?";
+$_data['add_new_owner_list_utility_title'] 			= "Danh sách chủ sở hữu tiện ích";
+$_data['owner_utility'] 							= "Chủ sở hữu tiện ích";
+$_data['owner_utility_details'] 					= "Chi tiết chủ sở hữu tiện ích";
+$_data['add_owner_utility'] 						= "Thêm chủ sở hữu tiện ích";
+$_data['add_owner_utility_entry_form'] 				= "Mẫu điền thông tin chủ sở hữu tiện ích";
+$_data['add_new_form_field_text_1'] 				= "Tầng số";
+$_data['add_new_form_field_text_2'] 				= "Chọn tầng";
+$_data['add_new_form_field_text_3'] 				= "Phòng số";
+$_data['add_new_form_field_text_4'] 				= "Chọn phòng";
+$_data['add_new_form_field_text_5'] 				= "Chọn tháng";
+$_data['add_new_form_field_text_6'] 				= "Tên chủ sở hữu";
+$_data['add_new_form_field_text_8'] 				= "Tiền nước";
+$_data['add_new_form_field_text_9'] 				= "Tiền điện";
+$_data['add_new_form_field_text_10'] 				= "Tiền gas";
+$_data['add_new_form_field_text_11'] 				= "Chi phí an ninh";
+$_data['add_new_form_field_text_12'] 				= "Chi phí tiện ích";
+$_data['add_new_form_field_text_13'] 				= "Chi phí khác";
+$_data['add_new_form_field_text_14'] 				= "Tổng tiền thuê";
+$_data['add_new_form_field_text_15'] 				= "Ngày";
+$_data['add_new_form_field_text_16'] 				= "Tháng";
+$_data['add_new_form_field_text_17'] 				= "Năm";
+$_data['add_new_form_field_text_18'] 				= "Tiền thuê nhà";
+$_data['added_owner_utility_successfully'] 			= "Thêm thông tin chủ sở hữu tiện ích thành công";
+$_data['update_owner_utility_successfully'] 		= "Cập nhật thông tin chủ sở hữu tiện ích thành công";
+$_data['delete_owner_utility_information'] 			= "Xóa thông tin chủ sở hữu tiện ích thành công.";
+$_data['confirm'] 									= "Bạn có muốn xóa thông tin chủ sở hữu tiện ích này không?";
 
 ?>

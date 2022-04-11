@@ -23,7 +23,7 @@ $_data['add_new_form_field_text_11'] 				= "Chi phí bảo vệ an ninh";
 $_data['add_new_form_field_text_12'] 				= "Chi phí tiện ích";
 $_data['add_new_form_field_text_13'] 				= "Chi phí khác";
 $_data['add_new_form_field_text_14'] 				= "Tổng tiền";
-$_data['add_new_form_field_text_15'] 				= "Ngày bắt đầu";
+$_data['add_new_form_field_text_15'] 				= "Ngày";
 $_data['add_new_form_field_text_16'] 				= "Ngày thanh toán";
 $_data['add_new_form_field_text_17'] 				= "Trạng thái thanh toán";
 $_data['add_new_form_field_text_18'] 				= "Chưa trả";
@@ -42,13 +42,13 @@ $_data['v5'] 										= "Hãy nhập tiền điện !!!";
 $_data['v6'] 										= "Hãy nhập tiền gas !!!";
 $_data['v7'] 										= "Hãy nhập chi phí bảo vệ an ninh !!!";
 $_data['v8'] 										= "Hãy nhập chi phí tiện ích !!!.";
-$_data['v9'] 										= "Hãy nhập ngày bắt đầu";
+$_data['v9'] 										= "Hãy nhập ngày";
 
 
 //invoice
 $_data['invoice_title'] 							= "Hóa đơn cho thuê";
 $_data['invoice_number'] 							= "Hóa đơn";
-$_data['invoice_issue_date'] 						= "Ngày bắt đầu";
+$_data['invoice_issue_date'] 						= "Ngày";
 $_data['invoice_paid_date'] 						= "Ngày thanh toán";
 $_data['invoice_bill_date'] 						= "Tháng";
 $_data['invoice_phone'] 							= "Số điện thoại";

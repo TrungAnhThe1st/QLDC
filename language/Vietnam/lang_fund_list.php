@@ -3,24 +3,24 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['add_new_fund'] 						= "Fund List";
-$_data['fund'] 								= "Fund";
-$_data['fund_details'] 						= "Fund Details";
-$_data['update_fund'] 						= "Update Fund";
-$_data['add_new_fund_breadcam'] 			= "Add Fund";
-$_data['add_new_fund_entry_form'] 			= "Fund Entry Form";
-$_data['add_new_form_field_text_1'] 		= "Owner Name";
-$_data['add_new_form_field_text_2'] 		= "Select Owner";
-$_data['add_new_form_field_text_3'] 		= "Month";
-$_data['add_new_form_field_text_4'] 		= "Contact";
-$_data['add_new_form_field_text_5'] 		= "Year";
-$_data['add_new_form_field_text_6'] 		= "Date";
-$_data['add_new_form_field_text_7'] 		= "Amount";
-$_data['add_new_form_field_text_8'] 		= "Purpose";
-$_data['add_new_form_field_text_9'] 		= "#invoice";
-$_data['added_fund_successfully'] 			= "Added Fund Information Successfully";
-$_data['update_fund_successfully'] 			= "Updated Fund Information Successfully";
-$_data['delete_fund_information'] 			= "Deleted Fund Information Successfully.";
-$_data['delete_confirm'] 					= "Are you sure you want to delete this delete fund ?";
+$_data['add_new_fund'] 						= "Danh sách quỹ";
+$_data['fund'] 								= "Quỹ";
+$_data['fund_details'] 						= "Chi tiết quỹ";
+$_data['update_fund'] 						= "Cập nhật quỹ";
+$_data['add_new_fund_breadcam'] 			= "Thêm quỹ";
+$_data['add_new_fund_entry_form'] 			= "Mẫu điền thông tin quỹ";
+$_data['add_new_form_field_text_1'] 		= "Tên chủ sở hữu";
+$_data['add_new_form_field_text_2'] 		= "Chọn người sở hữu";
+$_data['add_new_form_field_text_3'] 		= "Tháng";
+$_data['add_new_form_field_text_4'] 		= "Số điện thoại";
+$_data['add_new_form_field_text_5'] 		= "Năm";
+$_data['add_new_form_field_text_6'] 		= "Ngày";
+$_data['add_new_form_field_text_7'] 		= "Số tiền";
+$_data['add_new_form_field_text_8'] 		= "Mục đích";
+$_data['add_new_form_field_text_9'] 		= "#hóa đơn";
+$_data['added_fund_successfully'] 			= "Thêm thông tin quỹ thành công";
+$_data['update_fund_successfully'] 			= "Cập nhật thông tin quỹ thành công";
+$_data['delete_fund_information'] 			= "Xóa thông tin quỹ thành công.";
+$_data['delete_confirm'] 					= "Bạn có muốn xóa thông tin của quỹ này?";
 
 ?>

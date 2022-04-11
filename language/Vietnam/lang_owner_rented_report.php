@@ -3,11 +3,11 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Rented Report";
-$_data['text_2'] 		= "Report";
-$_data['text_3'] 		= "Rented Report Form";
-$_data['text_4'] 		= "Select Unit";
-$_data['text_5'] 		= "Select Month";
-$_data['text_6'] 		= "Select Year";
+$_data['text_1'] 		= "Báo cáo cho thuê";
+$_data['text_2'] 		= "Báo cáo";
+$_data['text_3'] 		= "Mẫu điền báo cáo cho thuê";
+$_data['text_4'] 		= "Chọn phòng";
+$_data['text_5'] 		= "Chọn tháng";
+$_data['text_6'] 		= "Chọn năm";
 
 ?>

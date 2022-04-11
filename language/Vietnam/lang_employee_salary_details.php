@@ -3,17 +3,17 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Salary Details";
-$_data['text_2'] 		= "Issue Date";
-$_data['text_3'] 		= "Month Name";
-$_data['text_4'] 		= "Year";
-$_data['text_5'] 		= "Amount";
-$_data['text_6'] 		= "Employee Dashboard";
-$_data['text_7'] 		= "Employee Details";
-$_data['text_8'] 		= "Employee Name";
+$_data['text_1'] 		= "Chi tiết lương";
+$_data['text_2'] 		= "Ngày";
+$_data['text_3'] 		= "Tháng";
+$_data['text_4'] 		= "Năm";
+$_data['text_5'] 		= "Tổng tiền";
+$_data['text_6'] 		= "Bảng điều khiển của nhân viên";
+$_data['text_7'] 		= "Chi tiết nhân viên";
+$_data['text_8'] 		= "Tên nhân viên";
 $_data['text_9'] 		= "Email";
-$_data['text_10'] 		= "Contact";
-$_data['text_11'] 		= "Present Address";
-$_data['text_12'] 		= "Permanent Address";
+$_data['text_10'] 		= "Số điện thoại";
+$_data['text_11'] 		= "Địa chỉ hiện tại";
+$_data['text_12'] 		= "Địa chỉ thường trú";
 
 ?>

@@ -3,23 +3,23 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['m_cost'] 						= "Maintenance Cost";
-$_data['m_cost_details'] 				= "Maintenance Cost Details";
-$_data['add_title_text'] 				= "Maintenance Cost List";
-$_data['add_msg'] 						= "Added Maintenance Cost Successfully";
-$_data['update_title_text'] 			= "Update Maintenance Cost";
-$_data['update_msg'] 					= "Updated Maintenance Cost Successfully";
-$_data['delete_msg'] 					= "Deleted Maintenance Cost Successfully";
-$_data['maintenance_cost'] 				= "Maintenance Cost";
-$_data['add_m_cost'] 					= "Add Maintenance Cost";
-$_data['m_cost_entry_form'] 			= "Maintenance Cost Entry Form";
-$_data['date'] 							= "Date";
-$_data['month'] 						= "Month";
-$_data['select_month'] 					= "Select Month";
-$_data['year'] 							= "Year";
-$_data['select_year'] 					= "Select Year";
-$_data['text_1'] 						= "Maintenance Title";
-$_data['text_2'] 						= "Amount"; 
-$_data['text_3'] 						= "Details";
-$_data['confirm'] 						= "Are you sure you want to delete this Maintenance Cost ?";
+$_data['m_cost'] 						= "Phí bảo trì";
+$_data['m_cost_details'] 				= "Chi tiết phí bảo trì";
+$_data['add_title_text'] 				= "Danh sách phí bảo trì";
+$_data['add_msg'] 						= "Thêm phí bảo trì thành công";
+$_data['update_title_text'] 			= "Cập nhật Phí bảo trì";
+$_data['update_msg'] 					= "Cập nhật phí bảo trì thành công";
+$_data['delete_msg'] 					= "Xóa phí bảo trì thành công";
+$_data['maintenance_cost'] 				= "Phí bảo trì";
+$_data['add_m_cost'] 					= "Thêm Phí bảo trì";
+$_data['m_cost_entry_form'] 			= "Mẫu điền thông tin phí bảo trì";
+$_data['date'] 							= "Ngày";
+$_data['month'] 						= "Tháng";
+$_data['select_month'] 					= "Chọn tháng";
+$_data['year'] 							= "Năm";
+$_data['select_year'] 					= "Chọn năm";
+$_data['text_1'] 						= "Tiêu đề";
+$_data['text_2'] 						= "Số tiền"; 
+$_data['text_3'] 						= "Chi tiết";
+$_data['confirm'] 						= "Bạn có muốn xóa phí bảo trì này không?";
 ?>

@@ -3,14 +3,14 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Management Committee List";
-$_data['text_2'] 		= "Member Name";
-$_data['text_3'] 		= "Designation";
+$_data['text_1'] 		= "Danh sách Ủy ban Quản lý";
+$_data['text_2'] 		= "Tên thành viên";
+$_data['text_3'] 		= "Chức vụ";
 $_data['text_4'] 		= "Email";
-$_data['text_5'] 		= "Contact";
-$_data['text_6'] 		= "Present Address";
-$_data['text_7'] 		= "Member Details";
-$_data['text_8'] 		= "Permanent Address";
-$_data['text_9'] 		= "NID";
+$_data['text_5'] 		= "Số điện thoại";
+$_data['text_6'] 		= "Địa chỉ hiện tại";
+$_data['text_7'] 		= "Chi tiết";
+$_data['text_8'] 		= "Địa chỉ thường trú";
+$_data['text_9'] 		= "Số chứng minh thư";
 
 ?>

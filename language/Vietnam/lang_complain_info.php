@@ -3,12 +3,12 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Date";
-$_data['text_2'] 		= "Month";
-$_data['text_3'] 		= "Year";
-$_data['text_4'] 		= "Tittle";
-$_data['text_5'] 		= "Description";
-$_data['text_6'] 		= "Complains Report ";
+$_data['text_1'] 		= "Ngày";
+$_data['text_2'] 		= "Tháng";
+$_data['text_3'] 		= "Năm";
+$_data['text_4'] 		= "Tiêu đề";
+$_data['text_5'] 		= "Mô tả";
+$_data['text_6'] 		= "Báo cáo khiếu nại ";
 
 
 ?>

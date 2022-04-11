@@ -3,31 +3,31 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['add_new_m_committee'] 						= "Management Member List";
-$_data['m_committee_details'] 						= "Management Committee Member Details";
-$_data['m_committee'] 								= "Management Committee";
-$_data['update_m_committee'] 						= "Update Management Committee";
-$_data['add_new_m_committee_information_breadcam'] 	= "Management Committee Information";
-$_data['add_new_m_committee_breadcam'] 				= "Add Management Committee";
-$_data['add_new_m_committee_entry_form'] 			= "Management Committee Entry Form";
-$_data['add_new_form_field_text_1'] 				= "Member Name";
-$_data['add_new_form_field_text_2'] 				= "Email ";
-$_data['add_new_form_field_text_3'] 				= "Password";
-$_data['add_new_form_field_text_4'] 				= "Contact";
-$_data['add_new_form_field_text_5'] 				= "Present Address";
-$_data['add_new_form_field_text_6'] 				= "Permanent Address";
-$_data['add_new_form_field_text_7'] 				= "NID(National ID)";
-$_data['add_new_form_field_text_8'] 				= "Member Type";
-$_data['add_new_form_field_text_9'] 				= "Joining Date";
-$_data['add_new_form_field_text_10'] 				= "Ending Date";
-$_data['add_new_form_field_text_11'] 				= "Status";
-$_data['add_new_form_field_text_12'] 				= "Active";
-$_data['add_new_form_field_text_13'] 				= "Inactive";
-$_data['add_new_form_field_text_14'] 				= "Priview";
-$_data['add_new_form_field_text_15'] 				= "Select";
-$_data['added_m_committee_successfully'] 			= "Added Management Committee Information Successfully";
-$_data['update_m_committee_successfully'] 			= "Updated Management Committee Information Successfully";
-$_data['delete_m_committee_information'] 			= "Deleted Management Committee Information Successfully.";
-$_data['delete_confirm'] 							= "Are you sure you want to delete this management member ?";
+$_data['add_new_m_committee'] 						= "Danh sách thành viên quản lý";
+$_data['m_committee_details'] 						= "Chi tiết thành viên ủy ban quản lý";
+$_data['m_committee'] 								= "Ủy ban quản lý";
+$_data['update_m_committee'] 						= "Cập nhật ủy ban quản lý";
+$_data['add_new_m_committee_information_breadcam'] 	= "Thông tin ủy ban quản lý";
+$_data['add_new_m_committee_breadcam'] 				= "Thêm ủy ban quản lý";
+$_data['add_new_m_committee_entry_form'] 			= "Mẫu điền thông tin ủy ban quản lý";
+$_data['add_new_form_field_text_1'] 				= "Tên thành viên";
+$_data['add_new_form_field_text_2'] 				= "Email";
+$_data['add_new_form_field_text_3'] 				= "Mật khẩu";
+$_data['add_new_form_field_text_4'] 				= "Số điện thoại";
+$_data['add_new_form_field_text_5'] 				= "Địa chỉ hiện tại";
+$_data['add_new_form_field_text_6'] 				= "Địa chỉ thường trú";
+$_data['add_new_form_field_text_7'] 				= "Số chứng minh thư";
+$_data['add_new_form_field_text_8'] 				= "Loại thành viên";
+$_data['add_new_form_field_text_9'] 				= "Ngày tham gia";
+$_data['add_new_form_field_text_10'] 				= "Ngày kết thúc";
+$_data['add_new_form_field_text_11'] 				= "Trạng thái";
+$_data['add_new_form_field_text_12'] 				= "Hoạt động";
+$_data['add_new_form_field_text_13'] 				= "Không hoạt động";
+$_data['add_new_form_field_text_14'] 				= "Xem trước";
+$_data['add_new_form_field_text_15'] 				= "Chọn";
+$_data['added_m_committee_successfully'] 			= "Thêm thông tin ủy ban quản lý thành công";
+$_data['update_m_committee_successfully'] 			= "Cập nhật thông tin ủy ban quản lý thành công";
+$_data['delete_m_committee_information'] 			= "Xóa thông tin ủy ban quản lý thành công.";
+$_data['delete_confirm'] 							= "Bạn có chắc chắn muốn xóa thành viên quản lý này không ?";
 
 ?>

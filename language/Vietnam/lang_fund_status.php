@@ -3,19 +3,19 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Fund Status";
-$_data['text_2'] 		= "Image";
-$_data['text_3'] 		= "Date";
-$_data['text_4'] 		= "Owner Name";
-$_data['text_5'] 		= "Month";
-$_data['text_6'] 		= "Year";
-$_data['text_7'] 		= "Amount";
-$_data['text_8'] 		= "Purpose";
-$_data['text_9'] 		= "Maintaining Cost Status";
-$_data['text_10'] 		= "Cost Title";
-$_data['text_11'] 		= "Details";
-$_data['text_12'] 		= "Remain Balance";
-$_data['text_13'] 		= "Print Information";
+$_data['text_1'] 		= "Tình trạng quỹ";
+$_data['text_2'] 		= "Hình ảnh";
+$_data['text_3'] 		= "Ngày";
+$_data['text_4'] 		= "Chủ sở hữu";
+$_data['text_5'] 		= "Tháng";
+$_data['text_6'] 		= "Năm";
+$_data['text_7'] 		= "Số tiền";
+$_data['text_8'] 		= "Mục đích";
+$_data['text_9'] 		= "Tình trạng phí bảo trì";
+$_data['text_10'] 		= "Tiêu đề";
+$_data['text_11'] 		= "Chi tiết";
+$_data['text_12'] 		= "Số dư còn lại";
+$_data['text_13'] 		= "In thông tin";
 
 
 ?>

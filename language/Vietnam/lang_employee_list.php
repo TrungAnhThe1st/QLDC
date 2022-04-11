@@ -3,31 +3,31 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['employee_list'] 							= "Employee List ";
-$_data['employee_details'] 							= "Employee Details";
-$_data['add_new_employee_information_breadcam'] 	= "Employee Information";
-$_data['add_new_employee_breadcam'] 				= "Add Employee";
-$_data['imgage'] 									= "image";
-$_data['add_new_form_field_text_1'] 				= "Name";
+$_data['employee_list'] 							= "Danh sách nhân viên";
+$_data['employee_details'] 							= "Chi tiết nhân viên";
+$_data['add_new_employee_information_breadcam'] 	= "Thông tin nhân viên ";
+$_data['add_new_employee_breadcam'] 				= "Thêm nhân viên";
+$_data['imgage'] 									= "Hình ảnh";
+$_data['add_new_form_field_text_1'] 				= "Tên";
 $_data['add_new_form_field_text_2'] 				= "Email ";
-$_data['add_new_form_field_text_3'] 				= "Password";
-$_data['add_new_form_field_text_4'] 				= "Contact";
-$_data['add_new_form_field_text_5'] 				= "Present Address";
-$_data['add_new_form_field_text_6'] 				= "Permanent Address";
-$_data['add_new_form_field_text_7'] 				= "NID (Employee National ID)";
-$_data['add_new_form_field_text_8'] 				= "Designation";
-$_data['add_new_form_field_text_9'] 				= "Joining Date";
-$_data['add_new_form_field_text_10'] 				= "Ending Date";
-$_data['add_new_form_field_text_11'] 				= "Status";
-$_data['add_new_form_field_text_12'] 				= "Active";
-$_data['add_new_form_field_text_13'] 				= "Inactive";
-$_data['add_new_form_field_text_14'] 				= "Priview";
-$_data['add_new_form_field_text_15'] 				= "Select";
-$_data['add_new_form_field_text_16'] 				= "Ending Date";
-$_data['added_employee_successfully'] 				= "Added Employee Information Successfully";
-$_data['update_employee_successfully'] 				= "Updated Employee Information Successfully";
-$_data['delete_employee_information'] 				= "Deleted Employee Information Successfully.";
-$_data['employee_confirm_delete_msg'] 				= "Are you sure you want to delete this Employee ?";
-$_data['employee_salary'] 							= "Salary Per Month";
+$_data['add_new_form_field_text_3'] 				= "Mật khẩu";
+$_data['add_new_form_field_text_4'] 				= "Số điện thoại";
+$_data['add_new_form_field_text_5'] 				= "Địa chỉ hiện tại";
+$_data['add_new_form_field_text_6'] 				= "Địa chỉ thường trú";
+$_data['add_new_form_field_text_7'] 				= "Số chứng minh thư";
+$_data['add_new_form_field_text_8'] 				= "Chức vụ";
+$_data['add_new_form_field_text_9'] 				= "Ngày tham gia";
+$_data['add_new_form_field_text_10'] 				= "Ngày kết thúc";
+$_data['add_new_form_field_text_11'] 				= "Trạng thái";
+$_data['add_new_form_field_text_12'] 				= "Hoạt động";
+$_data['add_new_form_field_text_13'] 				= "Không hoạt động";
+$_data['add_new_form_field_text_14'] 				= "Xem trước";
+$_data['add_new_form_field_text_15'] 				= "Chọn";
+$_data['add_new_form_field_text_16'] 				= "Ngày kết thúc";
+$_data['added_employee_successfully'] 				= "Thêm thông tin nhân viên thành công";
+$_data['update_employee_successfully'] 				= "Updated thông tin nhân viên thành công";
+$_data['delete_employee_information'] 				= "Deleted thông tin nhân viên thành công.";
+$_data['employee_confirm_delete_msg'] 				= "Bạn có muốn xóa nhân viên này?";
+$_data['employee_salary'] 							= "Lương theo tháng";
 
 ?>

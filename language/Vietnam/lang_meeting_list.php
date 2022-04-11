@@ -3,17 +3,17 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1_1'] 			= "Meeting List";
-$_data['text_2'] 			= "Meeting";
-$_data['text_3'] 			= "Add Meeting";
-$_data['text_4'] 			= "Meeting Entry Form";
-$_data['text_5'] 			= "Meeting Issue Date";
-$_data['text_6'] 			= "Meeting Title";
-$_data['text_7'] 			= "Meeting Description";
-$_data['text_15'] 			= "Added Meeting Information Successfully";
-$_data['text_16'] 			= "Update Meeting";
-$_data['view_text'] 		= "Meeting Details";
-$_data['text_17'] 			= "Updated Meeting Information Successfully";
-$_data['text_18'] 			= "Deleted Meeting Information Successfully";
-$_data['delete_confirm'] 	= "Are you sure you want to delete this Meeting Information ?";
+$_data['text_1_1'] 			= "Danh sách cuộc họp";
+$_data['text_2'] 			= "Cuộc họp";
+$_data['text_3'] 			= "Thêm cuộc họp";
+$_data['text_4'] 			= "Mẫu điền thông tin cuộc họp";
+$_data['text_5'] 			= "Ngày diễn ra cuộc họp";
+$_data['text_6'] 			= "Tiêu đề cuộc họp";
+$_data['text_7'] 			= "Mô tả cuộc họp";
+$_data['text_15'] 			= "Thêm thông tin cuộc họp thành công";
+$_data['text_16'] 			= "Cập nhật cuộc họp";
+$_data['view_text'] 		= "Chi tiết cuộc họp";
+$_data['text_17'] 			= "Cập nhật thông tin cuộc họp thành công";
+$_data['text_18'] 			= "Xóa thông tin cuộc họp thành công";
+$_data['delete_confirm'] 	= "Bạn có chắc muốn xóa thông tin cuộc họp này không?";
 ?>

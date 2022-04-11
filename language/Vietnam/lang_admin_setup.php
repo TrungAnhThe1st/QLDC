@@ -41,6 +41,6 @@ $_data['required_1'] 			= "Yêu cầu email và phải là duy nhất !!!";
 $_data['required_2'] 			= "Hãy nhập tên Admin !!!";
 $_data['required_3'] 			= "Hãy nhập mật khẩu !!!";
 $_data['required_4'] 			= "Hãy chọn nhánh !!!";
-$_data['confirm_delete']		= "Bạn có muốn xóa Admin này không ?";
+$_data['confirm_delete']		= "Bạn có muốn xóa Admin này không?";
 
 ?>

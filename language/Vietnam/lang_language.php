@@ -3,42 +3,42 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "System Setup";
-$_data['text_222'] 		= "Currency";
-$_data['text_2'] 		= "Language";
+$_data['text_1'] 		= "Thiết lập hệ thống";
+$_data['text_222'] 		= "Tiền tệ";
+$_data['text_2'] 		= "Ngôn ngữ";
 $_data['text_22'] 		= "Email";
 $_data['text_x33'] 		= "SMS";
-$_data['text_3'] 		= "Select language";
-$_data['text_4'] 		= "Settings Updated Successfully";
+$_data['text_3'] 		= "Chọn ngôn ngữ";
+$_data['text_4'] 		= "Cập nhật cài đặt thành công";
 
-$_data['text_5'] 		= "Select Currency";
+$_data['text_5'] 		= "Chọn tiền tệ";
 $_data['text_6'] 		= "Doller";
 $_data['text_7'] 		= "Taka";
-$_data['text_8'] 		= "--Select--";
-$_data['text_9'] 		= "Dot (.)";
-$_data['text_10'] 		= "Comma (,)";
-$_data['text_11'] 		= "Left";
-$_data['text_12'] 		= "Right";
-$_data['text_14'] 		= "Currency Position";
-$_data['text_144'] 		= "Currency Decimal";
-$_data['text_15'] 		= "Currency Separator";
-$_data['text_16'] 		= "Super Admin Image";
-$_data['text_17'] 		= "Upload Language Zip File";
-$_data['text_18'] 		= "Upload Zip File";
-$_data['text_19'] 		= "Mail Protocol";
-$_data['text_20'] 		= "Smtp Hostname";
-$_data['text_21'] 		= "SMTP Username";
-$_data['text_22x'] 		= "SMTP Password";
-$_data['text_23'] 		= "SMTP Post";
+$_data['text_8'] 		= "--Chọn--";
+$_data['text_9'] 		= "Dấu chấm (.)";
+$_data['text_10'] 		= "Dấu phẩy (,)";
+$_data['text_11'] 		= "Trái";
+$_data['text_12'] 		= "Phải";
+$_data['text_14'] 		= "Vị trí tiền tệ";
+$_data['text_144'] 		= "Tiền tệ dưới dạng thập phân";
+$_data['text_15'] 		= "Tiền tệ dưới dạng phân tách";
+$_data['text_16'] 		= "Ảnh Super Admin";
+$_data['text_17'] 		= "Tải lên file Zip ngôn ngữ";
+$_data['text_18'] 		= "Tải lên file Zip";
+$_data['text_19'] 		= "Giao thức Mail";
+$_data['text_20'] 		= "Tên máy chủ Smtp";
+$_data['text_21'] 		= "Tên người dùng SMTP";
+$_data['text_22x'] 		= "Mật khẩu SMTP";
+$_data['text_23'] 		= "Cổng SMTP";
 $_data['text_24'] 		= "SMTP Secure";
-$_data['text_25'] 		= "ClickATell Username";
-$_data['text_26'] 		= "ClickATell Password";
-$_data['text_27'] 		= "ClickATell API Key";
+$_data['text_25'] 		= "Tên người dùng ClickATell";
+$_data['text_26'] 		= "Mật khẩu ClickATell";
+$_data['text_27'] 		= "Khóa API ClickATell";
 
-$_data['text_lang_1'] 	= "How to create and upload new language file :";
-$_data['text_lang_2'] 	= "sample language file zip file.";
-$_data['text_lang_22'] 	= "Download";
-$_data['text_lang_3'] 	= "Unzip zip file then change all file text manually.";
-$_data['text_lang_4'] 	= "Add 24x24px size language flag.png image.";
-$_data['text_lang_5'] 	= "Rename folder name by your language name then make it zip and uplaod it via our language uploader.";
+$_data['text_lang_1'] 	= "Hướng dẫn tạo và tải lên file ngôn ngữ mới:";
+$_data['text_lang_2'] 	= "Mẫu file Zip ngôn ngữ.";
+$_data['text_lang_22'] 	= "Tải xuống";
+$_data['text_lang_3'] 	= "Giải nén file zip sau đó thay đổi tất cả nội dung ở trong các file theo cách thủ công.";
+$_data['text_lang_4'] 	= "Thêm ảnh có kích thước 24x24px với tên ảnh là flag.png.";
+$_data['text_lang_5'] 	= "Thay đổi tên thư mục ngôn ngữ mới tạo và nén thư mục dưới dạng file Zip, sau đó tải lên.";
 ?>

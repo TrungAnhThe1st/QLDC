@@ -3,14 +3,14 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Employee List";
-$_data['text_2'] 		= "Name";
+$_data['text_1'] 		= "Danh sách nhân viên";
+$_data['text_2'] 		= "Tên";
 $_data['text_3'] 		= "Email";
-$_data['text_4'] 		= "Contact";
-$_data['text_5'] 		= "Present Address";
-$_data['text_6'] 		= "Designation";
-$_data['text_7'] 		= "Joining Date";
-$_data['text_8'] 		= "Employee Details";
-$_data['text_9'] 		= "Permanent Address";
+$_data['text_4'] 		= "Số điện thoại";
+$_data['text_5'] 		= "Địa chỉ hiện tại";
+$_data['text_6'] 		= "Chức vụ";
+$_data['text_7'] 		= "Ngày tham gia";
+$_data['text_8'] 		= "Chi tiết nhân viên";
+$_data['text_9'] 		= "Địa chỉ thường trú";
 
 ?>

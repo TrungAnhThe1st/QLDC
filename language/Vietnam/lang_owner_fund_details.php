@@ -3,15 +3,15 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Fund List";
-$_data['text_2'] 		= "Owner Name";
-$_data['text_3'] 		= "Month";
-$_data['text_4'] 		= "Year";
-$_data['text_5'] 		= "Date";
-$_data['text_6'] 		= "Amount";
-$_data['text_7'] 		= "Purpose";
-$_data['text_8'] 		= "Fund Details";
-$_data['text_9'] 		= "Total";
-$_data['text_10'] 		= "Issue Date";
+$_data['text_1'] 		= "Danh sách quỹ";
+$_data['text_2'] 		= "Tên chủ sở hữu";
+$_data['text_3'] 		= "Tháng";
+$_data['text_4'] 		= "Năm";
+$_data['text_5'] 		= "Ngày";
+$_data['text_6'] 		= "Số tiền";
+$_data['text_7'] 		= "Mục đích";
+$_data['text_8'] 		= "Chi tiết quỹ";
+$_data['text_9'] 		= "Tổng số tiền";
+$_data['text_10'] 		= "Ngày";
 
 ?>

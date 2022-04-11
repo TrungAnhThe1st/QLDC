@@ -3,14 +3,14 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Employee Salary Report";
-$_data['text_2'] 		= "Report";
-$_data['text_3'] 		= "Employee Salary Report Form";
-$_data['text_4'] 		= "Select Employee";
-$_data['text_6'] 		= "Select Month";
-$_data['text_66'] 		= "Select Year";
-$_data['text_7'] 		= "Submit";
+$_data['text_1'] 		= "Báo cáo lương nhân viên";
+$_data['text_2'] 		= "Báo cáo";
+$_data['text_3'] 		= "Mẫu điền thông tin báo cáo lương nhân viên";
+$_data['text_4'] 		= "Chọn nhân viên";
+$_data['text_6'] 		= "Chọn tháng";
+$_data['text_66'] 		= "Chọn năm";
+$_data['text_7'] 		= "Xác nhận";
 
-$_data['validation'] 	= "Please select at least one or more fields";
+$_data['validation'] 	= "Vui lòng chọn ít nhất một hoặc nhiều trường dữ liệu";
 
 ?>

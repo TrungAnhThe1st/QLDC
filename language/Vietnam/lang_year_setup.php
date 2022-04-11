@@ -3,17 +3,17 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Year Setup";
-$_data['text_2'] 		= "Year Entry Form";
-$_data['text_3'] 		= "Year Name";
-$_data['text_4'] 		= "Year List";
-$_data['text_5'] 		= "Added Year Information Successfully";
-$_data['text_6'] 		= "Updated Year Information Successfully";
-$_data['text_7'] 		= "Deleted Year Information Successfully";
-$_data['text_8'] 		= "Year Details";
+$_data['text_1'] 		= "Thiết lập năm";
+$_data['text_2'] 		= "Mẫu điền thông tin năm";
+$_data['text_3'] 		= "Tên năm";
+$_data['text_4'] 		= "Danh sách năm";
+$_data['text_5'] 		= "Thêm năm thành công";
+$_data['text_6'] 		= "Cập nhật năm thành công";
+$_data['text_7'] 		= "Xóa năm thành công";
+$_data['text_8'] 		= "Chi tiết năm";
 
 //validation
-$_data['required_1'] 		= "Year text required !!!";
-$_data['confirm_delete'] 	= "Are you sure you want to delete this Year ?";
+$_data['required_1'] 		= "Hãy nhập năm bằng chữ!!!";
+$_data['confirm_delete'] 	= "Bạn có muốn xóa năm này?";
 
 ?>

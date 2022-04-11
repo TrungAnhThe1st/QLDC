@@ -3,24 +3,24 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Bill List";
-$_data['text_1_1'] 		= "Bill Details";
-$_data['text_2'] 		= "Bill Information";
-$_data['text_3'] 		= "Add Bill";
-$_data['text_4'] 		= "Bill Entry Form";
-$_data['text_5'] 		= "Bill Type";
-$_data['text_6'] 		= "Select Type";
-$_data['text_7'] 		= "Issue Date";
-$_data['text_8'] 		= "Bill Month";
-$_data['text_9'] 		= "Select Month";
-$_data['text_10'] 		= "Bill Year";
-$_data['text_11'] 		= "Select Year";
-$_data['text_12'] 		= "Total Amount";
-$_data['text_13'] 		= "Deposit Bank Name";
-$_data['text_14'] 		= "Details";
-$_data['text_15'] 		= "Added Bill Information Successfully";
-$_data['text_16'] 		= "Updated Bill Information Successfully";
-$_data['text_17'] 		= "Deleted Bill Information Successfully";
-$_data['text_18'] 		= "Are you sure you want to delete this Bill Information ?";
+$_data['text_1'] 		= "Dánh sách hóa đơn";
+$_data['text_1_1'] 		= "Chi tiết hóa đơn";
+$_data['text_2'] 		= "Thông tin hóa đơn";
+$_data['text_3'] 		= "Thêm hóa đơn";
+$_data['text_4'] 		= "Mẫu nhập thông tin hóa đơn";
+$_data['text_5'] 		= "Loại hóa đơn";
+$_data['text_6'] 		= "Chọn loại";
+$_data['text_7'] 		= "Ngày";
+$_data['text_8'] 		= "Tháng";
+$_data['text_9'] 		= "Chọn tháng";
+$_data['text_10'] 		= "Năm";
+$_data['text_11'] 		= "Chọn năm";
+$_data['text_12'] 		= "Tổng số tiền";
+$_data['text_13'] 		= "Tên ngân hàng";
+$_data['text_14'] 		= "Chi tiết";
+$_data['text_15'] 		= "Thêm thông tin hóa đơn thành công";
+$_data['text_16'] 		= "Cập nhật thông tin hóa đơn thành công";
+$_data['text_17'] 		= "Xóa thông tin hóa đơn thành công";
+$_data['text_18'] 		= "Bạn có muốn xóa hóa đơn này không ?";
 
 ?>

@@ -20,7 +20,7 @@ $_data['text_2'] 						= "Số tiền";
 $_data['text_3'] 						= "Chi tiết";
 
 //validation
-$_data['v1'] 							= "Hãy nhập ngày bắt đầu.";
+$_data['v1'] 							= "Hãy nhập ngày.";
 $_data['v2'] 							= "Hãy chọn tháng.";
 $_data['v3'] 							= "Hãy chọn năm.";
 $_data['v4'] 							= "Hãy nhập tên phí bảo trì.";

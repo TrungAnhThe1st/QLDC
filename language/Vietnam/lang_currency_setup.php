@@ -3,19 +3,19 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Currency Setup";
-$_data['text_2'] 		= "Currency Entry Form";
-$_data['text_3'] 		= "Symbol";
-$_data['text_33'] 		= "Name";
-$_data['text_4'] 		= "Currency List";
-$_data['text_5'] 		= "Added Currency Information Successfully";
-$_data['text_6'] 		= "Updated Currency Information Successfully";
-$_data['text_7'] 		= "Deleted Currency Information Successfully";
-$_data['text_8'] 		= "Currency Details";
+$_data['text_1'] 		= "Cài đặt tiền tệ";
+$_data['text_2'] 		= "Mẫu điền thông tin tiền tệ";
+$_data['text_3'] 		= "Ký hiệu";
+$_data['text_33'] 		= "Tên";
+$_data['text_4'] 		= "Danh sách tiền tệ";
+$_data['text_5'] 		= "Thêm thông tin tiền tệ thành công";
+$_data['text_6'] 		= "Cập nhật thông tin tiền tệ thành công";
+$_data['text_7'] 		= "Xóa thông tin tiền tệ thành công";
+$_data['text_8'] 		=  "Chi tiết tiền tệ";
 
 //validation
-$_data['required_1'] 		= "Currency symbol required !!!";
-$_data['required_2'] 		= "Currency name required !!!";
-$_data['confirm_delete'] 	= "Are you sure you want to delete this Currency ?";
+$_data['required_1'] 		= "Hãy nhập ký hiệu tiền tệ !!!";
+$_data['required_2'] 		= "Hãy nhập tên tiền tệ !!!";
+$_data['confirm_delete'] 	= "Bạn có muốn xóa thông tin về tiền tệ này ?";
 
 ?>

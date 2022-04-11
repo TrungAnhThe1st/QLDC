@@ -3,15 +3,15 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Tenant's Details";
-$_data['text_2'] 		= "Tenant's Name";
+$_data['text_1'] 		= "Chi tiết người thuê nhà";
+$_data['text_2'] 		= "Tênngười thuê nhà";
 $_data['text_3'] 		= "Email";
-$_data['text_4'] 		= "Contact";
-$_data['text_5'] 		= "Address";
-$_data['text_6'] 		= "Floor No";
-$_data['text_7'] 		= "Unit No";
-$_data['text_8'] 		= "Advance Rent";
-$_data['text_9'] 		= "Rent Date";
-$_data['text_10'] 		= "Rent Per Month";
+$_data['text_4'] 		= "Số điện thoại";
+$_data['text_5'] 		= "Địa chỉ";
+$_data['text_6'] 		= "Tầng số";
+$_data['text_7'] 		= "Phòng số";
+$_data['text_8'] 		= "Tiền trả trước";
+$_data['text_9'] 		= "Ngày bắt đầu thuê";
+$_data['text_10'] 		= "Tiền thuê mỗi tháng";
 
 ?>

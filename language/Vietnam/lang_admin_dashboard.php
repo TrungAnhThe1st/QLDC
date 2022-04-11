@@ -60,7 +60,7 @@ $_data['leave_graph_header_text'] 			= "Biểu đồ khách truy cập hàng th�
 $_data['leave_graph_no_record'] 			= "Không tìm thấy ngày nghỉ việc được chấp nhận.";
 $_data['salary_header_text'] 				= "Biểu đồ lương hàng tháng";
 $_data['e_last_5_visitors']					= "5 khách truy cập gần nhất";
-$_data['ee_text_5'] 						= "Ngày bắt đầu";
+$_data['ee_text_5'] 						= "Ngày";
 $_data['ee_text_6'] 						= "Tên";
 $_data['ee_text_7'] 						= "Số điện thoại";
 $_data['ee_text_8'] 						= "Địa chỉ";
@@ -90,7 +90,7 @@ $_data['graph_text_111']					= "5 lời khiếu nại gần nhất";
 //complain table text
 $_data['c_table_header']				 	= "5 lời khiếu nại gần nhất";
 $_data['c_table_column_1']				 	= "Tiêu đề";
-$_data['c_table_column_2']				 	= "Ngày bắt đầu";
+$_data['c_table_column_2']				 	= "Ngày";
 $_data['c_table_column_3']				 	= "Hành động";
 $_data['c_table_column_4']				 	= "Tháng";
 $_data['c_table_column_5']				 	= "Năm";
@@ -104,7 +104,7 @@ $_data['help_desk_3']						= "Số điện thoại của nhân viên bảo vệ:
 
 //visitor table text
 $_data['v_table_header']				 	= "5 khách truy cập gần nhất";
-$_data['v_table_column_1']				 	= "Ngày bắt đầu";
+$_data['v_table_column_1']				 	= "Ngày";
 $_data['v_table_column_2']				 	= "Tên khách truy cập";
 $_data['v_table_column_3']				 	= "Số điện thoại";
 $_data['v_table_column_4']				 	= "Địa chỉ";

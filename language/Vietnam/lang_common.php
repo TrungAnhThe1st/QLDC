@@ -3,45 +3,45 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['save_button_text'] 					= "Save Information";
-$_data['update_button_text'] 				= "Update Information";
-$_data['home_breadcam'] 					= "Home";
-$_data['delete_text']						= "Delete";
-$_data['action_text']						= "Action";
-$_data['details_information']				= "Details Infromation";
-$_data['view_text'] 						= "View Details";
-$_data['edit_text'] 						= "Edit";
-$_data['back_text']							= "Back";
-$_data['success'] 							= "Success";
-$_data['upload_image'] 						= "Upload Image";
-$_data['image'] 							= "Image";
-$_data['submit'] 							= "Submit";
-$_data['reset'] 							= "Reset";
-$_data['setting'] 							= "Setting";
-$_data['reset_text'] 						= "Please Reset First Before Insert";
-$_data['owner_dashboard'] 					= "Owner Dashboard";
-$_data['dashboard'] 						= "Dashboard";
-$_data['print'] 							= "Print Information";
-$_data['valid_email'] 						= "Please provide a valid email address";
+$_data['save_button_text'] 					= "Lưu thông tin";
+$_data['update_button_text'] 				= "Cập nhật thông tin";
+$_data['home_breadcam'] 					= "Trang chủ";
+$_data['delete_text']						= "Xóa";
+$_data['action_text']						= "Hành động";
+$_data['details_information']				= "Chi tiết thông tin";
+$_data['view_text'] 						= "Xem chi tiết";
+$_data['edit_text'] 						= "Sửa";
+$_data['back_text']							= "Quay lại";
+$_data['success'] 							= "Thành công";
+$_data['upload_image'] 						= "Tải ảnh lên";
+$_data['image'] 							= "Ảnh";
+$_data['submit'] 							= "Xác nhận";
+$_data['reset'] 							= "Làm mới";
+$_data['setting'] 							= "Cài đặt";
+$_data['reset_text'] 						= "Hãy làm mới trước khi thêm mới thông tin";
+$_data['owner_dashboard'] 					= "Bảng điều khiển";
+$_data['dashboard'] 						= "Bảng điều khiển";
+$_data['print'] 							= "In thông tin";
+$_data['valid_email'] 						= "Hãy cung cấp email hợp lệ";
 
 //user type
 $_data['user_admin']						= "Admin";
-$_data['user_owner']						= "Owner";
-$_data['user_employee']						= "Employee";
-$_data['user_tenant']						= "Tenant";
+$_data['user_owner']						= "Chủ sở hữu";
+$_data['user_employee']						= "Nhân viên";
+$_data['user_tenant']						= "Người thuê nhà";
 $_data['user_super_admin']					= "Super Admin";
 $_data['lang_online']						= "Online";
-$_data['lang_profile']						= "Profile";
-$_data['lang_signout']						= "Sign out";
+$_data['lang_profile']						= "Thông tin người dùng";
+$_data['lang_signout']						= "Đăng xuất";
 
 
 //Database
-$_data['database_left_menu']				= "Database";
-$_data['database_clear_dummy_data']			= "Clear Data";
-$_data['database_clear_dummy_msg']			= "You can remove all dummy data from here, so we will remove all information except configuration data so you need to change that or delete that yourself.";
-$_data['database_clear_dummy_data_start']	= "Click To Start";
-$_data['database_clear_dummy_data_confirm']	= "Are you sure you want to remove dummy data ?";
-$_data['database_clear_msg']				= "Clear information successfully.";
+$_data['database_left_menu']				= "Cơ sở dữ liệu";
+$_data['database_clear_dummy_data']			= "Xóa dữ liệu";
+$_data['database_clear_dummy_msg']			= "Bạn có thể xóa tất cả dữ liệu giả từ đây, vì vậy chúng tôi sẽ xóa tất cả thông tin ngoại trừ dữ liệu cấu hình, vì vậy bạn cần phải thay đổi hoặc tự xóa thông tin đó.";
+$_data['database_clear_dummy_data_start']	= "Bấm để bắt đầu";
+$_data['database_clear_dummy_data_confirm']	= "Bạn có chắc chắn muốn xóa dữ liệu giả không?";
+$_data['database_clear_msg']				= "Xóa thông tin thành công.";
 
 
 //profile

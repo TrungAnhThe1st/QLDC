@@ -3,21 +3,21 @@
 //English Package
 //copyright: sakosys.com
 
-$_data['text_1'] 		= "Tenant Report";
-$_data['text_5'] 		= "Tenant Name";
+$_data['text_1'] 		= "Báo cáo người thuê nhà";
+$_data['text_5'] 		= "Tên người thuê nhà";
 $_data['text_6'] 		= "Email";
-$_data['text_7'] 		= "Contact";
-$_data['text_8'] 		= "Address";
-$_data['text_9'] 		= "Floor No";
-$_data['text_10'] 		= "Unit No";
-$_data['text_11'] 		= "Advance Payment";
-$_data['text_12'] 		= "Rent Per Month";
-$_data['text_13'] 		= "Date";
-$_data['text_14'] 		= "NID";
-$_data['text_15'] 		= "Status";
-$_data['text_16'] 		= "Print Information";
-$_data['text_17'] 		= "Active";
-$_data['text_18'] 		= "In-Active";
+$_data['text_7'] 		= "Số điện thoại";
+$_data['text_8'] 		= "Địa chỉ";
+$_data['text_9'] 		= "Tầng số";
+$_data['text_10'] 		= "Phòng số";
+$_data['text_11'] 		= "Tiền trả trước";
+$_data['text_12'] 		= "Tiền thuê mỗi tháng";
+$_data['text_13'] 		= "Ngày";
+$_data['text_14'] 		= "Sô chứng minh thư";
+$_data['text_15'] 		= "Trạng thái";
+$_data['text_16'] 		= "In thông tin";
+$_data['text_17'] 		= "Hoạt động";
+$_data['text_18'] 		= "Không hoạt động";
 
 
 ?>
