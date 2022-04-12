@@ -8,6 +8,7 @@ $unit_id = "";
 $month_id = "";
 $xyear = '';
 $button_text = $_data['submit'];
+$form_url= WEB_URL . "o_dashboard/rented_report.php";
 
 if(isset($_GET['fid'])){
 	$floor_id = $_GET['fid'];
@@ -20,6 +21,12 @@ if(isset($_GET['mid'])){
 }
 if(isset($_GET['xyear'])){
 	$yid = $_GET['xyear'];
+}
+if(isset($_GET['id'])){
+	$hdnid = $_GET['id'];
+} 
+else {
+  $hdnid = "0";
 }
 ?>
 

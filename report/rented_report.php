@@ -5,6 +5,7 @@ if(!isset($_SESSION['objLogin'])){
 	header("Location: " . WEB_URL . "logout.php");
 	die();
 }
+$form_url= WEB_URL . "report/rented_report.php";
 ?>
 
 <section class="content-header">
