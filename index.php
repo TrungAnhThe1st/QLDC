@@ -143,7 +143,7 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_index.php');
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title><?php echo $_data['application_title']; ?></title>
+<title>Quản lý dân cư</title>
 <!-- BOOTSTRAP STYLES-->
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <!-- FONTAWESOME STYLES-->
@@ -165,7 +165,9 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_index.php');
   <br/>
   <div class="row text-center ">
     <div class="col-md-12"><br/>
-      <span style="font-size:50px;font-weight:bold;color:#fff;"><?php echo $_data['application_heading_1']; ?></span> <span style="font-size:18px;color:#fff;"><?php echo $_data['application_heading_2']; ?></span></div>
+      <span style="font-size:50px;font-weight:bold;color:#fff;">Quản lý dân cư</span> 
+	  <!-- <span style="font-size:18px;color:#fff;"><?php echo $_data['application_heading_2']; ?></span> -->
+	</div>
   </div>
   <br/>
   <div class="row ">
