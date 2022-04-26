@@ -551,8 +551,8 @@ CREATE TABLE `tbl_add_rent` (
   `r_contact` varchar(200) NOT NULL,
   `r_address` varchar(200) NOT NULL,
   `r_nid` varchar(200) NOT NULL,
-  `r_floor_no` varchar(200) NOT NULL,
-  `r_unit_no` varchar(200) NOT NULL,
+  `r_floor_id` varchar(200) NOT NULL,
+  `r_unit_id` varchar(200) NOT NULL,
   `r_advance` decimal(15,2) NOT NULL DEFAULT 0.00,
   `r_rent_pm` decimal(15,2) NOT NULL DEFAULT 0.00,
   `r_date` varchar(200) NOT NULL,
@@ -570,7 +570,7 @@ CREATE TABLE `tbl_add_rent` (
 -- Dumping data for table `tbl_add_rent`
 --
 
-INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_email`, `r_contact`, `r_address`, `r_nid`, `r_floor_no`, `r_unit_no`, `r_advance`, `r_rent_pm`, `r_date`, `r_gone_date`, `r_password`, `image`, `r_status`, `r_month`, `r_year`, `branch_id`, `added_date`) VALUES
+INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_email`, `r_contact`, `r_address`, `r_nid`, `r_floor_id`, `r_unit_id`, `r_advance`, `r_rent_pm`, `r_date`, `r_gone_date`, `r_password`, `image`, `r_status`, `r_month`, `r_year`, `branch_id`, `added_date`) VALUES
 (20, 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '63 Creek St.\r\nEastpointe, MI 48021', '232323-565656-212121', '12', '30', '10000.00', '10000.00', '27/08/2019', '', 'MTIzNDU2', 'C7A2F0A4-1DCC-E7F1-8D54-14F507D8CA7E.jpg', 1, 9, 11, 8, '2019-08-26 19:33:04');
 
 -- --------------------------------------------------------

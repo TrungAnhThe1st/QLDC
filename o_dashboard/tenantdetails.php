@@ -45,7 +45,7 @@ if(!isset($_SESSION['objLogin'])){
           </thead>
           <tbody>
 			<?php	
-				$result = mysqli_query($link,"Select *,our.unit_id,fl.floor_no as fl_floor_no,u.unit_no as u_unit_no from tbl_add_rent r inner join tbl_add_owner_unit_relation our on r.r_unit_no = our.unit_id inner join tbl_add_floor fl on fl.fid = r.r_floor_no inner join tbl_add_unit u on u.uid = r.r_unit_no where our.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' order by r.rid desc");
+				$result = mysqli_query($link,"Select *,our.unit_id,fl.floor_no as fl_floor_no,u.unit_no as u_unit_no from tbl_add_rent r inner join tbl_add_owner_unit_relation our on r.r_unit_id = our.unit_id inner join tbl_add_floor fl on fl.fid = r.r_floor_id inner join tbl_add_unit u on u.uid = r.r_unit_id where our.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' order by r.rid desc");
 				while($row = mysqli_fetch_array($result)){
 					$image = WEB_URL . 'img/no_image.jpg';	
 			if(file_exists(ROOT_PATH . '/img/upload/' . $row['image']) && $row['image'] != ''){

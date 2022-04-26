@@ -51,7 +51,7 @@
 				'fair'	=> '0.00'
 			);
 			if(isset($_POST['floor_id']) && (int)$_POST['floor_id'] > 0 && isset($_POST['unit_id']) && (int)$_POST['unit_id'] > 0){
-				$result = mysqli_query($link,"SELECT * from tbl_add_rent where r_floor_no = '" . (int)$_POST['floor_id'] . "' and r_unit_no = '" . (int)$_POST['unit_id'] . "' and r_status = 1");
+				$result = mysqli_query($link,"SELECT * from tbl_add_rent where r_floor_id = '" . (int)$_POST['floor_id'] . "' and r_unit_id = '" . (int)$_POST['unit_id'] . "' and r_status = 1");
 				if($rows = mysqli_fetch_array($result)){
 					$html = array(
 						'rid'	=> $rows['rid'],
