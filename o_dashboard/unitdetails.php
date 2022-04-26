@@ -34,11 +34,11 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_common.php');
           </thead>
           <tbody>
         	<?php
-				 $result = mysqli_query($link,"Select u.unit_no,fl.floor_no as fl_floor_no from tbl_add_owner_unit_relation owr inner join tbl_add_unit u on owr.unit_id = u.uid inner join tbl_add_floor fl on fl.fid = u.floor_no where owr.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' order by u.unit_no ASC");
+				 $result = mysqli_query($link,"Select u.unit_id,fl.floor_id as fl_floor_id from tbl_add_owner_unit_relation owr inner join tbl_add_unit u on owr.unit_id = u.uid inner join tbl_add_floor fl on fl.fid = u.floor_id where owr.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' order by u.unit_id ASC");
 				while($row = mysqli_fetch_array($result)){?>
             <tr>
-			<td><?php echo $row['fl_floor_no']; ?></td>
-            <td><?php echo $row['unit_no'];?></td>
+			<td><?php echo $row['fl_floor_id']; ?></td>
+            <td><?php echo $row['unit_id'];?></td>
             <td>
             <a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="javascript:;" onclick="$('#nurse_view_<?php echo (int)$_SESSION['objLogin']['ownid']; ?>').modal('show');" data-original-title="<?php echo $_data['view_text'];?>"><i class="fa fa-eye"></i></a>
             <div id="nurse_view_<?php echo (int)$_SESSION['objLogin']['ownid']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

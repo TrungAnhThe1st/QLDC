@@ -6,8 +6,8 @@ if(!isset($_SESSION['objLogin'])){
 	die();
 }
 $success = "none";
-$floor_no = '';
-$unit_no = '';
+$floor_id = '';
+$unit_id = '';
 $branch_id = '';
 $title = $_data['add_new_unit'];
 $button_text = $_data['save_button_text'];
@@ -18,14 +18,14 @@ $hdnid="0";
 
 if(isset($_POST['ddlFloor'])){
 	if(isset($_POST['hdn']) && $_POST['hdn'] == '0'){
-		$sql = "INSERT INTO `tbl_add_unit`(floor_no,unit_no,branch_id) values('$_POST[ddlFloor]','$_POST[txtUnit]','" . $_SESSION['objLogin']['branch_id'] . "')";
+		$sql = "INSERT INTO `tbl_add_unit`(floor_id,unit_id,branch_id) values('$_POST[ddlFloor]','$_POST[txtUnit]','" . $_SESSION['objLogin']['branch_id'] . "')";
 		mysqli_query($link,$sql);
 		mysqli_close($link);
 		$url = WEB_URL . 'unit/unitlist.php?m=add';
 		header("Location: $url");
 	}
 	else{
-		$sql = "UPDATE `tbl_add_unit` SET `floor_no`='".$_POST['ddlFloor']."',`unit_no`='".$_POST['txtUnit']."' WHERE uid='".$_GET['id']."'";
+		$sql = "UPDATE `tbl_add_unit` SET `floor_id`='".$_POST['ddlFloor']."',`unit_id`='".$_POST['txtUnit']."' WHERE uid='".$_GET['id']."'";
 		mysqli_query($link,$sql);
 		mysqli_close($link);
 		$url = WEB_URL . 'unit/unitlist.php?m=up';
@@ -37,8 +37,8 @@ if(isset($_POST['ddlFloor'])){
 if(isset($_GET['id']) && $_GET['id'] != ''){
 	$result = mysqli_query($link,"SELECT * FROM tbl_add_unit where uid = '" . $_GET['id'] . "'");
 	while($row = mysqli_fetch_array($result)){
-		$floor_no = $row['floor_no'];
-		$unit_no = $row['unit_no'];
+		$floor_id = $row['floor_id'];
+		$unit_id = $row['unit_id'];
 		$hdnid = $_GET['id'];
 		$title = $_data['update_unit'];
 		$button_text = $_data['update_button_text'];
@@ -77,15 +77,15 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'view'){
             <select name="ddlFloor" id="ddlFloor" class="form-control">
               <option value="">--<?php echo $_data['select_floor'];?>--</option>
               <?php 
-				$result_floor = mysqli_query($link,"SELECT * FROM tbl_add_floor where branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by floor_no ASC");
+				$result_floor = mysqli_query($link,"SELECT * FROM tbl_add_floor where branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by floor_id ASC");
 				while($row_floor = mysqli_fetch_array($result_floor)){?>
-              <option <?php if($floor_no == $row_floor['fid']){echo 'selected';}?> value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_no'];?></option>
+              <option <?php if($floor_id == $row_floor['fid']){echo 'selected';}?> value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_id'];?></option>
               <?php } mysqli_close($link); ?>
             </select>
           </div>
           <div class="form-group">
             <label for="txtUnit"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_2'];?> :</label>
-            <input type="text" name="txtUnit" value="<?php echo $unit_no;?>" id="txtUnit" class="form-control" />
+            <input type="text" name="txtUnit" value="<?php echo $unit_id;?>" id="txtUnit" class="form-control" />
           </div>
         </div>
         <div class="box-footer">

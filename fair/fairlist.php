@@ -71,7 +71,7 @@ if(isset($_GET['m']) && $_GET['m'] == 'up'){
           </thead>
           <tbody>
         <?php
-		$result = mysqli_query($link,"Select *,ar.image as r_image,ar.r_name,fl.floor_no as fl_floor,u.unit_no as u_unit,m.month_name from tbl_add_fair f inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id inner join tbl_add_rent ar on ar.rid = f.rid where f.type = 'Rented' and f.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by f.f_id desc");
+		$result = mysqli_query($link,"Select *,ar.image as r_image,ar.r_name,fl.floor_id as fl_floor,u.unit_id as u_unit,m.month_name from tbl_add_fair f inner join tbl_add_floor fl on fl.fid = f.floor_id inner join tbl_add_unit u on u.uid = f.unit_id inner join tbl_add_month_setup m on m.m_id = f.month_id inner join tbl_add_rent ar on ar.rid = f.rid where f.type = 'Rented' and f.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by f.f_id desc");
 				while($row = mysqli_fetch_array($result)){
 					$r_image = WEB_URL . 'img/no_image.jpg';	
 					if(file_exists(ROOT_PATH . '/img/upload/' . $row['r_image']) && $row['r_image'] != ''){

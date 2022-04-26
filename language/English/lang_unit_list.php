@@ -6,8 +6,8 @@
 $_data['unit_list_title'] 						= "Unit List";
 $_data['add_new_unit_information_breadcam'] 	= "Unit Information";
 $_data['delete_unit_information'] 				= "Deleted Unit Information Successfully.";
-$_data['floor_no'] 								= "Floor No";
-$_data['unit_no'] 								= "Unit No";
+$_data['floor_id'] 								= "Floor No";
+$_data['unit_id'] 								= "Unit No";
 $_data['unit_details']							= "Unit Details";
 $_data['add_unit']								= "Add Unit";
 $_data['add_unit_successfully'] 				= "Added Unit Information Successfully";

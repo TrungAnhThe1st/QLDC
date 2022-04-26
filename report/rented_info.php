@@ -67,7 +67,7 @@ function printContent(area,title){
               </thead>
               <tbody>
             <?php
-				$query = "Select *,f.floor_no as ffloor,u.unit_no from tbl_add_rent r inner join tbl_add_floor f on f.fid = r.r_floor_id inner join tbl_add_unit u on u.uid = r.r_unit_id where r.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'";
+				$query = "Select *,f.floor_id as ffloor,u.unit_id from tbl_add_rent r inner join tbl_add_floor f on f.fid = r.r_floor_id inner join tbl_add_unit u on u.uid = r.r_unit_id where r.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'";
 				if($_GET['rsid'] != ''){
 					$query .= " and r.r_status='".$_GET['rsid']."'";
 				}
@@ -86,7 +86,7 @@ function printContent(area,title){
                     <td><?php echo $row['r_address']; ?></td>
                     <td><?php echo $row['r_nid']; ?></td>
                     <td><?php echo $row['ffloor']; ?></td>
-                    <td><?php echo $row['unit_no']; ?></td>
+                    <td><?php echo $row['unit_id']; ?></td>
                     <td><?php echo $ams_helper->currency($localization, $row['r_advance']); ?></td>
 					<td><?php echo $ams_helper->currency($localization, $row['r_rent_pm']); ?></td>
                     <td><?php echo $row['r_date']; ?></td>

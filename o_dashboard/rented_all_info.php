@@ -79,9 +79,9 @@ function printContent(area,title){
 				$other_per_month_sub_total = 0;
 				$total_per_month_sub_total = 0;
 				//
-				$_strSQL = "select *,r.r_name,o.o_name,fl.floor_no,u.unit_no,m.month_name,r.r_unit_id from tbl_add_fair f left join tbl_add_rent r on r.rid = f.rid left join tbl_add_owner o on o.ownid = f.rid inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id inner join tbl_add_owner_unit_relation our on r.r_unit_id = our.unit_id where our.owner_id = ".(int)$_SESSION['objLogin']['ownid'];
+				$_strSQL = "select *,r.r_name,o.o_name,fl.floor_id,u.unit_id,m.month_name,r.r_unit_id from tbl_add_fair f left join tbl_add_rent r on r.rid = f.rid left join tbl_add_owner o on o.ownid = f.rid inner join tbl_add_floor fl on fl.fid = f.floor_id inner join tbl_add_unit u on u.uid = f.unit_id inner join tbl_add_month_setup m on m.m_id = f.month_id inner join tbl_add_owner_unit_relation our on r.r_unit_id = our.unit_id where our.owner_id = ".(int)$_SESSION['objLogin']['ownid'];
 				if(!empty($_GET['uid'])){
-					$_strSQL .= " AND f.unit_no='".$_GET['uid']."'";
+					$_strSQL .= " AND f.unit_id='".$_GET['uid']."'";
 				}
 				if(!empty($_GET['mid'])){
 					$_strSQL .= " AND f.month_id='".$_GET['mid']."'";
@@ -104,8 +104,8 @@ function printContent(area,title){
                   <td><?php echo $row['issue_date']; ?></td>
                   <td><?php if($row['type']=='Rented'){echo $row['r_name'];} else{echo $row['o_name'];} ?></td>
                   <td><?php echo $row['type']; ?></td>
-                  <td><?php echo $row['floor_no']; ?></td>
-                  <td><?php echo $row['unit_no']; ?></td>
+                  <td><?php echo $row['floor_id']; ?></td>
+                  <td><?php echo $row['unit_id']; ?></td>
                   <td><?php echo $row['month_name']; ?></td>
 				  <td><?php echo $row['xyear']; ?></td>
 				  <td><?php echo $ams_helper->currency($localization, $row['rent']); ?></td>

@@ -184,15 +184,15 @@ while($row_booked = mysqli_fetch_array($result_booked))
             <label for="ChkOwnerUnit"><?php echo $_data['add_new_form_field_text_8'];?> :</label>
             <div style="height:150px;border:solid 1px #ccc;overflow:auto">
               <?php 
-				$result_unit = mysqli_query($link,"SELECT *,f.floor_no as fl_floor FROM tbl_add_unit u inner join tbl_add_floor f on u.floor_no = f.fid where u.branch_id='" . $_SESSION['objLogin']['branch_id'] . "' order by u.unit_no ASC");
+				$result_unit = mysqli_query($link,"SELECT *,f.floor_id as fl_floor FROM tbl_add_unit u inner join tbl_add_floor f on u.floor_id = f.fid where u.branch_id='" . $_SESSION['objLogin']['branch_id'] . "' order by u.unit_id ASC");
 				while($row_unit = mysqli_fetch_array($result_unit)){?>
               <div style="margin-left:.7%;">
                 <label>
                 <input class="" type="checkbox" <?php if(!empty($rowx_unit)){if(in_array($row_unit['uid'],$rowx_unit)){echo 'checked';} }?> value="<?php echo $row_unit['uid'];?>" name="ChkOwnerUnit[]" id="ChkOwnerUnit[]" />
                 <?php if(in_array($row_unit['uid'],$booked)) { ?>
-					<label style="text-decoration: line-through;color:red;"><?php echo $row_unit['unit_no']; ?>&nbsp;<?php echo '('.$row_unit['fl_floor'].')'; ?> </label>
+					<label style="text-decoration: line-through;color:red;"><?php echo $row_unit['unit_id']; ?>&nbsp;<?php echo '('.$row_unit['fl_floor'].')'; ?> </label>
 					<?php } else { ?>
-					<label><?php echo $row_unit['unit_no']; ?>&nbsp;<?php echo '('.$row_unit['fl_floor'].')'; ?></label>
+					<label><?php echo $row_unit['unit_id']; ?>&nbsp;<?php echo '('.$row_unit['fl_floor'].')'; ?></label>
 				<?php } ?>
               </div>
               <?php } ?>

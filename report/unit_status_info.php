@@ -55,7 +55,7 @@ function printContent(area,title){
               </thead>
               <tbody>
             <?php
-				$query = "Select *,f.floor_no as ffloorno from tbl_add_unit u inner join tbl_add_floor f on f.fid = u.floor_no where u.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'";
+				$query = "Select *,f.floor_id as ffloorno from tbl_add_unit u inner join tbl_add_floor f on f.fid = u.floor_id where u.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'";
 				if($_GET['usid'] != ''){
 					$query .= " and u.status='".$_GET['usid']."'";
 				}
@@ -63,7 +63,7 @@ function printContent(area,title){
 				while($row = mysqli_fetch_array($result)){?>
                 <tr>
                     <td><?php echo $row['ffloorno']; ?></td>
-            		<td><?php echo $row['unit_no']; ?></td>
+            		<td><?php echo $row['unit_id']; ?></td>
                     <td><?php if($row['status'] == '1'){echo $_data['text_5'];} else{echo $_data['text_6'];}?></td>
                 </tr>
                 <?php } mysqli_close($link);$link = NULL; ?>

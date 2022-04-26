@@ -85,10 +85,10 @@ if(isset($_GET['m']) && $_GET['m'] == 'up'){
               <td><?php echo $row['o_pre_address']; ?></td>
               <td><?php
 				 $i=1;
-				 $result_sp = mysqli_query($link,"Select u.unit_no, f.floor_no from tbl_add_owner_unit_relation owr inner join tbl_add_unit u on owr.unit_id = u.uid inner join tbl_add_floor f on f.fid = u.floor_no where owr.owner_id = '". $row['ownid'] . "' order by u.unit_no ASC");
+				 $result_sp = mysqli_query($link,"Select u.unit_id, f.floor_id from tbl_add_owner_unit_relation owr inner join tbl_add_unit u on owr.unit_id = u.uid inner join tbl_add_floor f on f.fid = u.floor_id where owr.owner_id = '". $row['ownid'] . "' order by u.unit_id ASC");
 				 while($row_sp = mysqli_fetch_array($result_sp)){
 					array_push($_units, $row_sp);
-					echo '<div align="left">' . $i . ' . &nbsp;&nbsp;' .$row_sp['unit_no'] .'&nbsp;&nbsp;('.$row_sp['floor_no'].')</div>';
+					echo '<div align="left">' . $i . ' . &nbsp;&nbsp;' .$row_sp['unit_id'] .'&nbsp;&nbsp;('.$row_sp['floor_id'].')</div>';
 					$i++;
 				 }
 		  	  ?>
@@ -120,7 +120,7 @@ if(isset($_GET['m']) && $_GET['m'] == 'up'){
                             <?php
 								 $i=1;
 								foreach($_units as $rsp){
-									echo '<div align="left">' . $i . ' . &nbsp;&nbsp;' .$rsp['unit_no'] .'&nbsp;&nbsp;('.$rsp['floor_no'].')</div>';
+									echo '<div align="left">' . $i . ' . &nbsp;&nbsp;' .$rsp['unit_id'] .'&nbsp;&nbsp;('.$rsp['floor_id'].')</div>';
 									$i++;
 								}
 							  ?>

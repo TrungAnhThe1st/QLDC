@@ -11,7 +11,7 @@ $delinfo = 'none';
 $addinfo = 'none';
 $msg = "";
 if(isset($_GET['id']) && $_GET['id'] != '' && $_GET['id'] > 0){
-	$sqlx= "DELETE FROM `tbl_notification_alert` WHERE notification_Id = ".$_GET['id'];
+	$sqlx= "DELETE FROM `tbl_notification_alert` WHERE notification_id = ".$_GET['id'];
 	mysqli_query($link,$sqlx); 
 	$delinfo = 'block';
 }
@@ -195,7 +195,7 @@ function saveNotification($link, $subject, $message, $type, $users) {
           </thead>
           <tbody>
             <?php
-			$result = mysqli_query($link,"Select * from tbl_notification_alert where branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by notification_Id DESC");
+			$result = mysqli_query($link,"Select * from tbl_notification_alert where branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by notification_id DESC");
 			while($row = mysqli_fetch_array($result)){
 			$users = json_decode($row['user_details'], true);
 			?>
@@ -237,7 +237,7 @@ function saveNotification($link, $subject, $message, $type, $users) {
 					?> 
 			  	
 			  </td>
-              <td><a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onclick="deleteSMS(<?php echo $row['notification_Id']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text'];?>"><i class="fa fa-trash-o"></i></a></td>
+              <td><a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onclick="deleteSMS(<?php echo $row['notification_id']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text'];?>"><i class="fa fa-trash-o"></i></a></td>
             </tr>
             <?php } mysqli_close($link);$link = NULL; ?>
           </tbody>

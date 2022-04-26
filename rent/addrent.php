@@ -38,7 +38,7 @@ if(isset($_POST['txtRName'])){
 		$sql = "INSERT INTO tbl_add_rent(r_name,r_email,r_contact,r_address,r_nid,r_floor_id,r_unit_id,r_advance,r_rent_pm,r_date,r_month,r_year,r_password,r_status,image,branch_id) values('$_POST[txtRName]','$_POST[txtREmail]','$_POST[txtRContact]','$_POST[txtRAddress]','$_POST[txtRentedNID]','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[txtRAdvance]','$_POST[txtRentPerMonth]','$_POST[txtRDate]','$_POST[ddlMonth]','$_POST[ddlYear]','$r_password','$_POST[chkRStaus]','$image_url','" . $_SESSION['objLogin']['branch_id'] . "')";
 		mysqli_query($link,$sql);
 		//update unit status
-		$sqlx = "UPDATE `tbl_add_unit` set status = 1 where floor_no = '".(int)$_POST['ddlFloorNo']."' and uid = '".(int)$_POST['ddlUnitNo']."'";
+		$sqlx = "UPDATE `tbl_add_unit` set status = 1 where floor_id = '".(int)$_POST['ddlFloorNo']."' and uid = '".(int)$_POST['ddlUnitNo']."'";
 		mysqli_query($link,$sqlx);
 		////////////////////////
 		mysqli_close($link);
@@ -54,9 +54,9 @@ if(isset($_POST['txtRName'])){
 		$sql = "UPDATE `tbl_add_rent` SET `r_name`='".$_POST['txtRName']."',`r_email`='".$_POST['txtREmail']."',`r_password`='".$converter->encode($_POST['txtPassword'])."',`r_contact`='".$_POST['txtRContact']."',`r_address`='".$_POST['txtRAddress']."',`r_nid`='".$_POST['txtRentedNID']."',`r_floor_id`='".$_POST['ddlFloorNo']."',`r_unit_id`='".$_POST['ddlUnitNo']."',`r_advance`='".$_POST['txtRAdvance']."',`r_rent_pm`='".$_POST['txtRentPerMonth']."',`r_date`='".$_POST['txtRDate']."',`r_month`='".$_POST['ddlMonth']."',`r_year`='".$_POST['ddlYear']."',`r_status`='".$_POST['chkRStaus']."',`image`='".$image_url."' WHERE rid='".$_GET['id']."'";
 		mysqli_query($link,$sql);
 		//update unit status
-		$sqlx = "UPDATE `tbl_add_unit` set status = 0 where floor_no = '".(int)$_POST['hdnFloor']."' and uid = '".(int)$_POST['hdnUnit']."'";
+		$sqlx = "UPDATE `tbl_add_unit` set status = 0 where floor_id = '".(int)$_POST['hdnFloor']."' and uid = '".(int)$_POST['hdnUnit']."'";
 		mysqli_query($link,$sqlx);
-		$sqlxx = "UPDATE `tbl_add_unit` set status = 1 where floor_no = '".(int)$_POST['ddlFloorNo']."' and uid = '".(int)$_POST['ddlUnitNo']."'";
+		$sqlxx = "UPDATE `tbl_add_unit` set status = 1 where floor_id = '".(int)$_POST['ddlFloorNo']."' and uid = '".(int)$_POST['ddlUnitNo']."'";
 		mysqli_query($link,$sqlxx);
 		///////////////////////////////////////////
 		$url = WEB_URL . 'rent/rentlist.php?m=up';
@@ -179,7 +179,7 @@ function NewGuid() {
               <?php 
 				  	$result_floor = mysqli_query($link,"SELECT * FROM tbl_add_floor WHERE branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by fid ASC");
 					while($row_floor = mysqli_fetch_array($result_floor)){?>
-              <option <?php if($r_floor_id == $row_floor['fid']){echo 'selected';}?> value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_no'];?></option>
+              <option <?php if($r_floor_id == $row_floor['fid']){echo 'selected';}?> value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_id'];?></option>
               <?php } ?>
             </select>
           </div>
@@ -188,9 +188,9 @@ function NewGuid() {
             <select name="ddlUnitNo" id="ddlUnitNo" class="form-control">
               <option value="">--<?php echo $_data['select_unit'];?>--</option>
               <?php 
-				  	$result_unit = mysqli_query($link,"SELECT * FROM tbl_add_unit where floor_no = ".(int)$r_floor_id." order by unit_no ASC");
+				  	$result_unit = mysqli_query($link,"SELECT * FROM tbl_add_unit where floor_id = ".(int)$r_floor_id." order by unit_id ASC");
 					while($row_unit = mysqli_fetch_array($result_unit)){?>
-              <option <?php if($r_unit_id == $row_unit['uid']){echo 'selected';}?> value="<?php echo $row_unit['uid'];?>"><?php echo $row_unit['unit_no'];?></option>
+              <option <?php if($r_unit_id == $row_unit['uid']){echo 'selected';}?> value="<?php echo $row_unit['uid'];?>"><?php echo $row_unit['unit_id'];?></option>
               <?php } ?>
             </select>
           </div>

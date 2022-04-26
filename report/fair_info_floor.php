@@ -80,12 +80,12 @@ function printContent(area,title){
 				$other_per_month_sub_total = 0;
 				$total_per_month_sub_total = 0;
 				
-				$query = "select *,r.r_name,o.o_name,fl.floor_no,u.unit_no,m.month_name from tbl_add_fair f left join tbl_add_rent r on r.rid = f.rid left join tbl_add_owner o on o.ownid = f.rid inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id WHERE f.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'";
+				$query = "select *,r.r_name,o.o_name,fl.floor_id,u.unit_id,m.month_name from tbl_add_fair f left join tbl_add_rent r on r.rid = f.rid left join tbl_add_owner o on o.ownid = f.rid inner join tbl_add_floor fl on fl.fid = f.floor_id inner join tbl_add_unit u on u.uid = f.unit_id inner join tbl_add_month_setup m on m.m_id = f.month_id WHERE f.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'";
 				if(!empty($_GET['fid'])){
-					$query .=" and f.floor_no='".$_GET['fid']."'";
+					$query .=" and f.floor_id='".$_GET['fid']."'";
 				}
 				if(!empty($_GET['uid'])){
-					$query .=" and f.unit_no='".$_GET['uid']."'";
+					$query .=" and f.unit_id='".$_GET['uid']."'";
 				}
 				if(!empty($_GET['mid'])){
 					$query .=" and f.month_id='".$_GET['mid']."'";
@@ -110,8 +110,8 @@ function printContent(area,title){
                     <td><?php echo $row['issue_date']; ?></td>
                     <td><?php if($row['type']=='Rented'){echo $row['r_name'];} else{echo $row['o_name'];} ?></td>
                     <td><?php echo $row['type']; ?></td>
-                    <td><?php echo $row['floor_no']; ?></td>
-                    <td><?php echo $row['unit_no']; ?></td>
+                    <td><?php echo $row['floor_id']; ?></td>
+                    <td><?php echo $row['unit_id']; ?></td>
                     <td><?php echo $row['month_name']; ?></td>
 					<td><?php echo $row['xyear']; ?></td>
 					<td><?php echo $ams_helper->currency($localization, $row['rent']); ?></td>

@@ -57,7 +57,7 @@ else {
               <?php 
 			  $result_unit = mysqli_query($link,"SELECT *,our.owner_id FROM tbl_add_unit u inner join tbl_add_owner_unit_relation our on u.uid = our.unit_id where our.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' order by u.uid ASC");
 					while($row_unit = mysqli_fetch_array($result_unit)){?>
-              <option <?php if($unit_id == $row_unit['uid']){echo 'selected';}?> value="<?php echo $row_unit['uid'];?>"><?php echo $row_unit['unit_no'];?></option>
+              <option <?php if($unit_id == $row_unit['uid']){echo 'selected';}?> value="<?php echo $row_unit['uid'];?>"><?php echo $row_unit['unit_id'];?></option>
               <?php } ?>
             </select>
           </div>

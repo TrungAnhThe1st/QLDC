@@ -81,7 +81,7 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_common.php');
               </thead>
               <tbody>
                 <?php
-			$result = mysqli_query($link,"Select *,u.unit_no as u_unit,fr.floor_no as fl_floor,m.month_name,w.o_name from tbl_add_owner_utility ou inner join tbl_add_unit u on ou.unit_no = u.uid inner join tbl_add_floor fr on ou.floor_no = fr.fid inner join tbl_add_owner_unit_relation orl on orl.unit_id = ou.unit_no inner join tbl_add_owner w on w.ownid = orl.owner_id inner join tbl_add_month_setup m on m.m_id = ou.month_id where ou.month_id='".$_GET['mid']."' and ou.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'");
+			$result = mysqli_query($link,"Select *,u.unit_id as u_unit,fr.floor_id as fl_floor,m.month_name,w.o_name from tbl_add_owner_utility ou inner join tbl_add_unit u on ou.unit_id = u.uid inner join tbl_add_floor fr on ou.floor_id = fr.fid inner join tbl_add_owner_unit_relation orl on orl.unit_id = ou.unit_id inner join tbl_add_owner w on w.ownid = orl.owner_id inner join tbl_add_month_setup m on m.m_id = ou.month_id where ou.month_id='".$_GET['mid']."' and ou.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'");
 				while($row = mysqli_fetch_array($result)){?>
                 <tr>
                   <td><?php echo $row['issue_date']; ?></td>

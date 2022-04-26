@@ -445,7 +445,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
 		</thead>
 		<tbody>
 		<?php
-			$result_unit_list = mysqli_query($link,"SELECT f.floor_no as floor_name, u.unit_no as unit_name FROM tbl_add_unit u inner join tbl_add_floor f on f.fid = u.floor_no where u.status = 0 and u.branch_id=".(int)$_SESSION['objLogin']['branch_id'].' order by u.unit_no ASC');
+			$result_unit_list = mysqli_query($link,"SELECT f.floor_no as floor_name, u.unit_no as unit_name FROM tbl_add_unit u inner join tbl_add_floor f on f.fid = u.floor_id where u.status = 0 and u.branch_id=".(int)$_SESSION['objLogin']['branch_id'].' order by u.unit_no ASC');
 			while($row_unit_list = mysqli_fetch_array($result_unit_list)){?>
 			<tr>
 				<td><?php echo $row_unit_list['floor_name']; ?></td>

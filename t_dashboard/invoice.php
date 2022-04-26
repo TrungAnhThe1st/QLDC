@@ -28,7 +28,7 @@ $total_bill = '0.00';
 $bill_status = 0;
 
 if(isset($_GET['rentid']) && (int)$_GET['rentid'] > 0){
-	$result = mysqli_query($link,"Select *,ar.image as r_image,ar.r_name,fl.floor_no as fl_floor,u.unit_no as u_unit,m.month_name from tbl_add_fair f inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id inner join tbl_add_rent ar on ar.rid = f.rid where f.type = 'Rented' and f.f_id = ".(int)$_GET['rentid']);
+	$result = mysqli_query($link,"Select *,ar.image as r_image,ar.r_name,fl.floor_id as fl_floor,u.unit_id as u_unit,m.month_name from tbl_add_fair f inner join tbl_add_floor fl on fl.fid = f.floor_id inner join tbl_add_unit u on u.uid = f.unit_id inner join tbl_add_month_setup m on m.m_id = f.month_id inner join tbl_add_rent ar on ar.rid = f.rid where f.type = 'Rented' and f.f_id = ".(int)$_GET['rentid']);
 	if($row = mysqli_fetch_assoc($result)){
 		$invoice_id = $_GET['rentid'];
 		$invoice_created_date = date("M d, Y", strtotime($row['added_date']));

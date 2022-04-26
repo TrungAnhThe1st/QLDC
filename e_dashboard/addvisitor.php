@@ -110,7 +110,7 @@ if(isset($_GET['id']) && $_GET['id'] != ''){
               <?php 
 				  	$result_floor = mysqli_query($link,"SELECT * FROM tbl_add_floor where branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by fid ASC");
 					while($row_floor = mysqli_fetch_array($result_floor)){?>
-              <option <?php if($floor_id == $row_floor['fid']){echo 'selected';}?> value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_no'];?></option>
+              <option <?php if($floor_id == $row_floor['fid']){echo 'selected';}?> value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_id'];?></option>
               <?php } ?>
             </select>
           </div>
@@ -120,9 +120,9 @@ if(isset($_GET['id']) && $_GET['id'] != ''){
               <option value="">--<?php echo $_data['text_12'];?>--</option>
               <?php 
 				  	if(!empty($floor_id)){
-						$result_unit = mysqli_query($link,"SELECT * FROM tbl_add_unit where floor_no = ".(int)$floor_id." and branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by uid ASC");
+						$result_unit = mysqli_query($link,"SELECT * FROM tbl_add_unit where floor_id = ".(int)$floor_id." and branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by uid ASC");
 						while($row_unit = mysqli_fetch_array($result_unit)){ ?>
-              				<option <?php if($unit_id == $row_unit['uid']){echo 'selected';}?> value="<?php echo $row_unit['uid'];?>"><?php echo $row_unit['unit_no'];?></option>
+              				<option <?php if($unit_id == $row_unit['uid']){echo 'selected';}?> value="<?php echo $row_unit['uid'];?>"><?php echo $row_unit['unit_id'];?></option>
 						}
               <?php } } ?>
             </select>

@@ -98,7 +98,7 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_common.php');
 				$other_per_month_sub_total = 0;
 				$total_per_month_sub_total = 0;
 				
-				$result = mysqli_query($link,"select *,r.r_name,o.o_name,fl.floor_no,u.unit_no,m.month_name from tbl_add_fair f left join tbl_add_rent r on r.rid = f.rid left join tbl_add_owner o on o.ownid = f.rid inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id where f.month_id ='".$_GET['mid']."' and f.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'");
+				$result = mysqli_query($link,"select *,r.r_name,o.o_name,fl.floor_id,u.unit_id,m.month_name from tbl_add_fair f left join tbl_add_rent r on r.rid = f.rid left join tbl_add_owner o on o.ownid = f.rid inner join tbl_add_floor fl on fl.fid = f.floor_id inner join tbl_add_unit u on u.uid = f.unit_id inner join tbl_add_month_setup m on m.m_id = f.month_id where f.month_id ='".$_GET['mid']."' and f.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'");
 				while($row = mysqli_fetch_array($result)){
 				$rent_per_month_sub_total +=(float)$row['rent'];
 				$gas_per_month_sub_total +=(float)$row['gas_bill'];
@@ -113,8 +113,8 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_common.php');
                     <td><?php echo $row['issue_date']; ?></td>
                     <td><?php if($row['type']=='Rented'){echo $row['r_name'];} else{echo $row['o_name'];} ?></td>
                     <td><?php echo $row['type']; ?></td>
-                    <td><?php echo $row['floor_no']; ?></td>
-                    <td><?php echo $row['unit_no']; ?></td>
+                    <td><?php echo $row['floor_id']; ?></td>
+                    <td><?php echo $row['unit_id']; ?></td>
                     <td><?php echo $row['month_name']; ?></td>
                     <?php if($currency_position == 'left') { ?>
                     <td><?php echo $global_currency.$row['rent']; ?></td>

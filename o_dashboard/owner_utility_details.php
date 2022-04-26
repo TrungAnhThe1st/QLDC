@@ -44,7 +44,7 @@ if(!isset($_SESSION['objLogin'])){
           </thead>
           <tbody>
         <?php
-		$result = mysqli_query($link,"Select *,orl.owner_id,ow.o_name,ow.image,fl.floor_no as fl_floor,u.unit_no as u_unit,m.month_name from tbl_add_fair f inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_owner_unit_relation orl on orl.unit_id = u.uid inner join tbl_add_owner ow on ow.ownid = orl.owner_id inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_month_setup m on m.m_id = f.month_id where orl.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' and f.type = 'Owner' order by f.f_id desc");
+		$result = mysqli_query($link,"Select *,orl.owner_id,ow.o_name,ow.image,fl.floor_id as fl_floor,u.unit_id as u_unit,m.month_name from tbl_add_fair f inner join tbl_add_unit u on u.uid = f.unit_id inner join tbl_add_owner_unit_relation orl on orl.unit_id = u.uid inner join tbl_add_owner ow on ow.ownid = orl.owner_id inner join tbl_add_floor fl on fl.fid = f.floor_id inner join tbl_add_month_setup m on m.m_id = f.month_id where orl.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' and f.type = 'Owner' order by f.f_id desc");
 		while($row = mysqli_fetch_array($result)){
 			$image = WEB_URL . 'img/no_image.jpg';	
 			if(file_exists(ROOT_PATH . '/img/upload/' . $row['image']) && $row['image'] != ''){

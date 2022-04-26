@@ -6,7 +6,7 @@ if(!isset($_SESSION['objLogin'])){
 	die();
 }
 $success = "none";
-$floor_no = '';
+$floor_id = '';
 $branch_id = '';
 $title = $_data['add_new_floor_top_title'];
 $button_text = $_data['save_button_text'];
@@ -16,14 +16,14 @@ $hdnid="0";
 
 if(isset($_POST['txtFloor'])){
 	if(isset($_POST['hdn']) && $_POST['hdn'] == '0'){
-		$sql = "INSERT INTO `tbl_add_floor`(floor_no,`branch_id`) values('$_POST[txtFloor]','" . $_SESSION['objLogin']['branch_id'] . "')";
+		$sql = "INSERT INTO `tbl_add_floor`(floor_id,`branch_id`) values('$_POST[txtFloor]','" . $_SESSION['objLogin']['branch_id'] . "')";
 		mysqli_query($link,$sql);
 		mysqli_close($link);
 		$url = WEB_URL . 'floor/floorlist.php?m=add';
 		header("Location: $url");
 	}
 	else{
-		$sql = "UPDATE `tbl_add_floor` SET `floor_no`='".$_POST['txtFloor']."' WHERE fid='".$_GET['id']."'";
+		$sql = "UPDATE `tbl_add_floor` SET `floor_id`='".$_POST['txtFloor']."' WHERE fid='".$_GET['id']."'";
 		mysqli_query($link,$sql);
 		$url = WEB_URL . 'floor/floorlist.php?m=up';
 		header("Location: $url");
@@ -34,7 +34,7 @@ if(isset($_POST['txtFloor'])){
 if(isset($_GET['id']) && $_GET['id'] != ''){
 	$result = mysqli_query($link,"SELECT * FROM tbl_add_floor where fid = '" . $_GET['id'] . "'");
 	while($row = mysqli_fetch_array($result)){
-		$floor_no = $row['floor_no'];
+		$floor_id = $row['floor_id'];
 		$hdnid = $_GET['id'];
 		$title = $_data['update_floor_top_title'];
 		$button_text = $_data['update_button_text'];
@@ -71,7 +71,7 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'view'){
         <div class="box-body">
           <div class="form-group">
             <label for="txtFloor"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_1'];?> :</label>
-            <input type="text" name="txtFloor" value="<?php echo $floor_no;?>" id="txtFloor" class="form-control" />
+            <input type="text" name="txtFloor" value="<?php echo $floor_id;?>" id="txtFloor" class="form-control" />
           </div>
         </div>
         <div class="box-footer">

@@ -68,15 +68,15 @@ if(!isset($_SESSION['objLogin'])){
               </thead>
               <tbody>
             <?php
-			$result = mysqli_query($link,"select *Select *,fr.floor_no,u.unit_no from tbl_visitor v inner join tbl_add_floor fr on fr.fid = v.floor_id inner join tbl_add_unit u on u.uid = v.unit_id v.issue_date='".$_GET['idate']."' and v.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'");
+			$result = mysqli_query($link,"select *Select *,fr.floor_id,u.unit_id from tbl_visitor v inner join tbl_add_floor fr on fr.fid = v.floor_id inner join tbl_add_unit u on u.uid = v.unit_id v.issue_date='".$_GET['idate']."' and v.branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "'");
 				while($row = mysqli_fetch_array($result)){
 				?>
                 <tr>
                   <td><?php echo $row['issue_date']; ?></td>
                   <td><?php echo $row['name']; ?></td>
 				  <td><?php echo $row['mobile']; ?></td>
-                  <td><?php echo $row['floor_no']; ?></td>
-                  <td><?php echo $row['unit_no']; ?></td>
+                  <td><?php echo $row['floor_id']; ?></td>
+                  <td><?php echo $row['unit_id']; ?></td>
                   <td><?php echo $row['intime']; ?></td>
 				  <td><?php echo $row['outtime']; ?></td>
                 </tr>

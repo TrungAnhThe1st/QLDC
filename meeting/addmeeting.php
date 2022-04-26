@@ -6,7 +6,7 @@ if(!isset($_SESSION['objLogin'])){
 	die();
 }
 $success = "none";
-$floor_no = '';
+$floor_id = '';
 $title = $_data['text_1'];
 $button_text=$_data['save_button_text'];
 $successful_msg=$_data['text_15'];

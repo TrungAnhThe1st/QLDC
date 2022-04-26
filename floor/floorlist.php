@@ -57,7 +57,7 @@ if(isset($_GET['m']) && $_GET['m'] == 'up'){
         <table class="table sakotable table-bordered table-striped dt-responsive">
           <thead>
             <tr>
-              <th><?php echo $_data['floor_no'];?></th>
+              <th><?php echo $_data['floor_id'];?></th>
               <th><?php echo $_data['action_text'];?></th>
             </tr>
           </thead>
@@ -66,7 +66,7 @@ if(isset($_GET['m']) && $_GET['m'] == 'up'){
 			$result = mysqli_query($link,"Select * from tbl_add_floor where branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by fid DESC");
 			while($row = mysqli_fetch_array($result)){?>
             <tr>
-			<td><?php echo $row['floor_no']; ?></td>
+			<td><?php echo $row['floor_id']; ?></td>
             <td><a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL;?>floor/addfloor.php?id=<?php echo $row['fid']; ?>" data-original-title="<?php echo $_data['edit_text'];?>"><i class="fa fa-pencil"></i></a> <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onclick="deleteFloor(<?php echo $row['fid']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text'];?>"><i class="fa fa-trash-o"></i></a></td>
             </tr>
             <?php } mysqli_close($link);$link = NULL; ?>

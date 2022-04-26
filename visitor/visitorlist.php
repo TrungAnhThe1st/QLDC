@@ -69,15 +69,15 @@ if(isset($_GET['m']) && $_GET['m'] == 'up'){
           </thead>
           <tbody>
             <?php
-				$result = mysqli_query($link,"Select *,fr.floor_no,u.unit_no from tbl_visitor v inner join tbl_add_floor fr on fr.fid = v.floor_id inner join tbl_add_unit u on u.uid = v.unit_id where v.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by v.vid desc");
+				$result = mysqli_query($link,"Select *,fr.floor_id,u.unit_id from tbl_visitor v inner join tbl_add_floor fr on fr.fid = v.floor_id inner join tbl_add_unit u on u.uid = v.unit_id where v.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by v.vid desc");
 				while($row = mysqli_fetch_array($result)){?>
             <tr>
               <td><?php echo $row['issue_date']; ?></td>
               <td><?php echo $row['name']; ?></td>
               <td><?php echo $row['mobile']; ?></td>
               <td><?php echo $row['address']; ?></td>
-              <td><?php echo $row['floor_no']; ?></td>
-              <td><label class="label label-warning ams_label"><?php echo $row['unit_no']; ?></label></td>
+              <td><?php echo $row['floor_id']; ?></td>
+              <td><label class="label label-warning ams_label"><?php echo $row['unit_id']; ?></label></td>
               <td><label class="label label-success ams_label"><?php echo $row['intime']; ?></label></td>
               <td><label class="label label-danger ams_label"><?php echo $row['outtime']; ?></label></td>
               <td><a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL;?>visitor/addvisitor.php?id=<?php echo $row['vid']; ?>" data-original-title="<?php echo $_data['edit_text'];?>"><i class="fa fa-pencil"></i></a> <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onclick="deleteFloor(<?php echo $row['vid']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text'];?>"><i class="fa fa-trash-o"></i></a> </td>

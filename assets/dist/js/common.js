@@ -467,13 +467,13 @@ function validateEmail(email) {
 function getfloor(val){
 	if(val != ''){
 		$.get("../ajax/getfloor.php?typeid=" + val , function(data, status){
-			$("#floor_no").html(data);
+			$("#floor_id").html(data);
 		});
 	}
 	else{
 		alert('Please select any type');
-		$("#floor_no").html("");
-		$("#floor_no").html("<option>--Select Floor--</option>");
+		$("#floor_id").html("");
+		$("#floor_id").html("<option>--Select Floor--</option>");
 	}
 }
 
@@ -494,12 +494,12 @@ function getRoom(val){
 
 //for floor and unit retrive
 function getUnit(){
-   var floor_no = $("#ddlFloorNo").val();
-   if(floor_no != ''){
+   var floor_id = $("#ddlFloorNo").val();
+   if(floor_id != ''){
 	   $.ajax({
 		  url: '../ajax/getunit.php',
 		  type: 'POST',
-		  data: '&floor_no=' + floor_no + '&token=getunitinfo',
+		  data: '&floor_id=' + floor_id + '&token=getunitinfo',
 		  dataType: 'html',
 		  success: function(data) {
 			 if(data != '-99'){
@@ -514,12 +514,12 @@ function getUnit(){
 }
 
 //for floor and unit retrive
-function getActiveUnit(floor_no){
-   if(floor_no != ''){
+function getActiveUnit(floor_id){
+   if(floor_id != ''){
 	   $.ajax({
 		  url: '../ajax/getunit.php',
 		  type: 'POST',
-		  data: '&floor_no=' + floor_no + '&token=getunitinforeport',
+		  data: '&floor_id=' + floor_id + '&token=getunitinforeport',
 		  dataType: 'html',
 		  success: function(data) {
 			 if(data != '-99'){
@@ -535,13 +535,13 @@ function getActiveUnit(floor_no){
 
 //for floor and unit retrive
 function getUnitReport(){
-   var floor_no = $("#ddlFloorNo").val();
-   if(floor_no != ''){
+   var floor_id = $("#ddlFloorNo").val();
+   if(floor_id != ''){
 	   $.ajax({
 		  url: '../ajax/getunit.php',
 		  type: 'POST',
 		  //data: 'category_type=' + category_type + '&cabin_type=' + cabin_type '&floor_type=' + floor_type + '&token=opu',
-		  data: '&floor_no=' + floor_no + '&token=getunitinforeport',
+		  data: '&floor_id=' + floor_id + '&token=getunitinforeport',
 		  dataType: 'html',
 		  success: function(data) {
 			 if(data != '-99'){
@@ -557,12 +557,12 @@ function getUnitReport(){
 
 //for rent info
 function getRentInfo(unit_id){
-   var floor_no = $("#ddlFloorNo").val();
-   if(floor_no != ''){
+   var floor_id = $("#ddlFloorNo").val();
+   if(floor_id != ''){
 	   $.ajax({
 		  url: '../ajax/getunit.php',
 		  type: 'POST',
-		  data: 'floor_id=' + floor_no + '&unit_id=' + unit_id + '&token=getRentInfo',
+		  data: 'floor_id=' + floor_id + '&unit_id=' + unit_id + '&token=getRentInfo',
 		  dataType: 'json',
 		  success: function(data) {
 			 if(data != '-99'){

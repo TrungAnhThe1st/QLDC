@@ -62,7 +62,7 @@ function printContent(area,title){
               </thead>
               <tbody>
                 <?php
-				$query = "Select *,fr.floor_no,u.unit_no from tbl_visitor v inner join tbl_add_floor fr on fr.fid = v.floor_id inner join tbl_add_unit u on u.uid = v.unit_id where v.branch_id = " . (int)$_SESSION['objLogin']['branch_id'];
+				$query = "Select *,fr.floor_id,u.unit_id from tbl_visitor v inner join tbl_add_floor fr on fr.fid = v.floor_id inner join tbl_add_unit u on u.uid = v.unit_id where v.branch_id = " . (int)$_SESSION['objLogin']['branch_id'];
 				if(!empty($_GET['mid'])){
 					$query .= " and v.xmonth='".$_GET['mid']."'";
 				}
@@ -80,8 +80,8 @@ function printContent(area,title){
                   <td><?php echo $row['name']; ?></td>
                   <td><?php echo $row['mobile']; ?></td>
                   <td><?php echo $row['address']; ?></td>
-                  <td><?php echo $row['floor_no']; ?></td>
-                  <td><?php echo $row['unit_no']; ?></td>
+                  <td><?php echo $row['floor_id']; ?></td>
+                  <td><?php echo $row['unit_id']; ?></td>
                   <td><?php echo $row['intime']; ?></td>
                   <td><?php echo $row['outtime']; ?></td>
                 </tr>

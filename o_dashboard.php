@@ -36,7 +36,7 @@ if($row_employee_total = mysqli_fetch_array($result_employee)){
 }
 
 //fair count
-$result_fair = mysqli_query($link,"SELECT sum(f.rent) as total FROM tbl_add_fair f inner join tbl_add_owner_unit_relation ur on ur.unit_id = f.unit_no where ur.owner_id =".(int)$_SESSION['objLogin']['ownid']);
+$result_fair = mysqli_query($link,"SELECT sum(f.rent) as total FROM tbl_add_fair f inner join tbl_add_owner_unit_relation ur on ur.unit_id = f.unit_id where ur.owner_id =".(int)$_SESSION['objLogin']['ownid']);
 if($row_fair_total = mysqli_fetch_array($result_fair)){
 	$total_fair = $row_fair_total['total'];
 }
@@ -53,14 +53,14 @@ if($row_fund_total = mysqli_fetch_array($result_fund)){
 }
 
 //utility count
-$result_ou = mysqli_query($link,"SELECT sum(water_bill) as w_bil,sum(electric_bill) as e_bil,sum(gas_bill) as g_bil,sum(security_bill) as s_bil,sum(utility_bill) as u_bil,sum(other_bill) as o_bil FROM tbl_add_fair f inner join tbl_add_owner_unit_relation ur on ur.unit_id = f.unit_no where f.type = 'Owner' and ur.owner_id =".(int)$_SESSION['objLogin']['ownid']);
+$result_ou = mysqli_query($link,"SELECT sum(water_bill) as w_bil,sum(electric_bill) as e_bil,sum(gas_bill) as g_bil,sum(security_bill) as s_bil,sum(utility_bill) as u_bil,sum(other_bill) as o_bil FROM tbl_add_fair f inner join tbl_add_owner_unit_relation ur on ur.unit_id = f.unit_id where f.type = 'Owner' and ur.owner_id =".(int)$_SESSION['objLogin']['ownid']);
 if($row_ou_total = mysqli_fetch_array($result_ou)){
 	$total_owner_utility = (float)(float)$row_ou_total['w_bil'] + (float)$row_ou_total['e_bil'] + (float)$row_ou_total['g_bil'] + (float)$row_ou_total['u_bil'] + (float)$row_ou_total['s_bil'] + (float)$row_ou_total['o_bil'];
 }
 
 ////////////////////monthly bill deposit graph///////////////////////////////////////////////////////////////////////////////////////////////
 $_graph_monthly_rent = array();
-$result_monthly_graph = mysqli_query($link,"SELECT *, sum(f.rent) as total_rent FROM tbl_add_fair f inner join tbl_add_owner_unit_relation ur on ur.unit_id = f.unit_no where ur.owner_id =".(int)$_SESSION['objLogin']['ownid']." GROUP BY month_id ORDER BY month_id ASC");
+$result_monthly_graph = mysqli_query($link,"SELECT *, sum(f.rent) as total_rent FROM tbl_add_fair f inner join tbl_add_owner_unit_relation ur on ur.unit_id = f.unit_id where ur.owner_id =".(int)$_SESSION['objLogin']['ownid']." GROUP BY month_id ORDER BY month_id ASC");
 while($row_monthly_total = mysqli_fetch_assoc($result_monthly_graph)){
 	$_graph_monthly_rent[$row_monthly_total['month_id']] = $row_monthly_total;
 }

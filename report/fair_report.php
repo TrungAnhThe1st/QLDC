@@ -32,7 +32,7 @@ if(!isset($_SESSION['objLogin'])){
               <?php 
 			  $result_floor = mysqli_query($link,"SELECT * FROM tbl_add_floor where branch_id = ".(int)$_SESSION['objLogin']['branch_id']." order by fid ASC");
 					while($row_floor = mysqli_fetch_array($result_floor)){?>
-              <option  value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_no'];?></option>
+              <option  value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_id'];?></option>
               <?php } ?>
             </select>
           </div>

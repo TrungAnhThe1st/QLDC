@@ -283,8 +283,8 @@ INSERT INTO `tbl_add_employee_salary_setup` (`emp_id`, `emp_name`, `designation`
 CREATE TABLE `tbl_add_fair` (
   `f_id` int(11) NOT NULL,
   `type` varchar(200) NOT NULL,
-  `floor_no` varchar(200) NOT NULL,
-  `unit_no` varchar(200) NOT NULL,
+  `floor_id` varchar(200) NOT NULL,
+  `unit_id` varchar(200) NOT NULL,
   `rid` int(11) NOT NULL DEFAULT 0,
   `month_id` int(11) NOT NULL,
   `xyear` varchar(200) NOT NULL,
@@ -307,7 +307,7 @@ CREATE TABLE `tbl_add_fair` (
 -- Dumping data for table `tbl_add_fair`
 --
 
-INSERT INTO `tbl_add_fair` (`f_id`, `type`, `floor_no`, `unit_no`, `rid`, `month_id`, `xyear`, `rent`, `water_bill`, `electric_bill`, `gas_bill`, `security_bill`, `utility_bill`, `other_bill`, `total_rent`, `issue_date`, `paid_date`, `branch_id`, `bill_status`, `added_date`) VALUES
+INSERT INTO `tbl_add_fair` (`f_id`, `type`, `floor_id`, `unit_id`, `rid`, `month_id`, `xyear`, `rent`, `water_bill`, `electric_bill`, `gas_bill`, `security_bill`, `utility_bill`, `other_bill`, `total_rent`, `issue_date`, `paid_date`, `branch_id`, `bill_status`, `added_date`) VALUES
 (43, 'Rented', '12', '30', 20, 8, '2019', '10000.00', '500.00', '1000.00', '975.00', '900.00', '100.00', '0.00', '13475.00', '05/08/2019', '30/08/2019', 8, 1, '2019-08-27 04:29:55'),
 (44, 'Rented', '12', '30', 20, 9, '2019', '10000.00', '600.00', '700.00', '800.00', '900.00', '500.00', '0.00', '13500.00', '04/09/2019', '', 8, 0, '2019-08-27 19:26:08');
 
@@ -319,7 +319,7 @@ INSERT INTO `tbl_add_fair` (`f_id`, `type`, `floor_no`, `unit_no`, `rid`, `month
 
 CREATE TABLE `tbl_add_floor` (
   `fid` int(11) NOT NULL,
-  `floor_no` varchar(200) NOT NULL,
+  `floor_id` varchar(200) NOT NULL,
   `branch_id` int(11) NOT NULL,
   `added_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -328,7 +328,7 @@ CREATE TABLE `tbl_add_floor` (
 -- Dumping data for table `tbl_add_floor`
 --
 
-INSERT INTO `tbl_add_floor` (`fid`, `floor_no`, `branch_id`, `added_date`) VALUES
+INSERT INTO `tbl_add_floor` (`fid`, `floor_id`, `branch_id`, `added_date`) VALUES
 (12, 'First Floor', 8, '2019-08-26 18:56:32'),
 (13, 'Second Floor', 8, '2019-08-27 04:06:26');
 
@@ -522,8 +522,8 @@ INSERT INTO `tbl_add_owner_unit_relation` (`owner_id`, `unit_id`) VALUES
 
 CREATE TABLE `tbl_add_owner_utility` (
   `owner_utility_id` int(11) NOT NULL,
-  `floor_no` int(11) NOT NULL,
-  `unit_no` int(11) NOT NULL,
+  `floor_id` int(11) NOT NULL,
+  `unit_id` int(11) NOT NULL,
   `month_id` int(11) NOT NULL,
   `rent` decimal(15,2) NOT NULL DEFAULT 0.00,
   `water_bill` decimal(15,2) NOT NULL DEFAULT 0.00,
@@ -581,8 +581,8 @@ INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_email`, `r_contact`, `r_address`
 
 CREATE TABLE `tbl_add_unit` (
   `uid` int(11) NOT NULL,
-  `floor_no` varchar(200) NOT NULL,
-  `unit_no` varchar(200) NOT NULL,
+  `floor_id` varchar(200) NOT NULL,
+  `unit_id` varchar(200) NOT NULL,
   `branch_id` int(11) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 0,
   `added_date` timestamp NOT NULL DEFAULT current_timestamp()
@@ -592,7 +592,7 @@ CREATE TABLE `tbl_add_unit` (
 -- Dumping data for table `tbl_add_unit`
 --
 
-INSERT INTO `tbl_add_unit` (`uid`, `floor_no`, `unit_no`, `branch_id`, `status`, `added_date`) VALUES
+INSERT INTO `tbl_add_unit` (`uid`, `floor_id`, `unit_id`, `branch_id`, `status`, `added_date`) VALUES
 (30, '12', 'Flat 1A', 8, 1, '2019-08-26 18:56:56'),
 (31, '12', 'Flat 1B', 8, 0, '2019-08-26 18:57:09'),
 (32, '13', 'Flat 2A', 8, 0, '2019-08-27 04:07:08'),
@@ -780,7 +780,7 @@ INSERT INTO `tbl_notice_board` (`notice_id`, `notice_title`, `notice_description
 --
 
 CREATE TABLE `tbl_notification_alert` (
-  `notification_Id` int(11) NOT NULL,
+  `notification_id` int(11) NOT NULL,
   `subject` varchar(250) NOT NULL,
   `message` varchar(5000) NOT NULL,
   `type` int(11) DEFAULT NULL COMMENT '1=sms,2=email,3=both',
@@ -1047,7 +1047,7 @@ ALTER TABLE `tbl_notice_board`
 -- Indexes for table `tbl_notification_alert`
 --
 ALTER TABLE `tbl_notification_alert`
-  ADD PRIMARY KEY (`notification_Id`);
+  ADD PRIMARY KEY (`notification_id`);
 
 --
 -- Indexes for table `tbl_owner_notice_board`
@@ -1237,7 +1237,7 @@ ALTER TABLE `tbl_notice_board`
 -- AUTO_INCREMENT for table `tbl_notification_alert`
 --
 ALTER TABLE `tbl_notification_alert`
-  MODIFY `notification_Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_owner_notice_board`

@@ -7,8 +7,8 @@ if(!isset($_SESSION['objLogin'])){
 }
 $success = "none";
 $type = 'Owner';
-$floor_no = '';
-$unit_no = '';
+$floor_id = '';
+$unit_id = '';
 $month_id = '';
 $xyear = '';
 $rent = '0.00';
@@ -35,13 +35,13 @@ $ownid = 0;
 
 if(isset($_POST['ddlFloorNo'])){
 	if(isset($_POST['hdn']) && $_POST['hdn'] == '0'){
-		$sql = "INSERT INTO tbl_add_fair(type,floor_no,unit_no,rid,month_id,xyear,water_bill,electric_bill,gas_bill,security_bill,utility_bill,other_bill,total_rent,issue_date,branch_id) values('$type','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[hdnOwnerdId]','$_POST[ddlMonth]','$_POST[ddlYear]','$_POST[txtWaterBill]','$_POST[txtElectricBill]','$_POST[txtGasBill]','$_POST[txtSecurityBill]','$_POST[txtUtilityBill]','$_POST[txtOtherBill]','$_POST[txtTotalRent]','$_POST[txtIssueDate]','" . $_SESSION['objLogin']['branch_id'] . "')";
+		$sql = "INSERT INTO tbl_add_fair(type,floor_id,unit_id,rid,month_id,xyear,water_bill,electric_bill,gas_bill,security_bill,utility_bill,other_bill,total_rent,issue_date,branch_id) values('$type','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[hdnOwnerdId]','$_POST[ddlMonth]','$_POST[ddlYear]','$_POST[txtWaterBill]','$_POST[txtElectricBill]','$_POST[txtGasBill]','$_POST[txtSecurityBill]','$_POST[txtUtilityBill]','$_POST[txtOtherBill]','$_POST[txtTotalRent]','$_POST[txtIssueDate]','" . $_SESSION['objLogin']['branch_id'] . "')";
 		mysqli_query($link,$sql);
 		mysqli_close($link);
 		$url = WEB_URL . 'owner_utility/owner_utility_list.php?m=add';
 		header("Location: $url");
 	}else{
-		$sql = "UPDATE `tbl_add_fair` SET `floor_no`='".$_POST['ddlFloorNo']."',`unit_no`='".$_POST['ddlUnitNo']."',`rid`='".$_POST['hdnOwnerdId']."',`month_id`='".$_POST['ddlMonth']."',`xyear`='".$_POST['ddlYear']."',`water_bill`='".$_POST['txtWaterBill']."',`electric_bill`='".$_POST['txtElectricBill']."',`gas_bill`='".$_POST['txtGasBill']."',`security_bill`='".$_POST['txtSecurityBill']."',`utility_bill`='".$_POST['txtUtilityBill']."',`other_bill`='".$_POST['txtOtherBill']."',`total_rent`='".$_POST['txtTotalRent']."',`issue_date`='".$_POST['txtIssueDate']."' WHERE f_id='".$_GET['id']."'";
+		$sql = "UPDATE `tbl_add_fair` SET `floor_id`='".$_POST['ddlFloorNo']."',`unit_id`='".$_POST['ddlUnitNo']."',`rid`='".$_POST['hdnOwnerdId']."',`month_id`='".$_POST['ddlMonth']."',`xyear`='".$_POST['ddlYear']."',`water_bill`='".$_POST['txtWaterBill']."',`electric_bill`='".$_POST['txtElectricBill']."',`gas_bill`='".$_POST['txtGasBill']."',`security_bill`='".$_POST['txtSecurityBill']."',`utility_bill`='".$_POST['txtUtilityBill']."',`other_bill`='".$_POST['txtOtherBill']."',`total_rent`='".$_POST['txtTotalRent']."',`issue_date`='".$_POST['txtIssueDate']."' WHERE f_id='".$_GET['id']."'";
 		mysqli_query($link,$sql);
 		$url = WEB_URL . 'owner_utility/owner_utility_list.php?m=up';
 		header("Location: $url");
@@ -53,8 +53,8 @@ if(isset($_GET['id']) && $_GET['id'] != ''){
 	$result = mysqli_query($link,"SELECT *,o.o_name,o.ownid FROM tbl_add_fair af inner join tbl_add_owner o on o.ownid = af.rid where af.f_id = '" . $_GET['id'] . "' and af.type='Owner'");
 	while($row = mysqli_fetch_array($result)){
 	
-		$floor_no = $row['floor_no'];
-		$unit_no = $row['unit_no'];
+		$floor_id = $row['floor_id'];
+		$unit_id = $row['unit_id'];
 		$month_id = $row['month_id'];
 		$xyear = $row['xyear'];
 		$water_bill = $row['water_bill'];
@@ -113,7 +113,7 @@ if(isset($_GET['id']) && $_GET['id'] != ''){
               <?php 
 				  	$result_floor = mysqli_query($link,"SELECT * FROM tbl_add_floor where branch_id= '".(int)$_SESSION['objLogin']['branch_id']."' order by fid ASC");
 					while($row_floor = mysqli_fetch_array($result_floor)){?>
-              <option <?php if($floor_no == $row_floor['fid']){echo 'selected';}?> value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_no'];?></option>
+              <option <?php if($floor_id == $row_floor['fid']){echo 'selected';}?> value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_id'];?></option>
               <?php } ?>
             </select>
           </div>
@@ -122,9 +122,9 @@ if(isset($_GET['id']) && $_GET['id'] != ''){
             <select name="ddlUnitNo" id="ddlUnitNo" onchange="getOwnerInfo(this.value);" class="form-control">
               <option value="">--<?php echo $_data['add_new_form_field_text_4'];?>--</option>
               <?php 
-				  	$result_unit = mysqli_query($link,"SELECT * FROM tbl_add_unit where floor_no = '".(int)$floor_no."' order by uid ASC");
+				  	$result_unit = mysqli_query($link,"SELECT * FROM tbl_add_unit where floor_id = '".(int)$floor_id."' order by uid ASC");
 					while($row_unit = mysqli_fetch_array($result_unit)){?>
-              <option <?php if($unit_no == $row_unit['uid']){echo 'selected';}?> value="<?php echo $row_unit['uid'];?>"><?php echo $row_unit['unit_no'];?></option>
+              <option <?php if($unit_id == $row_unit['uid']){echo 'selected';}?> value="<?php echo $row_unit['uid'];?>"><?php echo $row_unit['unit_id'];?></option>
               <?php } ?>
             </select>
           </div>

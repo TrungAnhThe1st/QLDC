@@ -4,11 +4,11 @@
 	if(isset($_SESSION['objLogin'])){
 		if(isset($_POST['token']) && $_POST['token'] == 'getunitinfo'){
 			$html = '<option value="">--Select Unit--</option>';
-			if(isset($_POST['floor_no']) && (int)$_POST['floor_no'] > 0){
-				$unit_no = '';
-				$result = mysqli_query($link,"SELECT * from tbl_add_unit where floor_no = '" . (int)$_POST['floor_no'] . "' and status = 0 order by unit_no asc");
+			if(isset($_POST['floor_id']) && (int)$_POST['floor_id'] > 0){
+				$unit_id = '';
+				$result = mysqli_query($link,"SELECT * from tbl_add_unit where floor_id = '" . (int)$_POST['floor_id'] . "' and status = 0 order by unit_id asc");
 				while($rows = mysqli_fetch_array($result)){
-					$html .= '<option value="'.$rows['uid'].'">'.$rows['unit_no'] . '</option>';
+					$html .= '<option value="'.$rows['uid'].'">'.$rows['unit_id'] . '</option>';
 				}
 				echo $html;
 				die();
@@ -18,11 +18,11 @@
 		}
 		else if(isset($_POST['token']) && $_POST['token'] == 'getbookedunit'){
 			$html = '<option value="">--Select Unit--</option>';
-			if(isset($_POST['floor_no']) && (int)$_POST['floor_no'] > 0){
-				$unit_no = '';
-				$result = mysqli_query($link,"SELECT * from tbl_add_unit where floor_no = '" . (int)$_POST['floor_no'] . "' and status = 1 order by unit_no asc");
+			if(isset($_POST['floor_id']) && (int)$_POST['floor_id'] > 0){
+				$unit_id = '';
+				$result = mysqli_query($link,"SELECT * from tbl_add_unit where floor_id = '" . (int)$_POST['floor_id'] . "' and status = 1 order by unit_id asc");
 				while($rows = mysqli_fetch_array($result)){
-					$html .= '<option value="'.$rows['uid'].'">'.$rows['unit_no'] . '</option>';
+					$html .= '<option value="'.$rows['uid'].'">'.$rows['unit_id'] . '</option>';
 				}
 				echo $html;
 				die();
@@ -32,11 +32,11 @@
 		}
 		else if(isset($_POST['token']) && $_POST['token'] == 'getunitinforeport'){
 			$html = '<option value="">--Select Unit--</option>';
-			if(isset($_POST['floor_no']) && (int)$_POST['floor_no'] > 0){
-				$unit_no = '';
-				$result = mysqli_query($link,"SELECT * from tbl_add_unit where floor_no = '" . (int)$_POST['floor_no'] . "' order by unit_no asc");
+			if(isset($_POST['floor_id']) && (int)$_POST['floor_id'] > 0){
+				$unit_id = '';
+				$result = mysqli_query($link,"SELECT * from tbl_add_unit where floor_id = '" . (int)$_POST['floor_id'] . "' order by unit_id asc");
 				while($rows = mysqli_fetch_array($result)){
-					$html .= '<option value="'.$rows['uid'].'">'.$rows['unit_no'] . '</option>';
+					$html .= '<option value="'.$rows['uid'].'">'.$rows['unit_id'] . '</option>';
 				}
 				echo $html;
 				die();

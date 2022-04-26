@@ -47,7 +47,7 @@ if(isset($_GET['mid'])){
               <?php 
 			  $result_floor = mysqli_query($link,"SELECT * FROM tbl_add_floor order by fid ASC");
 					while($row_floor = mysqli_fetch_array($result_floor)){?>
-              <option <?php if($floor_id == $row_floor['fid']){echo 'selected';}?> value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_no'];?></option>
+              <option <?php if($floor_id == $row_floor['fid']){echo 'selected';}?> value="<?php echo $row_floor['fid'];?>"><?php echo $row_floor['floor_id'];?></option>
               <?php } ?>
             </select>
           </div>
@@ -58,7 +58,7 @@ if(isset($_GET['mid'])){
               <?php 
 			  $result_unit = mysqli_query($link,"SELECT * FROM tbl_add_unit order by uid ASC");
 					while($row_unit = mysqli_fetch_array($result_unit)){?>
-              <option <?php if($unit_id == $row_unit['uid']){echo 'selected';}?> value="<?php echo $row_unit['uid'];?>"><?php echo $row_unit['unit_no'];?></option>
+              <option <?php if($unit_id == $row_unit['uid']){echo 'selected';}?> value="<?php echo $row_unit['uid'];?>"><?php echo $row_unit['unit_id'];?></option>
               <?php } ?>
             </select>
           </div>

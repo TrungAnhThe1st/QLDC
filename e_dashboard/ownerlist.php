@@ -71,9 +71,9 @@ $msg = "";
               <td><?php echo $row['o_pre_address']; ?></td>
               <td><?php
 				 $i=1;
-				 $result_sp = mysqli_query($link,"Select u.unit_no from tbl_add_owner_unit_relation owr inner join tbl_add_unit u on owr.unit_id = u.uid where owr.owner_id = '". $row['ownid'] . "' order by u.unit_no ASC");
+				 $result_sp = mysqli_query($link,"Select u.unit_id from tbl_add_owner_unit_relation owr inner join tbl_add_unit u on owr.unit_id = u.uid where owr.owner_id = '". $row['ownid'] . "' order by u.unit_id ASC");
 				while($row_sp = mysqli_fetch_array($result_sp)){
-					echo '<div align="left">' . $i . ') ' .$row_sp['unit_no'].'</div>';
+					echo '<div align="left">' . $i . ') ' .$row_sp['unit_id'].'</div>';
 					$i++;
 				}
 		  	  ?>
@@ -104,9 +104,9 @@ $msg = "";
                           <div class="col-xs-6"> <b><?php echo $_data['add_new_form_field_text_8'];?> :</b>
                             <?php
 								 $i=1;
-								 $result_sp = mysqli_query($link,"Select u.unit_no from tbl_add_owner_unit_relation owr inner join tbl_add_unit u on owr.unit_id = u.uid where owr.owner_id = '". $row['ownid'] . "' order by u.unit_no ASC");
+								 $result_sp = mysqli_query($link,"Select u.unit_id from tbl_add_owner_unit_relation owr inner join tbl_add_unit u on owr.unit_id = u.uid where owr.owner_id = '". $row['ownid'] . "' order by u.unit_id ASC");
 								while($row_sp = mysqli_fetch_array($result_sp)){
-									echo '<div align="left">' . $i . ') ' .$row_sp['unit_no'].'</div>';
+									echo '<div align="left">' . $i . ') ' .$row_sp['unit_id'].'</div>';
 									$i++;
 								}
 							  ?>

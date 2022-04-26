@@ -45,7 +45,7 @@ if(!isset($_SESSION['objLogin'])){
           </thead>
           <tbody>
 			<?php	
-				$result = mysqli_query($link,"Select *,our.unit_id,fl.floor_no as fl_floor_no,u.unit_no as u_unit_no from tbl_add_rent r inner join tbl_add_owner_unit_relation our on r.r_unit_id = our.unit_id inner join tbl_add_floor fl on fl.fid = r.r_floor_id inner join tbl_add_unit u on u.uid = r.r_unit_id where our.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' order by r.rid desc");
+				$result = mysqli_query($link,"Select *,our.unit_id,fl.floor_id as fl_floor_id,u.unit_id as u_unit_id from tbl_add_rent r inner join tbl_add_owner_unit_relation our on r.r_unit_id = our.unit_id inner join tbl_add_floor fl on fl.fid = r.r_floor_id inner join tbl_add_unit u on u.uid = r.r_unit_id where our.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' order by r.rid desc");
 				while($row = mysqli_fetch_array($result)){
 					$image = WEB_URL . 'img/no_image.jpg';	
 			if(file_exists(ROOT_PATH . '/img/upload/' . $row['image']) && $row['image'] != ''){
@@ -58,8 +58,8 @@ if(!isset($_SESSION['objLogin'])){
             <td><?php echo $row['r_email']; ?></td>
             <td><?php echo $row['r_contact']; ?></td>
 			<td><?php echo $row['r_address']; ?></td>
-            <td><?php echo $row['fl_floor_no']; ?></td>
-            <td><?php echo $row['u_unit_no']; ?></td>
+            <td><?php echo $row['fl_floor_id']; ?></td>
+            <td><?php echo $row['u_unit_id']; ?></td>
             <td><?php echo $ams_helper->currency($localization, $row['r_advance']); ?></td>
             <td><?php echo $row['r_date']; ?></td>
             <td>
@@ -83,8 +83,8 @@ if(!isset($_SESSION['objLogin'])){
                         <b><?php echo $_data['text_3'];?> :</b> <?php echo $row['r_email']; ?><br/>
                         <b><?php echo $_data['text_4'];?> :</b> <?php echo $row['r_contact']; ?><br/>
                         <b><?php echo $_data['text_5'];?> :</b> <?php echo $row['r_address']; ?><br/></div>
-                        <div class="col-xs-6"><b><?php echo $_data['text_6'];?> :</b> <?php echo $row['fl_floor_no']; ?><br/>
-                        <b><?php echo $_data['text_7'];?> :</b> <?php echo $row['u_unit_no']; ?><br/>
+                        <div class="col-xs-6"><b><?php echo $_data['text_6'];?> :</b> <?php echo $row['fl_floor_id']; ?><br/>
+                        <b><?php echo $_data['text_7'];?> :</b> <?php echo $row['u_unit_id']; ?><br/>
                         <b><?php echo $_data['text_8'];?> : </b> <?php echo $ams_helper->currency($localization, $row['r_advance']); ?><br/>
 						<b><?php echo $_data['text_10'];?> : </b> <?php echo $ams_helper->currency($localization, $row['r_rent_pm']); ?><br/>
                         <b><?php echo $_data['text_9'];?> : </b> <?php echo $row['r_date']; ?><br/>
