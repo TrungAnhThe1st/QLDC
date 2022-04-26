@@ -11,6 +11,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
     $email = $_POST['email'];
 
+    
     header("Content-Type: application/json");
 
     http_response_code(200);
