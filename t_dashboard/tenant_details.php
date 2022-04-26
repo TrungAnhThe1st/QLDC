@@ -42,7 +42,12 @@ if(!isset($_SESSION['objLogin'])){
           </thead>
           <tbody>
         	<?php
-				$result = mysqli_query($link,"Select *,fl.floor_id as fl_floor,u.unit_id as u_unit,r.r_name,m.month_name from tbl_add_fair f inner join tbl_add_floor fl on fl.fid = f.floor_id inner join tbl_add_unit u on u.uid = f.unit_id inner join tbl_add_rent r on r.r_unit_id = f.unit_id inner join tbl_add_month_setup m on m.m_id = f.month_id where f.unit_id = ".(int)$_SESSION['objLogin']['r_unit_id']." and f.branch_id = ".(int)$_SESSION['objLogin']['branch_id']." order by f.month_id ASC");
+				$result = mysqli_query($link,"Select *,fl.floor_no as fl_floor,u.unit_no as u_unit,r.r_name,m.month_name, u.rent_pm from tbl_add_fair f 
+        inner join tbl_add_floor fl on fl.fid = f.floor_no 
+        inner join tbl_add_unit u on u.uid = f.unit_no 
+        inner join tbl_add_rent r on r.r_unit_no = f.unit_no 
+        inner join tbl_add_month_setup m on m.m_id = f.month_id 
+        where f.unit_no = ".(int)$_SESSION['objLogin']['r_unit_no']." and f.branch_id = ".(int)$_SESSION['objLogin']['branch_id']." order by f.month_id ASC");
 				while($row = mysqli_fetch_assoc($result)){
 					$image = WEB_URL . 'img/no_image.jpg';	
 			if(file_exists(ROOT_PATH . '/img/upload/' . $_SESSION['objLogin']['image']) && $_SESSION['objLogin']['image'] != ''){
@@ -51,7 +56,7 @@ if(!isset($_SESSION['objLogin'])){
 			?>
             <tr>
             <td><?php echo $row['month_name']; ?>, <?php echo $row['xyear']; ?></td>
-			<td><?php echo $ams_helper->currency($localization, $_SESSION['objLogin']['r_rent_pm']); ?></td>
+			<td><?php echo $ams_helper->currency($localization, $_SESSION['objLogin']['rent_pm']); ?></td>
 			<td><?php echo $ams_helper->currency($localization, $row['total_rent']); ?></td>
             <td><?php echo $row['issue_date']; ?></td>
 			<td><?php echo ($row['bill_status']=='1') ? '<label class="label label-success">'.$_data['text_21'].'</label>' : '<label class="label label-danger">'.$_data['text_22'].'</label>'; ?></td>

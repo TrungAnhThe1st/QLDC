@@ -6,12 +6,12 @@
 $_data['unit_list_title'] 						= "Unit List";
 $_data['add_new_unit_information_breadcam'] 	= "Unit Information";
 $_data['delete_unit_information'] 				= "Deleted Unit Information Successfully.";
-$_data['floor_id'] 								= "Floor No";
-$_data['unit_id'] 								= "Unit No";
+$_data['floor_no'] 								= "Floor No";
+$_data['rent_pm'] = "Rent per month";
+$_data['unit_no'] 								= "Unit No";
 $_data['unit_details']							= "Unit Details";
 $_data['add_unit']								= "Add Unit";
 $_data['add_unit_successfully'] 				= "Added Unit Information Successfully";
 $_data['update_unit_successfully'] 				= "Updated Unit Information Successfully";
 $_data['details_info'] 							= "Details Infromation";
 $_data['confirm'] 								= "Are you sure you want to delete this Unit ?";
-?>
