@@ -8,6 +8,7 @@ $_data['update_unit'] 								= "Update Unit";
 $_data['add_new_unit_entry_form'] 					= "Unit Entry Form";
 $_data['add_new_form_field_text_1'] 				= "Floor No";
 $_data['add_new_form_field_text_2'] 				= "Unit No";
+$_data['add_new_form_field_text_3'] 				= "Rent per month";
 $_data['add_new_unit_information_breadcam'] 		= "Unit Information";
 $_data['add_new_unit_breadcam'] 					= "Add Unit";
 $_data['select_floor'] 								= "Select Floor";

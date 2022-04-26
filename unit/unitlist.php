@@ -58,16 +58,20 @@ if(isset($_GET['m']) && $_GET['m'] == 'up'){
             <tr>
               <th><?php echo $_data['floor_no'];?></th>
               <th><?php echo $_data['unit_no'];?></th>
+              <th><?php echo $_data['rent_pm'];?></th>
               <th><?php echo $_data['action_text'];?></th>
             </tr>
           </thead>
           <tbody>
             <?php
-				$result = mysqli_query($link,"Select f.floor_no,u.unit_no,u.uid from tbl_add_unit u inner join tbl_add_floor f on f.fid = u.floor_no where u.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by u.uid ASC");
+				$result = mysqli_query($link,"Select f.floor_no,u.unit_no,u.uid, u.rent_pm from tbl_add_unit u 
+        inner join tbl_add_floor f on f.fid = u.floor_no 
+        where u.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by u.uid ASC");
 				while($row = mysqli_fetch_array($result)){?>
             <tr>
               <td><?php echo $row['floor_no']; ?></td>
               <td><?php echo $row['unit_no']; ?></td>
+              <td><?php echo $row['rent_pm']; ?></td>
               <td><a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL;?>unit/addunit.php?id=<?php echo $row['uid']; ?>" data-original-title="<?php echo $_data['edit_text'];?>"><i class="fa fa-pencil"></i></a> <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onclick="deleteUnit(<?php echo $row['uid']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text'];?>"><i class="fa fa-trash-o"></i></a></td>
             </tr>
             <?php } mysqli_close($link);$link = NULL; ?>
