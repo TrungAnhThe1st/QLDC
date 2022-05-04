@@ -10,7 +10,7 @@ if (isset($_SESSION['login_type']) && ((int)$_SESSION['login_type'] != 5)) {
   die();
 }
 //$lang_code_current = "English";
-$lang_code = "English";
+$lang_code = "Vietnam";
 $currency = '';
 $currency_seperator = '';
 $currency_position = '';

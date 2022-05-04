@@ -108,7 +108,7 @@ function uploadLanguageFile()
       $zip->extractTo(ROOT_PATH . '/language/');
       $zip->close();
     }
-    unlink(ROOT_PATH . '/language/'.$filename);
+    // unlink(ROOT_PATH . '/language/'.$filename);
   }
 }
 ?>
