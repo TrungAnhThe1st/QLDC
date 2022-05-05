@@ -190,7 +190,7 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_index.php');
               <select name="ddlLoginType" onChange="mewhat(this.value);" id="ddlLoginType" class="form-control">
                 <option value="">--<?php echo $_data['select_type']; ?>--</option>
                 <option value="1"><?php echo $_data['user_1']; ?></option>
-                <option value="2"><?php echo $_data['user_2']; ?></option>
+                <!-- <option value="2"><?php echo $_data['user_2']; ?></option> -->
                 <option value="3"><?php echo $_data['user_3']; ?></option>
                 <option value="4"><?php echo $_data['user_4']; ?></option>
                 <option value="5"><?php echo $_data['user_5']; ?></option>
@@ -206,7 +206,7 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_index.php');
               <?php } ?>
             </select>
             </div>
-			<div class="form-group input-group"> <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+			<!-- <div class="form-group input-group"> <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
               <select name="ddlLanguage" id="ddlLanguage" class="form-control">
                 <option value="">--<?php echo $_data['select_language']; ?>--</option>
                 <?php
@@ -224,7 +224,7 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_index.php');
 				}
 				?>
               </select>
-            </div>
+            </div> -->
             <div class="form-group">
               <label class="checkbox-inline"> </label>
               <span class="pull-right"> <a href="<?php echo WEB_URL;?>forgetpassword.php" ><?php echo $_data['forgot_password'];?> </a> </span> </div>

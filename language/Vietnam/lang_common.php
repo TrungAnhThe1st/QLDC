@@ -45,24 +45,24 @@ $_data['database_clear_msg']				= "Xóa thông tin thành công.";
 
 
 //profile
-$_data['user_lang_switch']					= "Switch Language";
-$_data['user_profile']						= "Profile";
-$_data['user_logout']						= "Sign out";
-$_data['user_lang_switcher']				= "LANGUAGE SWITCHER";
-$_data['user_branch_switcher']				= "Switch Building";
-$_data['available_rooms']					= "Available Rooms List";
-$_data['available_rooms_floor']				= "Floor Name";
-$_data['available_rooms_unit']				= "Unit Name";
-$_data['app_version']						= "Version";
+$_data['user_lang_switch']					= "Đổi ngôn ngữ";
+$_data['user_profile']						= "Hồ sơ";
+$_data['user_logout']						= "Đăng xuất";
+$_data['user_lang_switcher']				= "Đổi ngôn ngữ";
+$_data['user_branch_switcher']				= "Đổi tòa nhà";
+$_data['available_rooms']					= "Danh sách các phòng trống";
+$_data['available_rooms_floor']				= "Tên tầng";
+$_data['available_rooms_unit']				= "Tên phòng";
+$_data['app_version']						= "Phiên bản";
 $_data['app_copyright']						= "Copyright";
 
 //update profile
-$_data['profile_update_title']				= "Update Your Profile";
-$_data['profile_update_name']				= "Name";
+$_data['profile_update_title']				= "Cập nhật hồ sơ";
+$_data['profile_update_name']				= "Tên";
 $_data['profile_update_email']				= "Email";
-$_data['profile_update_contact']			= "Contact No (With Country Code)";
-$_data['profile_update_password']			= "Password";
-$_data['profile_update_button']				= "Update";
-$_data['profile_update_information']		= "After update application will be logout automatically.";
+$_data['profile_update_contact']			= "Số điện thoại";
+$_data['profile_update_password']			= "Mật khẩu";
+$_data['profile_update_button']				= "Cập nhật";
+$_data['profile_update_information']		= "Sau khi cập nhật xong sẽ tự động đăng xuất.";
 
 ?>
