@@ -286,11 +286,11 @@ function saveNotification($link, $subject, $message, $type, $users) {
                     <div>
                       <div style="border:solid 1px #d2d6de;padding:5px;width:100%;margin-top:15px;margin-bottom:10px;">
                         <input type="checkbox" class="sender_all" value="tenant" name="sender[]" />
-                        &nbsp;All Tenant &nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;Tất cả người thuê &nbsp;&nbsp;&nbsp;&nbsp;
                         <!-- <input type="checkbox" class="sender_all" value="owner" name="sender[]" />
                         &nbsp;All Owner&nbsp;&nbsp;&nbsp;&nbsp; -->
                         <input type="checkbox" class="sender_all" value="employee" name="sender[]" />
-                        &nbsp;All Employee&nbsp;&nbsp; </div>
+                        &nbsp;Tất cả nhân viên &nbsp;&nbsp; </div>
                     </div>
                   </div>
                   <div id="menu1" class="tab-pane fade" style="margin-top:15px;">
