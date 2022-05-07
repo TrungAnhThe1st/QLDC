@@ -278,7 +278,7 @@ function saveNotification($link, $subject, $message, $type, $users) {
                 <ul class="nav nav-tabs">
                   <li class="active"><a data-toggle="tab" href="#menu0"><?php echo $_data['text_4']; ?></a></li>
                   <li><a data-toggle="tab" href="#menu1"><?php echo $_data['text_5']; ?> </a></li>
-                  <li><a data-toggle="tab" href="#menu2"><?php echo $_data['text_6']; ?></a></li>
+                  <!-- <li><a data-toggle="tab" href="#menu2"><?php echo $_data['text_6']; ?></a></li> -->
                   <li><a data-toggle="tab" href="#menu3"><?php echo $_data['text_7']; ?></a></li>
                 </ul>
                 <div class="tab-content">
@@ -287,8 +287,8 @@ function saveNotification($link, $subject, $message, $type, $users) {
                       <div style="border:solid 1px #d2d6de;padding:5px;width:100%;margin-top:15px;margin-bottom:10px;">
                         <input type="checkbox" class="sender_all" value="tenant" name="sender[]" />
                         &nbsp;All Tenant &nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="checkbox" class="sender_all" value="owner" name="sender[]" />
-                        &nbsp;All Owner&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- <input type="checkbox" class="sender_all" value="owner" name="sender[]" />
+                        &nbsp;All Owner&nbsp;&nbsp;&nbsp;&nbsp; -->
                         <input type="checkbox" class="sender_all" value="employee" name="sender[]" />
                         &nbsp;All Employee&nbsp;&nbsp; </div>
                     </div>
@@ -457,6 +457,5 @@ function _remove_item(_this) {
 </script>
 <style type="text/css">
 .ui-autocomplete { z-index:2147483647; }
-}
 </style>
 <?php include('../footer.php'); ?>
