@@ -79,7 +79,7 @@ function printContent(area,title){
 				$other_per_month_sub_total = 0;
 				$total_per_month_sub_total = 0;
 				//
-				$_strSQL = "select *,r.r_name,o.o_name,fl.floor_no,u.unit_no,m.month_name,r.r_unit_no from tbl_add_fair f left join tbl_add_rent r on r.rid = f.rid left join tbl_add_owner o on o.ownid = f.rid inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id inner join tbl_add_owner_unit_relation our on r.r_unit_no = our.unit_id where our.owner_id = ".(int)$_SESSION['objLogin']['ownid'];
+				$_strSQL = "select *,r.r_name,o.o_name,fl.floor_no,u.unit_no,m.month_name,r.r_unit_id from tbl_add_fair f left join tbl_add_rent r on r.rid = f.rid left join tbl_add_owner o on o.ownid = f.rid inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id inner join tbl_add_owner_unit_relation our on r.r_unit_id = our.unit_id where our.owner_id = ".(int)$_SESSION['objLogin']['ownid'];
 				if(!empty($_GET['uid'])){
 					$_strSQL .= " AND f.unit_no='".$_GET['uid']."'";
 				}

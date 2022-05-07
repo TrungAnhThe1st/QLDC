@@ -16,7 +16,7 @@ if($row_amount_total = mysqli_fetch_array($result_amount)){
 
 //
 $total_renter = 0; //default
-$result_renter = mysqli_query($link,"Select count(r.rid) as total FROM tbl_add_rent r inner join tbl_add_floor f on f.fid = r.r_floor_no inner join tbl_add_unit u on u.uid = r.r_unit_no WHERE r.branch_id =".(int)$_SESSION['objLogin']['branch_id']." order by r.r_unit_no asc");
+$result_renter = mysqli_query($link,"Select count(r.rid) as total FROM tbl_add_rent r inner join tbl_add_floor f on f.fid = r.r_floor_id inner join tbl_add_unit u on u.uid = r.r_unit_id WHERE r.branch_id =".(int)$_SESSION['objLogin']['branch_id']." order by r.r_unit_id asc");
 if($row_renter = mysqli_fetch_array($result_renter)){
 	$total_renter = $row_renter['total'];
 }

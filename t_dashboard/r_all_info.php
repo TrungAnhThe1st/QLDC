@@ -80,7 +80,7 @@ function printContent(area,title){
 				$other_per_month_sub_total = 0;
 				$total_per_month_sub_total = 0;
 				//
-				$strQuery = "select *,r.r_name,o.o_name,fl.floor_no,u.unit_no,m.month_name,r.r_unit_no from tbl_add_fair f left join tbl_add_rent r on r.rid = f.rid left join tbl_add_owner o on o.ownid = f.rid inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id where r.rid = '". (int)$_SESSION['objLogin']['rid'] . "'";
+				$strQuery = "select *,r.r_name,o.o_name,fl.floor_no,u.unit_no,m.month_name,r.r_unit_id from tbl_add_fair f left join tbl_add_rent r on r.rid = f.rid left join tbl_add_owner o on o.ownid = f.rid inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id where r.rid = '". (int)$_SESSION['objLogin']['rid'] . "'";
 				if(!empty($_GET['mid'])){
 					$strQuery .= " and f.month_id='".$_GET['mid']."'";
 				}

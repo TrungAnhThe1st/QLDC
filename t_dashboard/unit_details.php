@@ -26,9 +26,9 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_common.php');
       <!-- /.box-header -->
       <div class="box-body">
         <?php
-		$result = mysqli_query($link,"Select u.rent_pm, f.floor_no,u.unit_no,u.uid,r.r_name,r.r_email,r.r_contact,r.r_address,r.r_nid,r.r_floor_no,r.r_unit_no,r.r_advance,r.r_rent_pm,r.r_date,r.image as r_image from tbl_add_unit u 
+		$result = mysqli_query($link,"Select u.rent_pm, f.floor_no,u.unit_no,u.uid,r.r_name,r.r_email,r.r_contact,r.r_address,r.r_nid,r.r_floor_id,r.r_unit_id,r.r_advance,r.r_rent_pm,r.r_date,r.image as r_image from tbl_add_unit u 
     inner join tbl_add_floor f on f.fid = u.floor_no 
-    inner join tbl_add_rent r on r.r_unit_no = u.uid 
+    inner join tbl_add_rent r on r.r_unit_id = u.uid 
     where r.rid = '". (int)$_SESSION['objLogin']['rid'] . "' order by u.uid desc");
 				if($row = mysqli_fetch_array($result)){
 					$image = WEB_URL . 'img/no_image.jpg';	
