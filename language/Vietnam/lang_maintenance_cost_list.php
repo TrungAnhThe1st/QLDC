@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['m_cost'] 						= "Phí bảo trì";
 $_data['m_cost_details'] 				= "Chi tiết phí bảo trì";

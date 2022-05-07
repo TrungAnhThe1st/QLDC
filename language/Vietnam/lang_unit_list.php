@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['unit_list_title'] 						= "Danh sách phòng";
 $_data['add_new_unit_information_breadcam'] 	= "Thông tin phòng";

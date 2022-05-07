@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Báo cáo danh sách chi phí";
 $_data['text_22'] 		= "#Hóa đơn";

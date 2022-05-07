@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['add_new_fund'] 						= "Thêm mới quỹ";
 $_data['fund'] 								= "Quỹ";

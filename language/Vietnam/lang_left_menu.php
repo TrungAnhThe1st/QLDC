@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['menu_dashboard'] 					= "Bảng điều khiển";
 $_data['menu_floor'] 						= "Thông tin tầng";

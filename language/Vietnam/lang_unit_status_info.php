@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Báo cáo trạng thái phòng";
 $_data['text_2'] 		= "Tầng số";

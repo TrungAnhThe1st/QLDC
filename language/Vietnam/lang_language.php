@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Thiết lập hệ thống";
 $_data['text_222'] 		= "Tiền tệ";

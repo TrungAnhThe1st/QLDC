@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['add_new_employee'] 							= "Thêm mới nhân viên";
 $_data['update_employee'] 							= "Cập nhật nhân viên";

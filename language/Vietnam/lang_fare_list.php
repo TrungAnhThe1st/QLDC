@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['rent_list'] 								= "Danh sách cho thuê";
 $_data['fare_details'] 								= "Chi tiết cho thuê";

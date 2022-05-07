@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['dashboard_title'] 					= "Bảng điều khiển";
 $_data['dashboard_more_info'] 				= "Xem thêm";

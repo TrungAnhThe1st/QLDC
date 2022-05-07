@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['add_new_unit'] 								= "Thêm mới phòng";
 $_data['update_unit'] 								= "Cập nhật phòng";

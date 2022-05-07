@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['add_new_m_committee'] 						= "Thêm mới ủy ban quản lý";
 $_data['m_committee'] 								= "Ủy ban quản lý";

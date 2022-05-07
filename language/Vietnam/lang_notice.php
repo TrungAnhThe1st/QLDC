@@ -2,7 +2,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 			= "Bảng thông báo người thuê nhà";
 $_data['text_12'] 			= "Bảng thông báo nhân viên";
