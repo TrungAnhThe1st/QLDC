@@ -59,7 +59,10 @@ if(isset($_POST['username']) && $_POST['username'] != '' && isset($_POST['passwo
 	}
 	//renter
 	if($_POST['ddlLoginType'] == '4'){
-		$sql = mysqli_query($link, "SELECT *,b.* FROM tbl_add_rent ad left join tblbranch b on b.branch_id = ad.branch_id WHERE ad.r_email = '".$user_name."' and ad.r_password = '".$password."'");
+		$sql = mysqli_query($link, "SELECT *,b.*, u.rent_pm FROM tbl_add_rent ad 
+		inner join tbl_add_unit u on u.uid = ad.r_unit_no 
+		left join tblbranch b on b.branch_id = ad.branch_id 
+		WHERE ad.r_email = '".$user_name."' and ad.r_password = '".$password."'");
 	}
 	//super admin
 	if($_POST['ddlLoginType'] == '5'){

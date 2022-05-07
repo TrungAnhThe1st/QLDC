@@ -35,7 +35,8 @@ if(isset($_POST['txtRName'])){
 	if(isset($_POST['hdn']) && $_POST['hdn'] == '0'){
 		$r_password = $converter->encode($_POST['txtPassword']);
 		$image_url = uploadImage();
-		$sql = "INSERT INTO tbl_add_rent(r_name,r_email,r_contact,r_address,r_nid,r_floor_no,r_unit_no,r_advance,r_rent_pm,r_date,r_month,r_year,r_password,r_status,image,branch_id) values('$_POST[txtRName]','$_POST[txtREmail]','$_POST[txtRContact]','$_POST[txtRAddress]','$_POST[txtRentedNID]','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[txtRAdvance]','$_POST[txtRentPerMonth]','$_POST[txtRDate]','$_POST[ddlMonth]','$_POST[ddlYear]','$r_password','$_POST[chkRStaus]','$image_url','" . $_SESSION['objLogin']['branch_id'] . "')";
+		$sql = "INSERT INTO tbl_add_rent(r_name,r_email,r_contact,r_address,r_nid,r_floor_no,r_unit_no,r_advance,r_rent_pm,r_date,r_month,r_year,r_password,r_status,image,branch_id) 
+		values('$_POST[txtRName]','$_POST[txtREmail]','$_POST[txtRContact]','$_POST[txtRAddress]','$_POST[txtRentedNID]','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[txtRAdvance]','" . (isset($_POST["txtRentPerMonth"]) ? $_POST["txtRentPerMonth"] : 0.00 ) . "','$_POST[txtRDate]','$_POST[ddlMonth]','$_POST[ddlYear]','$r_password','$_POST[chkRStaus]','$image_url','" . $_SESSION['objLogin']['branch_id'] . "')";
 		mysqli_query($link,$sql);
 		//update unit status
 		$sqlx = "UPDATE `tbl_add_unit` set status = 1 where floor_no = '".(int)$_POST['ddlFloorNo']."' and uid = '".(int)$_POST['ddlUnitNo']."'";
@@ -51,7 +52,8 @@ if(isset($_POST['txtRName'])){
 		if($image_url == ''){
 			$image_url = $_POST['img_exist'];
 		}
-		$sql = "UPDATE `tbl_add_rent` SET `r_name`='".$_POST['txtRName']."',`r_email`='".$_POST['txtREmail']."',`r_password`='".$converter->encode($_POST['txtPassword'])."',`r_contact`='".$_POST['txtRContact']."',`r_address`='".$_POST['txtRAddress']."',`r_nid`='".$_POST['txtRentedNID']."',`r_floor_no`='".$_POST['ddlFloorNo']."',`r_unit_no`='".$_POST['ddlUnitNo']."',`r_advance`='".$_POST['txtRAdvance']."',`r_rent_pm`='".$_POST['txtRentPerMonth']."',`r_date`='".$_POST['txtRDate']."',`r_month`='".$_POST['ddlMonth']."',`r_year`='".$_POST['ddlYear']."',`r_status`='".$_POST['chkRStaus']."',`image`='".$image_url."' WHERE rid='".$_GET['id']."'";
+		$sql = "UPDATE `tbl_add_rent` 
+		SET `r_name`='".$_POST['txtRName']."',`r_email`='".$_POST['txtREmail']."',`r_password`='".$converter->encode($_POST['txtPassword'])."',`r_contact`='".$_POST['txtRContact']."',`r_address`='".$_POST['txtRAddress']."',`r_nid`='".$_POST['txtRentedNID']."',`r_floor_no`='".$_POST['ddlFloorNo']."',`r_unit_no`='".$_POST['ddlUnitNo']."',`r_advance`='".$_POST['txtRAdvance']."',`r_rent_pm`='" . (isset($_POST['txtRentPerMonth']) ? $_POST['txtRentPerMonth'] : 0.00) . "',`r_date`='".$_POST['txtRDate']."',`r_month`='".$_POST['ddlMonth']."',`r_year`='".$_POST['ddlYear']."',`r_status`='".$_POST['chkRStaus']."',`image`='".$image_url."' WHERE rid='".$_GET['id']."'";
 		mysqli_query($link,$sql);
 		//update unit status
 		$sqlx = "UPDATE `tbl_add_unit` set status = 0 where floor_no = '".(int)$_POST['hdnFloor']."' and uid = '".(int)$_POST['hdnUnit']."'";
@@ -201,13 +203,13 @@ function NewGuid() {
               <div class="input-group-addon"> <?php echo CURRENCY;?> </div>
             </div>
           </div>
-          <div class="form-group col-md-6">
+          <!-- <div class="form-group col-md-6">
             <label for="txtRentPerMonth"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_10'];?> :</label>
             <div class="input-group">
               <input type="text" name="txtRentPerMonth" value="<?php echo $r_rent_pm;?>" id="txtRentPerMonth" class="form-control" />
               <div class="input-group-addon"> <?php echo CURRENCY;?> </div>
             </div>
-          </div>
+          </div> -->
           <div class="form-group col-md-6">
             <label for="txtRDate"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_11'];?> :</label>
             <input type="text" name="txtRDate" value="<?php echo $r_date;?>" id="txtRDate" class="form-control datepicker"/>

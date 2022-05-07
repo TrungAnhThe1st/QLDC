@@ -41,7 +41,10 @@ if(!isset($_SESSION['objLogin'])){
           </thead>
           <tbody>
         <?php
-				$result = mysqli_query($link,"Select *,f.floor_no as ffloor,u.unit_no from tbl_add_rent r inner join tbl_add_floor f on f.fid = r.r_floor_no inner join tbl_add_unit u on u.uid = r.r_unit_no where r.r_status = '1' and branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "' order by r.rid desc");
+				$result = mysqli_query($link,"Select *,f.floor_no as ffloor,u.unit_no, u.rent_pm from tbl_add_rent r 
+        inner join tbl_add_floor f on f.fid = r.r_floor_no 
+        inner join tbl_add_unit u on u.uid = r.r_unit_no 
+        where r.r_status = '1' and branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "' order by r.rid desc");
 				while($row = mysqli_fetch_array($result)){
 					$image = WEB_URL . 'img/no_image.jpg';	
 					if(file_exists(ROOT_PATH . '/img/upload/' . $row['image']) && $row['image'] != ''){
@@ -60,9 +63,9 @@ if(!isset($_SESSION['objLogin'])){
             <td><?php echo $row['r_advance'].$global_currency; ?></h3>
             <?php } ?>
             <?php if($currency_position == 'left') { ?>
-            <td><?php echo $global_currency.$row['r_rent_pm']; ?></td>
+            <td><?php echo $global_currency.$row['rent_pm']; ?></td>
             <?php } else { ?>
-            <td><?php echo $row['r_rent_pm'].$global_currency; ?></h3>
+            <td><?php echo $row['rent_pm'].$global_currency; ?></h3>
             <?php } ?>
             <td><?php if($row['r_status'] == '1'){echo 'Active';} else{echo 'Expired';}?>
             <td>
@@ -90,7 +93,7 @@ if(!isset($_SESSION['objLogin'])){
                         <b>Floor No :</b> <?php echo $row['ffloor']; ?><br/>
                         <b>Unit No :</b> <?php echo $row['unit_no']; ?><br/>
                         <b>Advance Rent :</b> <?php if($currency_position == 'left') {echo $global_currency.$row['r_advance'];}else { echo $row['r_advance'].$global_currency;}?><br/>
-                        <b>Rent Per Month :</b> <?php if($currency_position == 'left') {echo $global_currency.$row['r_rent_pm'];}else { echo $row['r_rent_pm'].$global_currency;}?><br/>
+                        <b>Rent Per Month :</b> <?php if($currency_position == 'left') {echo $global_currency.$row['rent_pm'];}else { echo $row['rent_pm'].$global_currency;}?><br/>
                         <b>Rent Start Date :</b> <?php echo $row['r_date']; ?><br/>
                         <b>Status :</b> <?php if($row['r_status'] == '1'){echo 'Active';} else{echo 'Expired';}?><br/>
                       </div>
