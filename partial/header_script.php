@@ -23,7 +23,6 @@
 <script src="<?php echo WEB_URL; ?>assets/plugins/toaster/jquery.toaster.js"></script>
 <script src="<?php echo WEB_URL; ?>assets/plugins/chartjs/Chart.min.js" type="text/javascript"></script>
 <script src="<?php echo WEB_URL; ?>assets/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
-<script src="<?php echo WEB_URL; ?>assets/js/siteperformance.js" type="text/javascript"></script>
 <link href="//fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
 <link href="<?php echo WEB_URL; ?>assets/fonts/gfont/css.css" rel="stylesheet">
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

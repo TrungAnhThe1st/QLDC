@@ -152,7 +152,7 @@ if($row = mysqli_fetch_array($result)){
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1><?php echo $building_name . ' ' .$_data['dashboard_title']; ?></h1>
+  <h1><?php echo $building_name; ?></h1>
   <ol class="breadcrumb">
     <li><a href="<?php echo WEB_URL; ?>dashboard.php"><i class="fa fa-dashboard"></i> <?php echo $_data['home_breadcam']; ?></a></li>
     <li class="active"><?php echo $_data['home_breadcam']; ?></li>

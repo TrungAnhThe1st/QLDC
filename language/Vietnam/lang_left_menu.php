@@ -73,11 +73,11 @@ $_data['menu_add_branch'] 					= "Thêm tòa nhà";
 $_data['menu_branch_list'] 					= "Danh sách tòa nhà";
 $_data['menu_admin_setup'] 					= "Thiết lập Admin";
 $_data['branch'] 							= "Tòa nhà";
-$_data['notice_board'] 						= "Bảng ghi chú";
-$_data['email_sms'] 						= "Email / SMS Alert";
-$_data['notice_board_1'] 					= "Bảng ghi chú người thuê nhà";
-$_data['notice_board_2'] 					= "Bảng ghi chú nhân viên";
-$_data['notice_board_3'] 					= "Bảng ghi chú chủ sở hữu";
+$_data['notice_board'] 						= "Bảng thông báo";
+$_data['email_sms'] 						= "Thông báo Email / SMS";
+$_data['notice_board_1'] 					= "Bảng thông báo cho người thuê";
+$_data['notice_board_2'] 					= "Bảng thông báo cho nhân viên";
+$_data['notice_board_3'] 					= "Bảng thông báo cho chủ sở hữu";
 $_data['add_branch'] 						= "Thêm tòa nhà";
 $_data['branch_list'] 						= "Danh sách tòa nhà";
 
