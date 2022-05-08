@@ -2,8 +2,10 @@
 <!-- /.content-wrapper -->
 
 <footer class="main-footer">
-  <div class="pull-right hidden-xs"> <b>Version</b> 3.0 </div>
-  <strong>Copyright &copy; 2014-<?php echo date('Y');?> <a target="_blank" href="http://sakosys.com">sakosys.com</a></strong> </footer>
+    <p>Quản lý chung cư. 
+      v1.0
+    </p>
+</footer>
 <!-- /.control-sidebar -->
 <div class='control-sidebar-bg'></div>
 </div>
@@ -30,4 +32,6 @@
 <script src="<?php echo WEB_URL; ?>assets/dist/js/dataTables.tableTools.min.js" type="text/javascript"></script>
 <script src="<?php echo WEB_URL; ?>assets/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
 <input type="hidden" id="web_url" value="<?php echo WEB_URL; ?>" />
-</body></html>
+</body>
+
+</html>

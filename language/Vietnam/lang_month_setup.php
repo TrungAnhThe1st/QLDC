@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Thiết lập tháng";
 $_data['text_2'] 		= "Mẫu điền thông tin tháng";

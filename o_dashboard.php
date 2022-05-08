@@ -24,7 +24,7 @@ if($row_unit_total = mysqli_fetch_array($result_unit)){
 }
 
 //my rented
-$result_rented = mysqli_query($link,"SELECT count(r.rid) as total_rent FROM tbl_add_owner_unit_relation ur inner join tbl_add_rent r on r.r_unit_no = ur.unit_id where ur.owner_id =".(int)$_SESSION['objLogin']['ownid']);
+$result_rented = mysqli_query($link,"SELECT count(r.rid) as total_rent FROM tbl_add_owner_unit_relation ur inner join tbl_add_rent r on r.r_unit_id = ur.unit_id where ur.owner_id =".(int)$_SESSION['objLogin']['ownid']);
 if($row_rented_total = mysqli_fetch_array($result_rented)){
 	$total_rented = $row_rented_total['total_rent'];
 }

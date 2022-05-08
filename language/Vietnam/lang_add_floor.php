@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['add_new_floor_top_title'] 					= "Thêm mới tầng";
 $_data['update_floor_top_title'] 					= "Cập nhật mới tầng";

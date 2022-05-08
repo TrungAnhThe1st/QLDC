@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['dashboard_title'] 					= "Bảng điều khiển";
 $_data['dashboard_more_info'] 				= "Xem thêm";
@@ -31,7 +31,7 @@ $_data['text_7'] 							= "Số lần bảo trì";
 $_data['text_8'] 							= "Tổng số quỹ";
 $_data['owner_dashboard'] 					= "Chủ sở hữu bảng điều khiển";
 $_data['control_panel'] 					= "Bảng điều khiển";
-$_data['graph_text_1']						= "Biểu đồ hóa đơn tiền gửi hàng tháng trong năm";
+$_data['graph_text_1']						= "Biểu đồ hóa đơn hàng tháng trong năm";
 $_data['graph_text_2']						= "Biểu đồ tiền thuê hàng tháng của người thuê nhà trong năm";
 $_data['o_text_1'] 							= "Danh sách khiếu nại"; 
 $_data['o_text_1_1_1'] 						= "Chi tiết khiếu nại";
@@ -78,7 +78,7 @@ $_data['ee_text_14'] 						= "Ngoài giờ";
 $_data['rented_statement'] 					= "Bảng sao kê cho thuê";
 $_data['rented_report'] 					= "Báo cáo cho thuê";
 $_data['infomation'] 						= "Bộ phận hỗ trợ";
-$_data['unit_details'] 						= "Chi tiết phòng cho thuê";
+$_data['unit_details'] 						= "Chi tiết phòng";
 $_data['rented_dashboard']				 	= "Bảng điều khiển của người thuê";
 $_data['c_panel']				 			= "Bảng điều khiển";
 $_data['renter_complain']				 	= "Tổng số lời khiếu nại";
@@ -96,7 +96,7 @@ $_data['c_table_column_4']				 	= "Tháng";
 $_data['c_table_column_5']				 	= "Năm";
 $_data['c_table_column_6']				 	= "Mô tả";
 $_data['c_modal_top_header']				= "Chi tiết khiếu nại";
-$_data['c_notice_board']					= "Bảng ghi chú";
+$_data['c_notice_board']					= "Bảng thông báo";
 $_data['c_apartment_rules']					= "Nội quy và Quy chế Căn hộ";
 $_data['help_desk_1']						= "Số điện thoại của người điều hành:";
 $_data['help_desk_2']						= "Số điện thoại của thư ký:";

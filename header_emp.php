@@ -120,8 +120,8 @@ $page_name = $ams_helper->curPageUrlInfo('page');
             <!-- Menu Body -->
             <!-- Menu Footer-->
             <li class="user-footer">
-              <div class="pull-left"><a data-target="#user_profile" data-toggle="modal" class="btn btn-success btn-flat">Profile</a></div>
-              <div class="pull-right"> <a href="<?php echo WEB_URL; ?>logout.php" class="btn btn-danger btn-flat">Sign out</a> </div>
+              <div class="pull-left"><a data-target="#user_profile" data-toggle="modal" class="btn btn-success btn-flat"><?php echo $_data['user_profile'] ?></a></div>
+              <div class="pull-right"> <a href="<?php echo WEB_URL; ?>logout.php" class="btn btn-danger btn-flat"><?php echo $_data['user_logout'] ?></a> </div>
             </li>
           </ul>
         </li>
@@ -144,8 +144,8 @@ $page_name = $ams_helper->curPageUrlInfo('page');
     <ul class="sidebar-menu">
       <li class="<?php if($page_name != '' && $page_name == 'e_dashboard'){echo 'active';}?>"><a href="<?php echo WEB_URL; ?>e_dashboard.php"> <i class="fa fa-line-chart"></i><span><?php echo $_data['menu_dashboard'];?></span></a> </li>
        <li class="<?php if($page_name != '' && $page_name == 'rented_details'){echo 'active';}?>"><a href="<?php echo WEB_URL; ?>e_dashboard/rented_details.php"> <i class="fa fa-users"></i><span><?php echo $_data['rented_details'];?></span></a></li>
-       <li class="<?php if($page_name != '' && $page_name == 'member_details'){echo 'active';}?>"><a href="<?php echo WEB_URL; ?>e_dashboard/member_details.php"> <i class="fa fa-user-o"></i><span><?php echo $_data['member_details'];?></span></a></li>
-	   <li class="<?php if($page_name != '' && $page_name == 'ownerlist'){echo 'active';}?>"><a href="<?php echo WEB_URL; ?>e_dashboard/ownerlist.php"> <i class="fa fa-user"></i><span><?php echo $_data['owner_details'];?></span></a></li>
+       <!-- <li class="<?php if($page_name != '' && $page_name == 'member_details'){echo 'active';}?>"><a href="<?php echo WEB_URL; ?>e_dashboard/member_details.php"> <i class="fa fa-user-o"></i><span><?php echo $_data['member_details'];?></span></a></li> -->
+	   <!-- <li class="<?php if($page_name != '' && $page_name == 'ownerlist'){echo 'active';}?>"><a href="<?php echo WEB_URL; ?>e_dashboard/ownerlist.php"> <i class="fa fa-user"></i><span><?php echo $_data['owner_details'];?></span></a></li> -->
 	   <li class="<?php if($page_name != '' && $page_name == 'leave_request_list' || $page_name == 'add_leave_request'){echo 'active';}?>"><a href="<?php echo WEB_URL; ?>e_dashboard/leave_request_list.php"> <i class="fa fa-bell"></i><span><?php echo $_data['leave_request'];?></span></a></li>
 	   <li class="<?php if($page_name != '' && $page_name == 'visitorlist' || $page_name == 'addvisitor'){echo 'active';}?>"><a href="<?php echo WEB_URL; ?>e_dashboard/visitorlist.php"> <i class="fa fa-car"></i><span><?php echo $_data['e_visitor_list'];?></span></a></li>
 	   <li class="<?php if($page_name != '' && $page_name == 'complain'){echo 'active';}?>"><a href="<?php echo WEB_URL; ?>e_dashboard/complain.php"> <i class="fa fa-comments"></i><span><?php echo $_data['text_complain_job'];?></span></a></li>

@@ -1,10 +1,10 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
-$_data['application_title'] 			= "Hệ thống quản lý căn hộ SAKO";
-$_data['application_heading_1'] 		= "SAKO";
+$_data['application_title'] 			= "Hệ thống quản lý căn hộ ";
+$_data['application_heading_1'] 		= "";
 $_data['application_heading_2'] 		= "Hệ thống quản lý căn hộ";
 $_data['wrong_login_msg'] 				= "Sai email hoặc mật khẩu.";
 $_data['enter_login_details'] 			= "Nhập chi tiết thông tin đăng nhập";

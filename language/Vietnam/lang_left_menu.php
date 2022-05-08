@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['menu_dashboard'] 					= "Bảng điều khiển";
 $_data['menu_floor'] 						= "Thông tin tầng";
@@ -35,14 +35,14 @@ $_data['menu_add_member'] 					= "Thêm thành viên";
 $_data['menu_fund'] 						= "Quỹ tòa nhà";
 $_data['menu_fund_list'] 					= "Danh sách quỹ";
 $_data['menu_add_fund'] 					= "Thêm quỹ";
-$_data['menu_bill'] 						= "Hóa đơn tiền đặt cọc";
+$_data['menu_bill'] 						= "Hóa đơn";
 $_data['menu_bill_list'] 					= "Danh sách hóa đơn";
 $_data['menu_add_bill'] 					= "Thêm hóa đơn";
 $_data['menu_building_info'] 				= "Thiết lập chi tiết tòa nhà";
 $_data['menu_complain'] 					= "Khiếu nại";
 $_data['menu_complain_list'] 				= "Danh sách khiếu nại";
 $_data['menu_add_complain'] 				= "Thêm khiếu nại";
-$_data['menu_visitor'] 						= "khách truy cập";
+$_data['menu_visitor'] 						= "Khách truy cập";
 $_data['menu_visitor_list'] 				= "Danh sách khách truy cập";
 $_data['menu_add_visitor'] 					= "Thêm khách";
 
@@ -73,11 +73,11 @@ $_data['menu_add_branch'] 					= "Thêm tòa nhà";
 $_data['menu_branch_list'] 					= "Danh sách tòa nhà";
 $_data['menu_admin_setup'] 					= "Thiết lập Admin";
 $_data['branch'] 							= "Tòa nhà";
-$_data['notice_board'] 						= "Bảng ghi chú";
-$_data['email_sms'] 						= "Email / SMS Alert";
-$_data['notice_board_1'] 					= "Bảng ghi chú người thuê nhà";
-$_data['notice_board_2'] 					= "Bảng ghi chú nhân viên";
-$_data['notice_board_3'] 					= "Bảng ghi chú chủ sở hữu";
+$_data['notice_board'] 						= "Bảng thông báo";
+$_data['email_sms'] 						= "Thông báo Email / SMS";
+$_data['notice_board_1'] 					= "Bảng thông báo cho người thuê";
+$_data['notice_board_2'] 					= "Bảng thông báo cho nhân viên";
+$_data['notice_board_3'] 					= "Bảng thông báo cho chủ sở hữu";
 $_data['add_branch'] 						= "Thêm tòa nhà";
 $_data['branch_list'] 						= "Danh sách tòa nhà";
 
@@ -101,7 +101,7 @@ $_data['text_9'] 							= "Báo cáo cho thuê";
 
 $_data['leave_request'] 					= "Yêu cầu vắng mặt";
 $_data['salary_statement'] 					= "Bảng sao kê lương";
-$_data['e_visitor_list'] 					= "khách truy cập";
+$_data['e_visitor_list'] 					= "Khách truy cập";
 $_data['salary_report'] 					= "Báo cáo";
 $_data['salary_report_text'] 				= "Báo cáo lương";
 $_data['visitor_report_text'] 				= "Báo cáo khách truy cập";

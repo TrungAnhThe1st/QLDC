@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Bảng sửa đổi ngôn ngữ";
 $_data['text_2'] 		= "Mẫu nhập thông tin năm";

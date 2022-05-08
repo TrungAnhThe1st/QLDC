@@ -20,7 +20,7 @@ if(!isset($_SESSION['objLogin'])){
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
-          <h3>SAKO</h3>
+          <h3></h3>
           <p>Fair Report</p>
         </div>
         <div class="icon dashboard_image"> <img height="80" width="80" src="<?php echo WEB_URL; ?>img/fair.png"></a> </div>
@@ -31,7 +31,7 @@ if(!isset($_SESSION['objLogin'])){
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
-          <h3>SAKO</h3>
+          <h3></h3>
           <p>Rented Report</p>
         </div>
         <div class="icon dashboard_image"> <img height="80" width="80" src="<?php echo WEB_URL; ?>img/owner.png"></a> </div>
@@ -43,7 +43,7 @@ if(!isset($_SESSION['objLogin'])){
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
-          <h3>SAKO</h3>
+          <h3></h3>
           <p>Visitors Report</p>
         </div>
         <div class="icon dashboard_image"> <img height="80" width="80" src="<?php echo WEB_URL; ?>img/owner.png"></a> </div>
@@ -55,7 +55,7 @@ if(!isset($_SESSION['objLogin'])){
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
-          <h3>SAKO</h3>
+          <h3></h3>
           <p>Unit Status Report</p>
         </div>
         <div class="icon dashboard_image"> <img height="80" width="80" src="<?php echo WEB_URL; ?>img/room.png"></a> </div>
@@ -67,7 +67,7 @@ if(!isset($_SESSION['objLogin'])){
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
-          <h3>SAKO</h3>
+          <h3></h3>
           <p>Fund Status</p>
         </div>
         <div class="icon dashboard_image"> <img height="80" width="80" src="<?php echo WEB_URL; ?>img/fund.png"></a> </div>

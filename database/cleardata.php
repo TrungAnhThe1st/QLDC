@@ -14,7 +14,7 @@ if(isset($_SESSION['login_type']) && ((int)$_SESSION['login_type'] != 5)){
 include(ROOT_PATH.'language/'.$lang_code_global.'/lang_common.php');
 $addinfo = 'none';
 $msg = "";
-$stop_table_list = array('tblsuper_admin','tbl_add_month_setup','tbl_add_year_setup','tbl_currency','tbl_add_bill_type','tbl_add_utility_bill','tbl_add_member_type','tbl_settings','tbl_max_power','tblbranch');
+$stop_table_list = array('tblsuper_admin','tbl_add_month_setup','tbl_add_year_setup','tbl_currency','tbl_add_bill_type','tbl_add_utility_bill','tbl_add_member_type','tbl_settings','tblbranch');
 if(isset($_POST['hdnRemoveData'])){
 	//clear all table
 	$result = mysqli_query($link,"show tables");

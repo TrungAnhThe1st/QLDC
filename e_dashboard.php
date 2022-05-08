@@ -16,7 +16,7 @@ if($row_amount_total = mysqli_fetch_array($result_amount)){
 
 //
 $total_renter = 0; //default
-$result_renter = mysqli_query($link,"Select count(r.rid) as total FROM tbl_add_rent r inner join tbl_add_floor f on f.fid = r.r_floor_no inner join tbl_add_unit u on u.uid = r.r_unit_no WHERE r.branch_id =".(int)$_SESSION['objLogin']['branch_id']." order by r.r_unit_no asc");
+$result_renter = mysqli_query($link,"Select count(r.rid) as total FROM tbl_add_rent r inner join tbl_add_floor f on f.fid = r.r_floor_id inner join tbl_add_unit u on u.uid = r.r_unit_id WHERE r.branch_id =".(int)$_SESSION['objLogin']['branch_id']." order by r.r_unit_id asc");
 if($row_renter = mysqli_fetch_array($result_renter)){
 	$total_renter = $row_renter['total'];
 }
@@ -155,7 +155,7 @@ if($row_notice_board = mysqli_fetch_array($result_notice)){
     </div>
     <!-- ./col end -->
     <!-- col start -->
-    <div class="col-lg-3 col-xs-6">
+    <!-- <div class="col-lg-3 col-xs-6">
       <div class="small-box bg-green">
         <div class="inner">
           <h3><?php echo $total_employee; ?></h3>
@@ -163,10 +163,10 @@ if($row_notice_board = mysqli_fetch_array($result_notice)){
         </div>
         <div class="icon"> <img height="80" width="80" src="img/user.png"></a> </div>
         <a href="<?php echo WEB_URL; ?>e_dashboard/member_details.php" class="small-box-footer"><?php echo $_data['dashboard_more_info'];?> <i class="fa fa-arrow-circle-right"></i></a> </div>
-    </div>
+    </div> -->
     <!-- ./col end -->
     <!-- col start -->
-    <div class="col-lg-3 col-xs-6">
+    <!-- <div class="col-lg-3 col-xs-6">
       <div class="small-box bg-green">
         <div class="inner">
           <h3><?php echo $total_leave; ?></h3>
@@ -174,7 +174,7 @@ if($row_notice_board = mysqli_fetch_array($result_notice)){
         </div>
         <div class="icon"> <img height="80" width="80" src="img/owner.png"></a> </div>
         <a href="<?php echo WEB_URL; ?>e_dashboard/ownerlist.php" class="small-box-footer"><?php echo $_data['dashboard_more_info'];?> <i class="fa fa-arrow-circle-right"></i></a> </div>
-    </div>
+    </div> -->
     <!-- ./col end -->
   </div>
   <!-- /.row end -->

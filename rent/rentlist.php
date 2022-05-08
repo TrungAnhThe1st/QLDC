@@ -12,7 +12,7 @@ $msg = "";
 if(isset($_GET['id']) && $_GET['id'] != '' && $_GET['id'] > 0){
 	$result = mysqli_query($link,"SELECT * FROM tbl_add_rent where rid = '" . $_GET['id'] . "'");
 	if($row = mysqli_fetch_array($result)){
-		$sqlx = "UPDATE `tbl_add_unit` set status = 0 where floor_no = '".(int)$row['r_floor_no']."' and uid = '".(int)$row['r_unit_no']."'";
+		$sqlx = "UPDATE `tbl_add_unit` set status = 0 where floor_no = '".(int)$row['r_floor_id']."' and uid = '".(int)$row['r_unit_id']."'";
 		mysqli_query($link,$sqlx);
 	}
 	$sqlx= "DELETE FROM `tbl_add_rent` WHERE rid = ".$_GET['id'];
@@ -73,7 +73,10 @@ if(isset($_GET['m']) && $_GET['m'] == 'up'){
           </thead>
           <tbody>
             <?php
-				$result = mysqli_query($link,"Select *,f.floor_no as ffloor,u.unit_no from tbl_add_rent r inner join tbl_add_floor f on f.fid = r.r_floor_no inner join tbl_add_unit u on u.uid = r.r_unit_no where r.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by r.r_unit_no asc");
+				$result = mysqli_query($link,"Select *,f.floor_no as ffloor,u.unit_no, u.rent_pm from tbl_add_rent r 
+        inner join tbl_add_floor f on f.fid = r.r_floor_id 
+        inner join tbl_add_unit u on u.uid = r.r_unit_id 
+        where r.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by r.r_unit_id asc");
 				while($row = mysqli_fetch_array($result)){
 					$image = WEB_URL . 'img/no_image.jpg';	
 					if(file_exists(ROOT_PATH . '/img/upload/' . $row['image']) && $row['image'] != ''){
@@ -87,7 +90,7 @@ if(isset($_GET['m']) && $_GET['m'] == 'up'){
               <td><?php echo $row['r_contact']; ?></td>
               <td><label class="label label-success ams_label"><?php echo $row['unit_no']; ?></label></td>
               <td><?php echo $ams_helper->currency($localization, $row['r_advance']); ?></td>
-			  <td><?php echo $ams_helper->currency($localization, $row['r_rent_pm']); ?></td>
+			  <td><?php echo $ams_helper->currency($localization, $row['rent_pm']); ?></td>
               <td><?php if($row['r_status'] == '1'){echo '<label class="label label-success ams_label">'.$_data['add_new_form_field_text_16'].'</label>';} else{echo '<label class="label label-danger ams_label">'.$_data['add_new_form_field_text_17'].'</label>';}?>
               <td><a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#nurse_view_<?php echo $row['rid']; ?>').modal('show');" data-original-title="<?php echo $_data['view_text'];?>"><i class="fa fa-eye"></i></a> <a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL;?>rent/addrent.php?id=<?php echo $row['rid']; ?>" data-original-title="<?php echo $_data['edit_text'];?>"><i class="fa fa-pencil"></i></a> <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onClick="deleteRent(<?php echo $row['rid']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text'];?>"><i class="fa fa-trash-o"></i></a>
                 <div id="nurse_view_<?php echo $row['rid']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -114,7 +117,7 @@ if(isset($_GET['m']) && $_GET['m'] == 'up'){
                           <div class="col-xs-6"> <b><?php echo $_data['add_new_form_field_text_7'];?> :</b> <?php echo $row['ffloor']; ?><br/>
                             <b><?php echo $_data['add_new_form_field_text_8'];?> :</b> <?php echo $row['unit_no']; ?><br/>
                             <b><?php echo $_data['add_new_form_field_text_9'];?> : </b> <?php echo $ams_helper->currency($localization, $row['r_advance']); ?><br/>
-							<b><?php echo $_data['add_new_form_field_text_10'];?> : </b> <?php echo $ams_helper->currency($localization, $row['r_rent_pm']); ?><br/>
+							<b><?php echo $_data['add_new_form_field_text_10'];?> : </b> <?php echo $ams_helper->currency($localization, $row['rent_pm']); ?><br/>
                             <b><?php echo $_data['add_new_form_field_text_11'];?> :</b> <?php echo $row['r_date']; ?><br/>
                             <b><?php echo $_data['add_new_form_field_text_14'];?> :</b>
                             <?php if($row['r_status'] == '1'){echo $_data['add_new_form_field_text_16'];} else{echo $_data['add_new_form_field_text_17'];}?>

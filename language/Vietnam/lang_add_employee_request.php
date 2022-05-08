@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 				= "Thêm mới yêu cầu vắng mặt";
 $_data['text_1_1'] 				= "Cập nhật mới yêu cầu vắng mặt";

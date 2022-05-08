@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['add_title_text'] 				= "Thêm mới phí bảo trì";
 $_data['add_msg'] 						= "Thêm mới phí bảo trì thành công";

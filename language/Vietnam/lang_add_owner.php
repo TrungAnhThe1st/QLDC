@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['add_new_owner'] 							= "Thêm mới chủ sở hữu";
 $_data['update_owner'] 								= "Cập nhật chủ sở hữu";

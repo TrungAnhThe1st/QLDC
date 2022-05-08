@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1_1'] 		= "Danh sách khách truy cập";
 $_data['text_2'] 		= "Khách truy cập";

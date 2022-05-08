@@ -4,6 +4,7 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_employee_e_report.php');
 $month_id = "";
 $xyear = '';
 $button_text = $_data['submit'];
+$form_url = WEB_URL."e_dashboard/e_report.php";
 
 if(isset($_GET['mid'])){
 	$month_id = $_GET['mid'];
@@ -14,6 +15,12 @@ if(isset($_GET['xyear'])){
 if(!isset($_SESSION['objLogin'])){
 	header("Location: ".WEB_URL."logout.php");
 	die();
+}
+if(isset($_GET['id'])){
+	$hdnid = $_GET['id'];
+}
+else {
+  $hdnid = "0";
 }
 ?>
 
