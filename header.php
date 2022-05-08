@@ -3,7 +3,7 @@ ob_start();
 session_start();
 include(__DIR__ . "/config.php");
 $page_name = '';
-$lang_code_global = "English";
+$lang_code_global = "Vietnam";
 $global_currency = "$";
 $currency_position = "left";
 $currency_sep = ".";
@@ -281,8 +281,8 @@ $page_name = $ams_helper->curPageUrlInfo('page');
             </ul>
           </li> -->
           <!-- <li class="treeview <?php if ($page_name != '' && $page_name == 'add_fund' || $page_name == 'fund_list') {
-                                echo 'active';
-                              } ?>"> <a href="#"> <i class="fa fa-money"></i> <span><?php echo $_data['menu_fund']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
+                                      echo 'active';
+                                    } ?>"> <a href="#"> <i class="fa fa-money"></i> <span><?php echo $_data['menu_fund']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
             <ul class="treeview-menu">
               <li class="<?php if ($page_name != '' && $page_name == 'fund_list') {
                             echo 'active';
@@ -351,8 +351,8 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                             echo 'active';
                           } ?>"><a href="<?php echo WEB_URL; ?>notice/employee_notice.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['notice_board_2']; ?></a></li>
               <!-- <li class="<?php if ($page_name != '' && $page_name == 'owner_notice') {
-                            echo 'active';
-                          } ?>"><a href="<?php echo WEB_URL; ?>notice/owner_notice.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['notice_board_3']; ?></a>
+                                echo 'active';
+                              } ?>"><a href="<?php echo WEB_URL; ?>notice/owner_notice.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['notice_board_3']; ?></a>
               </li> -->
             </ul>
           </li>
@@ -378,9 +378,10 @@ $page_name = $ams_helper->curPageUrlInfo('page');
               <li class="<?php if ($page_name != '' && $page_name == 'unit_report') {
                             echo 'active';
                           } ?>"><a href="<?php echo WEB_URL; ?>report/unit_report.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_unit_status_report']; ?></a></li>
-              <li class="<?php if ($page_name != '' && $page_name == 'fund_status') {
+              <!-- <li class="<?php if ($page_name != '' && $page_name == 'fund_status') {
                             echo 'active';
-                          } ?>"><a target="_blank" href="<?php echo WEB_URL; ?>report/fund_status.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_fund_status']; ?></a></li>
+                          } ?>"><a target="_blank" href="<?php echo WEB_URL; ?>report/fund_status.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_fund_status']; ?></a>
+              </li> -->
               <li class="<?php if ($page_name != '' && $page_name == 'bill_report') {
                             echo 'active';
                           } ?>"><a href="<?php echo WEB_URL; ?>report/bill_report.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_bill_report']; ?></a></li>
@@ -391,7 +392,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
           </li>
 
           <?php if ((int)$_SESSION['login_type'] == 5) { ?>
-            <li class="treeview <?php if ($page_name != '' && $page_name == 'cleardata' || $page_name == 'visitorlist') {
+            <!-- <li class="treeview <?php if ($page_name != '' && $page_name == 'cleardata' || $page_name == 'visitorlist') {
                                   echo 'active';
                                 } ?>"> <a href="#"> <i class="fa fa-database"></i> <span><?php echo $_data['database_left_menu']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
               <ul class="treeview-menu">
@@ -399,7 +400,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                               echo 'active';
                             } ?>"><a href="<?php echo WEB_URL; ?>database/cleardata.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['database_clear_dummy_data']; ?></a></li>
               </ul>
-            </li>
+            </li> -->
             <li class="treeview <?php if ($page_name != '' && $page_name == 'bill_setup' || $page_name != '' && $page_name == 'utility_bill_setup' || $page_name == 'member_type_setup' || $page_name == 'month_setup' || $page_name == 'year_setup' || $page_name == 'language' || $page_name == 'admin' || $page_name == 'add_building_info' || $page_name == 'branchlist' || $page_name == 'addbranch' || $page_name == 'currency_setup' || $page_name == 'language_setup') {
                                   echo 'active';
                                 } ?>"> <a href="#"> <i class="fa fa-wrench"></i> <span><?php echo $_data['menu_settings']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>

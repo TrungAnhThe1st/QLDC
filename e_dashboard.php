@@ -155,7 +155,7 @@ if($row_notice_board = mysqli_fetch_array($result_notice)){
     </div>
     <!-- ./col end -->
     <!-- col start -->
-    <div class="col-lg-3 col-xs-6">
+    <!-- <div class="col-lg-3 col-xs-6">
       <div class="small-box bg-green">
         <div class="inner">
           <h3><?php echo $total_employee; ?></h3>
@@ -163,10 +163,10 @@ if($row_notice_board = mysqli_fetch_array($result_notice)){
         </div>
         <div class="icon"> <img height="80" width="80" src="img/user.png"></a> </div>
         <a href="<?php echo WEB_URL; ?>e_dashboard/member_details.php" class="small-box-footer"><?php echo $_data['dashboard_more_info'];?> <i class="fa fa-arrow-circle-right"></i></a> </div>
-    </div>
+    </div> -->
     <!-- ./col end -->
     <!-- col start -->
-    <div class="col-lg-3 col-xs-6">
+    <!-- <div class="col-lg-3 col-xs-6">
       <div class="small-box bg-green">
         <div class="inner">
           <h3><?php echo $total_leave; ?></h3>
@@ -174,7 +174,7 @@ if($row_notice_board = mysqli_fetch_array($result_notice)){
         </div>
         <div class="icon"> <img height="80" width="80" src="img/owner.png"></a> </div>
         <a href="<?php echo WEB_URL; ?>e_dashboard/ownerlist.php" class="small-box-footer"><?php echo $_data['dashboard_more_info'];?> <i class="fa fa-arrow-circle-right"></i></a> </div>
-    </div>
+    </div> -->
     <!-- ./col end -->
   </div>
   <!-- /.row end -->

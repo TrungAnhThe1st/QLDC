@@ -35,14 +35,14 @@ $_data['menu_add_member'] 					= "Thêm thành viên";
 $_data['menu_fund'] 						= "Quỹ tòa nhà";
 $_data['menu_fund_list'] 					= "Danh sách quỹ";
 $_data['menu_add_fund'] 					= "Thêm quỹ";
-$_data['menu_bill'] 						= "Hóa đơn tiền đặt cọc";
+$_data['menu_bill'] 						= "Hóa đơn";
 $_data['menu_bill_list'] 					= "Danh sách hóa đơn";
 $_data['menu_add_bill'] 					= "Thêm hóa đơn";
 $_data['menu_building_info'] 				= "Thiết lập chi tiết tòa nhà";
 $_data['menu_complain'] 					= "Khiếu nại";
 $_data['menu_complain_list'] 				= "Danh sách khiếu nại";
 $_data['menu_add_complain'] 				= "Thêm khiếu nại";
-$_data['menu_visitor'] 						= "khách truy cập";
+$_data['menu_visitor'] 						= "Khách truy cập";
 $_data['menu_visitor_list'] 				= "Danh sách khách truy cập";
 $_data['menu_add_visitor'] 					= "Thêm khách";
 
@@ -101,7 +101,7 @@ $_data['text_9'] 							= "Báo cáo cho thuê";
 
 $_data['leave_request'] 					= "Yêu cầu vắng mặt";
 $_data['salary_statement'] 					= "Bảng sao kê lương";
-$_data['e_visitor_list'] 					= "khách truy cập";
+$_data['e_visitor_list'] 					= "Khách truy cập";
 $_data['salary_report'] 					= "Báo cáo";
 $_data['salary_report_text'] 				= "Báo cáo lương";
 $_data['visitor_report_text'] 				= "Báo cáo khách truy cập";

@@ -136,9 +136,9 @@ function uploadLanguageFile(){
             <li class="active"><a data-toggle="tab" href="#1">
               <h5><?php echo $_data['text_222'];?></h5>
               </a></li>
-            <li><a data-toggle="tab" href="#2">
+            <!-- <li><a data-toggle="tab" href="#2">
               <h5><?php echo $_data['text_2'];?></h5>
-              </a></li>
+              </a></li> -->
             <li><a data-toggle="tab" href="#3">
               <h5><?php echo $_data['text_22'];?></h5>
               </a></li>

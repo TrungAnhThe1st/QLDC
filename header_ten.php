@@ -116,8 +116,8 @@ $page_name = $ams_helper->curPageUrlInfo('page');
             <!-- Menu Body -->
             <!-- Menu Footer-->
             <li class="user-footer">
-              <div class="pull-left"><a data-target="#user_profile" data-toggle="modal" class="btn btn-success btn-flat">Profile</a></div>
-              <div class="pull-right"> <a href="<?php echo WEB_URL; ?>logout.php" class="btn btn-danger btn-flat">Sign out</a> </div>
+              <div class="pull-left"><a data-target="#user_profile" data-toggle="modal" class="btn btn-success btn-flat"><?php echo $_data['user_profile']; ?></a></div>
+              <div class="pull-right"> <a href="<?php echo WEB_URL; ?>logout.php" class="btn btn-danger btn-flat"><?php echo $_data['user_logout']; ?></a> </div>
             </li>
           </ul>
         </li>

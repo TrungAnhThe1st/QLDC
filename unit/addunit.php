@@ -9,6 +9,7 @@ $success = "none";
 $floor_no = '';
 $unit_no = '';
 $branch_id = '';
+$rent_pm = 0.00;
 $title = $_data['add_new_unit'];
 $button_text = $_data['save_button_text'];
 $successful_msg = $_data['add_unit_successfully'];
@@ -18,14 +19,18 @@ $hdnid="0";
 
 if(isset($_POST['ddlFloor'])){
 	if(isset($_POST['hdn']) && $_POST['hdn'] == '0'){
-		$sql = "INSERT INTO `tbl_add_unit`(floor_no,unit_no,branch_id) values('$_POST[ddlFloor]','$_POST[txtUnit]','" . $_SESSION['objLogin']['branch_id'] . "')";
+		$sql = "INSERT INTO `tbl_add_unit`(floor_no,unit_no,branch_id, rent_pm) 
+		values('$_POST[ddlFloor]','$_POST[txtUnit]','" . $_SESSION['objLogin']['branch_id'] . "', $_POST[txtRPM])";
 		mysqli_query($link,$sql);
 		mysqli_close($link);
 		$url = WEB_URL . 'unit/unitlist.php?m=add';
 		header("Location: $url");
 	}
 	else{
-		$sql = "UPDATE `tbl_add_unit` SET `floor_no`='".$_POST['ddlFloor']."',`unit_no`='".$_POST['txtUnit']."' WHERE uid='".$_GET['id']."'";
+		$sql = "UPDATE `tbl_add_unit` 
+		SET `floor_no`='".$_POST['ddlFloor']."',`unit_no`='".$_POST['txtUnit']."', rent_pm = $_POST[txtRPM]  
+		WHERE uid='".$_GET['id']."'";
+		
 		mysqli_query($link,$sql);
 		mysqli_close($link);
 		$url = WEB_URL . 'unit/unitlist.php?m=up';
@@ -39,6 +44,7 @@ if(isset($_GET['id']) && $_GET['id'] != ''){
 	while($row = mysqli_fetch_array($result)){
 		$floor_no = $row['floor_no'];
 		$unit_no = $row['unit_no'];
+		$rent_pm = $row['rent_pm'];
 		$hdnid = $_GET['id'];
 		$title = $_data['update_unit'];
 		$button_text = $_data['update_button_text'];
@@ -86,6 +92,10 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'view'){
           <div class="form-group">
             <label for="txtUnit"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_2'];?> :</label>
             <input type="text" name="txtUnit" value="<?php echo $unit_no;?>" id="txtUnit" class="form-control" />
+          </div>
+		  <div class="form-group">
+            <label for="txtRPM"><?php echo $_data['add_new_form_field_text_3'];?> :</label>
+            <input type="text" name="txtRPM" value="<?php echo $rent_pm;?>" id="txtRPM" class="form-control" />
           </div>
         </div>
         <div class="box-footer">

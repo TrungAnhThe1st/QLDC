@@ -8,6 +8,7 @@ $_data['add_new_unit_information_breadcam'] 	= "Thông tin phòng";
 $_data['delete_unit_information'] 				= "Xóa thông tin phòng thành công.";
 $_data['floor_no'] 								= "Tầng số";
 $_data['unit_no'] 								= "Phòng số";
+$_data['rent_pm'] 								= "Tiền thuê tháng";
 $_data['unit_details']							= "Chi tiết phòng";
 $_data['add_unit']								= "Thêm phòng";
 $_data['add_unit_successfully'] 				= "Thêm thông tin phòng thành công";
