@@ -9,4 +9,16 @@ define('DB_HOSTNAME', 'localhost:3308');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'ams');
-$link = new mysqli(DB_HOSTNAME,DB_USERNAME,DB_PASSWORD,DB_DATABASE);?>
+
+$link = new mysqli(DB_HOSTNAME,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+
+function getYearId($year) {
+    $link1 = new mysqli(DB_HOSTNAME,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+    $sql = "select * from tbl_add_year_setup where xyear = '$year'";
+    $result = mysqli_query($link1, $sql);
+    $row = mysqli_fetch_array($result);
+    mysqli_close($link1);
+
+    return $row['y_id'];
+};
+
