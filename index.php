@@ -187,7 +187,7 @@ include(ROOT_PATH . 'language/' . $lang_code_global . '/lang_index.php');
 								<select name="ddlLoginType" onChange="mewhat(this.value);" id="ddlLoginType" class="form-control">
 									<option value="">--<?php echo $_data['select_type']; ?>--</option>
 									<option value="1"><?php echo $_data['user_1']; ?></option>
-									<option value="2"><?php echo $_data['user_2']; ?></option>
+									<!-- <option value="2"><?php echo $_data['user_2']; ?></option> -->
 									<option value="3"><?php echo $_data['user_3']; ?></option>
 									<option value="4"><?php echo $_data['user_4']; ?></option>
 									<option value="5"><?php echo $_data['user_5']; ?></option>

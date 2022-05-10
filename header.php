@@ -508,7 +508,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                 </div>
                 <div class="form-group">
                   <label class="control-label"><?php echo $_data['profile_update_password']; ?> :&nbsp;&nbsp;</label>
-                  <input type="text" class="form-control" id="txtProfilePassword" name="txtProfilePassword" value="<?php echo $_SESSION['objLogin']['password']; ?>">
+                  <input type="text" class="form-control" id="txtProfilePassword" name="txtProfilePassword" value="<?php echo $converter->decode($_SESSION['objLogin']['password']); ?>">
                 </div>
                 <div style="color:orange;font-weight:bold;text-align:left;font-size:15px;"><?php echo $_data['profile_update_information']; ?></div>
               </div>
