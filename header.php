@@ -408,9 +408,10 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                 <li class="<?php if ($page_name != '' && $page_name == 'admin') {
                               echo 'active';
                             } ?>"><a href="<?php echo WEB_URL; ?>setting/admin.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_admin_setup']; ?></a></li>
-                <li style="display:none;" class="<?php if ($page_name != '' && $page_name == 'add_building_info') {
+                <!-- <li style="display:none;" class="<?php if ($page_name != '' && $page_name == 'add_building_info') {
                                                     echo 'active';
-                                                  } ?>"><a href="<?php echo WEB_URL; ?>building/add_building_info.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_building_info']; ?></a> </li>
+                                                  } ?>"><a href="<?php echo WEB_URL; ?>building/add_building_info.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_building_info']; ?></a> 
+                </li> -->
                 <li class="<?php if ($page_name != '' && $page_name == 'branchlist' || $page_name == 'addbranch') {
                               echo 'active';
                             } ?>"><a href="#"><i class="fa fa-angle-double-right"></i><?php echo $_data['branch']; ?> <i class="fa fa-angle-left pull-right"></i> </a>
@@ -433,8 +434,8 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                               echo 'active';
                             } ?>"><a href="<?php echo WEB_URL; ?>setting/member_type_setup.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_management_member_type']; ?></a></li>
                 <!-- <li class="<?php if ($page_name != '' && $page_name == 'month_setup') {
-                              echo 'active';
-                            } ?>"><a href="<?php echo WEB_URL; ?>setting/month_setup.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_month_setup']; ?></a>
+                                  echo 'active';
+                                } ?>"><a href="<?php echo WEB_URL; ?>setting/month_setup.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_month_setup']; ?></a>
                 </li> -->
                 <li class="<?php if ($page_name != '' && $page_name == 'year_setup') {
                               echo 'active';

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2022 at 04:42 PM
+-- Generation Time: May 11, 2022 at 11:57 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -36,7 +36,7 @@ CREATE TABLE `tblbranch` (
   `security_guard_mobile` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   `secrataty_mobile` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   `moderator_mobile` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `building_make_year` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `building_make_year` int(11) DEFAULT NULL,
   `building_image` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `b_status` tinyint(4) NOT NULL DEFAULT 1,
   `builder_company_name` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -51,8 +51,8 @@ CREATE TABLE `tblbranch` (
 --
 
 INSERT INTO `tblbranch` (`branch_id`, `branch_name`, `b_email`, `b_contact_no`, `b_address`, `security_guard_mobile`, `secrataty_mobile`, `moderator_mobile`, `building_make_year`, `building_image`, `b_status`, `builder_company_name`, `builder_company_phone`, `builder_company_address`, `building_rule`, `created_date`) VALUES
-(7, 'Silver Tower', 'mirpur.1@gmail.com', 1717445566, 'F-Block,Mirpur-1,Dhaka-1216', '+880167119889', '+880911909090', '+88090909090', '', 'E9EB1C1F-9D88-0FD8-CE34-92F3421FA31D.jpg', 1, 'Golden Developer Company', '+8850505050', 'Test Address\r\nUK', '<p style=\"text-align:center\"><span style=\"color:#e67e22\"><u><span style=\"font-size:36px\"><span style=\"font-family:Trebuchet MS,Helvetica,sans-serif\"><strong>Love Bird Building Rules</strong></span></span></u></span></p>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">1) Gate Close 10 PM.</span></span></strong></p>\r\n</blockquote>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">2) New commer must be intruduce with guard.</span></span></strong></p>\r\n</blockquote>\r\n', '2016-06-22 09:50:30'),
-(8, 'Da-viruz Systems', 'avinash@mail.com', 1212121212, 'Bolgatanga', '+880167119889', '+880911909090', '+88090909090', '9', '6F7882BD-85CD-8D98-EDCA-1FF65F0BFABA.jpg', 1, 'Da-viruz Systems', '+8850505050', 'test address\r\nGhana', '<p style=\"text-align:center\"><span style=\"color:#e67e22\"><u><span style=\"font-size:36px\"><span style=\"font-family:Trebuchet MS,Helvetica,sans-serif\"><strong>Love Bird Building Rules</strong></span></span></u></span></p>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">1) Gate Close 10 PM.</span></span></strong></p>\r\n</blockquote>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">2) New commer must be intruduce with guard.</span></span></strong></p>\r\n</blockquote>\r\n', '2016-06-22 10:23:45');
+(7, 'Silver Tower', 'mirpur.1@gmail.com', 1717445566, 'F-Block,Mirpur-1,Dhaka-1216', '+880167119889', '+880911909090', '+88090909090', 9, 'E9EB1C1F-9D88-0FD8-CE34-92F3421FA31D.jpg', 1, 'Golden Developer Company', '+8850505050', 'Test Address\r\nUK', '<p style=\"text-align:center\"><span style=\"color:#e67e22\"><u><span style=\"font-size:36px\"><span style=\"font-family:Trebuchet MS,Helvetica,sans-serif\"><strong>Love Bird Building Rules</strong></span></span></u></span></p>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">1) Gate Close 10 PM.</span></span></strong></p>\r\n</blockquote>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">2) New commer must be intruduce with guard.</span></span></strong></p>\r\n</blockquote>\r\n', '2016-06-22 09:50:30'),
+(8, 'Da-viruz Systems', 'avinash@mail.com', 1212121212, 'Bolgatanga', '+880167119889', '+880911909090', '+88090909090', 9, '6F7882BD-85CD-8D98-EDCA-1FF65F0BFABA.jpg', 1, 'Da-viruz Systems', '+8850505050', 'test address\r\nGhana', '<p style=\"text-align:center\"><span style=\"color:#e67e22\"><u><span style=\"font-size:36px\"><span style=\"font-family:Trebuchet MS,Helvetica,sans-serif\"><strong>Love Bird Building Rules</strong></span></span></u></span></p>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">1) Gate Close 10 PM.</span></span></strong></p>\r\n</blockquote>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">2) New commer must be intruduce with guard.</span></span></strong></p>\r\n</blockquote>\r\n', '2016-06-22 10:23:45');
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ CREATE TABLE `tblsuper_admin` (
 --
 
 INSERT INTO `tblsuper_admin` (`user_id`, `name`, `email`, `contact`, `password`, `added_date`) VALUES
-(1, 'Alexander Pierce', 'devsolver@gmail.com', '+8801679110711', 'MTIzNDU2', '2015-06-29 06:15:29');
+(1, 'Admin', 'devsolver@gmail.com', '+8801679110711', 'MTIzNDU2', '2015-06-29 06:15:29');
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,7 @@ CREATE TABLE `tbl_add_admin` (
 --
 
 INSERT INTO `tbl_add_admin` (`aid`, `name`, `email`, `contact`, `password`, `image`, `branch_id`, `added_date`) VALUES
-(7, 'Tony', 'tony@yahoo.com', '+8801679110711', 'MTIzNDU2', 'B7962E98-0550-407D-01A7-3C088DCCD2EF.jpg', 8, '2019-08-27 04:45:27');
+(7, 'Little admin', 'tony@yahoo.com', '+8801679110711', 'MTIzNDU2Nw==', 'B7962E98-0550-407D-01A7-3C088DCCD2EF.jpg', 8, '2019-08-27 04:45:27');
 
 -- --------------------------------------------------------
 
@@ -108,7 +108,7 @@ INSERT INTO `tbl_add_admin` (`aid`, `name`, `email`, `contact`, `password`, `ima
 
 CREATE TABLE `tbl_add_bill` (
   `bill_id` int(11) NOT NULL,
-  `bill_type` varchar(200) NOT NULL,
+  `bill_type` int(11) NOT NULL,
   `bill_date` varchar(200) NOT NULL,
   `bill_month` int(11) NOT NULL,
   `bill_year` int(11) NOT NULL,
@@ -124,7 +124,8 @@ CREATE TABLE `tbl_add_bill` (
 --
 
 INSERT INTO `tbl_add_bill` (`bill_id`, `bill_type`, `bill_date`, `bill_month`, `bill_year`, `total_amount`, `deposit_bank_name`, `bill_details`, `branch_id`, `added_date`) VALUES
-(14, '4', '27/08/2019', 8, 11, '5000.00', 'DBBL', 'purfect', 8, '2019-08-27 04:37:27');
+(14, 4, '27/08/2019', 8, 11, '5000.00', 'DBBL', 'purfect', 8, '2019-08-27 04:37:27'),
+(15, 1, '23/05/2022', 5, 15, '12000.00', 'shk', 'dfsfsdfsdf', 8, '2022-05-09 20:25:53');
 
 -- --------------------------------------------------------
 
@@ -195,7 +196,7 @@ CREATE TABLE `tbl_add_complain` (
   `c_title` varchar(200) NOT NULL,
   `c_description` varchar(1000) NOT NULL,
   `c_date` varchar(200) NOT NULL,
-  `c_month` varchar(50) NOT NULL,
+  `c_month` int(11) NOT NULL,
   `c_year` varchar(50) NOT NULL,
   `c_userid` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL,
@@ -214,8 +215,10 @@ CREATE TABLE `tbl_add_complain` (
 --
 
 INSERT INTO `tbl_add_complain` (`complain_id`, `c_title`, `c_description`, `c_date`, `c_month`, `c_year`, `c_userid`, `branch_id`, `job_status`, `assign_employee_id`, `solution`, `complain_by`, `person_name`, `person_email`, `person_contact`, `added_date`) VALUES
-(35, 'Water Problem', 'We need to solve water issue soon.', '27/08/2019', '8', '2019', 0, 8, 0, 12, '', NULL, NULL, NULL, NULL, '2019-08-27 04:38:09'),
-(36, 'Flat color issue', 'How flat color condition is really bad kindly solve it.', '28/08/2019', '8', '2019', 20, 8, 0, 0, '', 'tenant', 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '2019-08-27 19:29:06');
+(35, 'Water Problem', 'We need to solve water issue soon.', '27/08/2019', 8, '2019', 0, 8, 0, 12, '', NULL, NULL, NULL, NULL, '2019-08-27 04:38:09'),
+(36, 'Flat color issue', 'How flat color condition is really bad kindly solve it.', '28/08/2019', 8, '2019', 20, 8, 0, 0, '', 'tenant', 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '2019-08-27 19:29:06'),
+(37, 'gdhgg', 'fgfgg', '06/04/2022', 5, '2022', 0, 8, 0, 0, '', NULL, NULL, NULL, NULL, '2022-05-09 20:47:53'),
+(38, 'gdhgg', 'sdfsdff', '27/02/2020', 2, '2020', 0, 8, 0, 0, '', NULL, NULL, NULL, NULL, '2022-05-09 20:55:30');
 
 -- --------------------------------------------------------
 
@@ -257,7 +260,7 @@ INSERT INTO `tbl_add_employee` (`eid`, `e_name`, `e_email`, `e_contact`, `e_pre_
 
 CREATE TABLE `tbl_add_employee_salary_setup` (
   `emp_id` int(11) NOT NULL,
-  `emp_name` varchar(200) NOT NULL,
+  `emp_name` int(11) NOT NULL,
   `designation` varchar(200) NOT NULL,
   `month_id` int(11) NOT NULL,
   `xyear` int(11) NOT NULL,
@@ -272,7 +275,8 @@ CREATE TABLE `tbl_add_employee_salary_setup` (
 --
 
 INSERT INTO `tbl_add_employee_salary_setup` (`emp_id`, `emp_name`, `designation`, `month_id`, `xyear`, `amount`, `issue_date`, `branch_id`, `added_date`) VALUES
-(19, '12', 'Security Gard', 8, 11, '8000.00', '05/09/2019', 8, '2019-08-26 19:36:26');
+(19, 12, 'Security Gard', 8, 11, '8000.00', '05/09/2019', 8, '2019-08-26 19:36:26'),
+(20, 12, 'Security Gard', 1, 11, '8000.00', '15/01/2019', 8, '2022-05-09 18:40:44');
 
 -- --------------------------------------------------------
 
@@ -283,8 +287,8 @@ INSERT INTO `tbl_add_employee_salary_setup` (`emp_id`, `emp_name`, `designation`
 CREATE TABLE `tbl_add_fair` (
   `f_id` int(11) NOT NULL,
   `type` varchar(200) NOT NULL,
-  `floor_no` varchar(200) NOT NULL,
-  `unit_no` varchar(200) NOT NULL,
+  `floor_no` int(11) NOT NULL,
+  `unit_no` int(11) NOT NULL,
   `rid` int(11) NOT NULL DEFAULT 0,
   `month_id` int(11) NOT NULL,
   `xyear` varchar(200) NOT NULL,
@@ -302,6 +306,14 @@ CREATE TABLE `tbl_add_fair` (
   `bill_status` tinyint(1) NOT NULL DEFAULT 0,
   `added_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_add_fair`
+--
+
+INSERT INTO `tbl_add_fair` (`f_id`, `type`, `floor_no`, `unit_no`, `rid`, `month_id`, `xyear`, `rent`, `water_bill`, `electric_bill`, `gas_bill`, `security_bill`, `utility_bill`, `other_bill`, `total_rent`, `issue_date`, `paid_date`, `branch_id`, `bill_status`, `added_date`) VALUES
+(45, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '0.00', '0.00', '800.00', '900.00', '0.00', '0.00', '51700.00', '10/05/2022', '26/05/2022', 8, 0, '2022-05-09 18:54:23'),
+(46, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '0.00', '0.00', '800.00', '900.00', '0.00', '0.00', '51700.00', '10/05/2022', '19/05/2022', 8, 0, '2022-05-09 19:16:01');
 
 -- --------------------------------------------------------
 
@@ -366,6 +378,13 @@ CREATE TABLE `tbl_add_maintenance_cost` (
   `branch_id` int(11) NOT NULL,
   `added_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_add_maintenance_cost`
+--
+
+INSERT INTO `tbl_add_maintenance_cost` (`mcid`, `m_title`, `m_date`, `m_amount`, `m_details`, `xmonth`, `xyear`, `branch_id`, `added_date`) VALUES
+(8, 'bla ba', '11/05/2022', '10000.00', 'ụokkl', 5, 15, 8, '2022-05-09 19:44:44');
 
 -- --------------------------------------------------------
 
@@ -557,7 +576,8 @@ CREATE TABLE `tbl_add_rent` (
 --
 
 INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_email`, `r_contact`, `r_address`, `r_nid`, `r_floor_id`, `r_unit_id`, `r_advance`, `r_rent_pm`, `r_date`, `r_gone_date`, `r_password`, `image`, `r_status`, `r_month`, `r_year`, `branch_id`, `added_date`) VALUES
-(20, 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '63 Creek St.\r\nEastpointe, MI 48021', '232323-565656-212121', 13, 30, '100000.00', '0.00', '27/08/2019', '', 'MTIzNDU2', 'C7A2F0A4-1DCC-E7F1-8D54-14F507D8CA7E.jpg', 1, 9, 11, 8, '2019-08-26 19:33:04');
+(20, 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '63 Creek St.\r\nEastpointe, MI 48021', '232323-565656-212121', 13, 30, '100000.00', '0.00', '27/08/2019', '', 'MTIzNDU2', 'C7A2F0A4-1DCC-E7F1-8D54-14F507D8CA7E.jpg', 1, 9, 11, 8, '2019-08-26 19:33:04'),
+(23, 'Phạm Tiến Đức', 'cuongnew37@gmail.com', '+84 ', 'Số 16A, Ngách 79/40 Dương Quảng Hàm , Tổ 19, Quan Hoa, Cầu Giấy, Hà Nội', '001200006387', NULL, NULL, '0.00', '0.00', '09/05/2022', NULL, 'MTIzNDU2', '', 1, 5, 15, NULL, '2022-05-09 04:23:45');
 
 -- --------------------------------------------------------
 
@@ -567,7 +587,7 @@ INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_email`, `r_contact`, `r_address`
 
 CREATE TABLE `tbl_add_unit` (
   `uid` int(11) NOT NULL,
-  `floor_no` varchar(200) NOT NULL,
+  `floor_no` int(11) NOT NULL,
   `unit_no` varchar(200) NOT NULL,
   `branch_id` int(11) NOT NULL,
   `rent_pm` decimal(10,2) NOT NULL DEFAULT 0.00,
@@ -580,10 +600,11 @@ CREATE TABLE `tbl_add_unit` (
 --
 
 INSERT INTO `tbl_add_unit` (`uid`, `floor_no`, `unit_no`, `branch_id`, `rent_pm`, `status`, `added_date`) VALUES
-(30, '13', 'Flat 2C', 8, '50000.00', 1, '2019-08-26 18:56:56'),
-(31, '12', 'Flat 1B', 8, '10000.00', 0, '2019-08-26 18:57:09'),
-(32, '13', 'Flat 2A', 8, '0.00', 0, '2019-08-27 04:07:08'),
-(33, '13', 'Flat 2B', 8, '0.00', 0, '2019-08-27 04:07:35');
+(30, 13, 'Flat 2C', 8, '50000.00', 1, '2019-08-26 18:56:56'),
+(31, 12, 'Flat 1B', 8, '10000.00', 0, '2019-08-26 18:57:09'),
+(32, 13, 'Flat 2A', 8, '0.00', 0, '2019-08-27 04:07:08'),
+(33, 13, 'Flat 2B', 8, '0.00', 0, '2019-08-27 04:07:35'),
+(34, 12, 'Flat 1F', 8, '190000.00', 0, '2022-05-11 09:36:44');
 
 -- --------------------------------------------------------
 
@@ -634,7 +655,8 @@ INSERT INTO `tbl_add_year_setup` (`y_id`, `xyear`, `added_date`) VALUES
 (11, '2019', '2016-04-13 14:03:12'),
 (12, '2020', '2016-04-13 14:03:17'),
 (13, '2021', '2018-04-20 06:12:54'),
-(14, '2021', '2018-05-18 14:13:10');
+(14, '2021', '2018-05-18 14:13:10'),
+(15, '2022', '2018-05-18 14:13:10');
 
 -- --------------------------------------------------------
 
@@ -802,7 +824,7 @@ CREATE TABLE `tbl_settings` (
 --
 
 INSERT INTO `tbl_settings` (`id`, `lang_code`, `currency`, `currency_seperator`, `currency_position`, `currency_decimal`, `mail_protocol`, `super_admin_image`, `date_format`, `smtp_hostname`, `smtp_username`, `smtp_password`, `smtp_port`, `smtp_secure`, `cat_username`, `cat_password`, `cat_apikey`) VALUES
-(6, 'Vietnam', 'đ', ',', 'right', 2, 'mail', 'CA8D0636-E7DD-542A-8775-7CC2DA9C7739.jpg', NULL, '', '', '', '', 'tls', '', '', '');
+(8, 'Vietnam', 'đ', ',', 'right', 2, 'mail', 'DDE19E53-4F61-4189-7C09-0143DF0C32BA.png', NULL, '', '', '', '', 'tls', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -820,7 +842,7 @@ CREATE TABLE `tbl_visitor` (
   `unit_id` int(11) NOT NULL,
   `intime` varchar(50) CHARACTER SET utf8 NOT NULL,
   `outtime` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `xmonth` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `xmonth` int(11) NOT NULL,
   `xyear` varchar(50) CHARACTER SET utf8 NOT NULL,
   `branch_id` int(11) NOT NULL,
   `added_date` timestamp NOT NULL DEFAULT current_timestamp()
@@ -831,7 +853,7 @@ CREATE TABLE `tbl_visitor` (
 --
 
 INSERT INTO `tbl_visitor` (`vid`, `issue_date`, `name`, `mobile`, `address`, `floor_id`, `unit_id`, `intime`, `outtime`, `xmonth`, `xyear`, `branch_id`, `added_date`) VALUES
-(17, '27/08/2019', 'Kalvin Peter', '1212121212', '799 Princess Drive\r\nNorwood, MA 02062', 12, 30, '12:50 PM', '05:50 PM', '8', '2019', 8, '2019-08-27 04:40:22');
+(17, '27/08/2019', 'Kalvin Peter', '1212121212', '799 Princess Drive\r\nNorwood, MA 02062', 12, 30, '12:50 PM', '05:50 PM', 8, '2019', 8, '2019-08-27 04:40:22');
 
 --
 -- Indexes for dumped tables
@@ -841,7 +863,8 @@ INSERT INTO `tbl_visitor` (`vid`, `issue_date`, `name`, `mobile`, `address`, `fl
 -- Indexes for table `tblbranch`
 --
 ALTER TABLE `tblbranch`
-  ADD PRIMARY KEY (`branch_id`);
+  ADD PRIMARY KEY (`branch_id`),
+  ADD KEY `building_make_year` (`building_make_year`);
 
 --
 -- Indexes for table `tblsuper_admin`
@@ -853,13 +876,18 @@ ALTER TABLE `tblsuper_admin`
 -- Indexes for table `tbl_add_admin`
 --
 ALTER TABLE `tbl_add_admin`
-  ADD PRIMARY KEY (`aid`);
+  ADD PRIMARY KEY (`aid`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_add_bill`
 --
 ALTER TABLE `tbl_add_bill`
-  ADD PRIMARY KEY (`bill_id`);
+  ADD PRIMARY KEY (`bill_id`),
+  ADD KEY `bill_type` (`bill_type`),
+  ADD KEY `bill_month` (`bill_month`),
+  ADD KEY `bill_year` (`bill_year`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_add_bill_type`
@@ -883,31 +911,45 @@ ALTER TABLE `tbl_add_building_info`
 -- Indexes for table `tbl_add_complain`
 --
 ALTER TABLE `tbl_add_complain`
-  ADD PRIMARY KEY (`complain_id`);
+  ADD PRIMARY KEY (`complain_id`),
+  ADD KEY `c_month` (`c_month`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_add_employee`
 --
 ALTER TABLE `tbl_add_employee`
-  ADD PRIMARY KEY (`eid`);
+  ADD PRIMARY KEY (`eid`),
+  ADD KEY `e_designation` (`e_designation`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_add_employee_salary_setup`
 --
 ALTER TABLE `tbl_add_employee_salary_setup`
-  ADD PRIMARY KEY (`emp_id`);
+  ADD PRIMARY KEY (`emp_id`),
+  ADD KEY `branch_id` (`branch_id`),
+  ADD KEY `emp_name` (`emp_name`),
+  ADD KEY `month_id` (`month_id`),
+  ADD KEY `xyear` (`xyear`);
 
 --
 -- Indexes for table `tbl_add_fair`
 --
 ALTER TABLE `tbl_add_fair`
-  ADD PRIMARY KEY (`f_id`);
+  ADD PRIMARY KEY (`f_id`),
+  ADD KEY `unit_no` (`unit_no`),
+  ADD KEY `floor_no` (`floor_no`),
+  ADD KEY `month_id` (`month_id`),
+  ADD KEY `branch_id` (`branch_id`),
+  ADD KEY `rid` (`rid`);
 
 --
 -- Indexes for table `tbl_add_floor`
 --
 ALTER TABLE `tbl_add_floor`
-  ADD PRIMARY KEY (`fid`);
+  ADD PRIMARY KEY (`fid`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_add_fund`
@@ -919,7 +961,10 @@ ALTER TABLE `tbl_add_fund`
 -- Indexes for table `tbl_add_maintenance_cost`
 --
 ALTER TABLE `tbl_add_maintenance_cost`
-  ADD PRIMARY KEY (`mcid`);
+  ADD PRIMARY KEY (`mcid`),
+  ADD KEY `xmonth` (`xmonth`),
+  ADD KEY `xyear` (`xyear`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_add_management_committee`
@@ -962,19 +1007,27 @@ ALTER TABLE `tbl_add_owner_utility`
 -- Indexes for table `tbl_add_rent`
 --
 ALTER TABLE `tbl_add_rent`
-  ADD PRIMARY KEY (`rid`);
+  ADD PRIMARY KEY (`rid`),
+  ADD KEY `r_floor_id` (`r_floor_id`),
+  ADD KEY `r_unit_id` (`r_unit_id`),
+  ADD KEY `r_month` (`r_month`),
+  ADD KEY `r_year` (`r_year`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_add_unit`
 --
 ALTER TABLE `tbl_add_unit`
-  ADD PRIMARY KEY (`uid`);
+  ADD PRIMARY KEY (`uid`),
+  ADD KEY `floor_no` (`floor_no`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_add_utility_bill`
 --
 ALTER TABLE `tbl_add_utility_bill`
-  ADD PRIMARY KEY (`utility_id`);
+  ADD PRIMARY KEY (`utility_id`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_add_year_setup`
@@ -992,31 +1045,37 @@ ALTER TABLE `tbl_currency`
 -- Indexes for table `tbl_employee_leave_request`
 --
 ALTER TABLE `tbl_employee_leave_request`
-  ADD PRIMARY KEY (`leave_id`);
+  ADD PRIMARY KEY (`leave_id`),
+  ADD KEY `employee_id` (`employee_id`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_employee_notice`
 --
 ALTER TABLE `tbl_employee_notice`
-  ADD PRIMARY KEY (`notice_id`);
+  ADD PRIMARY KEY (`notice_id`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_meeting`
 --
 ALTER TABLE `tbl_meeting`
-  ADD PRIMARY KEY (`meeting_id`);
+  ADD PRIMARY KEY (`meeting_id`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_notice_board`
 --
 ALTER TABLE `tbl_notice_board`
-  ADD PRIMARY KEY (`notice_id`);
+  ADD PRIMARY KEY (`notice_id`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_notification_alert`
 --
 ALTER TABLE `tbl_notification_alert`
-  ADD PRIMARY KEY (`notification_Id`);
+  ADD PRIMARY KEY (`notification_Id`),
+  ADD KEY `branch_id` (`branch_id`);
 
 --
 -- Indexes for table `tbl_owner_notice_board`
@@ -1034,7 +1093,11 @@ ALTER TABLE `tbl_settings`
 -- Indexes for table `tbl_visitor`
 --
 ALTER TABLE `tbl_visitor`
-  ADD PRIMARY KEY (`vid`);
+  ADD PRIMARY KEY (`vid`),
+  ADD KEY `floor_id` (`floor_id`),
+  ADD KEY `branch_id` (`branch_id`),
+  ADD KEY `unit_id` (`unit_id`),
+  ADD KEY `xmonth` (`xmonth`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1062,7 +1125,7 @@ ALTER TABLE `tbl_add_admin`
 -- AUTO_INCREMENT for table `tbl_add_bill`
 --
 ALTER TABLE `tbl_add_bill`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_bill_type`
@@ -1086,7 +1149,7 @@ ALTER TABLE `tbl_add_building_info`
 -- AUTO_INCREMENT for table `tbl_add_complain`
 --
 ALTER TABLE `tbl_add_complain`
-  MODIFY `complain_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `complain_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_employee`
@@ -1098,13 +1161,13 @@ ALTER TABLE `tbl_add_employee`
 -- AUTO_INCREMENT for table `tbl_add_employee_salary_setup`
 --
 ALTER TABLE `tbl_add_employee_salary_setup`
-  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `emp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_fair`
 --
 ALTER TABLE `tbl_add_fair`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_floor`
@@ -1122,7 +1185,7 @@ ALTER TABLE `tbl_add_fund`
 -- AUTO_INCREMENT for table `tbl_add_maintenance_cost`
 --
 ALTER TABLE `tbl_add_maintenance_cost`
-  MODIFY `mcid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `mcid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_management_committee`
@@ -1164,13 +1227,13 @@ ALTER TABLE `tbl_add_owner_utility`
 -- AUTO_INCREMENT for table `tbl_add_rent`
 --
 ALTER TABLE `tbl_add_rent`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_unit`
 --
 ALTER TABLE `tbl_add_unit`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_utility_bill`
@@ -1182,7 +1245,7 @@ ALTER TABLE `tbl_add_utility_bill`
 -- AUTO_INCREMENT for table `tbl_add_year_setup`
 --
 ALTER TABLE `tbl_add_year_setup`
-  MODIFY `y_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `y_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_currency`
@@ -1230,13 +1293,148 @@ ALTER TABLE `tbl_owner_notice_board`
 -- AUTO_INCREMENT for table `tbl_settings`
 --
 ALTER TABLE `tbl_settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_visitor`
 --
 ALTER TABLE `tbl_visitor`
   MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tblbranch`
+--
+ALTER TABLE `tblbranch`
+  ADD CONSTRAINT `tblbranch_ibfk_1` FOREIGN KEY (`building_make_year`) REFERENCES `tbl_add_year_setup` (`y_id`);
+
+--
+-- Constraints for table `tbl_add_admin`
+--
+ALTER TABLE `tbl_add_admin`
+  ADD CONSTRAINT `tbl_add_admin_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_add_bill`
+--
+ALTER TABLE `tbl_add_bill`
+  ADD CONSTRAINT `tbl_add_bill_ibfk_1` FOREIGN KEY (`bill_type`) REFERENCES `tbl_add_bill_type` (`bt_id`),
+  ADD CONSTRAINT `tbl_add_bill_ibfk_2` FOREIGN KEY (`bill_month`) REFERENCES `tbl_add_month_setup` (`m_id`),
+  ADD CONSTRAINT `tbl_add_bill_ibfk_3` FOREIGN KEY (`bill_year`) REFERENCES `tbl_add_year_setup` (`y_id`),
+  ADD CONSTRAINT `tbl_add_bill_ibfk_4` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_add_complain`
+--
+ALTER TABLE `tbl_add_complain`
+  ADD CONSTRAINT `tbl_add_complain_ibfk_1` FOREIGN KEY (`c_month`) REFERENCES `tbl_add_month_setup` (`m_id`),
+  ADD CONSTRAINT `tbl_add_complain_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_add_employee`
+--
+ALTER TABLE `tbl_add_employee`
+  ADD CONSTRAINT `tbl_add_employee_ibfk_1` FOREIGN KEY (`e_designation`) REFERENCES `tbl_add_member_type` (`member_id`),
+  ADD CONSTRAINT `tbl_add_employee_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_add_employee_salary_setup`
+--
+ALTER TABLE `tbl_add_employee_salary_setup`
+  ADD CONSTRAINT `tbl_add_employee_salary_setup_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`),
+  ADD CONSTRAINT `tbl_add_employee_salary_setup_ibfk_2` FOREIGN KEY (`emp_name`) REFERENCES `tbl_add_employee` (`eid`),
+  ADD CONSTRAINT `tbl_add_employee_salary_setup_ibfk_3` FOREIGN KEY (`month_id`) REFERENCES `tbl_add_month_setup` (`m_id`),
+  ADD CONSTRAINT `tbl_add_employee_salary_setup_ibfk_4` FOREIGN KEY (`xyear`) REFERENCES `tbl_add_year_setup` (`y_id`);
+
+--
+-- Constraints for table `tbl_add_fair`
+--
+ALTER TABLE `tbl_add_fair`
+  ADD CONSTRAINT `tbl_add_fair_ibfk_1` FOREIGN KEY (`unit_no`) REFERENCES `tbl_add_unit` (`uid`),
+  ADD CONSTRAINT `tbl_add_fair_ibfk_2` FOREIGN KEY (`floor_no`) REFERENCES `tbl_add_floor` (`fid`),
+  ADD CONSTRAINT `tbl_add_fair_ibfk_3` FOREIGN KEY (`month_id`) REFERENCES `tbl_add_month_setup` (`m_id`),
+  ADD CONSTRAINT `tbl_add_fair_ibfk_4` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`),
+  ADD CONSTRAINT `tbl_add_fair_ibfk_5` FOREIGN KEY (`rid`) REFERENCES `tbl_add_rent` (`rid`);
+
+--
+-- Constraints for table `tbl_add_floor`
+--
+ALTER TABLE `tbl_add_floor`
+  ADD CONSTRAINT `tbl_add_floor_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_add_maintenance_cost`
+--
+ALTER TABLE `tbl_add_maintenance_cost`
+  ADD CONSTRAINT `tbl_add_maintenance_cost_ibfk_1` FOREIGN KEY (`xmonth`) REFERENCES `tbl_add_month_setup` (`m_id`),
+  ADD CONSTRAINT `tbl_add_maintenance_cost_ibfk_2` FOREIGN KEY (`xyear`) REFERENCES `tbl_add_year_setup` (`y_id`),
+  ADD CONSTRAINT `tbl_add_maintenance_cost_ibfk_3` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_add_rent`
+--
+ALTER TABLE `tbl_add_rent`
+  ADD CONSTRAINT `tbl_add_rent_ibfk_1` FOREIGN KEY (`r_floor_id`) REFERENCES `tbl_add_floor` (`fid`),
+  ADD CONSTRAINT `tbl_add_rent_ibfk_2` FOREIGN KEY (`r_unit_id`) REFERENCES `tbl_add_unit` (`uid`),
+  ADD CONSTRAINT `tbl_add_rent_ibfk_3` FOREIGN KEY (`r_month`) REFERENCES `tbl_add_month_setup` (`m_id`),
+  ADD CONSTRAINT `tbl_add_rent_ibfk_4` FOREIGN KEY (`r_year`) REFERENCES `tbl_add_year_setup` (`y_id`),
+  ADD CONSTRAINT `tbl_add_rent_ibfk_5` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_add_unit`
+--
+ALTER TABLE `tbl_add_unit`
+  ADD CONSTRAINT `tbl_add_unit_ibfk_1` FOREIGN KEY (`floor_no`) REFERENCES `tbl_add_floor` (`fid`),
+  ADD CONSTRAINT `tbl_add_unit_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_add_utility_bill`
+--
+ALTER TABLE `tbl_add_utility_bill`
+  ADD CONSTRAINT `tbl_add_utility_bill_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_employee_leave_request`
+--
+ALTER TABLE `tbl_employee_leave_request`
+  ADD CONSTRAINT `tbl_employee_leave_request_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `tbl_add_employee` (`eid`),
+  ADD CONSTRAINT `tbl_employee_leave_request_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_employee_notice`
+--
+ALTER TABLE `tbl_employee_notice`
+  ADD CONSTRAINT `tbl_employee_notice_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_meeting`
+--
+ALTER TABLE `tbl_meeting`
+  ADD CONSTRAINT `tbl_meeting_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_notice_board`
+--
+ALTER TABLE `tbl_notice_board`
+  ADD CONSTRAINT `tbl_notice_board_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_notification_alert`
+--
+ALTER TABLE `tbl_notification_alert`
+  ADD CONSTRAINT `tbl_notification_alert_ibfk_1` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_visitor`
+--
+ALTER TABLE `tbl_visitor`
+  ADD CONSTRAINT `tbl_visitor_ibfk_1` FOREIGN KEY (`floor_id`) REFERENCES `tbl_add_floor` (`fid`),
+  ADD CONSTRAINT `tbl_visitor_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`),
+  ADD CONSTRAINT `tbl_visitor_ibfk_3` FOREIGN KEY (`unit_id`) REFERENCES `tbl_add_unit` (`uid`),
+  ADD CONSTRAINT `tbl_visitor_ibfk_4` FOREIGN KEY (`xmonth`) REFERENCES `tbl_add_month_setup` (`m_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
