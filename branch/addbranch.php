@@ -166,7 +166,7 @@ if(isset($_GET['mode']) && $_GET['mode'] == 'view'){
           <div class="form-group col-md-6">
             <label for="building_make_year"><?php echo $_data['text_17'];?> :</label>
             <select name="building_make_year" id="building_make_year" class="form-control">
-              <option value="">--<?php echo $_data['text_14'];?>--</option>
+              <option value="">--<?php echo "Chọn năm";?>--</option>
               <?php 
 				  	$rs = mysqli_query($link,"SELECT * FROM tbl_add_year_setup order by y_id ASC");
 					while($rows = mysqli_fetch_array($rs)){?>
