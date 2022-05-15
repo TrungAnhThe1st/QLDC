@@ -75,7 +75,7 @@ $_data['ee_text_14'] 						= "Ngoài giờ";
 
 /* Renter Dashboard Start */
 
-$_data['rented_statement'] 					= "Bảng sao kê cho thuê";
+$_data['rented_statement'] 					= "Bảng sao kê";
 $_data['rented_report'] 					= "Báo cáo cho thuê";
 $_data['infomation'] 						= "Bộ phận hỗ trợ";
 $_data['unit_details'] 						= "Chi tiết phòng";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2022 at 11:57 AM
+-- Generation Time: May 15, 2022 at 05:12 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -98,7 +98,7 @@ CREATE TABLE `tbl_add_admin` (
 --
 
 INSERT INTO `tbl_add_admin` (`aid`, `name`, `email`, `contact`, `password`, `image`, `branch_id`, `added_date`) VALUES
-(7, 'Little admin', 'tony@yahoo.com', '+8801679110711', 'MTIzNDU2Nw==', 'B7962E98-0550-407D-01A7-3C088DCCD2EF.jpg', 8, '2019-08-27 04:45:27');
+(7, 'Sub admin', 'liladmin@gmail.com', '+8801679110711', 'MTIzNDU2', 'B7962E98-0550-407D-01A7-3C088DCCD2EF.jpg', 8, '2019-08-27 04:45:27');
 
 -- --------------------------------------------------------
 
@@ -577,7 +577,7 @@ CREATE TABLE `tbl_add_rent` (
 
 INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_email`, `r_contact`, `r_address`, `r_nid`, `r_floor_id`, `r_unit_id`, `r_advance`, `r_rent_pm`, `r_date`, `r_gone_date`, `r_password`, `image`, `r_status`, `r_month`, `r_year`, `branch_id`, `added_date`) VALUES
 (20, 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '63 Creek St.\r\nEastpointe, MI 48021', '232323-565656-212121', 13, 30, '100000.00', '0.00', '27/08/2019', '', 'MTIzNDU2', 'C7A2F0A4-1DCC-E7F1-8D54-14F507D8CA7E.jpg', 1, 9, 11, 8, '2019-08-26 19:33:04'),
-(23, 'Phạm Tiến Đức', 'cuongnew37@gmail.com', '+84 ', 'Số 16A, Ngách 79/40 Dương Quảng Hàm , Tổ 19, Quan Hoa, Cầu Giấy, Hà Nội', '001200006387', NULL, NULL, '0.00', '0.00', '09/05/2022', NULL, 'MTIzNDU2', '', 1, 5, 15, NULL, '2022-05-09 04:23:45');
+(27, 'Phạm Tiến Đức', 'cuongnew37@gmail.com', '+84 ', 'Số 16A, Ngách 79/40 Dương Quảng Hàm , Tổ 19, Quan Hoa, Cầu Giấy, Hà Nội', '001200006387', NULL, NULL, '0.00', '0.00', '15/05/2022', NULL, 'MTIzNDU2', '', 1, 5, 15, NULL, '2022-05-15 14:56:16');
 
 -- --------------------------------------------------------
 
@@ -1227,7 +1227,7 @@ ALTER TABLE `tbl_add_owner_utility`
 -- AUTO_INCREMENT for table `tbl_add_rent`
 --
 ALTER TABLE `tbl_add_rent`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_unit`

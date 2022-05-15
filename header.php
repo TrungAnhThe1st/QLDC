@@ -88,6 +88,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
   <title><?php echo $building_name; ?></title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <?php include(ROOT_PATH . '/partial/header_script.php'); ?>
+  <script src="<?php echo WEB_URL; ?>assets/js/qrGenerator/qrcode.min.js"></script>
 </head>
 
 <body class="skin-green sidebar-mini">
@@ -105,7 +106,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
-            <li class="hidden-xs" style="background:#000;"> <a href="javascript:;" data-toggle="modal" data-target="#available_room"><i style="font-size:18px;" class="fa fa-home"></i></a> </li>
+            <li class="hidden-xs" style="background:#000;"> <a href="#" data-toggle="modal" data-target="#available_room"><i style="font-size:18px;" class="fa fa-home"></i></a> </li>
             <li class="hidden-xs" style="background:#d73925;"> <a href="<?php echo WEB_URL; ?>visitor/visitorlist.php"><i style="font-size:18px;" class="fa fa-user-o"></i></a> </li>
             <li class="hidden-xs" style="background:#00c0ef;"> <a href="<?php echo WEB_URL; ?>complain/complainlist.php"><i style="font-size:18px;" class="fa fa-comments"></i></a> </li>
             <li class="hidden-xs" style="background:#e08e0b;"> <a href="<?php echo WEB_URL; ?>mailsms/mailsms.php"><i style="font-size:18px;" class="fa fa-envelope-o"></i></a> </li>
@@ -245,8 +246,8 @@ $page_name = $ams_helper->curPageUrlInfo('page');
             </ul>
           </li>
           <!-- <li class="treeview <?php if ($page_name != '' && $page_name == 'service_list') {
-                                echo 'active';
-                              } ?>"> <a href="<?php echo WEB_URL; ?>services/service_list.php">
+                                      echo 'active';
+                                    } ?>"> <a href="<?php echo WEB_URL; ?>services/service_list.php">
               <i class="fa fa-bell-concierge" aria-hidden="true"></i>
               <span><?php echo "Dịch vụ"; ?></span>
             </a>
