@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Thiết lập lương nhân viên";
 $_data['text_2'] 		= "Mẫu điền thông tin lương nhân viên";

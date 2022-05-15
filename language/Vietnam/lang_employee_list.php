@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['employee_list'] 							= "Danh sách nhân viên";
 $_data['employee_details'] 							= "Chi tiết nhân viên";

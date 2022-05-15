@@ -1,13 +1,14 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['add_new_unit'] 								= "Thêm mới phòng";
 $_data['update_unit'] 								= "Cập nhật phòng";
 $_data['add_new_unit_entry_form'] 					= "Mẫu điền thông tin phòng";
 $_data['add_new_form_field_text_1'] 				= "Tầng số";
 $_data['add_new_form_field_text_2'] 				= "Phòng số";
+$_data['add_new_form_field_text_3'] 				= "Tiền thuê tháng";
 $_data['add_new_unit_information_breadcam'] 		= "Thông tin phòng";
 $_data['add_new_unit_breadcam'] 					= "Thêm phòng";
 $_data['select_floor'] 								= "Chọn phòng";

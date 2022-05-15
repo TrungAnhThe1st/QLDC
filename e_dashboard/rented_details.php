@@ -42,9 +42,9 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_employee_rented_details.p
           <tbody>
             <?php
 				$result = mysqli_query($link,"Select *,f.floor_no as ffloor,u.unit_no, u.rent_pm from tbl_add_rent r 
-        inner join tbl_add_floor f on f.fid = r.r_floor_no 
-        inner join tbl_add_unit u on u.uid = r.r_unit_no 
-        WHERE r.branch_id =".(int)$_SESSION['objLogin']['branch_id']." order by r.r_unit_no asc");
+        inner join tbl_add_floor f on f.fid = r.r_floor_id 
+        inner join tbl_add_unit u on u.uid = r.r_unit_id 
+        WHERE r.branch_id =".(int)$_SESSION['objLogin']['branch_id']." order by r.r_unit_id asc");
 				while($row = mysqli_fetch_array($result)){
 					$image = WEB_URL . 'img/no_image.jpg';	
 					if(file_exists(ROOT_PATH . '/img/upload/' . $row['image']) && $row['image'] != ''){
@@ -56,7 +56,7 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_employee_rented_details.p
               <td><img class="photo_img_round" style="width:50px;height:50px;" src="<?php echo $image;  ?>" /></td>
               <td><?php echo $row['r_name']; ?></td>
               <td><?php echo $row['r_contact']; ?></td>
-              <td><?php echo $row['unit_id']; ?></td>
+              <td><?php echo $row['unit_no']; ?></td>
 			  <td><?php echo $ams_helper->currency($localization, $row['r_advance']); ?></td>
 			  <td><?php echo $ams_helper->currency($localization, $row['rent_pm']); ?></td>
 			  
@@ -86,7 +86,7 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_employee_rented_details.p
                             <b><?php echo $_data['text_11'];?> :</b> <?php echo $row['r_nid']; ?><br/>
                           </div>
                           <div class="col-xs-6"> <b>Floor No :</b> <?php echo $row['ffloor']; ?><br/>
-                            <b><?php echo $_data['text_4'];?> :</b> <?php echo $row['unit_id']; ?><br/>
+                            <b><?php echo $_data['text_4'];?> :</b> <?php echo $row['unit_no']; ?><br/>
 							<b><?php echo $_data['text_5'];?> :</b> <?php echo $ams_helper->currency($localization, $row['r_advance']); ?><br/>
 							<b><?php echo $_data['text_6'];?> :</b> <?php echo $ams_helper->currency($localization, $row['rent_pm']); ?><br/>
                             <b><?php echo $_data['text_12'];?> :</b> <?php echo $row['r_date']; ?><br/>

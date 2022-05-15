@@ -44,7 +44,7 @@ if(!isset($_SESSION['objLogin'])){
           </thead>
           <tbody>
         	<?php
-				$result = mysqli_query($link,"Select *,r.r_name,r.image,fl.floor_id as fl_floor,u.unit_id as u_unit,m.month_name from tbl_add_fair f inner join tbl_add_owner_unit_relation our on f.unit_id = our.unit_id inner join tbl_add_rent r on r.r_unit_id = f.unit_id inner join tbl_add_floor fl on fl.fid = f.floor_id inner join tbl_add_unit u on u.uid = f.unit_id inner join tbl_add_month_setup m on m.m_id = f.month_id where our.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' order by f.f_id desc");
+				$result = mysqli_query($link,"Select *,r.r_name,r.image,fl.floor_no as fl_floor,u.unit_no as u_unit,m.month_name from tbl_add_fair f inner join tbl_add_owner_unit_relation our on f.unit_no = our.unit_id inner join tbl_add_rent r on r.r_unit_id = f.unit_no inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id where our.owner_id = '". (int)$_SESSION['objLogin']['ownid'] . "' order by f.f_id desc");
 				while($row = mysqli_fetch_array($result)){
 					$image = WEB_URL . 'img/no_image.jpg';	
 			if(file_exists(ROOT_PATH . '/img/upload/' . $row['image']) && $row['image'] != ''){

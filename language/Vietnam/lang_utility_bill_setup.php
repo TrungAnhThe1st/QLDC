@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Thiết lập hóa đơn tiện ích";
 $_data['text_2'] 		= "Mẫu điền hóa đơn tiện ích";

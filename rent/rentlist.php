@@ -12,7 +12,7 @@ $msg = "";
 if (isset($_GET['id']) && $_GET['id'] != '' && $_GET['id'] > 0) {
   $result = mysqli_query($link, "SELECT * FROM tbl_add_rent where rid = '" . $_GET['id'] . "'");
   if ($row = mysqli_fetch_array($result)) {
-    $sqlx = "UPDATE `tbl_add_unit` set status = 0 where floor_no = '" . (int)$row['r_floor_no'] . "' and uid = '" . (int)$row['r_unit_no'] . "'";
+    $sqlx = "UPDATE `tbl_add_unit` set status = 0 where floor_no = '" . (int)$row['r_floor_id'] . "' and uid = '" . (int)$row['r_unit_id'] . "'";
     mysqli_query($link, $sqlx);
   }
   $sqlx = "DELETE FROM `tbl_add_rent` WHERE rid = " . $_GET['id'];
@@ -76,9 +76,9 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
             <tbody>
               <?php
               $result = mysqli_query($link, "Select *,f.floor_no as ffloor,u.unit_no, u.rent_pm from tbl_add_rent r 
-        inner join tbl_add_floor f on f.fid = r.r_floor_no 
-        inner join tbl_add_unit u on u.uid = r.r_unit_no 
-        where r.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by r.r_unit_no asc");
+                  inner join tbl_add_floor f on f.fid = r.r_floor_id 
+                  inner join tbl_add_unit u on u.uid = r.r_unit_id 
+                  where r.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by r.r_unit_id asc");
               while ($row = mysqli_fetch_array($result)) {
                 $image = WEB_URL . 'img/no_image.jpg';
                 if (file_exists(ROOT_PATH . '/img/upload/' . $row['image']) && $row['image'] != '') {
@@ -98,7 +98,11 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                       } else {
                         echo '<label class="label label-danger ams_label">' . $_data['add_new_form_field_text_17'] . '</label>';
                       } ?>
-                  <td><a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#nurse_view_<?php echo $row['rid']; ?>').modal('show');" data-original-title="<?php echo $_data['view_text']; ?>"><i class="fa fa-eye"></i></a> <a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL; ?>rent/addrent.php?id=<?php echo $row['rid']; ?>" data-original-title="<?php echo $_data['edit_text']; ?>"><i class="fa fa-pencil"></i></a> <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onClick="deleteRent(<?php echo $row['rid']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text']; ?>"><i class="fa fa-trash-o"></i></a>
+                  </td>
+                  <td>
+                    <a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#nurse_view_<?php echo $row['rid']; ?>').modal('show');" data-original-title="<?php echo $_data['view_text']; ?>"><i class="fa fa-eye"></i></a> 
+                    <a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL; ?>rent/addrent.php?id=<?php echo $row['rid']; ?>" data-original-title="<?php echo $_data['edit_text']; ?>"><i class="fa fa-pencil"></i></a> 
+                    <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onClick="deleteRent(<?php echo $row['rid']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text']; ?>"><i class="fa fa-trash-o"></i></a>
                     <div id="nurse_view_<?php echo $row['rid']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">

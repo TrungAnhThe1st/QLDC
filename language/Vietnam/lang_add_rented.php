@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['add_new_renter'] 							= "Thêm mới người thuê";
 $_data['update_rent'] 								= "Cập nhật Rent";

@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Danh sách phí bảo trì";
 $_data['text_2'] 		= "Tiêu đề";

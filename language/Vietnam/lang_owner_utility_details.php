@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Chi tiết chủ sở hữu tiện ích";
 $_data['text_2'] 		= "Tên chủ sở hữu";

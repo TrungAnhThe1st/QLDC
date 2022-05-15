@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Dánh sách hóa đơn";
 $_data['text_1_1'] 		= "Chi tiết hóa đơn";

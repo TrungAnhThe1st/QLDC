@@ -1,4 +1,5 @@
 <?php
+
 function generateStrongPassword($length = 9, $add_dashes = false, $available_sets = 'luds')
 {
 	$sets = array();
@@ -38,4 +39,5 @@ function generateStrongPassword($length = 9, $add_dashes = false, $available_set
 	$dash_str .= $password;
 	return $dash_str;
 }
+
 ?>

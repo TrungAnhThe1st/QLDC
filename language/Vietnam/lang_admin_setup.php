@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['button_text_save'] 		= "Lưu thông tin";
 $_data['button_text_update'] 	= "Cập nhật thông tin";

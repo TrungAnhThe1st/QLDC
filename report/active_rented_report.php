@@ -42,8 +42,8 @@ if(!isset($_SESSION['objLogin'])){
           <tbody>
         <?php
 				$result = mysqli_query($link,"Select *,f.floor_no as ffloor,u.unit_no, u.rent_pm from tbl_add_rent r 
-        inner join tbl_add_floor f on f.fid = r.r_floor_no 
-        inner join tbl_add_unit u on u.uid = r.r_unit_no 
+        inner join tbl_add_floor f on f.fid = r.r_floor_id 
+        inner join tbl_add_unit u on u.uid = r.r_unit_id 
         where r.r_status = '1' and branch_id = '" . (int)$_SESSION['objLogin']['branch_id'] . "' order by r.rid desc");
 				while($row = mysqli_fetch_array($result)){
 					$image = WEB_URL . 'img/no_image.jpg';	
@@ -56,7 +56,7 @@ if(!isset($_SESSION['objLogin'])){
             <td><img class="photo_img_round" style="width:50px;height:50px;" src="<?php echo $image;  ?>" /></td>
             <td><?php echo $row['r_name']; ?></td>
             <td><?php echo $row['r_contact']; ?></td>
-            <td><?php echo $row['unit_id']; ?></td>
+            <td><?php echo $row['unit_no']; ?></td>
             <?php if($currency_position == 'left') { ?>
             <td><?php echo $global_currency.$row['r_advance']; ?></td>
             <?php } else { ?>
@@ -91,7 +91,7 @@ if(!isset($_SESSION['objLogin'])){
                         <b>Address :</b> <?php echo $row['r_address']; ?><br/>
                         <b>NID(National ID) :</b> <?php echo $row['r_nid']; ?><br/>
                         <b>Floor No :</b> <?php echo $row['ffloor']; ?><br/>
-                        <b>Unit No :</b> <?php echo $row['unit_id']; ?><br/>
+                        <b>Unit No :</b> <?php echo $row['unit_no']; ?><br/>
                         <b>Advance Rent :</b> <?php if($currency_position == 'left') {echo $global_currency.$row['r_advance'];}else { echo $row['r_advance'].$global_currency;}?><br/>
                         <b>Rent Per Month :</b> <?php if($currency_position == 'left') {echo $global_currency.$row['rent_pm'];}else { echo $row['rent_pm'].$global_currency;}?><br/>
                         <b>Rent Start Date :</b> <?php echo $row['r_date']; ?><br/>

@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Chi tiết tiền thuê hàng tháng";
 $_data['text_2'] 		= "Tên người thuê nhà";

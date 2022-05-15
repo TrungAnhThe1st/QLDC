@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['save_button_text'] 					= "Lưu thông tin";
 $_data['update_button_text'] 				= "Cập nhật thông tin";
@@ -30,7 +30,7 @@ $_data['user_owner']						= "Chủ sở hữu";
 $_data['user_employee']						= "Nhân viên";
 $_data['user_tenant']						= "Người thuê nhà";
 $_data['user_super_admin']					= "Super Admin";
-$_data['lang_online']						= "Online";
+$_data['lang_online']						= "Trực tuyến";
 $_data['lang_profile']						= "Thông tin người dùng";
 $_data['lang_signout']						= "Đăng xuất";
 
@@ -50,11 +50,11 @@ $_data['user_profile']						= "Hồ sơ";
 $_data['user_logout']						= "Đăng xuất";
 $_data['user_lang_switcher']				= "Đổi ngôn ngữ";
 $_data['user_branch_switcher']				= "Đổi tòa nhà";
-$_data['available_rooms']					= "Danh sách các phòng trống";
+$_data['available_rooms']					= "Danh sách các phòng có sẵn";
 $_data['available_rooms_floor']				= "Tên tầng";
 $_data['available_rooms_unit']				= "Tên phòng";
-$_data['app_version']						= "Phiên bản";
-$_data['app_copyright']						= "Copyright";
+$_data['app_version']						= "";
+$_data['app_copyright']						= "";
 
 //update profile
 $_data['profile_update_title']				= "Cập nhật hồ sơ";
@@ -63,6 +63,6 @@ $_data['profile_update_email']				= "Email";
 $_data['profile_update_contact']			= "Số điện thoại";
 $_data['profile_update_password']			= "Mật khẩu";
 $_data['profile_update_button']				= "Cập nhật";
-$_data['profile_update_information']		= "Sau khi cập nhật xong sẽ tự động đăng xuất.";
+$_data['profile_update_information']		= "";
 
 ?>

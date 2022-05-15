@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['list_title'] 							= "Danh sách Email / SMS";
 $_data['add_new_floor_information_breadcam'] 	= "Email / SMS";

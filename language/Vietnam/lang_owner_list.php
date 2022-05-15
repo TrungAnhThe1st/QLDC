@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['owner_list'] 							 	= "Danh sách chủ sở hữu";
 $_data['add_new_form_field_text_1'] 				= "Tên";

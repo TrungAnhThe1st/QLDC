@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['add_new_owner_list_utility_title'] 			= "Danh sách chủ sở hữu tiện ích";
 $_data['owner_utility'] 							= "Chủ sở hữu tiện ích";

@@ -27,7 +27,6 @@
 			}
 			mysqli_query($link,$sql);
 			echo "1";
-			die();
 		}
 		else{
 			echo '-99';
@@ -35,6 +34,5 @@
 	}
 	else{
 		echo '-99';
-		die();
+		
 	}
-?>

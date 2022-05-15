@@ -1,14 +1,14 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['dashboard_title'] 					= "Bảng điều khiển";
 $_data['dashboard_more_info'] 				= "Xem thêm";
 $_data['dashboard_total_floor'] 			= "Tổng số tầng";
 $_data['dashboard_total_unit'] 				= "Tổng số phòng";
 $_data['dashboard_total_owner'] 			= "Tổng số người sở hữu";
-$_data['dashboard_total_rented'] 			= "Tổng số người thuê";
+$_data['dashboard_total_rented'] 			= "Tổng số cư dân";
 $_data['dashboard_total_employee'] 			= "Tổng số nhân viên";
 $_data['dashboard_total_committee'] 		= "Tổng số ủy ban";
 $_data['dashboard_total_fare'] 				= "Tổng số tiền thuê";
@@ -22,8 +22,8 @@ $_data['dashboard_total_complain'] 			= "Tổng số lời khiếu nại";
 /* Owner Dashboard Start */
 
 $_data['text_1'] 							= "Phòng";
-$_data['text_2'] 							= "Người cho thuê";
-$_data['text_3'] 							= "Tổng số người thuê";
+$_data['text_2'] 							= "Cư dân";
+$_data['text_3'] 							= "Tổng số cư dân";
 $_data['text_4'] 							= "Tổng số tiền thuê";
 $_data['text_5'] 							= "Chủ sở hữu tiện ích";
 $_data['text_6'] 							= "Báo cáo cho thuê";
@@ -31,8 +31,8 @@ $_data['text_7'] 							= "Số lần bảo trì";
 $_data['text_8'] 							= "Tổng số quỹ";
 $_data['owner_dashboard'] 					= "Chủ sở hữu bảng điều khiển";
 $_data['control_panel'] 					= "Bảng điều khiển";
-$_data['graph_text_1']						= "Biểu đồ hóa đơn tiền gửi hàng tháng trong năm";
-$_data['graph_text_2']						= "Biểu đồ tiền thuê hàng tháng của người thuê nhà trong năm";
+$_data['graph_text_1']						= "Biểu đồ hóa đơn hàng tháng trong năm";
+$_data['graph_text_2']						= "Biểu đồ tiền thuê hàng tháng của cư dân trong năm";
 $_data['o_text_1'] 							= "Danh sách khiếu nại"; 
 $_data['o_text_1_1_1'] 						= "Chi tiết khiếu nại";
 $_data['o_text_2'] 							= "Khiếu nại";
@@ -53,7 +53,7 @@ $_data['control'] 							= "Bảng điều khiển";
 $_data['salary_statement'] 					= "Bảng sao kê lương";
 $_data['salary_report'] 					= "Tổng thời gian nghỉ";
 $_data['e_total_owner'] 					= "Tổng số người sở hữu";
-$_data['rented_details'] 					= "Tổng số người thuê";
+$_data['rented_details'] 					= "Tổng số cư dân";
 $_data['member_details'] 					= "Thành viên ủy ban";
 $_data['dash'] 								= "Bảng điều khiển";
 $_data['leave_graph_header_text'] 			= "Biểu đồ khách truy cập hàng tháng";
@@ -75,11 +75,11 @@ $_data['ee_text_14'] 						= "Ngoài giờ";
 
 /* Renter Dashboard Start */
 
-$_data['rented_statement'] 					= "Bảng sao kê cho thuê";
+$_data['rented_statement'] 					= "Bảng sao kê";
 $_data['rented_report'] 					= "Báo cáo cho thuê";
 $_data['infomation'] 						= "Bộ phận hỗ trợ";
-$_data['unit_details'] 						= "Chi tiết phòng cho thuê";
-$_data['rented_dashboard']				 	= "Bảng điều khiển của người thuê";
+$_data['unit_details'] 						= "Chi tiết phòng";
+$_data['rented_dashboard']				 	= "Bảng điều khiển của cư dân";
 $_data['c_panel']				 			= "Bảng điều khiển";
 $_data['renter_complain']				 	= "Tổng số lời khiếu nại";
 $_data['graph_text_11']						= "Biểu đồ tiền thuê hàng tháng trong năm";
@@ -96,7 +96,7 @@ $_data['c_table_column_4']				 	= "Tháng";
 $_data['c_table_column_5']				 	= "Năm";
 $_data['c_table_column_6']				 	= "Mô tả";
 $_data['c_modal_top_header']				= "Chi tiết khiếu nại";
-$_data['c_notice_board']					= "Bảng ghi chú";
+$_data['c_notice_board']					= "Bảng thông báo";
 $_data['c_apartment_rules']					= "Nội quy và Quy chế Căn hộ";
 $_data['help_desk_1']						= "Số điện thoại của người điều hành:";
 $_data['help_desk_2']						= "Số điện thoại của thư ký:";

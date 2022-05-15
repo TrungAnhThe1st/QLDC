@@ -1,10 +1,10 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
-$_data['application_title'] 			= "Hệ thống quản lý căn hộ SAKO";
-$_data['application_heading_1'] 		= "SAKO";
+$_data['application_title'] 			= "Hệ thống quản lý căn hộ ";
+$_data['application_heading_1'] 		= "";
 $_data['application_heading_2'] 		= "Hệ thống quản lý căn hộ";
 $_data['wrong_login_msg'] 				= "Sai email hoặc mật khẩu.";
 $_data['enter_login_details'] 			= "Nhập chi tiết thông tin đăng nhập";
@@ -13,7 +13,7 @@ $_data['select_type'] 					= "Chọn loại người dùng";
 $_data['user_1'] 						= "Admin";
 $_data['user_2'] 						= "Người sở hữu";
 $_data['user_3'] 						= "Nhân viên";
-$_data['user_4'] 						= "Người cho thuê";
+$_data['user_4'] 						= "Cư dân";
 $_data['user_5'] 						= "Super Admin";
 $_data['select_branch'] 				= "Chọn nhánh";
 $_data['forgot_password'] 				= "Quên mật khẩu?";

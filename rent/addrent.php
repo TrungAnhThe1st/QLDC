@@ -1,6 +1,7 @@
 <?php
 include('../header.php');
 include('../utility/common.php');
+
 include(ROOT_PATH . 'language/' . $lang_code_global . '/lang_add_rented.php');
 if (!isset($_SESSION['objLogin'])) {
 	header("Location: " . WEB_URL . "logout.php");
@@ -32,11 +33,14 @@ $image_rnt = WEB_URL . 'img/no_image.jpg';
 $img_track = '';
 
 if (isset($_POST['txtRName'])) {
+	$year_id = getYearId(date('Y', strtotime(str_replace('/', '-', $_POST['txtRDate']))));
+	$month_id = date('n', strtotime(str_replace('/', '-', $_POST['txtRDate'])));
+
 	if (isset($_POST['hdn']) && $_POST['hdn'] == '0') {
 		$r_password = $converter->encode($_POST['txtPassword']);
 		$image_url = uploadImage();
-		$sql = "INSERT INTO tbl_add_rent(r_name,r_email,r_contact,r_address,r_nid,r_floor_no,r_unit_no,r_advance,r_rent_pm,r_date,r_month,r_year,r_password,r_status,image,branch_id) 
-		values('$_POST[txtRName]','$_POST[txtREmail]','$_POST[txtRContact]','$_POST[txtRAddress]','$_POST[txtRentedNID]','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[txtRAdvance]','" . (isset($_POST["txtRentPerMonth"]) ? $_POST["txtRentPerMonth"] : 0.00 ) . "','$_POST[txtRDate]','$_POST[ddlMonth]','$_POST[ddlYear]','$r_password','$_POST[chkRStaus]','$image_url','" . $_SESSION['objLogin']['branch_id'] . "')";
+		$sql = "INSERT INTO tbl_add_rent(r_name,r_email,r_contact,r_address,r_nid,r_floor_id,r_unit_id,r_advance,r_rent_pm,r_date,r_month,r_year,r_password,r_status,image,branch_id) 
+		values('$_POST[txtRName]','$_POST[txtREmail]','$_POST[txtRContact]','$_POST[txtRAddress]','$_POST[txtRentedNID]','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[txtRAdvance]','" . (isset($_POST["txtRentPerMonth"]) ? $_POST["txtRentPerMonth"] : 0.00) . "','$_POST[txtRDate]','$month_id','$year_id','$r_password','$_POST[chkRStaus]','$image_url','" . $_SESSION['objLogin']['branch_id'] . "')";
 		mysqli_query($link, $sql);
 		//update unit status
 		$sqlx = "UPDATE `tbl_add_unit` set status = 1 where floor_no = '" . (int)$_POST['ddlFloorNo'] . "' and uid = '" . (int)$_POST['ddlUnitNo'] . "'";
@@ -50,7 +54,8 @@ if (isset($_POST['txtRName'])) {
 		if ($image_url == '') {
 			$image_url = $_POST['img_exist'];
 		}
-		$sql = "UPDATE `tbl_add_rent` SET `r_name`='" . $_POST['txtRName'] . "',`r_email`='" . $_POST['txtREmail'] . "',`r_password`='" . $converter->encode($_POST['txtPassword']) . "',`r_contact`='" . $_POST['txtRContact'] . "',`r_address`='" . $_POST['txtRAddress'] . "',`r_nid`='" . $_POST['txtRentedNID'] . "',`r_floor_no`='" . $_POST['ddlFloorNo'] . "',`r_unit_no`='" . $_POST['ddlUnitNo'] . "',`r_advance`='" . $_POST['txtRAdvance'] . "',`r_rent_pm`='" . (isset($_POST['txtRentPerMonth']) ? $_POST['txtRentPerMonth'] : 0.00) . "',`r_date`='" . $_POST['txtRDate'] . "',`r_month`='" . $_POST['ddlMonth'] . "',`r_year`='" . $_POST['ddlYear'] . "',`r_status`='" . $_POST['chkRStaus'] . "',`image`='" . $image_url . "' WHERE rid='" . $_GET['id'] . "'";
+		$sql = "UPDATE `tbl_add_rent` 
+		SET `r_name`='" . $_POST['txtRName'] . "',`r_email`='" . $_POST['txtREmail'] . "',`r_password`='" . $converter->encode($_POST['txtPassword']) . "',`r_contact`='" . $_POST['txtRContact'] . "',`r_address`='" . $_POST['txtRAddress'] . "',`r_nid`='" . $_POST['txtRentedNID'] . "',`r_floor_id`='" . $_POST['ddlFloorNo'] . "',`r_unit_id`='" . $_POST['ddlUnitNo'] . "',`r_advance`='" . $_POST['txtRAdvance'] . "',`r_rent_pm`='" . (isset($_POST['txtRentPerMonth']) ? $_POST['txtRentPerMonth'] : 0.00) . "',`r_date`='" . $_POST['txtRDate'] . "',`r_month`='" . $month_id . "',`r_year`='" . $year_id . "',`r_status`='" . $_POST['chkRStaus'] . "',`image`='" . $image_url . "' WHERE rid='" . $_GET['id'] . "'";
 		mysqli_query($link, $sql);
 		//update unit status
 		$sqlx = "UPDATE `tbl_add_unit` set status = 0 where floor_no = '" . (int)$_POST['hdnFloor'] . "' and uid = '" . (int)$_POST['hdnUnit'] . "'";
@@ -179,7 +184,7 @@ function NewGuid()
 								<?php
 								$result_floor = mysqli_query($link, "SELECT * FROM tbl_add_floor WHERE branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by fid ASC");
 								while ($row_floor = mysqli_fetch_array($result_floor)) { ?>
-									<option <?php if ($r_floor_no == $row_floor['fid']) {
+									<option <?php if ($r_floor_id == $row_floor['fid']) {
 												echo 'selected';
 											} ?> value="<?php echo $row_floor['fid']; ?>"><?php echo $row_floor['floor_no']; ?></option>
 								<?php } ?>
@@ -190,9 +195,9 @@ function NewGuid()
 							<select name="ddlUnitNo" id="ddlUnitNo" class="form-control">
 								<option value="">--<?php echo $_data['select_unit']; ?>--</option>
 								<?php
-								$result_unit = mysqli_query($link, "SELECT * FROM tbl_add_unit where floor_no = " . (int)$r_floor_no . " order by unit_no ASC");
+								$result_unit = mysqli_query($link, "SELECT * FROM tbl_add_unit where floor_no = " . (int)$r_floor_id . " order by unit_no ASC");
 								while ($row_unit = mysqli_fetch_array($result_unit)) { ?>
-									<option <?php if ($r_unit_no == $row_unit['uid']) {
+									<option <?php if ($r_unit_id == $row_unit['uid']) {
 												echo 'selected';
 											} ?> value="<?php echo $row_unit['uid']; ?>"><?php echo $row_unit['unit_no']; ?></option>
 								<?php } ?>
@@ -206,42 +211,42 @@ function NewGuid()
 							</div>
 						</div>
 						<!-- <div class="form-group col-md-6">
-							<label for="txtRentPerMonth"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_10']; ?> :</label>
-							<div class="input-group">
-								<input type="text" name="txtRentPerMonth" value="<?php echo $r_rent_pm; ?>" id="txtRentPerMonth" class="form-control" />
-								<div class="input-group-addon"> <?php echo CURRENCY; ?> </div>
-							</div>
-						</div> -->
+            <label for="txtRentPerMonth"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_10']; ?> :</label>
+            <div class="input-group">
+              <input type="text" name="txtRentPerMonth" value="<?php echo $r_rent_pm; ?>" id="txtRentPerMonth" class="form-control" />
+              <div class="input-group-addon"> <?php echo CURRENCY; ?> </div>
+            </div>
+          </div> -->
 						<div class="form-group col-md-6">
 							<label for="txtRDate"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_11']; ?> :</label>
 							<input type="text" name="txtRDate" value="<?php echo $r_date; ?>" id="txtRDate" class="form-control datepicker" />
 						</div>
-						<div class="form-group col-md-6">
-							<label for="ddlMonth"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_12']; ?> :</label>
-							<select name="ddlMonth" id="ddlMonth" class="form-control">
-								<option value="">--<?php echo $_data['select_month']; ?>--</option>
-								<?php
-								$result_unit = mysqli_query($link, "SELECT * FROM tbl_add_month_setup order by m_id ASC");
-								while ($row_unit = mysqli_fetch_array($result_unit)) { ?>
-									<option <?php if ($r_month == $row_unit['m_id']) {
-												echo 'selected';
-											} ?> value="<?php echo $row_unit['m_id']; ?>"><?php echo $row_unit['month_name']; ?></option>
-								<?php } ?>
-							</select>
-						</div>
-						<div class="form-group col-md-6">
-							<label for="ddlYear"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_13']; ?> :</label>
-							<select name="ddlYear" id="ddlYear" class="form-control">
-								<option value="">--<?php echo $_data['select_year']; ?>--</option>
-								<?php
-								$result_unit = mysqli_query($link, "SELECT * FROM tbl_add_year_setup order by y_id ASC");
-								while ($row_unit = mysqli_fetch_array($result_unit)) { ?>
-									<option <?php if ($r_year == $row_unit['y_id']) {
-												echo 'selected';
-											} ?> value="<?php echo $row_unit['y_id']; ?>"><?php echo $row_unit['xyear']; ?></option>
-								<?php } ?>
-							</select>
-						</div>
+						<!-- <div class="form-group col-md-6">
+            <label for="ddlMonth"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_12']; ?> :</label>
+            <select name="ddlMonth" id="ddlMonth" class="form-control">
+              <option value="">--<?php echo $_data['select_month']; ?>--</option>
+              <?php
+				$result_unit = mysqli_query($link, "SELECT * FROM tbl_add_month_setup order by m_id ASC");
+				while ($row_unit = mysqli_fetch_array($result_unit)) { ?>
+              <option <?php if ($r_month == $row_unit['m_id']) {
+							echo 'selected';
+						} ?> value="<?php echo $row_unit['m_id']; ?>"><?php echo $row_unit['month_name']; ?></option>
+              <?php } ?>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="ddlYear"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_13']; ?> :</label>
+            <select name="ddlYear" id="ddlYear" class="form-control">
+              <option value="">--<?php echo $_data['select_year']; ?>--</option>
+              <?php
+				$result_unit = mysqli_query($link, "SELECT * FROM tbl_add_year_setup order by y_id ASC");
+				while ($row_unit = mysqli_fetch_array($result_unit)) { ?>
+              <option <?php if ($r_year == $row_unit['y_id']) {
+							echo 'selected';
+						} ?> value="<?php echo $row_unit['y_id']; ?>"><?php echo $row_unit['xyear']; ?></option>
+              <?php } ?>
+            </select>
+          </div> -->
 						<div class="form-group col-md-12">
 							<label for="chkRStaus"><?php echo $_data['add_new_form_field_text_14']; ?> :</label>
 							<select name="chkRStaus" id="chkRStaus" class="form-control">
@@ -273,8 +278,8 @@ function NewGuid()
 						</div>
 					</div>
 					<input type="hidden" value="<?php echo $hdnid; ?>" name="hdn" />
-					<input type="hidden" value="<?php echo $r_floor_no; ?>" name="hdnFloor" />
-					<input type="hidden" value="<?php echo $r_unit_no; ?>" name="hdnUnit" />
+					<input type="hidden" value="<?php echo $r_floor_id; ?>" name="hdnFloor" />
+					<input type="hidden" value="<?php echo $r_unit_id; ?>" name="hdnUnit" />
 				</form>
 				<!-- /.box-body -->
 			</div>
@@ -317,9 +322,9 @@ function NewGuid()
 				$("#ddlUnitNo").focus();
 				return false;
 			} else if ($("#txtRAdvance").val() == '') {
-				alert("<?php echo $_data['required_9']; ?>");
-				$("#txtRAdvance").focus();
-				return false;
+				// alert("<?php echo $_data['required_9']; ?>");
+				// $("#txtRAdvance").focus();
+				// return false;
 			} else if ($("#txtRentPerMonth").val() == '') {
 				alert("<?php echo $_data['required_10']; ?>");
 				$("#txtRentPerMonth").focus();
@@ -328,15 +333,18 @@ function NewGuid()
 				alert("<?php echo $_data['required_11']; ?>");
 				$("#txtRDate").focus();
 				return false;
-			} else if ($("#ddlMonth").val() == '') {
-				alert("<?php echo $_data['required_12']; ?>");
-				$("#ddlMonth").focus();
-				return false;
-			} else if ($("#ddlYear").val() == '') {
-				alert("<?php echo $_data['required_13']; ?>");
-				$("#ddlYear").focus();
-				return false;
-			} else {
+			}
+			// else if($("#ddlMonth").val() == ''){
+			// 	alert("<?php echo $_data['required_12']; ?>");
+			// 	$("#ddlMonth").focus();
+			// 	return false;
+			// }
+			// else if($("#ddlYear").val() == ''){
+			// 	alert("<?php echo $_data['required_13']; ?>");
+			// 	$("#ddlYear").focus();
+			// 	return false;
+			// }
+			else {
 				return true;
 			}
 		}

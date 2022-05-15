@@ -1,7 +1,7 @@
 <?php
 //Website Menu Language Conversion
 //English Package
-//copyright: sakosys.com
+//
 
 $_data['text_1'] 		= "Thêm thông tin cuộc họp";
 $_data['text_2'] 		= "Cuộc họp";
