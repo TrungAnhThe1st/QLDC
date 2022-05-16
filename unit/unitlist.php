@@ -116,13 +116,10 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                     <!--Qr code generating -->
                     <script>
                       var qrcode = new QRCode(document.getElementById("id-qrcode-<?php echo $row['uid']; ?>"), {
-                        text: "<?php echo $row['uid'] . '|' . $row['fid'] . '|' . $row['branch_id']; ?>",
-                        width: 200,
-                        height: 200,
-                        colorDark: "#000000",
-                        colorLight: "#ffffff",
-                        correctLevel: QRCode.CorrectLevel.M
+                        width: 100,
+                        height: 100
                       });
+                      qrcode.makeCode("<?php echo $row['uid'] . '|' . $row['fid'] . '|' . $row['branch_id']; ?>");
 
                       $("#id-qrcode-<?php echo $row['uid']; ?> img").css("margin", "0 auto");
                     </script>

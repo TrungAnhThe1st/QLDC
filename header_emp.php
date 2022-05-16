@@ -45,7 +45,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
   <title><?php echo $building_name; ?></title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <?php include(ROOT_PATH . '/partial/header_script.php'); ?>
-  <script src="<?php echo WEB_URL; ?>assets/js/qrGenerator/qrcode.min.js"></script>
+  <script src="<?php echo WEB_URL; ?>assets/js/qrGenerator/qrcode.js"></script>
 </head>
 
 <body class="skin-green sidebar-mini">
