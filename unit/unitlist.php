@@ -80,8 +80,9 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
             </thead>
             <tbody>
               <?php
-              $sql = "Select f.fid, f.floor_no,u.unit_no,u.uid, u.rent_pm, u.branch_id from tbl_add_unit u 
+              $sql = "Select f.fid, f.floor_no,u.unit_no,u.uid, u.rent_pm, u.branch_id, br.branch_name from tbl_add_unit u 
               inner join tbl_add_floor f on f.fid = u.floor_no 
+              inner join tblbranch br on br.branch_id = u.branch_id 
               where u.branch_id = " . (int)$_SESSION['objLogin']['branch_id'];
 
               if (isset($_GET['active']) && $_GET['active'] != -1) {
@@ -116,7 +117,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                     <!--Qr code generating -->
                     <script>
                       var qrcode = new QRCode(document.getElementById("id-qrcode-<?php echo $row['uid']; ?>"), {
-                        text: "<?php echo $row['uid'] . '|' . $row['fid'] . '|' . $row['branch_id']; ?>",
+                        text: "<?php echo $row['uid'] . '|' . $row['fid'] . '|' . $row['branch_id'] . '|' . $row['unit_no'] . '|' . $row['floor_no'] . '|' . $row['branch_name'] ; ?>",
                         width: 200,
                         height: 200,
                         colorDark: "#000000",

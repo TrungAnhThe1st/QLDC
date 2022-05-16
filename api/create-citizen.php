@@ -3,16 +3,24 @@ include('../config.php');
 include(ROOT_PATH . "library/encryption.php");
 $converter = new Encryption;
 
+header("Content-Type: application/json");
+
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // Sample array
-    $qrData = $_POST['qrData'];
+    $qrCitizenData = $_POST['qrCitizenData'];
+    $qrUnitData = $_POST['qrUnitData'];
 
-    /*0 - new cid, 1 - old cid, 2 - name, 
+
+    /*
+    0 - new cid, 1 - old cid, 2 - name, 
     3 - dob (ddMMyyyy), 4 - gender, 5 - address, 
     6 - cid provided date
     */
-    $decoded_datas = explode("|", $qrData);
+    $decoded_datas = explode("|", $qrCitizenData);
     $email = $_POST['email'];
+
+    /*0 - uid, 1 - fid, 2 - branch_id */
+    $unit_decode_datas = explode("|", $qrUnitData);
 
     $message = '';
     $signal = 0;
@@ -35,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 
     $sql = "Select * from tbl_add_rent 
-    where r_name = '$decoded_datas[2]' and r_nid = '$decoded_datas[0]'";
+    where r_name = '$decoded_datas[2]' and r_nid = '$decoded_datas[0]' and r_email = '$email'";
     $result = mysqli_query($link, $sql);
 
     if ($row = mysqli_fetch_array($result)) {
@@ -52,15 +60,20 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         // mysqli_query($link, $sql);
         $signal = 1;
     } else {
-        $sql = "INSERT INTO 
-        tbl_add_rent(r_name,r_email,r_address,r_nid,r_rent_pm,r_date,r_month,r_year, r_password) 
-		values('$decoded_datas[2]','$email','$decoded_datas[5]','$decoded_datas[0]','" . (isset($_POST["txtRentPerMonth"]) ? $_POST["txtRentPerMonth"] : 0.00) . "', '" . date('d/m/Y') . "','" . date('n') . "','" . $year_id . "', '" . $converter->encode('123456') . "')";
+        $r_date = date('d/m/Y');
+        $r_month = date('n');
+        $r_password = $converter->encode('123456');
+        $sql = "INSERT INTO tbl_add_rent(r_name,r_email,r_address,r_nid,r_advance,r_rent_pm,r_date,r_month,r_year, r_password, r_unit_id, r_floor_id, branch_id) 
+        VALUES('$decoded_datas[2]','$email','$decoded_datas[5]','$decoded_datas[0]',0,0,'$r_date','$r_month',$year_id,'$r_password', $unit_decode_datas[0], $unit_decode_datas[1], $unit_decode_datas[2])";
 
-        mysqli_query($link, $sql);
-        $signal = 2;
+        if ($result = mysqli_query($link, $sql)) {
+            $sql = "Update tbl_add_unit set status = 1 where uid = $unit_decode_datas[0]";
+            mysqli_query($link, $sql);
+            $signal = 2;
+        } else {
+            $signal = 1;
+        }
     }
-
-    header("Content-Type: application/json");
 
     if ($signal === 2) {
         http_response_code(200);
@@ -69,13 +82,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     } else if ($signal === 1) {
         http_response_code(409);
         $status = 409;
-        $message = "Người dùng đã tồn tại!";
+        $message = "Người dùng đã tồn tại hoặc email bị trùng!";
     }
 
     echo json_encode([
         "status" => $status,
         'message' => $message
-
     ]);
 } else {
     http_response_code(405);
@@ -85,5 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     ]);
 }
+
+// echo json_encode([
+//     "qrCitizenData" => $_POST['qrCitizenData'],
+// ]);
 
 exit();
