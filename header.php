@@ -88,6 +88,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
   <title><?php echo $building_name; ?></title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <?php include(ROOT_PATH . '/partial/header_script.php'); ?>
+  <script src="<?php echo WEB_URL; ?>assets/js/qrGenerator/qrcode.min.js"></script>
 </head>
 
 <body class="skin-green sidebar-mini">
@@ -105,7 +106,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
-            <li class="hidden-xs" style="background:#000;"> <a href="javascript:;" data-toggle="modal" data-target="#available_room"><i style="font-size:18px;" class="fa fa-home"></i></a> </li>
+            <li class="hidden-xs" style="background:#000;"> <a href="#" data-toggle="modal" data-target="#available_room"><i style="font-size:18px;" class="fa fa-home"></i></a> </li>
             <li class="hidden-xs" style="background:#d73925;"> <a href="<?php echo WEB_URL; ?>visitor/visitorlist.php"><i style="font-size:18px;" class="fa fa-user-o"></i></a> </li>
             <li class="hidden-xs" style="background:#00c0ef;"> <a href="<?php echo WEB_URL; ?>complain/complainlist.php"><i style="font-size:18px;" class="fa fa-comments"></i></a> </li>
             <li class="hidden-xs" style="background:#e08e0b;"> <a href="<?php echo WEB_URL; ?>mailsms/mailsms.php"><i style="font-size:18px;" class="fa fa-envelope-o"></i></a> </li>
@@ -244,6 +245,13 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                           } ?>"><a href="<?php echo WEB_URL; ?>fair/addfair.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_add_rent']; ?></a></li>
             </ul>
           </li>
+          <!-- <li class="treeview <?php if ($page_name != '' && $page_name == 'service_list') {
+                                      echo 'active';
+                                    } ?>"> <a href="<?php echo WEB_URL; ?>services/service_list.php">
+              <i class="fa fa-bell-concierge" aria-hidden="true"></i>
+              <span><?php echo "Dịch vụ"; ?></span>
+            </a>
+          </li> -->
           <!-- <li class="treeview <?php if ($page_name != '' && $page_name == 'add_owner_utility' || $page_name == 'owner_utility_list') {
                                       echo 'active';
                                     } ?>"> <a href="#"> <i class="fa fa-gear"></i> <span><?php echo $_data['menu_owner_utility']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
@@ -358,7 +366,11 @@ $page_name = $ams_helper->curPageUrlInfo('page');
           </li>
           <li class="treeview <?php if ($page_name != '' && $page_name == 'mailsms') {
                                 echo 'active';
-                              } ?>"> <a href="<?php echo WEB_URL; ?>mailsms/mailsms.php"> <i class="fa fa-envelope-o" aria-hidden="true"></i> <span><?php echo $_data['email_sms']; ?></span></a></li>
+                              } ?>"> <a href="<?php echo WEB_URL; ?>mailsms/mailsms.php">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+              <span><?php echo $_data['email_sms']; ?></span>
+            </a>
+          </li>
           <li class="treeview <?php if ($page_name != '' && $page_name == 'fair_report' || $page_name == 'rented_report' || $page_name == 'visitors_report' || $page_name == 'complain_report' || $page_name == 'unit_report' || $page_name == 'fund_status' || $page_name == 'bill_report' || $page_name == 'salary_report') {
                                 echo 'active';
                               } ?>"> <a href="#"> <i class="fa fa-bar-chart-o"></i> <span><?php echo $_data['menu_report']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
@@ -379,8 +391,8 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                             echo 'active';
                           } ?>"><a href="<?php echo WEB_URL; ?>report/unit_report.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_unit_status_report']; ?></a></li>
               <!-- <li class="<?php if ($page_name != '' && $page_name == 'fund_status') {
-                            echo 'active';
-                          } ?>"><a target="_blank" href="<?php echo WEB_URL; ?>report/fund_status.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_fund_status']; ?></a>
+                                echo 'active';
+                              } ?>"><a target="_blank" href="<?php echo WEB_URL; ?>report/fund_status.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_fund_status']; ?></a>
               </li> -->
               <li class="<?php if ($page_name != '' && $page_name == 'bill_report') {
                             echo 'active';
@@ -393,8 +405,8 @@ $page_name = $ams_helper->curPageUrlInfo('page');
 
           <?php if ((int)$_SESSION['login_type'] == 5) { ?>
             <!-- <li class="treeview <?php if ($page_name != '' && $page_name == 'cleardata' || $page_name == 'visitorlist') {
-                                  echo 'active';
-                                } ?>"> <a href="#"> <i class="fa fa-database"></i> <span><?php echo $_data['database_left_menu']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
+                                        echo 'active';
+                                      } ?>"> <a href="#"> <i class="fa fa-database"></i> <span><?php echo $_data['database_left_menu']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
               <ul class="treeview-menu">
                 <li class="<?php if ($page_name != '' && $page_name == 'cleardata') {
                               echo 'active';
@@ -408,9 +420,10 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                 <li class="<?php if ($page_name != '' && $page_name == 'admin') {
                               echo 'active';
                             } ?>"><a href="<?php echo WEB_URL; ?>setting/admin.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_admin_setup']; ?></a></li>
-                <li style="display:none;" class="<?php if ($page_name != '' && $page_name == 'add_building_info') {
-                                                    echo 'active';
-                                                  } ?>"><a href="<?php echo WEB_URL; ?>building/add_building_info.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_building_info']; ?></a> </li>
+                <!-- <li style="display:none;" class="<?php if ($page_name != '' && $page_name == 'add_building_info') {
+                                                        echo 'active';
+                                                      } ?>"><a href="<?php echo WEB_URL; ?>building/add_building_info.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_building_info']; ?></a> 
+                </li> -->
                 <li class="<?php if ($page_name != '' && $page_name == 'branchlist' || $page_name == 'addbranch') {
                               echo 'active';
                             } ?>"><a href="#"><i class="fa fa-angle-double-right"></i><?php echo $_data['branch']; ?> <i class="fa fa-angle-left pull-right"></i> </a>
@@ -432,9 +445,10 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                 <li class="<?php if ($page_name != '' && $page_name == 'member_type_setup') {
                               echo 'active';
                             } ?>"><a href="<?php echo WEB_URL; ?>setting/member_type_setup.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_management_member_type']; ?></a></li>
-                <li class="<?php if ($page_name != '' && $page_name == 'month_setup') {
-                              echo 'active';
-                            } ?>"><a href="<?php echo WEB_URL; ?>setting/month_setup.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_month_setup']; ?></a></li>
+                <!-- <li class="<?php if ($page_name != '' && $page_name == 'month_setup') {
+                                  echo 'active';
+                                } ?>"><a href="<?php echo WEB_URL; ?>setting/month_setup.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_month_setup']; ?></a>
+                </li> -->
                 <li class="<?php if ($page_name != '' && $page_name == 'year_setup') {
                               echo 'active';
                             } ?>"><a href="<?php echo WEB_URL; ?>setting/year_setup.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_year_setup']; ?></a></li>
@@ -507,7 +521,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                 </div>
                 <div class="form-group">
                   <label class="control-label"><?php echo $_data['profile_update_password']; ?> :&nbsp;&nbsp;</label>
-                  <input type="text" class="form-control" id="txtProfilePassword" name="txtProfilePassword" value="<?php echo $_SESSION['objLogin']['password']; ?>">
+                  <input type="text" class="form-control" id="txtProfilePassword" name="txtProfilePassword" value="<?php echo $converter->decode($_SESSION['objLogin']['password']); ?>">
                 </div>
                 <div style="color:orange;font-weight:bold;text-align:left;font-size:15px;"><?php echo $_data['profile_update_information']; ?></div>
               </div>
