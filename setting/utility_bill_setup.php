@@ -24,7 +24,7 @@ $msg = "";
 
 if(isset($_POST['txtGasBill'])){
 	mysqli_query($link,"DELETE FROM `tbl_add_utility_bill` WHERE branch_id = ".(int)$_SESSION['objLogin']['branch_id']); 
-	$sql="INSERT INTO `tbl_add_utility_bill`(`branch_id`,`gas_bill`,`security_bill`) VALUES (".(int)$_SESSION['objLogin']['branch_id'].",'$_POST[txtGasBill]','$_POST[txtSecurityBill]')";
+	$sql="INSERT INTO `tbl_add_utility_bill`(`branch_id`,`gas_bill`,`security_bill`,`water_bill`,`electric_bill`) VALUES (".(int)$_SESSION['objLogin']['branch_id'].",'$_POST[txtGasBill]','$_POST[txtSecurityBill]','$_POST[txtWaterBill]','$_POST[txtElectricBill]')";
 	mysqli_query($link,$sql);
 	mysqli_close($link);
 	$url = WEB_URL . 'setting/utility_bill_setup.php?m=up';
@@ -41,6 +41,8 @@ $result_location = mysqli_query($link,"SELECT * FROM tbl_add_utility_bill where 
 if($row = mysqli_fetch_array($result_location)){
 	$gas_bill = $row['gas_bill'];
 	$security_bill = $row['security_bill'];
+  $water_bill = $row['water_bill'];
+  $electric_bill = $row['electric_bill'];
 }
 ?>
 <!-- Content Header (Page header) -->
@@ -83,6 +85,20 @@ if($row = mysqli_fetch_array($result_location)){
             <label for="txtSecurityBill"><?php echo $_data['text_4'];?> :</label>
             <div class="input-group">
               <input type="text" name="txtSecurityBill" value="<?php echo $security_bill;?>" id="txtSecurityBill" class="form-control" />
+              <div class="input-group-addon"><?php echo CURRENCY;?></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="txtWaterBill">Hóa đơn tiền nước:</label>
+            <div class="input-group">
+              <input type="text" name="txtWaterBill" value="<?php echo $water_bill;?>" id="txtWaterBill" class="form-control" />
+              <div class="input-group-addon"><?php echo CURRENCY;?></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="txtElectricBill">Hóa đơn tiền điện:</label>
+            <div class="input-group">
+              <input type="text" name="txtElectricBill" value="<?php echo $electric_bill;?>" id="txtElectricBill" class="form-control" />
               <div class="input-group-addon"><?php echo CURRENCY;?></div>
             </div>
           </div>

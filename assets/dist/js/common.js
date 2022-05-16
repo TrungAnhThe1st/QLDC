@@ -630,7 +630,11 @@ function getEmployeeData(unit_id) {
 }
 
 //for total fair collection
-function calculateFairTotal() {
+function calculateFairTotal(water_bill, electric_bill) {
+
+    water_bill = water_bill || 0;
+    electric_bill = electric_bill || 0;
+
     var box_1 = 0.00;
     var box_2 = 0.00;
     var box_3 = 0.00;
@@ -659,7 +663,7 @@ function calculateFairTotal() {
     if ($("#txtOtherBill").val() != '') {
         box_7 = parseFloat($("#txtOtherBill").val());
     }
-    var total = parseFloat(box_1 + box_2 + box_3 + box_4 + box_5 + box_6 + box_7);
+    var total = parseFloat(box_1 + box_2 * water_bill + box_3 * electric_bill + box_4 + box_5 + box_6 + box_7);
     total = total.toFixed(2);
     $("#txtTotalRent").val(total);
     $("#hdnTotal").val(total);
