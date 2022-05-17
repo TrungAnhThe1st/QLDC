@@ -43,10 +43,10 @@ $rid = 0;
 
 if (isset($_POST['txtRent'])) {
   $year = date('Y', strtotime(str_replace('/', '-', $_POST['txtIssueDate'])));
-	$month_id = date('n', strtotime(str_replace('/', '-', $_POST['txtIssueDate'])));
+  $month_id = date('n', strtotime(str_replace('/', '-', $_POST['txtIssueDate'])));
 
   if (isset($_POST['hdn']) && $_POST['hdn'] == '0') {
-    
+
     $water_bill = intval($water_bill) * intval($_POST['txtWaterBill']);
     $electric_bill = intval($electric_bill) * intval($_POST['txtElectricBill']);
 
@@ -165,7 +165,9 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
                 <option value="">--<?php echo $_data['add_new_form_field_text_4']; ?>--</option>
                 <?php
                 if (!empty($unit_no)) {
-                  $result_unit = mysqli_query($link, "SELECT * FROM tbl_add_unit where floor_no = '" . (int)$floor_no . "' order by uid ASC");
+                  // $result_unit = mysqli_query($link, "SELECT * FROM tbl_add_unit where floor_no = '" . (int)$floor_no . "' order by uid ASC");
+                  $result_unit = mysqli_query($link, "SELECT * FROM tbl_add_unit where floor_no = '" . (int)$floor_no . "' and status = 1 order by uid ASC");
+
                   while ($row_unit = mysqli_fetch_array($result_unit)) { ?>
                     <option <?php if ($unit_no == $row_unit['uid']) {
                               echo 'selected';
@@ -215,24 +217,18 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
               </div>
             </div>
             <div class="form-group col-md-6">
-              <label for="txtWaterBill">Nhập số nước:</label>
-              <div class="input-group">
-                <input type="number" name="txtWaterBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="0" id="txtWaterBill" class="form-control" />
-                <div class="input-group-addon"><?php echo CURRENCY; ?></div>
-              </div>
+              <label for="txtWaterBill">Nhập số nước (<?php echo $water_bill . CURRENCY . "/" . 'số'; ?>):</label>
+              <input type="text" name="txtWaterBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="0" id="txtWaterBill" class="form-control" />
             </div>
             <div class="form-group col-md-6">
-              <label for="txtElectricBill">Nhập số điện:</label>
-              <div class="input-group">
-                <input type="number" name="txtElectricBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="0" id="txtElectricBill" class="form-control" />
-                <div class="input-group-addon"><?php echo CURRENCY; ?></div>
-              </div>
+              <label for="txtElectricBill">Nhập số điện (<?php echo $electric_bill . CURRENCY . "/" . 'số'; ?>):</label>
+              <input type="text" name="txtElectricBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="0" id="txtElectricBill" class="form-control" />
             </div>
             <div class="form-group col-md-6">
               <label for="txtGasBill"><?php echo $_data['add_new_form_field_text_10']; ?> :</label>
               <div class="input-group">
                 <input type="hidden" id="hdnGasBill" name="hdnGasBill" value="<?php echo $gas_bill; ?>" />
-                <input type="text" name="txtGasBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="<?php echo $gas_bill; ?>" id="txtGasBill" class="form-control" />
+                <input type="text" name="txtGasBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="<?php echo $gas_bill; ?>" id="txtGasBill" class="form-control" readonly/>
                 <div class="input-group-addon"><?php echo CURRENCY; ?></div>
               </div>
             </div>
@@ -240,7 +236,7 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
               <label for="txtSecurityBill"><?php echo $_data['add_new_form_field_text_11']; ?> :</label>
               <div class="input-group">
                 <input type="hidden" id="hdnSecurityBill" name="hdnSecurityBill" value="<?php echo $security_bill; ?>" />
-                <input type="text" name="txtSecurityBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="<?php echo $security_bill; ?>" id="txtSecurityBill" class="form-control" />
+                <input type="text" name="txtSecurityBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="<?php echo $security_bill; ?>" id="txtSecurityBill" class="form-control" readonly/>
                 <div class="input-group-addon"><?php echo CURRENCY; ?></div>
               </div>
             </div>
