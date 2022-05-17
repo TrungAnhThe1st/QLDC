@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2022 at 05:12 PM
+-- Generation Time: May 16, 2022 at 04:49 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- PHP Version: 8.0.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ams`
+-- Database: `demo1_ams`
 --
 
 -- --------------------------------------------------------
@@ -313,7 +313,8 @@ CREATE TABLE `tbl_add_fair` (
 
 INSERT INTO `tbl_add_fair` (`f_id`, `type`, `floor_no`, `unit_no`, `rid`, `month_id`, `xyear`, `rent`, `water_bill`, `electric_bill`, `gas_bill`, `security_bill`, `utility_bill`, `other_bill`, `total_rent`, `issue_date`, `paid_date`, `branch_id`, `bill_status`, `added_date`) VALUES
 (45, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '0.00', '0.00', '800.00', '900.00', '0.00', '0.00', '51700.00', '10/05/2022', '26/05/2022', 8, 0, '2022-05-09 18:54:23'),
-(46, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '0.00', '0.00', '800.00', '900.00', '0.00', '0.00', '51700.00', '10/05/2022', '19/05/2022', 8, 0, '2022-05-09 19:16:01');
+(46, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '0.00', '0.00', '800.00', '900.00', '0.00', '0.00', '51700.00', '10/05/2022', '19/05/2022', 8, 0, '2022-05-09 19:16:01'),
+(55, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '3000.00', '1000.00', '800.00', '400.00', '0.00', '0.00', '55200.00', '23/05/2022', '', 8, 0, '2022-05-16 14:48:00');
 
 -- --------------------------------------------------------
 
@@ -617,6 +618,8 @@ CREATE TABLE `tbl_add_utility_bill` (
   `branch_id` int(11) NOT NULL DEFAULT 0,
   `gas_bill` varchar(200) NOT NULL,
   `security_bill` varchar(200) NOT NULL,
+  `water_bill` int(11) NOT NULL DEFAULT 0,
+  `electric_bill` int(11) NOT NULL DEFAULT 0,
   `added_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -624,9 +627,9 @@ CREATE TABLE `tbl_add_utility_bill` (
 -- Dumping data for table `tbl_add_utility_bill`
 --
 
-INSERT INTO `tbl_add_utility_bill` (`utility_id`, `branch_id`, `gas_bill`, `security_bill`, `added_date`) VALUES
-(5, 7, '850', '800', '2018-05-14 06:31:40'),
-(6, 8, '800', '900', '2018-05-19 04:25:34');
+INSERT INTO `tbl_add_utility_bill` (`utility_id`, `branch_id`, `gas_bill`, `security_bill`, `water_bill`, `electric_bill`, `added_date`) VALUES
+(5, 7, '850', '800', 0, 0, '2018-05-14 06:31:40'),
+(9, 8, '800', '400', 600, 500, '2022-05-16 13:48:21');
 
 -- --------------------------------------------------------
 
@@ -1167,7 +1170,7 @@ ALTER TABLE `tbl_add_employee_salary_setup`
 -- AUTO_INCREMENT for table `tbl_add_fair`
 --
 ALTER TABLE `tbl_add_fair`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_floor`
@@ -1239,7 +1242,7 @@ ALTER TABLE `tbl_add_unit`
 -- AUTO_INCREMENT for table `tbl_add_utility_bill`
 --
 ALTER TABLE `tbl_add_utility_bill`
-  MODIFY `utility_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `utility_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_year_setup`

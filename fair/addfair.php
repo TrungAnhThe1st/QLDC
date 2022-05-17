@@ -5,6 +5,7 @@ if (!isset($_SESSION['objLogin'])) {
   header("Location: " . WEB_URL . "logout.php");
   die();
 }
+
 $success = "none";
 $type = 'Rented';
 $floor_no = '';
@@ -12,8 +13,8 @@ $unit_no = '';
 $month_id = '';
 $xyear = '';
 $rent = '0.00';
-$water_bill = '0.00';
-$electric_bill = '0.00';
+$water_bill = 0;
+$electric_bill = 0;
 $gas_bill = '0.00';
 $security_bill = '0.00';
 $utility_bill = '0.00';
@@ -30,6 +31,12 @@ $form_url = WEB_URL . "fair/addfair.php";
 $id = "";
 $hdnid = "0";
 
+$result_location = mysqli_query($link, "SELECT * FROM tbl_add_utility_bill where branch_id= '" . (int)$_SESSION['objLogin']['branch_id'] . "'");
+if ($row = mysqli_fetch_array($result_location)) {
+  $water_bill = $row['water_bill'];
+  $electric_bill = $row['electric_bill'];
+}
+
 //new
 $reneted_name = '';
 $rid = 0;
@@ -39,14 +46,18 @@ if (isset($_POST['txtRent'])) {
 	$month_id = date('n', strtotime(str_replace('/', '-', $_POST['txtIssueDate'])));
 
   if (isset($_POST['hdn']) && $_POST['hdn'] == '0') {
+    
+    $water_bill = intval($water_bill) * intval($_POST['txtWaterBill']);
+    $electric_bill = intval($electric_bill) * intval($_POST['txtElectricBill']);
+
     $sql = "INSERT INTO tbl_add_fair(type,floor_no,unit_no,rid,month_id,xyear,rent,water_bill,electric_bill,gas_bill,security_bill,utility_bill,other_bill,total_rent,issue_date,paid_date,branch_id,bill_status) 
-    values('$type','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[hdnRentedId]','$month_id','$year','$_POST[txtRent]','$_POST[txtWaterBill]','$_POST[txtElectricBill]','$_POST[txtGasBill]','$_POST[txtSecurityBill]','$_POST[txtUtilityBill]','$_POST[txtOtherBill]','$_POST[txtTotalRent]','$_POST[txtIssueDate]','$_POST[txtPaidDate]','" . $_SESSION['objLogin']['branch_id'] . "','$_POST[ddlBillStatus]')";
+    values('$type','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[hdnRentedId]','$month_id','$year','$_POST[txtRent]','$water_bill','$electric_bill','$_POST[txtGasBill]','$_POST[txtSecurityBill]','$_POST[txtUtilityBill]','$_POST[txtOtherBill]','$_POST[txtTotalRent]','$_POST[txtIssueDate]','$_POST[txtPaidDate]','" . $_SESSION['objLogin']['branch_id'] . "','$_POST[ddlBillStatus]')";
     mysqli_query($link, $sql);
     $rent_id = mysqli_insert_id($link);
     mysqli_close($link);
 
     if (isset($_POST['btnSave'])) {
-      $url = WEB_URL . 'fair/fairlist.php?m=add';
+      $url = WEB_URL . 'fair/fairlist.php?m=add&' . $water_bill;
       header("Location: $url");
     } else {
       $url = WEB_URL . 'fair/invoice.php?rentid=' . $rent_id;
@@ -54,7 +65,7 @@ if (isset($_POST['txtRent'])) {
     }
   } else {
     $sql = "UPDATE `tbl_add_fair` 
-    SET `floor_no`='" . $_POST['ddlFloorNo'] . "',`unit_no`='" . $_POST['ddlUnitNo'] . "',`rid`='" . $_POST['hdnRentedId'] . "',`month_id`='" . $month_id . "',`xyear`='" . $year . "',`rent`='" . $_POST['txtRent'] . "',`water_bill`='" . $_POST['txtWaterBill'] . "',`electric_bill`='" . $_POST['txtElectricBill'] . "',`gas_bill`='" . $_POST['txtGasBill'] . "',`security_bill`='" . $_POST['txtSecurityBill'] . "',`utility_bill`='" . $_POST['txtUtilityBill'] . "',`other_bill`='" . $_POST['txtOtherBill'] . "',`total_rent`='" . $_POST['txtTotalRent'] . "',`issue_date`='" . $_POST['txtIssueDate'] . "',`paid_date`='" . $_POST['txtPaidDate'] . "',`bill_status`='" . $_POST['ddlBillStatus'] . "' 
+    SET `floor_no`='" . $_POST['ddlFloorNo'] . "',`unit_no`='" . $_POST['ddlUnitNo'] . "',`rid`='" . $_POST['hdnRentedId'] . "',`month_id`='" . $month_id . "',`xyear`='" . $year . "',`rent`='" . $_POST['txtRent'] . "',`water_bill`='" . $water_bill . "',`electric_bill`='" . $electric_bill . "',`gas_bill`='" . $_POST['txtGasBill'] . "',`security_bill`='" . $_POST['txtSecurityBill'] . "',`utility_bill`='" . $_POST['txtUtilityBill'] . "',`other_bill`='" . $_POST['txtOtherBill'] . "',`total_rent`='" . $_POST['txtTotalRent'] . "',`issue_date`='" . $_POST['txtIssueDate'] . "',`paid_date`='" . $_POST['txtPaidDate'] . "',`bill_status`='" . $_POST['ddlBillStatus'] . "' 
     WHERE f_id='" . $_GET['id'] . "'";
     mysqli_query($link, $sql);
 
@@ -105,6 +116,8 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
   if ($row = mysqli_fetch_array($result_location)) {
     $gas_bill = $row['gas_bill'];
     $security_bill = $row['security_bill'];
+    $water_bill = $row['water_bill'];
+    $electric_bill = $row['electric_bill'];
   }
   $total_rent = (float)$gas_bill + (float)$security_bill;
   $total_rent = number_format($total_rent, 2, '.', '');
@@ -196,22 +209,22 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
             <div class="form-group col-md-6">
               <label for="txtRent"><?php echo $_data['add_new_form_field_text_7']; ?> :</label>
               <div class="input-group">
-                <input readonly="readonly" type="text" name="txtRent" onkeyup="calculateFairTotal();" value="<?php echo $rent; ?>" id="txtRent" class="form-control" />
-                <input type="hidden" id="hdnFair" name="hdnFair" onkeyup="calculateFairTotal();" value="0.00" />
+                <input readonly="readonly" type="text" name="txtRent" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="<?php echo $rent; ?>" id="txtRent" class="form-control" />
+                <input type="hidden" id="hdnFair" name="hdnFair" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="0.00" />
                 <div class="input-group-addon"> <?php echo CURRENCY; ?> </div>
               </div>
             </div>
             <div class="form-group col-md-6">
-              <label for="txtWaterBill"><?php echo $_data['add_new_form_field_text_8']; ?> :</label>
+              <label for="txtWaterBill">Nhập số nước:</label>
               <div class="input-group">
-                <input type="text" name="txtWaterBill" onkeyup="calculateFairTotal();" value="<?php echo $water_bill; ?>" id="txtWaterBill" class="form-control" />
+                <input type="number" name="txtWaterBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="0" id="txtWaterBill" class="form-control" />
                 <div class="input-group-addon"><?php echo CURRENCY; ?></div>
               </div>
             </div>
             <div class="form-group col-md-6">
-              <label for="txtElectricBill"><?php echo $_data['add_new_form_field_text_9']; ?> :</label>
+              <label for="txtElectricBill">Nhập số điện:</label>
               <div class="input-group">
-                <input type="text" name="txtElectricBill" onkeyup="calculateFairTotal();" value="<?php echo $electric_bill; ?>" id="txtElectricBill" class="form-control" />
+                <input type="number" name="txtElectricBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="0" id="txtElectricBill" class="form-control" />
                 <div class="input-group-addon"><?php echo CURRENCY; ?></div>
               </div>
             </div>
@@ -219,7 +232,7 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
               <label for="txtGasBill"><?php echo $_data['add_new_form_field_text_10']; ?> :</label>
               <div class="input-group">
                 <input type="hidden" id="hdnGasBill" name="hdnGasBill" value="<?php echo $gas_bill; ?>" />
-                <input type="text" name="txtGasBill" onkeyup="calculateFairTotal();" value="<?php echo $gas_bill; ?>" id="txtGasBill" class="form-control" />
+                <input type="text" name="txtGasBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="<?php echo $gas_bill; ?>" id="txtGasBill" class="form-control" />
                 <div class="input-group-addon"><?php echo CURRENCY; ?></div>
               </div>
             </div>
@@ -227,21 +240,21 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
               <label for="txtSecurityBill"><?php echo $_data['add_new_form_field_text_11']; ?> :</label>
               <div class="input-group">
                 <input type="hidden" id="hdnSecurityBill" name="hdnSecurityBill" value="<?php echo $security_bill; ?>" />
-                <input type="text" name="txtSecurityBill" onkeyup="calculateFairTotal();" value="<?php echo $security_bill; ?>" id="txtSecurityBill" class="form-control" />
+                <input type="text" name="txtSecurityBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="<?php echo $security_bill; ?>" id="txtSecurityBill" class="form-control" />
                 <div class="input-group-addon"><?php echo CURRENCY; ?></div>
               </div>
             </div>
             <div class="form-group col-md-6">
               <label for="txtUtilityBill"><?php echo $_data['add_new_form_field_text_12']; ?> :</label>
               <div class="input-group">
-                <input type="text" name="txtUtilityBill" onkeyup="calculateFairTotal();" value="<?php echo $utility_bill; ?>" id="txtUtilityBill" class="form-control" />
+                <input type="text" name="txtUtilityBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="<?php echo $utility_bill; ?>" id="txtUtilityBill" class="form-control" />
                 <div class="input-group-addon"><?php echo CURRENCY; ?></div>
               </div>
             </div>
             <div class="form-group col-md-6">
               <label for="txtOtherBill"><?php echo $_data['add_new_form_field_text_13']; ?> :</label>
               <div class="input-group">
-                <input type="text" name="txtOtherBill" onkeyup="calculateFairTotal();" value="<?php echo $other_bill; ?>" id="txtOtherBill" class="form-control" />
+                <input type="text" name="txtOtherBill" onkeyup="calculateFairTotal(<?php echo $water_bill ?>, <?php echo $electric_bill ?>);" value="<?php echo $other_bill; ?>" id="txtOtherBill" class="form-control" />
                 <div class="input-group-addon"><?php echo CURRENCY; ?></div>
               </div>
             </div>
