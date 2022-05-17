@@ -32,7 +32,8 @@ if (isset($_SESSION['objLogin'])) {
 		$html = '<option value="">--Select Unit--</option>';
 		if (isset($_POST['floor_no']) && (int)$_POST['floor_no'] > 0) {
 			$unit_no = '';
-			$result = mysqli_query($link, "SELECT * from tbl_add_unit where floor_no = '" . (int)$_POST['floor_no'] . "' order by unit_no asc");
+			// $result = mysqli_query($link, "SELECT * from tbl_add_unit where floor_no = '" . (int)$_POST['floor_no'] . "' order by unit_no asc");
+			$result = mysqli_query($link, "SELECT * from tbl_add_unit where floor_no = '" . (int)$_POST['floor_no'] . "' and status = 1 order by unit_no asc");
 			while ($rows = mysqli_fetch_array($result)) {
 				$html .= '<option value="' . $rows['uid'] . '">' . $rows['unit_no'] . '</option>';
 			}

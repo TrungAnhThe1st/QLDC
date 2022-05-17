@@ -26,9 +26,17 @@ $utility_bill = '0.00';
 $other_bill = '0.00';
 $total_bill = '0.00';
 $bill_status = 0;
+$bank_type = '';
+$bank_number = '';
+$bank_owner = '';
 
 if (isset($_GET['rentid']) && (int)$_GET['rentid'] > 0) {
-  $result = mysqli_query($link, "Select *,ar.image as r_image,ar.r_name,fl.floor_no as fl_floor,u.unit_no as u_unit,m.month_name from tbl_add_fair f inner join tbl_add_floor fl on fl.fid = f.floor_no inner join tbl_add_unit u on u.uid = f.unit_no inner join tbl_add_month_setup m on m.m_id = f.month_id inner join tbl_add_rent ar on ar.rid = f.rid where f.type = 'Rented' and f.f_id = " . (int)$_GET['rentid']);
+  $result = mysqli_query($link, "Select *,ar.image as r_image,ar.r_name,fl.floor_no as fl_floor,u.unit_no as u_unit,m.month_name from tbl_add_fair f 
+  inner join tbl_add_floor fl on fl.fid = f.floor_no 
+  inner join tbl_add_unit u on u.uid = f.unit_no 
+  inner join tbl_add_month_setup m on m.m_id = f.month_id 
+  inner join tbl_add_rent ar on ar.rid = f.rid 
+  where f.type = 'Rented' and f.f_id = " . (int)$_GET['rentid']);
   if ($row = mysqli_fetch_assoc($result)) {
     $invoice_id = $_GET['rentid'];
     $invoice_created_date = date("M d, Y", strtotime($row['added_date']));
@@ -50,7 +58,16 @@ if (isset($_GET['rentid']) && (int)$_GET['rentid'] > 0) {
     $total_bill = $row['total_rent'];
     $bill_status = $row['bill_status'];
   }
+
+  $result = mysqli_query($link, "select * from tbl_settings");
+  if($row = mysqli_fetch_assoc($result)){
+    $bank_type = $row["bank_type"];
+    $bank_number = $row['bank_number'];
+    $bank_owner = $row['bank_owner'];
+  }
+  
   mysqli_close($link);
+
 } else {
   echo 'Wrong Request';
   die();
@@ -103,15 +120,15 @@ if (isset($_GET['rentid']) && (int)$_GET['rentid'] > 0) {
             <td><?php echo $_data['invoice_payment_method_name']; ?></td>
           </tr>
           <tr class="item">
-            <td>Ngân hàng: </td>
+            <td>Ngân hàng: <?php echo $bank_type; ?></td>
             <td></td>
           </tr>
           <tr class="item">
-            <td>Chủ tài khoản: </td>
+            <td>Chủ tài khoản: <?php echo $bank_owner; ?></td>
             <td></td>
           </tr>
           <tr class="item">
-            <td>Số tài khoản: </td>
+            <td>Số tài khoản: <?php echo $bank_number; ?></td>
             <td></td>
           </tr>
           <tr class="heading">

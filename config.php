@@ -1,15 +1,15 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 define('_AMSCODESECURITY', '16343942');
-define('CURRENCY', '$');
-define('WEB_URL', 'https://site.test/QLDC/');
-define('ROOT_PATH', 'D:\xampp\htdocs\QLDC/');
+define('CURRENCY', 'đ');
+define('WEB_URL', 'http://localhost:8081/Private/ams/');
+define('ROOT_PATH', 'C:\xampp\htdocs\Private\ams/');
 
 
-define('DB_HOSTNAME', 'localhost:3306');
+define('DB_HOSTNAME', 'localhost:3308');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_DATABASE', 'demo1_ams');
+define('DB_DATABASE', 'ams');
 
 $link = new mysqli(DB_HOSTNAME,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 mysqli_set_charset($link, 'UTF8');
