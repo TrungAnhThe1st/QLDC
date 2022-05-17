@@ -65,7 +65,7 @@ if (isset($_GET['rentid']) && (int)$_GET['rentid'] > 0) {
     $bank_number = $row['bank_number'];
     $bank_owner = $row['bank_owner'];
   }
-  
+
   mysqli_close($link);
 
 } else {
@@ -120,16 +120,16 @@ if (isset($_GET['rentid']) && (int)$_GET['rentid'] > 0) {
             <td><?php echo $_data['invoice_payment_method_name']; ?></td>
           </tr>
           <tr class="item">
-            <td>Ngân hàng: <?php echo $bank_type; ?></td>
-            <td></td>
+            <td>Ngân hàng: </td>
+            <td><?php echo $bank_type; ?></td>
           </tr>
           <tr class="item">
-            <td>Chủ tài khoản: <?php echo $bank_owner; ?></td>
-            <td></td>
+            <td>Chủ tài khoản: </td>
+            <td><?php echo $bank_owner; ?></td>
           </tr>
           <tr class="item">
-            <td>Số tài khoản: <?php echo $bank_number; ?></td>
-            <td></td>
+            <td>Số tài khoản: </td>
+            <td><?php echo $bank_number; ?></td>
           </tr>
           <tr class="heading">
             <td><?php echo $_data['invoice_bill_details']; ?> </td>

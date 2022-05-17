@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2022 at 04:49 PM
+-- Generation Time: May 17, 2022 at 11:51 AM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.14
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `demo1_ams`
+-- Database: `ams`
 --
 
 -- --------------------------------------------------------
@@ -314,7 +314,7 @@ CREATE TABLE `tbl_add_fair` (
 INSERT INTO `tbl_add_fair` (`f_id`, `type`, `floor_no`, `unit_no`, `rid`, `month_id`, `xyear`, `rent`, `water_bill`, `electric_bill`, `gas_bill`, `security_bill`, `utility_bill`, `other_bill`, `total_rent`, `issue_date`, `paid_date`, `branch_id`, `bill_status`, `added_date`) VALUES
 (45, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '0.00', '0.00', '800.00', '900.00', '0.00', '0.00', '51700.00', '10/05/2022', '26/05/2022', 8, 0, '2022-05-09 18:54:23'),
 (46, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '0.00', '0.00', '800.00', '900.00', '0.00', '0.00', '51700.00', '10/05/2022', '19/05/2022', 8, 0, '2022-05-09 19:16:01'),
-(55, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '3000.00', '1000.00', '800.00', '400.00', '0.00', '0.00', '55200.00', '23/05/2022', '', 8, 0, '2022-05-16 14:48:00');
+(47, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '2000.00', '1000.00', '800.00', '900.00', '0.00', '0.00', '54700.00', '17/05/2022', '21/05/2022', 8, 0, '2022-05-17 08:20:11');
 
 -- --------------------------------------------------------
 
@@ -334,8 +334,8 @@ CREATE TABLE `tbl_add_floor` (
 --
 
 INSERT INTO `tbl_add_floor` (`fid`, `floor_no`, `branch_id`, `added_date`) VALUES
-(12, 'First Floor', 8, '2019-08-26 18:56:32'),
-(13, 'Second Floor', 8, '2019-08-27 04:06:26');
+(12, '1', 8, '2019-08-26 18:56:32'),
+(13, '2', 8, '2019-08-27 04:06:26');
 
 -- --------------------------------------------------------
 
@@ -577,8 +577,7 @@ CREATE TABLE `tbl_add_rent` (
 --
 
 INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_email`, `r_contact`, `r_address`, `r_nid`, `r_floor_id`, `r_unit_id`, `r_advance`, `r_rent_pm`, `r_date`, `r_gone_date`, `r_password`, `image`, `r_status`, `r_month`, `r_year`, `branch_id`, `added_date`) VALUES
-(20, 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '63 Creek St.\r\nEastpointe, MI 48021', '232323-565656-212121', 13, 30, '100000.00', '0.00', '27/08/2019', '', 'MTIzNDU2', 'C7A2F0A4-1DCC-E7F1-8D54-14F507D8CA7E.jpg', 1, 9, 11, 8, '2019-08-26 19:33:04'),
-(27, 'Phạm Tiến Đức', 'cuongnew37@gmail.com', '+84 ', 'Số 16A, Ngách 79/40 Dương Quảng Hàm , Tổ 19, Quan Hoa, Cầu Giấy, Hà Nội', '001200006387', NULL, NULL, '0.00', '0.00', '15/05/2022', NULL, 'MTIzNDU2', '', 1, 5, 15, NULL, '2022-05-15 14:56:16');
+(20, 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '63 Creek St.\r\nEastpointe, MI 48021', '232323-565656-212121', 13, 30, '100000.00', '0.00', '27/08/2019', '', 'MTIzNDU2', 'C7A2F0A4-1DCC-E7F1-8D54-14F507D8CA7E.jpg', 1, 9, 11, 8, '2019-08-26 19:33:04');
 
 -- --------------------------------------------------------
 
@@ -618,8 +617,8 @@ CREATE TABLE `tbl_add_utility_bill` (
   `branch_id` int(11) NOT NULL DEFAULT 0,
   `gas_bill` varchar(200) NOT NULL,
   `security_bill` varchar(200) NOT NULL,
-  `water_bill` int(11) NOT NULL DEFAULT 0,
-  `electric_bill` int(11) NOT NULL DEFAULT 0,
+  `water_bill` varchar(200) NOT NULL,
+  `electric_bill` varchar(200) NOT NULL,
   `added_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -628,8 +627,8 @@ CREATE TABLE `tbl_add_utility_bill` (
 --
 
 INSERT INTO `tbl_add_utility_bill` (`utility_id`, `branch_id`, `gas_bill`, `security_bill`, `water_bill`, `electric_bill`, `added_date`) VALUES
-(5, 7, '850', '800', 0, 0, '2018-05-14 06:31:40'),
-(9, 8, '800', '400', 600, 500, '2022-05-16 13:48:21');
+(5, 7, '850', '800', '', '', '2018-05-14 06:31:40'),
+(7, 8, '800', '900', '1000', '500', '2022-05-17 07:21:55');
 
 -- --------------------------------------------------------
 
@@ -819,15 +818,18 @@ CREATE TABLE `tbl_settings` (
   `smtp_secure` varchar(10) DEFAULT NULL,
   `cat_username` varchar(50) DEFAULT NULL,
   `cat_password` varchar(100) DEFAULT NULL,
-  `cat_apikey` varchar(100) DEFAULT NULL
+  `cat_apikey` varchar(100) DEFAULT NULL,
+  `bank_type` varchar(200) NOT NULL,
+  `bank_number` varchar(200) NOT NULL,
+  `bank_owner` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_settings`
 --
 
-INSERT INTO `tbl_settings` (`id`, `lang_code`, `currency`, `currency_seperator`, `currency_position`, `currency_decimal`, `mail_protocol`, `super_admin_image`, `date_format`, `smtp_hostname`, `smtp_username`, `smtp_password`, `smtp_port`, `smtp_secure`, `cat_username`, `cat_password`, `cat_apikey`) VALUES
-(8, 'Vietnam', 'đ', ',', 'right', 2, 'mail', 'DDE19E53-4F61-4189-7C09-0143DF0C32BA.png', NULL, '', '', '', '', 'tls', '', '', '');
+INSERT INTO `tbl_settings` (`id`, `lang_code`, `currency`, `currency_seperator`, `currency_position`, `currency_decimal`, `mail_protocol`, `super_admin_image`, `date_format`, `smtp_hostname`, `smtp_username`, `smtp_password`, `smtp_port`, `smtp_secure`, `cat_username`, `cat_password`, `cat_apikey`, `bank_type`, `bank_number`, `bank_owner`) VALUES
+(10, 'Vietnam', 'đ', ',', 'right', 2, 'mail', 'DDE19E53-4F61-4189-7C09-0143DF0C32BA.png', NULL, '', '', '', '', 'tls', '', '', '', 'OceanBank', '112836331323', 'Nguyen Yu');
 
 -- --------------------------------------------------------
 
@@ -1170,7 +1172,7 @@ ALTER TABLE `tbl_add_employee_salary_setup`
 -- AUTO_INCREMENT for table `tbl_add_fair`
 --
 ALTER TABLE `tbl_add_fair`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_floor`
@@ -1230,7 +1232,7 @@ ALTER TABLE `tbl_add_owner_utility`
 -- AUTO_INCREMENT for table `tbl_add_rent`
 --
 ALTER TABLE `tbl_add_rent`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_unit`
@@ -1242,7 +1244,7 @@ ALTER TABLE `tbl_add_unit`
 -- AUTO_INCREMENT for table `tbl_add_utility_bill`
 --
 ALTER TABLE `tbl_add_utility_bill`
-  MODIFY `utility_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `utility_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_year_setup`
@@ -1296,7 +1298,7 @@ ALTER TABLE `tbl_owner_notice_board`
 -- AUTO_INCREMENT for table `tbl_settings`
 --
 ALTER TABLE `tbl_settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_visitor`
