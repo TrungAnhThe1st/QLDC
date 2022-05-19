@@ -221,7 +221,9 @@ $page_name = $ams_helper->curPageUrlInfo('page');
             <ul class="treeview-menu">
               <li class="<?php if ($page_name != '' && $page_name == 'employeelist') {
                             echo 'active';
-                          } ?>"><a href="<?php echo WEB_URL; ?>employee/employeelist.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_employee_list']; ?></a></li>
+                          } ?>">
+                          <a href="<?php echo WEB_URL; ?>employee/employeelist.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_employee_list']; ?></a>
+              </li>
               <li class="<?php if ($page_name != '' && $page_name == 'addemployee') {
                             echo 'active';
                           } ?>"><a href="<?php echo WEB_URL; ?>employee/addemployee.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_add_employee']; ?></a></li>
@@ -245,13 +247,16 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                           } ?>"><a href="<?php echo WEB_URL; ?>fair/addfair.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_add_rent']; ?></a></li>
             </ul>
           </li>
-          <!-- <li class="treeview <?php if ($page_name != '' && $page_name == 'service_list') {
-                                      echo 'active';
-                                    } ?>"> <a href="<?php echo WEB_URL; ?>services/service_list.php">
-              <i class="fa fa-bell-concierge" aria-hidden="true"></i>
-              <span><?php echo "Dịch vụ"; ?></span>
-            </a>
-          </li> -->
+          <li class="treeview <?php if ($page_name != '' && $page_name == 'service_list') {
+                                echo 'active';
+                              } ?>"> <a href="#"> <i class="fa fa-building"></i> <span><?php echo "Dịch vụ"; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
+            <ul class="treeview-menu">
+              <li class="<?php if ($page_name != '' && $page_name == 'service_list') {
+                            echo 'active';
+                          } ?>"><a href="<?php echo WEB_URL; ?>services/service_list.php"><i class="fa fa-angle-double-right"></i><?php echo "Danh sách dịch vụ"; ?></a></li>
+              
+            </ul>
+          </li>
           <!-- <li class="treeview <?php if ($page_name != '' && $page_name == 'add_owner_utility' || $page_name == 'owner_utility_list') {
                                       echo 'active';
                                     } ?>"> <a href="#"> <i class="fa fa-gear"></i> <span><?php echo $_data['menu_owner_utility']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
@@ -434,6 +439,18 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                     <li class="<?php if ($page_name != '' && $page_name == 'addbranch') {
                                   echo 'active';
                                 } ?>"><a href="<?php echo WEB_URL; ?>branch/addbranch.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['add_branch']; ?></a></li>
+                  </ul>
+                </li>
+                <li class="<?php if ($page_name != '' && $page_name == 'area_list' || $page_name == 'add_area') {
+                              echo 'active';
+                            } ?>"><a href="#"><i class="fa fa-angle-double-right"></i><?php echo "Khu"; ?> <i class="fa fa-angle-left pull-right"></i> </a>
+                  <ul class="treeview-menu">
+                    <li class="<?php if ($page_name != '' && $page_name == 'area_list') {
+                                  echo 'active';
+                                } ?>"><a href="<?php echo WEB_URL; ?>area/area_list.php"><i class="fa fa-angle-double-right"></i><?php echo "Danh sách khu"; ?></a></li>
+                    <li class="<?php if ($page_name != '' && $page_name == 'add_area') {
+                                  echo 'active';
+                                } ?>"><a href="<?php echo WEB_URL; ?>area/add_area.php"><i class="fa fa-angle-double-right"></i><?php echo "Thêm mới khu"; ?></a></li>
                   </ul>
                 </li>
                 <li class="<?php if ($page_name != '' && $page_name == 'bill_setup') {
