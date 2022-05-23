@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2022 at 11:51 AM
+-- Generation Time: May 24, 2022 at 01:49 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tblbranch` (
   `branch_id` int(11) NOT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `branch_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `b_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `b_contact_no` int(15) NOT NULL,
@@ -50,9 +51,9 @@ CREATE TABLE `tblbranch` (
 -- Dumping data for table `tblbranch`
 --
 
-INSERT INTO `tblbranch` (`branch_id`, `branch_name`, `b_email`, `b_contact_no`, `b_address`, `security_guard_mobile`, `secrataty_mobile`, `moderator_mobile`, `building_make_year`, `building_image`, `b_status`, `builder_company_name`, `builder_company_phone`, `builder_company_address`, `building_rule`, `created_date`) VALUES
-(7, 'Silver Tower', 'mirpur.1@gmail.com', 1717445566, 'F-Block,Mirpur-1,Dhaka-1216', '+880167119889', '+880911909090', '+88090909090', 9, 'E9EB1C1F-9D88-0FD8-CE34-92F3421FA31D.jpg', 1, 'Golden Developer Company', '+8850505050', 'Test Address\r\nUK', '<p style=\"text-align:center\"><span style=\"color:#e67e22\"><u><span style=\"font-size:36px\"><span style=\"font-family:Trebuchet MS,Helvetica,sans-serif\"><strong>Love Bird Building Rules</strong></span></span></u></span></p>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">1) Gate Close 10 PM.</span></span></strong></p>\r\n</blockquote>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">2) New commer must be intruduce with guard.</span></span></strong></p>\r\n</blockquote>\r\n', '2016-06-22 09:50:30'),
-(8, 'Da-viruz Systems', 'avinash@mail.com', 1212121212, 'Bolgatanga', '+880167119889', '+880911909090', '+88090909090', 9, '6F7882BD-85CD-8D98-EDCA-1FF65F0BFABA.jpg', 1, 'Da-viruz Systems', '+8850505050', 'test address\r\nGhana', '<p style=\"text-align:center\"><span style=\"color:#e67e22\"><u><span style=\"font-size:36px\"><span style=\"font-family:Trebuchet MS,Helvetica,sans-serif\"><strong>Love Bird Building Rules</strong></span></span></u></span></p>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">1) Gate Close 10 PM.</span></span></strong></p>\r\n</blockquote>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">2) New commer must be intruduce with guard.</span></span></strong></p>\r\n</blockquote>\r\n', '2016-06-22 10:23:45');
+INSERT INTO `tblbranch` (`branch_id`, `area_id`, `branch_name`, `b_email`, `b_contact_no`, `b_address`, `security_guard_mobile`, `secrataty_mobile`, `moderator_mobile`, `building_make_year`, `building_image`, `b_status`, `builder_company_name`, `builder_company_phone`, `builder_company_address`, `building_rule`, `created_date`) VALUES
+(7, 1, 'Silver Tower', 'mirpur.1@gmail.com', 1717445566, 'F-Block,Mirpur-1,Dhaka-1216', '+880167119889', '+880911909090', '+88090909090', 9, 'E9EB1C1F-9D88-0FD8-CE34-92F3421FA31D.jpg', 1, 'Golden Developer Company', '+8850505050', 'Test Address\r\nUK', '<p style=\"text-align:center\"><span style=\"color:#e67e22\"><u><span style=\"font-size:36px\"><span style=\"font-family:Trebuchet MS,Helvetica,sans-serif\"><strong>Love Bird Building Rules</strong></span></span></u></span></p>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">1) Gate Close 10 PM.</span></span></strong></p>\r\n</blockquote>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">2) New commer must be intruduce with guard.</span></span></strong></p>\r\n</blockquote>\r\n', '2016-06-22 09:50:30'),
+(8, 2, 'Da-viruz Systems', 'avinash@mail.com', 1212121212, 'Bolgatanga', '+880167119889', '+880911909090', '+88090909090', 9, '6F7882BD-85CD-8D98-EDCA-1FF65F0BFABA.jpg', 1, 'Da-viruz Systems', '+8850505050', 'test address\r\nGhana', '<p style=\"text-align:center\"><span style=\"color:#e67e22\"><u><span style=\"font-size:36px\"><span style=\"font-family:Trebuchet MS,Helvetica,sans-serif\"><strong>Love Bird Building Rules</strong></span></span></u></span></p>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">1) Gate Close 10 PM.</span></span></strong></p>\r\n</blockquote>\r\n\r\n<blockquote>\r\n<p><strong><span style=\"color:#16a085\"><span style=\"font-size:20px\">2) New commer must be intruduce with guard.</span></span></strong></p>\r\n</blockquote>\r\n', '2016-06-22 10:23:45');
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,7 @@ CREATE TABLE `tbl_add_admin` (
 --
 
 INSERT INTO `tbl_add_admin` (`aid`, `name`, `email`, `contact`, `password`, `image`, `branch_id`, `added_date`) VALUES
-(7, 'Sub admin', 'liladmin@gmail.com', '+8801679110711', 'MTIzNDU2', 'B7962E98-0550-407D-01A7-3C088DCCD2EF.jpg', 8, '2019-08-27 04:45:27');
+(7, 'Sub admin', 'liladmin@gmail.com', '+8801679110711', 'MTIzNDU2', 'B7962E98-0550-407D-01A7-3C088DCCD2EF.jpg', 7, '2019-08-27 04:45:27');
 
 -- --------------------------------------------------------
 
@@ -216,7 +217,7 @@ CREATE TABLE `tbl_add_complain` (
 
 INSERT INTO `tbl_add_complain` (`complain_id`, `c_title`, `c_description`, `c_date`, `c_month`, `c_year`, `c_userid`, `branch_id`, `job_status`, `assign_employee_id`, `solution`, `complain_by`, `person_name`, `person_email`, `person_contact`, `added_date`) VALUES
 (35, 'Water Problem', 'We need to solve water issue soon.', '27/08/2019', 8, '2019', 0, 8, 0, 12, '', NULL, NULL, NULL, NULL, '2019-08-27 04:38:09'),
-(36, 'Flat color issue', 'How flat color condition is really bad kindly solve it.', '28/08/2019', 8, '2019', 20, 8, 0, 0, '', 'tenant', 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '2019-08-27 19:29:06'),
+(36, 'Flat color issue', 'How flat color condition is really bad kindly solve it.', '28/08/2019', 8, '2019', 20, 8, 2, 0, 'đ', 'tenant', 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '2019-08-27 19:29:06'),
 (37, 'gdhgg', 'fgfgg', '06/04/2022', 5, '2022', 0, 8, 0, 0, '', NULL, NULL, NULL, NULL, '2022-05-09 20:47:53'),
 (38, 'gdhgg', 'sdfsdff', '27/02/2020', 2, '2020', 0, 8, 0, 0, '', NULL, NULL, NULL, NULL, '2022-05-09 20:55:30');
 
@@ -312,8 +313,6 @@ CREATE TABLE `tbl_add_fair` (
 --
 
 INSERT INTO `tbl_add_fair` (`f_id`, `type`, `floor_no`, `unit_no`, `rid`, `month_id`, `xyear`, `rent`, `water_bill`, `electric_bill`, `gas_bill`, `security_bill`, `utility_bill`, `other_bill`, `total_rent`, `issue_date`, `paid_date`, `branch_id`, `bill_status`, `added_date`) VALUES
-(45, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '0.00', '0.00', '800.00', '900.00', '0.00', '0.00', '51700.00', '10/05/2022', '26/05/2022', 8, 0, '2022-05-09 18:54:23'),
-(46, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '0.00', '0.00', '800.00', '900.00', '0.00', '0.00', '51700.00', '10/05/2022', '19/05/2022', 8, 0, '2022-05-09 19:16:01'),
 (47, 'Rented', 13, 30, 20, 5, '2022', '50000.00', '2000.00', '1000.00', '800.00', '900.00', '0.00', '0.00', '54700.00', '17/05/2022', '21/05/2022', 8, 0, '2022-05-17 08:20:11');
 
 -- --------------------------------------------------------
@@ -582,6 +581,46 @@ INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_email`, `r_contact`, `r_address`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_add_service`
+--
+
+CREATE TABLE `tbl_add_service` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `utility_id` int(11) NOT NULL,
+  `sub_type` int(11) NOT NULL,
+  `first_month_free` tinyint(1) NOT NULL DEFAULT 0,
+  `count` int(11) NOT NULL DEFAULT -1,
+  `price` decimal(10,2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_add_service`
+--
+
+INSERT INTO `tbl_add_service` (`id`, `name`, `utility_id`, `sub_type`, `first_month_free`, `count`, `price`, `created_at`, `updated_at`) VALUES
+(1, 'Gói beginner', 2, 1, 0, -1, '15000.00', '2022-05-23 15:53:51', '2022-05-23 23:03:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_add_subscription`
+--
+
+CREATE TABLE `tbl_add_subscription` (
+  `id` int(11) NOT NULL,
+  `rent_id` int(11) NOT NULL,
+  `service_id` int(11) NOT NULL,
+  `month` int(11) NOT NULL,
+  `year` int(11) NOT NULL,
+  `joined_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_add_unit`
 --
 
@@ -605,6 +644,27 @@ INSERT INTO `tbl_add_unit` (`uid`, `floor_no`, `unit_no`, `branch_id`, `rent_pm`
 (32, 13, 'Flat 2A', 8, '0.00', 0, '2019-08-27 04:07:08'),
 (33, 13, 'Flat 2B', 8, '0.00', 0, '2019-08-27 04:07:35'),
 (34, 12, 'Flat 1F', 8, '190000.00', 0, '2022-05-11 09:36:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_add_utility`
+--
+
+CREATE TABLE `tbl_add_utility` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `area_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_add_utility`
+--
+
+INSERT INTO `tbl_add_utility` (`id`, `name`, `area_id`, `created_at`, `updated_at`) VALUES
+(2, 'Phòng GYM', 1, '2022-05-23 19:01:49', '2022-05-23 23:13:53');
 
 -- --------------------------------------------------------
 
@@ -663,6 +723,28 @@ INSERT INTO `tbl_add_year_setup` (`y_id`, `xyear`, `added_date`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_area`
+--
+
+CREATE TABLE `tbl_area` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_area`
+--
+
+INSERT INTO `tbl_area` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Khu A', '2022-05-19 02:30:52', '2022-05-19 03:21:25'),
+(2, 'Khu B', '2022-05-19 03:10:20', '2022-05-19 03:21:25'),
+(3, 'Khu D', '2022-05-19 03:35:39', '2022-05-19 04:55:18');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_currency`
 --
 
@@ -705,6 +787,13 @@ CREATE TABLE `tbl_employee_leave_request` (
   `request_status` varchar(50) NOT NULL DEFAULT 'Pending',
   `request_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_employee_leave_request`
+--
+
+INSERT INTO `tbl_employee_leave_request` (`leave_id`, `employee_id`, `branch_id`, `from`, `to`, `leave_text`, `request_status`, `request_date`) VALUES
+(1, 12, 8, '2022-05-20', '2022-06-03', 'xxc', 'Pending', '2022-05-20 09:55:24');
 
 -- --------------------------------------------------------
 
@@ -762,7 +851,7 @@ CREATE TABLE `tbl_notice_board` (
 --
 
 INSERT INTO `tbl_notice_board` (`notice_id`, `notice_title`, `notice_description`, `notice_status`, `branch_id`, `created_date`) VALUES
-(7, 'Building In and Out', '<p>asasas</p>\r\n', 1, 8, '2019-08-27');
+(8, 'bla bls ', '<p>adsfaadasdasd</p>\r\n', 1, 8, '2022-05-16');
 
 -- --------------------------------------------------------
 
@@ -869,7 +958,8 @@ INSERT INTO `tbl_visitor` (`vid`, `issue_date`, `name`, `mobile`, `address`, `fl
 --
 ALTER TABLE `tblbranch`
   ADD PRIMARY KEY (`branch_id`),
-  ADD KEY `building_make_year` (`building_make_year`);
+  ADD KEY `building_make_year` (`building_make_year`),
+  ADD KEY `area_id` (`area_id`);
 
 --
 -- Indexes for table `tblsuper_admin`
@@ -1020,12 +1110,36 @@ ALTER TABLE `tbl_add_rent`
   ADD KEY `branch_id` (`branch_id`);
 
 --
+-- Indexes for table `tbl_add_service`
+--
+ALTER TABLE `tbl_add_service`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tbl_add_service_ibfk_1` (`utility_id`);
+
+--
+-- Indexes for table `tbl_add_subscription`
+--
+ALTER TABLE `tbl_add_subscription`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rent_id` (`rent_id`),
+  ADD KEY `service_id` (`service_id`),
+  ADD KEY `month` (`month`),
+  ADD KEY `year` (`year`);
+
+--
 -- Indexes for table `tbl_add_unit`
 --
 ALTER TABLE `tbl_add_unit`
   ADD PRIMARY KEY (`uid`),
   ADD KEY `floor_no` (`floor_no`),
   ADD KEY `branch_id` (`branch_id`);
+
+--
+-- Indexes for table `tbl_add_utility`
+--
+ALTER TABLE `tbl_add_utility`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `area_id` (`area_id`);
 
 --
 -- Indexes for table `tbl_add_utility_bill`
@@ -1039,6 +1153,12 @@ ALTER TABLE `tbl_add_utility_bill`
 --
 ALTER TABLE `tbl_add_year_setup`
   ADD PRIMARY KEY (`y_id`);
+
+--
+-- Indexes for table `tbl_area`
+--
+ALTER TABLE `tbl_area`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_currency`
@@ -1112,7 +1232,7 @@ ALTER TABLE `tbl_visitor`
 -- AUTO_INCREMENT for table `tblbranch`
 --
 ALTER TABLE `tblbranch`
-  MODIFY `branch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `branch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tblsuper_admin`
@@ -1235,10 +1355,28 @@ ALTER TABLE `tbl_add_rent`
   MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
+-- AUTO_INCREMENT for table `tbl_add_service`
+--
+ALTER TABLE `tbl_add_service`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbl_add_subscription`
+--
+ALTER TABLE `tbl_add_subscription`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbl_add_unit`
 --
 ALTER TABLE `tbl_add_unit`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `tbl_add_utility`
+--
+ALTER TABLE `tbl_add_utility`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_utility_bill`
@@ -1253,6 +1391,12 @@ ALTER TABLE `tbl_add_year_setup`
   MODIFY `y_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `tbl_area`
+--
+ALTER TABLE `tbl_area`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `tbl_currency`
 --
 ALTER TABLE `tbl_currency`
@@ -1262,7 +1406,7 @@ ALTER TABLE `tbl_currency`
 -- AUTO_INCREMENT for table `tbl_employee_leave_request`
 --
 ALTER TABLE `tbl_employee_leave_request`
-  MODIFY `leave_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `leave_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_employee_notice`
@@ -1280,7 +1424,7 @@ ALTER TABLE `tbl_meeting`
 -- AUTO_INCREMENT for table `tbl_notice_board`
 --
 ALTER TABLE `tbl_notice_board`
-  MODIFY `notice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `notice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_notification_alert`
@@ -1314,7 +1458,8 @@ ALTER TABLE `tbl_visitor`
 -- Constraints for table `tblbranch`
 --
 ALTER TABLE `tblbranch`
-  ADD CONSTRAINT `tblbranch_ibfk_1` FOREIGN KEY (`building_make_year`) REFERENCES `tbl_add_year_setup` (`y_id`);
+  ADD CONSTRAINT `tblbranch_ibfk_1` FOREIGN KEY (`building_make_year`) REFERENCES `tbl_add_year_setup` (`y_id`),
+  ADD CONSTRAINT `tblbranch_ibfk_2` FOREIGN KEY (`area_id`) REFERENCES `tbl_area` (`id`);
 
 --
 -- Constraints for table `tbl_add_admin`
@@ -1389,11 +1534,32 @@ ALTER TABLE `tbl_add_rent`
   ADD CONSTRAINT `tbl_add_rent_ibfk_5` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
 
 --
+-- Constraints for table `tbl_add_service`
+--
+ALTER TABLE `tbl_add_service`
+  ADD CONSTRAINT `tbl_add_service_ibfk_1` FOREIGN KEY (`utility_id`) REFERENCES `tbl_add_utility` (`id`);
+
+--
+-- Constraints for table `tbl_add_subscription`
+--
+ALTER TABLE `tbl_add_subscription`
+  ADD CONSTRAINT `tbl_add_subscription_ibfk_1` FOREIGN KEY (`rent_id`) REFERENCES `tbl_add_rent` (`rid`),
+  ADD CONSTRAINT `tbl_add_subscription_ibfk_2` FOREIGN KEY (`service_id`) REFERENCES `tbl_add_service` (`id`),
+  ADD CONSTRAINT `tbl_add_subscription_ibfk_3` FOREIGN KEY (`month`) REFERENCES `tbl_add_month_setup` (`m_id`),
+  ADD CONSTRAINT `tbl_add_subscription_ibfk_4` FOREIGN KEY (`year`) REFERENCES `tbl_add_year_setup` (`y_id`);
+
+--
 -- Constraints for table `tbl_add_unit`
 --
 ALTER TABLE `tbl_add_unit`
   ADD CONSTRAINT `tbl_add_unit_ibfk_1` FOREIGN KEY (`floor_no`) REFERENCES `tbl_add_floor` (`fid`),
   ADD CONSTRAINT `tbl_add_unit_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `tblbranch` (`branch_id`);
+
+--
+-- Constraints for table `tbl_add_utility`
+--
+ALTER TABLE `tbl_add_utility`
+  ADD CONSTRAINT `tbl_add_utility_ibfk_1` FOREIGN KEY (`area_id`) REFERENCES `tbl_area` (`id`);
 
 --
 -- Constraints for table `tbl_add_utility_bill`
