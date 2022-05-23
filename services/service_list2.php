@@ -52,7 +52,6 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                 <h4><i class="icon fa fa-check"></i><?php echo $_data['success']; ?> !</h4>
                 <?php echo $msg; ?>
             </div>
-            <div align="right" style="margin-bottom:1%;"> <a class="btn btn-success" data-toggle="tooltip" href="<?php echo WEB_URL; ?>services/add_service.php" data-original-title="<?php echo "Thêm dịch vụ"; ?>"><i class="fa fa-plus"></i></a> <a class="btn btn-success" data-toggle="tooltip" href="<?php echo WEB_URL; ?>dashboard.php" data-original-title="<?php echo $_data['home_breadcam']; ?>"><i class="fa fa-dashboard"></i></a> </div>
             <div class="box box-success">
                 <div class="box-header">
                     <h3 class="box-title"><?php echo "Danh sách dịch vụ"; ?></h3>
@@ -80,14 +79,15 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                                 <th>Giá tiền</th>
                                 <th>Ngày tạo</th>
                                 <th>Ngày cập nhật</th>
-                                <th><?php echo $_data['action_text']; ?></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $sql = "select s.*, u.name as utility_name from tbl_add_service s 
-                                inner join tbl_add_utility u on u.id = s.utility_id 
-                                inner join tbl_area a on a.id = u.area_id";
+              inner join tbl_add_utility u on u.id = s.utility_id 
+              inner join tbl_area a on a.id = u.area_id 
+              inner join tblbranch br on br.area_id = a.id 
+              where br.branch_id = " . (int)$_SESSION['objLogin']['branch_id'];
 
                             $result = mysqli_query($link, $sql);
                             while ($row = mysqli_fetch_array($result)) { ?>
@@ -100,11 +100,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                                     <td><?php echo $ams_helper->currency($localization, $row['price']); ?></td>
                                     <td><?php echo $row['created_at']; ?></td>
                                     <td><?php echo $row['updated_at']; ?></td>
-                                    <td>
-                                        <a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL; ?>services/add_service.php?id=<?php echo $row['id']; ?>" data-original-title="<?php echo $_data['edit_text']; ?>"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onclick="deleteService(<?php echo $row['id']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text']; ?>"><i class="fa fa-trash-o"></i></a>
-
-                                    </td>
+                                    
                                 </tr>
                             <?php }
                             mysqli_close($link);

@@ -211,33 +211,33 @@ function NewGuid()
 							</div>
 						</div>
 						<!-- <div class="form-group col-md-6">
-            <label for="txtRentPerMonth"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_10']; ?> :</label>
-            <div class="input-group">
-              <input type="text" name="txtRentPerMonth" value="<?php echo $r_rent_pm; ?>" id="txtRentPerMonth" class="form-control" />
-              <div class="input-group-addon"> <?php echo CURRENCY; ?> </div>
-            </div>
-          </div> -->
+            			<label for="txtRentPerMonth"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_10']; ?> :</label>
+            				<div class="input-group">
+             				 <input type="text" name="txtRentPerMonth" value="<?php echo $r_rent_pm; ?>" id="txtRentPerMonth" class="form-control" />
+             				 <div class="input-group-addon"> <?php echo CURRENCY; ?> </div>
+            				</div>
+         				 </div> -->
 						<div class="form-group col-md-6">
 							<label for="txtRDate"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_11']; ?> :</label>
 							<input type="text" name="txtRDate" value="<?php echo $r_date; ?>" id="txtRDate" class="form-control datepicker" />
 						</div>
 						<!-- <div class="form-group col-md-6">
-            <label for="ddlMonth"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_12']; ?> :</label>
-            <select name="ddlMonth" id="ddlMonth" class="form-control">
-              <option value="">--<?php echo $_data['select_month']; ?>--</option>
-              <?php
-				$result_unit = mysqli_query($link, "SELECT * FROM tbl_add_month_setup order by m_id ASC");
-				while ($row_unit = mysqli_fetch_array($result_unit)) { ?>
-              <option <?php if ($r_month == $row_unit['m_id']) {
+         						   <label for="ddlMonth"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_12']; ?> :</label>
+          						  <select name="ddlMonth" id="ddlMonth" class="form-control">
+              					<option value="">--<?php echo $_data['select_month']; ?>--</option>
+              			<?php
+								$result_unit = mysqli_query($link, "SELECT * FROM tbl_add_month_setup order by m_id ASC");
+							while ($row_unit = mysqli_fetch_array($result_unit)) { ?>
+            				  <option <?php if ($r_month == $row_unit['m_id']) {
 							echo 'selected';
-						} ?> value="<?php echo $row_unit['m_id']; ?>"><?php echo $row_unit['month_name']; ?></option>
-              <?php } ?>
-            </select>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="ddlYear"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_13']; ?> :</label>
-            <select name="ddlYear" id="ddlYear" class="form-control">
-              <option value="">--<?php echo $_data['select_year']; ?>--</option>
+								} ?> value="<?php echo $row_unit['m_id']; ?>"><?php echo $row_unit['month_name']; ?></option>
+            				  <?php } ?>
+          				  </select>
+         					 </div>
+         					 <div class="form-group col-md-6">
+           						 <label for="ddlYear"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_13']; ?> :</label>
+           						 <select name="ddlYear" id="ddlYear" class="form-control">
+             					 <option value="">--<?php echo $_data['select_year']; ?>--</option>
               <?php
 				$result_unit = mysqli_query($link, "SELECT * FROM tbl_add_year_setup order by y_id ASC");
 				while ($row_unit = mysqli_fetch_array($result_unit)) { ?>

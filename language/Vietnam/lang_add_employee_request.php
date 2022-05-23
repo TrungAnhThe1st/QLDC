@@ -9,8 +9,8 @@ $_data['text_2'] 				= "Xin vắng mặt";
 $_data['text_3'] 				= "Thêm mới yêu cầu vắng mặt";
 $_data['text_4'] 				= "Mẫu nhập xin vắng mặt";
 $_data['text_5'] 				= "Nghỉ từ";
-$_data['text_leave_to'] 		= "Nghỉ đếm";
-$_data['text_leave_to'] 		= "Nghỉ đếm";
+$_data['text_leave_to'] 		= "Nghỉ đến";
+$_data['text_leave_to'] 		= "Nghỉ đến";
 $_data['text_6'] 				= "Lý do vắng mặt";
 $_data['text_7'] 				= "Ngày";
 

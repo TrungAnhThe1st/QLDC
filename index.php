@@ -84,7 +84,8 @@ if (isset($_POST['username']) && $_POST['username'] != '' && isset($_POST['passw
 
 			mysqli_close($link);
 			$link = NULL;
-
+			setcookie("ams_branch_code", "", time() - 3600);
+			setcookie("ams_branch_code", $_SESSION['objLogin']['branch_id'] , time() + (86400 * 3));
 			$_SESSION['login_type'] = $_POST['ddlLoginType'];
 			if ($_POST['ddlLoginType'] == '1' || $_POST['ddlLoginType'] == '5') {
 				header("Location: dashboard.php");
@@ -153,6 +154,7 @@ include(ROOT_PATH . 'language/' . $lang_code_global . '/lang_index.php');
 	<!-- JQUERY SCRIPTS -->
 	<script src="assets/js/jquery-1.10.2.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/dist/js/common.js"></script>
 	<!-- BOOTSTRAP SCRIPTS -->
 </head>
 
@@ -253,7 +255,11 @@ include(ROOT_PATH . 'language/' . $lang_code_global . '/lang_index.php');
 				alert("<?php echo $_data['v2']; ?>");
 				$("#username").focus();
 				return false;
-			} else {
+			} else if ($("#ddlBranch").val() == '' && $("#ddlLoginType").val() == '5') {
+				alert("Xin vui lòng chọn tòa nhà cần truy cập!");
+				return false;
+			}
+			 else {
 				return true;
 			}
 		}
