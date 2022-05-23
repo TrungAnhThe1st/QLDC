@@ -272,7 +272,7 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
         alert("<?php echo $_data['r4']; ?>");
         $("#txtareaAddress").focus();
         return false;
-      } else if ($("#ddlArea:selected").val() == '') {
+      } else if ($("#ddlArea").val() == '') {
         alert("<?php echo "Bắt buộc phải thiết lập khu cho tòa nhà!"; ?>");
         $("#ddlArea").focus();
         return false;

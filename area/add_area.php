@@ -95,7 +95,7 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
     <ol class="breadcrumb">
         <li><a href="<?php echo WEB_URL ?>dashboard.php"><i class="fa fa-dashboard"></i> <?php echo $_data['home_breadcam']; ?></a></li>
         <li class="active"><a href="<?php echo WEB_URL ?>area/area_list.php"><?php echo "Khu"; ?></a></li>
-        <li class="active"><?php echo $_data['text_1']; ?></li>
+        <li class="active"><?php echo "Thêm khu"; ?></li>
     </ol>
 </section>
 <!-- Main content -->

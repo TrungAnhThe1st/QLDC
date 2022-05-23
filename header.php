@@ -52,12 +52,14 @@ $ams_helper = new ams_helper();
 $building_rules = '';
 $building_name = '';
 $moderator_mobile = '';
+$area_name = '';
 $secrataty_mobile = '';
 $security_guard_mobile = '';
-$result_apartment = mysqli_query($link, "SELECT * FROM tblbranch where branch_id=" . (int)$_SESSION['objLogin']['branch_id']);
+$result_apartment = mysqli_query($link, "SELECT *, tbl_area.name as a_name FROM tblbranch inner join tbl_area on tblbranch.area_id = tbl_area.id where branch_id=" . (int)$_SESSION['objLogin']['branch_id']);
 if ($row_apartment = mysqli_fetch_array($result_apartment)) {
   $building_rules = $row_apartment['building_rule'];
   $building_name = $row_apartment['branch_name'];
+  $area_name = $row_apartment['a_name'];
   $moderator_mobile = $row_apartment['moderator_mobile'];
   $secrataty_mobile = $row_apartment['secrataty_mobile'];
   $security_guard_mobile = $row_apartment['security_guard_mobile'];
@@ -85,7 +87,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
 
 <head>
   <meta charset="UTF-8">
-  <title><?php echo $building_name; ?></title>
+  <title><?php echo $building_name . ' - ' . $area_name; ?></title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <?php include(ROOT_PATH . '/partial/header_script.php'); ?>
   <script src="<?php echo WEB_URL; ?>assets/js/qrGenerator/qrcode.min.js"></script>
@@ -128,7 +130,8 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                         echo $_data['user_super_admin'];
                       } ?>
                       <br />
-                      <span style="font-size:14px;color:#fff;"><?php echo $building_name; ?><span></p>
+                      <span style="font-size:14px;color:#fff;"><?php echo $building_name; ?><span>
+                  </p>
                   </small>
                 </li>
                 <!-- Menu Body -->
@@ -154,6 +157,9 @@ $page_name = $ams_helper->curPageUrlInfo('page');
     <!-- Left side column. contains the sidebar -->
     <aside class="main-sidebar">
       <!-- sidebar: style can be found in sidebar.less -->
+      <div class="user-panel" style="background:#2ab335;">
+        <span style="color: white; font-weight: bold;"><?php echo $area_name; ?></span>
+      </div>
       <div class="user-panel" style="background:#000;">
         <div class="pull-left image"> <img src="<?php echo $image; ?>" class="img-circle" alt="User Image"> </div>
         <div class="pull-left info">
@@ -222,7 +228,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
               <li class="<?php if ($page_name != '' && $page_name == 'employeelist') {
                             echo 'active';
                           } ?>">
-                          <a href="<?php echo WEB_URL; ?>employee/employeelist.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_employee_list']; ?></a>
+                <a href="<?php echo WEB_URL; ?>employee/employeelist.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_employee_list']; ?></a>
               </li>
               <li class="<?php if ($page_name != '' && $page_name == 'addemployee') {
                             echo 'active';
@@ -247,16 +253,61 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                           } ?>"><a href="<?php echo WEB_URL; ?>fair/addfair.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['menu_add_rent']; ?></a></li>
             </ul>
           </li>
-          <li class="treeview <?php if ($page_name != '' && $page_name == 'service_list') {
-                                echo 'active';
-                              } ?>"> <a href="#"> <i class="fa fa-building"></i> <span><?php echo "Dịch vụ"; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
-            <ul class="treeview-menu">
-              <li class="<?php if ($page_name != '' && $page_name == 'service_list') {
-                            echo 'active';
-                          } ?>"><a href="<?php echo WEB_URL; ?>services/service_list.php"><i class="fa fa-angle-double-right"></i><?php echo "Danh sách dịch vụ"; ?></a></li>
-              
-            </ul>
-          </li>
+          <?php if ((int)$_SESSION['login_type'] == 5) { ?>
+            <li class="treeview <?php if ($page_name != '' && ($page_name == 'utility_list' || $page_name == 'add_utility')) {
+                                  echo 'active';
+                                } ?>"> <a href="#"> <i class="fa fa-building"></i> <span><?php echo "Tiện ích nội khu"; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
+              <ul class="treeview-menu">
+                <li class="<?php if ($page_name != '' && $page_name == 'utility_list') {
+                              echo 'active';
+                            } ?>"><a href="<?php echo WEB_URL; ?>utility_module/utility_list.php"><i class="fa fa-angle-double-right"></i><?php echo "Danh sách tiện ích"; ?></a>
+                </li>
+                <li class="<?php if ($page_name != '' && $page_name == 'add_utility') {
+                              echo 'active';
+                            } ?>"><a href="<?php echo WEB_URL; ?>utility_module/add_utility.php"><i class="fa fa-angle-double-right"></i><?php echo "Thêm tiện ích"; ?></a>
+                </li>
+
+              </ul>
+            </li>
+
+            <li class="treeview <?php if ($page_name != '' && $page_name == 'service_list' || $page_name == 'add_service') {
+                                  echo 'active';
+                                } ?>"> <a href="#"> <i class="fa fa-building"></i> <span><?php echo "Dịch vụ nội khu"; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
+              <ul class="treeview-menu">
+                <li class="<?php if ($page_name != '' && $page_name == 'service_list') {
+                              echo 'active';
+                            } ?>"><a href="<?php echo WEB_URL; ?>services/service_list.php"><i class="fa fa-angle-double-right"></i><?php echo "Danh sách dịch vụ"; ?></a>
+                </li>
+                <li class="<?php if ($page_name != '' && $page_name == 'add_service') {
+                              echo 'active';
+                            } ?>"><a href="<?php echo WEB_URL; ?>services/add_service.php"><i class="fa fa-angle-double-right"></i><?php echo "Thêm dịch vụ"; ?></a>
+                </li>
+              </ul>
+            </li>
+          <?php } ?>
+          <?php if ((int)$_SESSION['login_type'] == 1) { ?>
+            <li class="treeview <?php if ($page_name != '' && $page_name == 'utility_list2') {
+                                  echo 'active';
+                                } ?>"> <a href="#"> <i class="fa fa-building"></i> <span><?php echo "Tiện ích nội khu"; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
+              <ul class="treeview-menu">
+                <li class="<?php if ($page_name != '' && $page_name == 'utility_list2') {
+                              echo 'active';
+                            } ?>"><a href="<?php echo WEB_URL; ?>utility_module/utility_list2.php"><i class="fa fa-angle-double-right"></i><?php echo "Danh sách tiện ích"; ?></a>
+                </li>
+
+              </ul>
+            </li>
+            <li class="treeview <?php if ($page_name != '' && $page_name == 'service_list2') {
+                                  echo 'active';
+                                } ?>"> <a href="#"> <i class="fa fa-building"></i> <span><?php echo "Dịch vụ nội khu"; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
+              <ul class="treeview-menu">
+                <li class="<?php if ($page_name != '' && $page_name == 'service_list2') {
+                              echo 'active';
+                            } ?>"><a href="<?php echo WEB_URL; ?>services/service_list2.php"><i class="fa fa-angle-double-right"></i><?php echo "Danh sách dịch vụ"; ?></a>
+                </li>
+              </ul>
+            </li>
+          <?php } ?>
           <!-- <li class="treeview <?php if ($page_name != '' && $page_name == 'add_owner_utility' || $page_name == 'owner_utility_list') {
                                       echo 'active';
                                     } ?>"> <a href="#"> <i class="fa fa-gear"></i> <span><?php echo $_data['menu_owner_utility']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
@@ -418,7 +469,7 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                             } ?>"><a href="<?php echo WEB_URL; ?>database/cleardata.php"><i class="fa fa-angle-double-right"></i><?php echo $_data['database_clear_dummy_data']; ?></a></li>
               </ul>
             </li> -->
-            <li class="treeview <?php if ($page_name != '' && $page_name == 'bill_setup' || $page_name != '' && $page_name == 'utility_bill_setup' || $page_name == 'member_type_setup' || $page_name == 'month_setup' || $page_name == 'year_setup' || $page_name == 'language' || $page_name == 'admin' || $page_name == 'add_building_info' || $page_name == 'branchlist' || $page_name == 'addbranch' || $page_name == 'currency_setup' || $page_name == 'language_setup') {
+            <li class="treeview <?php if ($page_name != '' && $page_name == 'bill_setup' || $page_name != '' && $page_name == 'utility_bill_setup' || $page_name == 'member_type_setup' || $page_name == 'month_setup' || $page_name == 'year_setup' || $page_name == 'language' || $page_name == 'admin' || $page_name == 'add_building_info' || $page_name == 'branchlist' || $page_name == 'addbranch' || $page_name == 'add_area' || $page_name == 'area_list' || $page_name == 'currency_setup' || $page_name == 'language_setup') {
                                   echo 'active';
                                 } ?>"> <a href="#"> <i class="fa fa-wrench"></i> <span><?php echo $_data['menu_settings']; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
               <ul class="treeview-menu">

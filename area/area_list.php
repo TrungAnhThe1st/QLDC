@@ -81,6 +81,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                                 <th><?php echo "Tên khu"; ?></th>
                                 <th><?php echo "Ngày tạo"; ?></th>
                                 <th><?php echo "Ngày cập nhật"; ?></th>
+                                <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
