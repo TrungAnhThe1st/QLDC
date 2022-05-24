@@ -282,6 +282,10 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                               echo 'active';
                             } ?>"><a href="<?php echo WEB_URL; ?>services/add_service.php"><i class="fa fa-angle-double-right"></i><?php echo "Thêm dịch vụ"; ?></a>
                 </li>
+                <li class="<?php if ($page_name != '' && $page_name == 'sub_list') {
+                              echo 'active';
+                            } ?>"><a href="<?php echo WEB_URL; ?>services/sub_list.php"><i class="fa fa-angle-double-right"></i><?php echo "Danh sách đăng ký dịch vụ"; ?></a>
+                </li>
               </ul>
             </li>
           <?php } ?>

@@ -73,6 +73,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                         <thead>
                             <tr>
                                 <th><?php echo "Tên tiện ích"; ?></th>
+                                <th>Khu</th>
                                 <th>Ngày tạo</th>
                                 <th>Ngày cập nhật</th>
                             </tr>
@@ -80,15 +81,14 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                         <tbody>
                             <?php
                             $sql = "Select u.*, a.name as area from tbl_add_utility u 
-                            inner join tbl_area a on a.id = u.area_id 
-                            inner join tblbranch br on br.area_id = a.id 
-                            where br.branch_id = " . (int)$_SESSION['objLogin']['branch_id'];
+                            inner join tbl_area a on a.id = u.area_id";
 
 
                             $result = mysqli_query($link, $sql);
                             while ($row = mysqli_fetch_array($result)) { ?>
                                 <tr>
                                     <td><?php echo $row['name']; ?></td>
+                                    <td><?php echo $row['area']; ?></td>
                                     <td><?php echo $row['created_at']; ?></td>
                                     <td><?php echo $row['updated_at']; ?></td>
                                 </tr>
