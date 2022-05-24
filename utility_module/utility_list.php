@@ -95,9 +95,6 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                                     <td>
                                         <a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL; ?>utility_module/add_utility.php?id=<?php echo $row['id']; ?>" data-original-title="<?php echo $_data['edit_text']; ?>"><i class="fa fa-pencil"></i></a>
                                         <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onclick="deleteUtility(<?php echo $row['id']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text']; ?>"><i class="fa fa-trash-o"></i></a>
-                                        
-                                        
-
                                     </td>
                                 </tr>
                             <?php }
