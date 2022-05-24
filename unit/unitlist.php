@@ -108,7 +108,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                           </div>
                           <div class="modal-body" align="center">
                             <div id="id-qrcode-<?php echo $row['uid']; ?>"></div>
-                            <p>(Mã căn hộ|Mã tầng|Mã tòa nhà|Tên căn hộ|Tầng|Tòa nhà)</p>
+                            <p style="margin-top: 10px;">(Mã căn hộ|Mã tầng|Mã tòa nhà|Tên căn hộ|Tầng|Tòa nhà)</p>
                           </div>
                         </div>
                         <!-- /.modal-content -->

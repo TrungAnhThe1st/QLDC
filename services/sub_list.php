@@ -82,7 +82,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "select r.r_name, r.r_email, r.r_contact, sub_count, active_count, u.unit_no from tbl_add_rent r 
+                            $sql = "select r.rid, r.r_name, r.r_email, r.r_contact, sub_count, active_count, u.unit_no from tbl_add_rent r 
                             inner join tbl_add_unit u on u.uid = r.r_unit_id 
                             left join (select rent_id, count(*) as sub_count from tbl_add_subscription GROUP by rent_id) sc on sc.rent_id = r.rid 
                             left join (select rent_id, count(*) as active_count from tbl_add_subscription where status = 1 GROUP by rent_id) ac on ac.rent_id = r.rid 
@@ -99,9 +99,8 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                                     <td><?php echo $row['sub_count'] ?></td>
                                     <td><?php echo $row['active_count'] == null ? '0' : $row['active_count'] ?></td>
                                     <td>
-                                        <a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL; ?>services/add_service.php?id=<?php echo $row['id']; ?>" data-original-title="<?php echo $_data['edit_text']; ?>"><i class="fa fa-pencil"></i></a>
-                                        <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onclick="deleteService(<?php echo $row['id']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text']; ?>"><i class="fa fa-trash-o"></i></a>
-
+                                        <a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL; ?>services/sub_details.php?id=<?php echo $row['rid']; ?>&mode=view&name=<?php echo $row['r_name'] ?>" data-original-title="Xem các dịch vụ đã đăng ký"><i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onclick="deleteService(<?php echo $row['rid']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text']; ?>"><i class="fa fa-trash-o"></i></a>
                                     </td>
                                 </tr>
                             <?php }
