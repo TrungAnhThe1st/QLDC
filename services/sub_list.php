@@ -30,7 +30,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
     }
 </style>
 <section class="content-header">
-    <h1><?php echo "Danh sách dịch vụ"; ?></h1>
+    <h1><?php echo "Danh sách đăng ký dịch vụ"; ?></h1>
     <ol class="breadcrumb">
         <li><a href="<?php echo WEB_URL ?>dashboard.php"><i class="fa fa-dashboard"></i><?php echo $_data['home_breadcam']; ?></a></li>
         <li class="active"><?php echo "Thông tin dịch vụ"; ?></li>

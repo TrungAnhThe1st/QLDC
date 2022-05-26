@@ -1,45 +1,45 @@
 <?php
-include('../header.php');
+include('../header_ten.php');
 include(ROOT_PATH . 'language/' . $lang_code_global . '/lang_add_unit.php');
 if (!isset($_SESSION['objLogin'])) {
     header("Location: " . WEB_URL . "logout.php");
     die();
 }
+$addinfo = 'none';
 $success = "none";
-$title = "Thêm mới dịch vụ";
 $button_text = $_data['save_button_text'];
-$form_url = WEB_URL . "services/sub_details.php";
+$form_url = WEB_URL . "t_dashboard/sub_details.php";
 
 if (isset($_POST['submit'])) {
     $sql = '';
     $services_id = $_POST['services'];
     foreach ($services_id as $service_id) {
         if (isset($_POST['status']["$service_id"])) {
-            $sql .= "Update tbl_add_subscription set status = 1 where service_id = $service_id and rent_id = " . $_GET['id'] . ";\n";
+            $sql .= "Update tbl_add_subscription set status = 1 where service_id = $service_id and rent_id = " . (int)$_SESSION['objLogin']['rid'] . ";";
+            // echo "Update tbl_add_subscription set status = 1 where service_id = $service_id and rent_id = " . (int)$_SESSION['objLogin']['rid'] . ";\n";
         } else {
-            $sql .= "Update tbl_add_subscription set status = 0, unsubscribed_at = CURRENT_TIMESTAMP 
-            where service_id = $service_id and rent_id = " . $_GET['id'] . ";\n";
+            $sql .= "Update tbl_add_subscription set status = 0, unsubscribed_at = CURRENT_TIMESTAMP where service_id = $service_id and rent_id = " . (int)$_SESSION['objLogin']['rid'] . ";";
+            // echo "Update tbl_add_subscription set status = 0 where service_id = $service_id and rent_id = " . (int)$_SESSION['objLogin']['rid'] . ";\n";
         }
     }
 
     if ($sql != '') {
         mysqli_multi_query($link, $sql);
         mysqli_close($link);
-        $url = WEB_URL . 'services/sub_list.php?m=up';
+        $url = WEB_URL . 't_dashboard/sub_details.php?m=up';
         header("Location: $url");
     }
 }
-
-if (isset($_GET['id']) && $_GET['id'] != '') {
-    $result = mysqli_query($link, "SELECT count(*) FROM tbl_add_service where id = '" . $_GET['id'] . "'");
-    if ($row = mysqli_fetch_array($result)) {
-        $form_url = WEB_URL . "services/sub_details.php?id=" . $_GET['id'];
-    }
+if (isset($_GET['m']) && $_GET['m'] == 'up') {
+    $addinfo = 'block';
+    $msg = "Cập nhật đăng ký thành công";
 }
-
-if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
-    $title = 'Xem chi tiết đăng ký dịch vụ của ' . $_GET['name'];
+if (isset($_GET['m']) && $_GET['m'] == 'add') {
+    $addinfo = 'block';
+    $msg = "Đăng ký dịch vụ thành công";
 }
+$title = 'Xem chi tiết đăng ký dịch vụ';
+
 ?>
 <!-- Content Header (Page header) -->
 
@@ -47,13 +47,18 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
     <h1><?php echo $title; ?></h1>
     <ol class="breadcrumb">
         <li><a href="<?php echo WEB_URL ?>dashboard.php"><i class="fa fa-dashboard"></i><?php echo $_data['home_breadcam']; ?></a></li>
-        <li class="active"><a href="<?php echo WEB_URL ?>services/service_list.php"><?php echo "Thông tin đăng ký dịch vụ"; ?></a></li>
+        <li class="active"><a href="<?php echo WEB_URL ?>t_dashboard/service_list.php"><?php echo "Thông tin đăng ký dịch vụ"; ?></a></li>
         <li class="active"><?php echo $title; ?></li>
     </ol>
 </section>
 <!-- Main content -->
 <section class="content">
     <!-- Full Width boxes (Stat box) -->
+    <div id="you" class="alert alert-success alert-dismissable" style="display:<?php echo $addinfo; ?>">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"><i class="fa fa-close"></i></button>
+        <h4><i class="icon fa fa-check"></i><?php echo $_data['success']; ?> !</h4>
+        <?php echo $msg; ?>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div align="right" style="margin-bottom:1%;"> </div>
@@ -61,7 +66,7 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
                 <div class="box-header">
                     <h3 class="box-title"><?php echo ""; ?></h3>
                 </div>
-                <form onSubmit="return validateMe();" action="<?php echo $form_url; ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo $form_url; ?>" method="post" enctype="multipart/form-data">
                     <div class="box-body">
                         <table class="table sakotable table-bordered table-striped dt-responsive">
                             <thead>
@@ -79,11 +84,13 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
                             </thead>
                             <tbody>
                                 <?php
+                                $link = new mysqli(DB_HOSTNAME,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+                                mysqli_set_charset($link, 'UTF8');
                                 $sql = "Select a.name as area_name, util.name as utility_name,s.*, sub.joined_at, sub.unsubscribed_at, sub.status, sub.usage_count from tbl_add_service s 
                             inner join tbl_add_subscription sub on sub.service_id = s.id 
                             inner join tbl_add_utility util on util.id = s.utility_id 
                             inner join tbl_area a on a.id = util.area_id 
-                            where sub.rent_id = " . (int)$_GET['id'];
+                            where sub.rent_id = " . (int)$_SESSION['objLogin']['rid'];
 
                                 $result = mysqli_query($link, $sql);
                                 while ($row = mysqli_fetch_array($result)) { ?>
@@ -96,21 +103,22 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
                                         <td><?php echo $row['usage_count'] == -1 ? "Không giới hạn" : $row['usage_count']; ?></td>
                                         <td><?php echo $row['joined_at'] ?></td>
                                         <td><?php echo $row['unsubscribed_at'] == null ? "" : $row['unsubscribed_at'] ?></td>
-                                        <td><input type="checkbox" name="status[<?php echo $row['id'] ?>]" value="<?php echo $row['status'] ?>" <?php echo $row['status'] == 1 ? "checked" : ""; ?> />
+                                        <td>
+                                            <input type="checkbox" name="status[<?php echo $row['id'] ?>]" <?php echo $row['status'] == 1 ? "checked" : ""; ?> />
                                             <input type="hidden" name="services[]" value="<?php echo $row['id'] ?>" />
                                         </td>
-
                                     </tr>
                                 <?php }
                                 mysqli_close($link);
-                                $link = NULL; ?>
+                                $link = NULL;
+                                ?>
                             </tbody>
                         </table>
                     </div>
                     <div class="box-footer">
                         <div class="form-group pull-right">
                             <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-floppy-o"></i> <?php echo $button_text; ?></button>
-                            <a class="btn btn-warning" href="<?php echo WEB_URL; ?>services/sub_list.php"><i class="fa fa-reply"></i> <?php echo $_data['back_text']; ?></a>
+                            <a class="btn btn-warning" href="<?php echo WEB_URL; ?>t_dashboard/service_list.php"><i class="fa fa-reply"></i> <?php echo $_data['back_text']; ?></a>
                         </div>
                     </div>
                 </form>
@@ -123,4 +131,5 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
     <script type="text/javascript">
 
     </script>
-    <?php include('../footer.php'); ?>
+</section>
+<?php include('../footer.php'); ?>
