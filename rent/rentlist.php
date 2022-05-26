@@ -100,6 +100,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                       } ?>
                   </td>
                   <td>
+                  <a class="btn btn-info ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#qr_view_<?php echo $row['rid']; ?>').modal('show');" data-original-title="<?php echo "Mã QR"; ?>"><i class="fa fa-qrcode"></i></a> 
                     <a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#nurse_view_<?php echo $row['rid']; ?>').modal('show');" data-original-title="<?php echo $_data['view_text']; ?>"><i class="fa fa-eye"></i></a> 
                     <a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL; ?>rent/addrent.php?id=<?php echo $row['rid']; ?>" data-original-title="<?php echo $_data['edit_text']; ?>"><i class="fa fa-pencil"></i></a> 
                     <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onClick="deleteRent(<?php echo $row['rid']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text']; ?>"><i class="fa fa-trash-o"></i></a>
@@ -142,8 +143,36 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                         <!-- /.modal-content -->
                       </div>
                     </div>
+                    <div id="qr_view_<?php echo $row['uid']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header green_header">
+                            <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+                            <h3 class="modal-title">QR code</h3>
+                          </div>
+                          <div class="modal-body" align="center">
+                            <div id="id-qrcode-<?php echo $row['uid']; ?>"></div>
+                            <p>(Tên cư dân|Email|Số điện thoại|Tên căn hộ|Tầng|Tòa nhà)</p>
+                          </div>
+                        </div>
+                        <!-- /.modal-content -->
+                      </div>
+                    </div>
                   </td>
                 </tr>
+                <!--Qr code generating -->
+                <script>
+                  var qrcode = new QRCode(document.getElementById("id-qrcode-<?php echo $row['uid']; ?>"), {
+                    text: "<?php echo $row['uid'] . '|' . $row['fid'] . '|' . $row['branch_id'] . '|' . $row['unit_no'] . '|' . $row['floor_no'] . '|' . $row['branch_name']; ?>",
+                    width: 200,
+                    height: 200,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                  });
+
+                  $("#id-qrcode-<?php echo $row['uid']; ?> img").css("margin", "0 auto");
+                </script>
               <?php }
               mysqli_close($link);
               $link = NULL; ?>

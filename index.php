@@ -73,7 +73,7 @@ if (isset($_POST['username']) && $_POST['username'] != '' && isset($_POST['passw
 					'name'					=> $row['name'],
 					'email'					=> $row['email'],
 					'contact'				=> $row['contact'],
-					'password'				=> $_POST['password'],
+					'password'				=> $row['password'],
 					'added_date'			=> $row['added_date']
 				);
 				$arr = array_merge($arr, $branch_list);

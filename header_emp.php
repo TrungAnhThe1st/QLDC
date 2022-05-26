@@ -245,15 +245,15 @@ $page_name = $ams_helper->curPageUrlInfo('page');
                 <h5 align="center"><?php echo $desig; ?></h5>
                 <div class="form-group">
                   <label class="control-label"><?php echo $_data['profile_update_name']; ?> :&nbsp;&nbsp;</label>
-                  <input type="text" class="form-control" id="txtProfileName" disabled="disabled" name="txtProfileName" value="<?php echo $_SESSION['objLogin']['e_name']; ?>">
+                  <input type="text" class="form-control" id="txtProfileName" name="txtProfileName" value="<?php echo $_SESSION['objLogin']['e_name']; ?>">
                 </div>
                 <div class="form-group">
                   <label class="control-label"><?php echo $_data['profile_update_email']; ?> :&nbsp;&nbsp;</label>
-                  <input type="text" class="form-control" id="txtProfileEmail" disabled="disabled" name="txtProfileEmail" value="<?php echo $_SESSION['objLogin']['e_email']; ?>">
+                  <input type="text" class="form-control" id="txtProfileEmail" name="txtProfileEmail" value="<?php echo $_SESSION['objLogin']['e_email']; ?>">
                 </div>
                 <div class="form-group">
                   <label class="control-label"><?php echo $_data['profile_update_contact']; ?> :&nbsp;&nbsp;</label>
-                  <input type="text" class="form-control" disabled="disabled" id="txtProfileContact" name="txtProfileContact" value="<?php echo $_SESSION['objLogin']['e_contact']; ?>">
+                  <input type="text" class="form-control" id="txtProfileContact" name="txtProfileContact" value="<?php echo $_SESSION['objLogin']['e_contact']; ?>">
                 </div>
                 <div class="form-group">
                   <label class="control-label"><?php echo $_data['profile_update_password']; ?> :&nbsp;&nbsp;</label>
