@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2022 at 11:33 AM
+-- Generation Time: May 26, 2022 at 11:06 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -75,7 +75,7 @@ CREATE TABLE `tblsuper_admin` (
 --
 
 INSERT INTO `tblsuper_admin` (`user_id`, `name`, `email`, `contact`, `password`, `added_date`) VALUES
-(1, 'Admin', 'devsolver@gmail.com', '+8801679110711', 'MTIzNDU2', '2015-06-29 06:15:29');
+(1, 'Admin 01', 'devsolver@gmail.com', '+8801679110711', 'MTIzNDU2', '2015-06-29 06:15:29');
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,7 @@ CREATE TABLE `tbl_add_admin` (
 --
 
 INSERT INTO `tbl_add_admin` (`aid`, `name`, `email`, `contact`, `password`, `image`, `branch_id`, `added_date`) VALUES
-(7, 'Sub admin', 'liladmin@gmail.com', '+8801679110711', 'MTIzNDU2', 'B7962E98-0550-407D-01A7-3C088DCCD2EF.jpg', 8, '2019-08-27 04:45:27');
+(7, 'Sub admin 0', 'subadmin@gmail.com', '+8801679110711', 'MTIzNDU2', 'B7962E98-0550-407D-01A7-3C088DCCD2EF.jpg', 8, '2019-08-27 04:45:27');
 
 -- --------------------------------------------------------
 
@@ -552,6 +552,7 @@ CREATE TABLE `tbl_add_owner_utility` (
 CREATE TABLE `tbl_add_rent` (
   `rid` int(11) NOT NULL,
   `r_name` varchar(200) NOT NULL,
+  `r_dob` varchar(200) NOT NULL,
   `r_email` varchar(200) NOT NULL,
   `r_contact` varchar(200) DEFAULT '+84 ',
   `r_address` varchar(200) NOT NULL,
@@ -575,8 +576,9 @@ CREATE TABLE `tbl_add_rent` (
 -- Dumping data for table `tbl_add_rent`
 --
 
-INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_email`, `r_contact`, `r_address`, `r_nid`, `r_floor_id`, `r_unit_id`, `r_advance`, `r_rent_pm`, `r_date`, `r_gone_date`, `r_password`, `image`, `r_status`, `r_month`, `r_year`, `branch_id`, `added_date`) VALUES
-(20, 'Jim Cary', 'jimcary@yahoo.com', '+8801679110711', '63 Creek St.\r\nEastpointe, MI 48021', '232323-565656-212121', 13, 30, '100000.00', '0.00', '27/08/2019', '', 'MTIzNDU2', 'C7A2F0A4-1DCC-E7F1-8D54-14F507D8CA7E.jpg', 1, 9, 11, 8, '2019-08-26 19:33:04');
+INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_dob`, `r_email`, `r_contact`, `r_address`, `r_nid`, `r_floor_id`, `r_unit_id`, `r_advance`, `r_rent_pm`, `r_date`, `r_gone_date`, `r_password`, `image`, `r_status`, `r_month`, `r_year`, `branch_id`, `added_date`) VALUES
+(20, 'Nguyễn Văn An', '12/01/2000', 'citizen1@gmail.com', '+8801679110711', '63 Creek St.Eastpointe, MI 48021', '232323-565656-212121', 13, 30, '100000.00', '0.00', '27/08/2019', '', 'MTIzNDU2', '1D7A8F0A-8D07-A9A6-5A2E-08384D592F53.png', 1, 8, 11, 8, '2019-08-26 19:33:04'),
+(34, 'Phạm Tiến Duật', '03/07/2000', 'cuongnew37@gmail.com', '+84 ', 'Số 16A, Ngách 79/40 Dương Quảng Hàm , Tổ 19, Quan Hoa, Cầu Giấy, Hà Nội', '001200006400', 12, 31, '0.00', '0.00', '26/05/2022', NULL, 'MTIzNDU2', '', 1, 5, 15, 8, '2022-05-26 20:53:53');
 
 -- --------------------------------------------------------
 
@@ -653,7 +655,7 @@ CREATE TABLE `tbl_add_unit` (
 
 INSERT INTO `tbl_add_unit` (`uid`, `floor_no`, `unit_no`, `branch_id`, `rent_pm`, `status`, `added_date`) VALUES
 (30, 13, 'Flat 2C', 8, '50000.00', 1, '2019-08-26 18:56:56'),
-(31, 12, 'Flat 1B', 8, '10000.00', 0, '2019-08-26 18:57:09'),
+(31, 12, 'Flat 1B', 8, '10000.00', 1, '2019-08-26 18:57:09'),
 (32, 13, 'Flat 2A', 8, '0.00', 0, '2019-08-27 04:07:08'),
 (33, 13, 'Flat 2B', 8, '0.00', 0, '2019-08-27 04:07:35'),
 (34, 12, 'Flat 1F', 8, '190000.00', 0, '2022-05-11 09:36:44');
@@ -1366,7 +1368,7 @@ ALTER TABLE `tbl_add_owner_utility`
 -- AUTO_INCREMENT for table `tbl_add_rent`
 --
 ALTER TABLE `tbl_add_rent`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_service`
