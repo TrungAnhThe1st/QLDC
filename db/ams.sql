@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2022 at 01:49 AM
+-- Generation Time: May 26, 2022 at 11:33 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -99,7 +99,7 @@ CREATE TABLE `tbl_add_admin` (
 --
 
 INSERT INTO `tbl_add_admin` (`aid`, `name`, `email`, `contact`, `password`, `image`, `branch_id`, `added_date`) VALUES
-(7, 'Sub admin', 'liladmin@gmail.com', '+8801679110711', 'MTIzNDU2', 'B7962E98-0550-407D-01A7-3C088DCCD2EF.jpg', 7, '2019-08-27 04:45:27');
+(7, 'Sub admin', 'liladmin@gmail.com', '+8801679110711', 'MTIzNDU2', 'B7962E98-0550-407D-01A7-3C088DCCD2EF.jpg', 8, '2019-08-27 04:45:27');
 
 -- --------------------------------------------------------
 
@@ -601,7 +601,9 @@ CREATE TABLE `tbl_add_service` (
 --
 
 INSERT INTO `tbl_add_service` (`id`, `name`, `utility_id`, `sub_type`, `first_month_free`, `count`, `price`, `created_at`, `updated_at`) VALUES
-(1, 'Gói beginner', 2, 1, 0, -1, '15000.00', '2022-05-23 15:53:51', '2022-05-23 23:03:33');
+(1, 'Gói beginner', 2, 1, 0, -1, '15000.00', '2022-05-23 15:53:51', '2022-05-23 23:03:33'),
+(3, 'Gói returner', 2, 1, 0, -1, '1000000.00', '2022-05-24 23:03:34', '2022-05-24 23:03:34'),
+(4, 'Gói vui chơi tri ân khách hàng', 4, 1, 0, -1, '1000000.00', '2022-05-25 08:45:17', '2022-05-25 08:45:17');
 
 -- --------------------------------------------------------
 
@@ -613,10 +615,21 @@ CREATE TABLE `tbl_add_subscription` (
   `id` int(11) NOT NULL,
   `rent_id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL,
+  `usage_count` int(11) NOT NULL DEFAULT -1,
   `month` int(11) NOT NULL,
   `year` int(11) NOT NULL,
-  `joined_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `status` tinyint(1) NOT NULL,
+  `joined_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `unsubscribed_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_add_subscription`
+--
+
+INSERT INTO `tbl_add_subscription` (`id`, `rent_id`, `service_id`, `usage_count`, `month`, `year`, `status`, `joined_at`, `unsubscribed_at`) VALUES
+(2, 20, 3, -1, 5, 15, 1, '2022-05-25 02:32:06', '2022-05-25 05:42:30'),
+(3, 20, 4, -1, 5, 15, 0, '2022-05-25 09:28:11', '2022-05-25 11:12:47');
 
 -- --------------------------------------------------------
 
@@ -664,7 +677,8 @@ CREATE TABLE `tbl_add_utility` (
 --
 
 INSERT INTO `tbl_add_utility` (`id`, `name`, `area_id`, `created_at`, `updated_at`) VALUES
-(2, 'Phòng GYM', 1, '2022-05-23 19:01:49', '2022-05-23 23:13:53');
+(2, 'Phòng GYM', 1, '2022-05-23 19:01:49', '2022-05-23 23:13:53'),
+(4, 'Khu vui chơi', 2, '2022-05-25 08:07:04', '2022-05-25 08:07:04');
 
 -- --------------------------------------------------------
 
@@ -1358,13 +1372,13 @@ ALTER TABLE `tbl_add_rent`
 -- AUTO_INCREMENT for table `tbl_add_service`
 --
 ALTER TABLE `tbl_add_service`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_subscription`
 --
 ALTER TABLE `tbl_add_subscription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_unit`
@@ -1376,7 +1390,7 @@ ALTER TABLE `tbl_add_unit`
 -- AUTO_INCREMENT for table `tbl_add_utility`
 --
 ALTER TABLE `tbl_add_utility`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_utility_bill`
