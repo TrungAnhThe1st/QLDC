@@ -1,4 +1,4 @@
-<?php include('../header.php');
+<?php include('../header_emp.php');
 if (!isset($_SESSION['objLogin'])) {
     header("Location: " . WEB_URL . "logout.php");
     die();
@@ -30,7 +30,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
     }
 </style>
 <section class="content-header">
-    <h1><?php echo "Danh sách tiện ích"; ?></h1>
+    <h1><?php echo "Danh sách tiện ích" ?></h1>
     <ol class="breadcrumb">
         <li><a href="<?php echo WEB_URL ?>dashboard.php"><i class="fa fa-dashboard"></i><?php echo $_data['home_breadcam']; ?></a></li>
         <li class="active"><?php echo "Thông tin tiện ích"; ?></li>

@@ -301,13 +301,17 @@ $page_name = $ams_helper->curPageUrlInfo('page');
 
               </ul>
             </li>
-            <li class="treeview <?php if ($page_name != '' && $page_name == 'service_list2') {
+            <li class="treeview <?php if ($page_name != '' && $page_name == 'service_list2' || $page_name == 'sub_list' || $page_name == 'sub_details') {
                                   echo 'active';
                                 } ?>"> <a href="#"> <i class="fa fa-building"></i> <span><?php echo "Dịch vụ nội khu"; ?></span> <i class="fa fa-angle-left pull-right"></i> </a>
               <ul class="treeview-menu">
                 <li class="<?php if ($page_name != '' && $page_name == 'service_list2') {
                               echo 'active';
                             } ?>"><a href="<?php echo WEB_URL; ?>services/service_list2.php"><i class="fa fa-angle-double-right"></i><?php echo "Danh sách dịch vụ"; ?></a>
+                </li>
+                <li class="<?php if ($page_name != '' && $page_name == 'sub_list' || $page_name == 'sub_details') {
+                              echo 'active';
+                            } ?>"><a href="<?php echo WEB_URL; ?>services/sub_list.php"><i class="fa fa-angle-double-right"></i><?php echo "Danh sách đăng ký dịch vụ"; ?></a>
                 </li>
               </ul>
             </li>

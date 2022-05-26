@@ -74,6 +74,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                                 <th>Tên dịch vụ</th>
                                 <th>Loại</th>
                                 <th>Thuộc tiện ích</th>
+                                <th>Thuộc khu</th>
                                 <th>Miễn phí tháng đầu</th>
                                 <th>Số lần sử dụng</th>
                                 <th>Giá tiền</th>
@@ -83,7 +84,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "select s.*, u.name as utility_name from tbl_add_service s 
+                            $sql = "select s.*, u.name as utility_name, a.name as area_name from tbl_add_service s 
               inner join tbl_add_utility u on u.id = s.utility_id 
               inner join tbl_area a on a.id = u.area_id ";
 
@@ -93,6 +94,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                                     <td><?php echo $row['name']; ?></td>
                                     <td><?php echo $row['sub_type'] == 1 ? "Gói tháng" : "Gói lẻ"; ?></td>
                                     <td><?php echo $row['utility_name']; ?></td>
+                                    <td><?php echo $row['area_name']; ?></td>
                                     <td><?php echo $row['first_month_free'] == 0 ? "Không" : "Có"; ?></td>
                                     <td><?php echo $row['count'] == -1 ? "Không giới hạn" : $row['count']; ?></td>
                                     <td><?php echo $ams_helper->currency($localization, $row['price']); ?></td>
