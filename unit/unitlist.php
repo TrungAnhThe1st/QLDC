@@ -117,21 +117,21 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                         <!-- /.modal-content -->
                       </div>
                     </div>
-                    <!--Qr code generating -->
-                    <script>
-                      var qrcode = new QRCode(document.getElementById("id-qrcode-<?php echo $row['uid']; ?>"), {
-                        text: "<?php echo $row['uid'] . '|' . $row['fid'] . '|' . $row['branch_id'] . '|' . $row['unit_no'] . '|' . $row['floor_no'] . '|' . $row['branch_name']; ?>",
-                        width: 200,
-                        height: 200,
-                        colorDark: "#000000",
-                        colorLight: "#ffffff",
-                        correctLevel: QRCode.CorrectLevel.M
-                      });
-
-                      $("#id-qrcode-<?php echo $row['uid']; ?> img").css("margin", "0 auto");
-                    </script>
                   </td>
                 </tr>
+                <!--Qr code generating -->
+                <script>
+                  var qrcode = new QRCode(document.getElementById("id-qrcode-<?php echo $row['uid']; ?>"), {
+                    text: "<?php echo $row['uid'] . '|' . $row['fid'] . '|' . $row['branch_id'] . '|' . $row['unit_no'] . '|' . $row['floor_no'] . '|' . $row['branch_name']; ?>",
+                    width: 200,
+                    height: 200,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                  });
+
+                  $("#id-qrcode-<?php echo $row['uid']; ?> img").css("margin", "0 auto");
+                </script>
               <?php }
               mysqli_close($link);
               $link = NULL; ?>
