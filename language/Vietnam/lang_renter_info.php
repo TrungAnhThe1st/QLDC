@@ -3,13 +3,13 @@
 //English Package
 //
 
-$_data['text_1'] 		= "Báo cáo người thuê nhà";
-$_data['text_5'] 		= "Tên người thuê nhà";
+$_data['text_1'] 		= "Báo cáo cư dân";
+$_data['text_5'] 		= "Tên cư dân";
 $_data['text_6'] 		= "Email";
 $_data['text_7'] 		= "Số điện thoại";
 $_data['text_8'] 		= "Địa chỉ";
 $_data['text_9'] 		= "Tầng số";
-$_data['text_10'] 		= "Phòng số";
+$_data['text_10'] 		= "Căn hộ số";
 $_data['text_11'] 		= "Tiền trả trước";
 $_data['text_12'] 		= "Tiền thuê mỗi tháng";
 $_data['text_13'] 		= "Ngày";

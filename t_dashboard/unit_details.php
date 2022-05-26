@@ -49,6 +49,7 @@ include(ROOT_PATH.'language/'.$lang_code_global.'/lang_common.php');
             <h3 style="text-decoration:underline;"><?php echo $_data['details_information'];?></h3>
             <div class="row">
               <div class="col-xs-6"> <b><?php echo $_data['text_5'];?> :</b> <?php echo $row['r_name']; ?><br/>
+              <b><?php echo "Ngày sinh";?> :</b> <?php echo $_SESSION['objLogin']['r_dob']; ?><br/>
                 <b><?php echo $_data['text_6'];?> :</b> <?php echo $row['r_email']; ?><br/>
                 <b><?php echo $_data['text_7'];?> :</b> <?php echo $row['r_contact']; ?><br/>
                 <b><?php echo $_data['text_8'];?> :</b> <?php echo $row['r_address']; ?><br/>

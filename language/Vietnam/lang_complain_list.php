@@ -19,7 +19,7 @@ $_data['text_12'] 					= "Năm";
 $_data['confirm'] 					= "Bạn có muốn xóa khiếu nại này ?";
 
 //tenant complain lang
-$_data['t_text_1'] 					= "Người thuê khiếu nại";
+$_data['t_text_1'] 					= "cư dân khiếu nại";
 $_data['t_text_2'] 					= "Trạng thái";
 $_data['t_status_pending'] 			= "Chưa giải quyết";
 $_data['t_status_in_progress'] 		= "Đang giải quyết";

@@ -4,7 +4,7 @@
 //English Package
 //
 
-$_data['text_1'] 			= "Bảng thông báo người thuê nhà";
+$_data['text_1'] 			= "Bảng thông báo cư dân";
 $_data['text_12'] 			= "Bảng thông báo nhân viên";
 $_data['text_13'] 			= "Bảng thông báo chủ sở hữu";
 $_data['text_2'] 			= "Mẫu điền thông báo";
@@ -17,7 +17,7 @@ $_data['text_3b'] 			= "Công bố ngay";
 $_data['text_3bb'] 			= "Thông báo";
 $_data['text_3c'] 			= "Vô hiệu hóa";
 $_data['text_4'] 			= "Danh sách thông báo";
-$_data['text_5'] 			= "Vui lòng làm mới lại trước khi thêm mới dữ liệu và bạn có thể đăng lên mỗi lần một thông báo sẽ hiển thị bảng điều khiển của người thuê";
+$_data['text_5'] 			= "Vui lòng làm mới lại trước khi thêm mới dữ liệu và bạn có thể đăng lên mỗi lần một thông báo sẽ hiển thị bảng điều khiển của cư dân";
 $_data['text_55'] 			= "Vui lòng làm mới lại trước khi thêm mới dữ liệu và bạn có thể đăng lên mỗi lần một thông báo sẽ hiển thị bảng điều khiển của nhân viên";
 $_data['text_555'] 			= "Vui lòng làm mới lại trước khi thêm mới dữ liệu và bạn có thể đăng lên mỗi lần một thông báo sẽ hiển thị bảng điều khiển của chủ sở hữu";
 $_data['text_6'] 			= "Chi tiết thông báo";

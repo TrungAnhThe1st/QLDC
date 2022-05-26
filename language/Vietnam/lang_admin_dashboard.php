@@ -6,7 +6,7 @@
 $_data['dashboard_title'] 					= "Bảng điều khiển";
 $_data['dashboard_more_info'] 				= "Xem thêm";
 $_data['dashboard_total_floor'] 			= "Tổng số tầng";
-$_data['dashboard_total_unit'] 				= "Tổng số phòng";
+$_data['dashboard_total_unit'] 				= "Tổng số căn hộ";
 $_data['dashboard_total_owner'] 			= "Tổng số người sở hữu";
 $_data['dashboard_total_rented'] 			= "Tổng số cư dân";
 $_data['dashboard_total_employee'] 			= "Tổng số nhân viên";
@@ -21,7 +21,7 @@ $_data['dashboard_total_complain'] 			= "Tổng số lời khiếu nại";
 
 /* Owner Dashboard Start */
 
-$_data['text_1'] 							= "Phòng";
+$_data['text_1'] 							= "Căn hộ";
 $_data['text_2'] 							= "Cư dân";
 $_data['text_3'] 							= "Tổng số cư dân";
 $_data['text_4'] 							= "Tổng số tiền thuê";
@@ -66,8 +66,8 @@ $_data['ee_text_7'] 						= "Số điện thoại";
 $_data['ee_text_8'] 						= "Địa chỉ";
 $_data['ee_text_9'] 						= "Tầng số";
 $_data['ee_text_10'] 						= "Chọn tầng";
-$_data['ee_text_11'] 						= "Phòng số";
-$_data['ee_text_12'] 						= "Chọn số phòng";
+$_data['ee_text_11'] 						= "Căn hộ số";
+$_data['ee_text_12'] 						= "Chọn số căn hộ";
 $_data['ee_text_13'] 						= "Đúng giờ";
 $_data['ee_text_14'] 						= "Ngoài giờ";
 
@@ -78,7 +78,7 @@ $_data['ee_text_14'] 						= "Ngoài giờ";
 $_data['rented_statement'] 					= "Bảng sao kê";
 $_data['rented_report'] 					= "Báo cáo cho thuê";
 $_data['infomation'] 						= "Bộ phận hỗ trợ";
-$_data['unit_details'] 						= "Chi tiết phòng";
+$_data['unit_details'] 						= "Chi tiết căn hộ";
 $_data['rented_dashboard']				 	= "Bảng điều khiển của cư dân";
 $_data['c_panel']				 			= "Bảng điều khiển";
 $_data['renter_complain']				 	= "Tổng số lời khiếu nại";
@@ -109,7 +109,7 @@ $_data['v_table_column_2']				 	= "Tên khách truy cập";
 $_data['v_table_column_3']				 	= "Số điện thoại";
 $_data['v_table_column_4']				 	= "Địa chỉ";
 $_data['v_table_column_5']				 	= "Tầng số";
-$_data['v_table_column_6']				 	= "Phòng số";
+$_data['v_table_column_6']				 	= "Căn hộ số";
 $_data['v_table_column_7']				 	= "Đúng giờ";
 $_data['v_table_column_8']				 	= "Ngoài giờ";
 $_data['v_modal_top_header']				= "Thông tin chi tiết";

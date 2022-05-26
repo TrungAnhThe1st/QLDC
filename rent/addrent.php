@@ -28,6 +28,7 @@ $button_text = $_data['save_button_text'];
 $successful_msg = $_data['added_renter_successfully'];
 $form_url = WEB_URL . "rent/addrent.php";
 $id = "";
+$r_dob = '';
 $hdnid = "0";
 $image_rnt = WEB_URL . 'img/no_image.jpg';
 $img_track = '';
@@ -39,8 +40,8 @@ if (isset($_POST['txtRName'])) {
 	if (isset($_POST['hdn']) && $_POST['hdn'] == '0') {
 		$r_password = $converter->encode($_POST['txtPassword']);
 		$image_url = uploadImage();
-		$sql = "INSERT INTO tbl_add_rent(r_name,r_email,r_contact,r_address,r_nid,r_floor_id,r_unit_id,r_advance,r_rent_pm,r_date,r_month,r_year,r_password,r_status,image,branch_id) 
-		values('$_POST[txtRName]','$_POST[txtREmail]','$_POST[txtRContact]','$_POST[txtRAddress]','$_POST[txtRentedNID]','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[txtRAdvance]','" . (isset($_POST["txtRentPerMonth"]) ? $_POST["txtRentPerMonth"] : 0.00) . "','$_POST[txtRDate]','$month_id','$year_id','$r_password','$_POST[chkRStaus]','$image_url','" . $_SESSION['objLogin']['branch_id'] . "')";
+		$sql = "INSERT INTO tbl_add_rent(r_name,r_dob,r_email,r_contact,r_address,r_nid,r_floor_id,r_unit_id,r_advance,r_rent_pm,r_date,r_month,r_year,r_password,r_status,image,branch_id) 
+		values('$_POST[txtRName]', '$_POST[txtRDOB]', '$_POST[txtREmail]','$_POST[txtRContact]','$_POST[txtRAddress]','$_POST[txtRentedNID]','$_POST[ddlFloorNo]','$_POST[ddlUnitNo]','$_POST[txtRAdvance]','" . (isset($_POST["txtRentPerMonth"]) ? $_POST["txtRentPerMonth"] : 0.00) . "','$_POST[txtRDate]','$month_id','$year_id','$r_password','$_POST[chkRStaus]','$image_url','" . $_SESSION['objLogin']['branch_id'] . "')";
 		mysqli_query($link, $sql);
 		//update unit status
 		$sqlx = "UPDATE `tbl_add_unit` set status = 1 where floor_no = '" . (int)$_POST['ddlFloorNo'] . "' and uid = '" . (int)$_POST['ddlUnitNo'] . "'";
@@ -55,7 +56,10 @@ if (isset($_POST['txtRName'])) {
 			$image_url = $_POST['img_exist'];
 		}
 		$sql = "UPDATE `tbl_add_rent` 
-		SET `r_name`='" . $_POST['txtRName'] . "',`r_email`='" . $_POST['txtREmail'] . "',`r_password`='" . $converter->encode($_POST['txtPassword']) . "',`r_contact`='" . $_POST['txtRContact'] . "',`r_address`='" . $_POST['txtRAddress'] . "',`r_nid`='" . $_POST['txtRentedNID'] . "',`r_floor_id`='" . $_POST['ddlFloorNo'] . "',`r_unit_id`='" . $_POST['ddlUnitNo'] . "',`r_advance`='" . $_POST['txtRAdvance'] . "',`r_rent_pm`='" . (isset($_POST['txtRentPerMonth']) ? $_POST['txtRentPerMonth'] : 0.00) . "',`r_date`='" . $_POST['txtRDate'] . "',`r_month`='" . $month_id . "',`r_year`='" . $year_id . "',`r_status`='" . $_POST['chkRStaus'] . "',`image`='" . $image_url . "' WHERE rid='" . $_GET['id'] . "'";
+		SET `r_name`='" . $_POST['txtRName'] . 
+		"',`r_email`='" . $_POST['txtREmail'] . 
+		"',`r_dob`='" . $_POST['txtRDOB'] . 
+		"',`r_password`='" . $converter->encode($_POST['txtPassword']) . "',`r_contact`='" . $_POST['txtRContact'] . "',`r_address`='" . $_POST['txtRAddress'] . "',`r_nid`='" . $_POST['txtRentedNID'] . "',`r_floor_id`='" . $_POST['ddlFloorNo'] . "',`r_unit_id`='" . $_POST['ddlUnitNo'] . "',`r_advance`='" . $_POST['txtRAdvance'] . "',`r_rent_pm`='" . (isset($_POST['txtRentPerMonth']) ? $_POST['txtRentPerMonth'] : 0.00) . "',`r_date`='" . $_POST['txtRDate'] . "',`r_month`='" . $month_id . "',`r_year`='" . $year_id . "',`r_status`='" . $_POST['chkRStaus'] . "',`image`='" . $image_url . "' WHERE rid='" . $_GET['id'] . "'";
 		mysqli_query($link, $sql);
 		//update unit status
 		$sqlx = "UPDATE `tbl_add_unit` set status = 0 where floor_no = '" . (int)$_POST['hdnFloor'] . "' and uid = '" . (int)$_POST['hdnUnit'] . "'";
@@ -75,6 +79,7 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
 	if ($row = mysqli_fetch_array($result)) {
 		$r_name = $row['r_name'];
 		$r_email = $row['r_email'];
+		$r_dob = $row['r_dob'];
 		$r_contact = $row['r_contact'];
 		$r_address = $row['r_address'];
 		$r_nid = $row['r_nid'];
@@ -164,6 +169,10 @@ function NewGuid()
 						<div class="form-group col-md-6">
 							<label for="txtPassword"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_3']; ?> :</label>
 							<input type="text" name="txtPassword" value="<?php echo $r_password; ?>" id="txtPassword" class="form-control" />
+						</div>
+						<div class="form-group col-md-6">
+							<label for="txtRDOB"><span class="errorStar">*</span> <?php echo "Ngày sinh"; ?> :</label>
+							<input type="text" name="txtRDOB" value="<?php echo $r_dob; ?>" id="txtRDOB" class="form-control datepicker" />
 						</div>
 						<div class="form-group col-md-6">
 							<label for="txtRContact"><span class="errorStar">*</span> <?php echo $_data['add_new_form_field_text_4']; ?> :</label>

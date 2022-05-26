@@ -3,10 +3,10 @@
 //English Package
 //
 
-$_data['text_1'] 		= "Chi tiết người thuê";
-$_data['text_2'] 		= "Tên người thuê";
+$_data['text_1'] 		= "Chi tiết cư dân";
+$_data['text_2'] 		= "Tên cư dân";
 $_data['text_3'] 		= "Số điện thoại";
-$_data['text_4'] 		= "Phòng";
+$_data['text_4'] 		= "Căn hộ";
 $_data['text_5'] 		= "Thuê trước";
 $_data['text_6'] 		= "Tiền thuê mỗi tháng";
 $_data['text_7'] 		= "Trạng thái";

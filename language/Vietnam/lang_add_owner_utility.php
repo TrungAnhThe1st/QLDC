@@ -8,10 +8,10 @@ $_data['update_owner_utility'] 						= "Cập nhật chủ sở hữu tiện íc
 $_data['owner_utility'] 							= "Chủ sở hữu tiện ích";
 $_data['add_owner_utility'] 						= "Thêm chủ sở hữu tiện ích";
 $_data['add_owner_utility_entry_form'] 				= "Mẫu điền thông tin chủ sở hữu tiện ích";
-$_data['add_new_form_field_text_1'] 				= "Phòng số";
+$_data['add_new_form_field_text_1'] 				= "Căn hộ số";
 $_data['add_new_form_field_text_2'] 				= "Chọn tầng";
-$_data['add_new_form_field_text_3'] 				= "Phòng số";
-$_data['add_new_form_field_text_4'] 				= "Chọn phòng";
+$_data['add_new_form_field_text_3'] 				= "Căn hộ số";
+$_data['add_new_form_field_text_4'] 				= "Chọn căn hộ";
 $_data['add_new_form_field_text_5'] 				= "Chọn tháng";
 $_data['add_new_form_field_text_55'] 				= "Chọn năm";
 $_data['add_new_form_field_text_6'] 				= "Tên chủ sở hữu";
@@ -30,7 +30,7 @@ $_data['delete_owner_utility_information'] 			= "Xóa chủ sở hữu tiện í
 
 //validation
 $_data['v1'] 										= "Hãy chọn tầng !!!";
-$_data['v2'] 										= "Hãy chọn phòng !!!";
+$_data['v2'] 										= "Hãy chọn căn hộ !!!";
 $_data['v3'] 										= "Hãy chọn tháng !!!";
 $_data['v33'] 										= "Hãy chọn năm !!!";
 $_data['v4'] 										= "Hãy nhập số tiền nước !!!";

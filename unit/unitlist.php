@@ -131,7 +131,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                   });
 
                   $("#id-qrcode-<?php echo $row['uid']; ?> img").css("margin", "0 auto");
-                </script>
+                </script> 
               <?php }
               mysqli_close($link);
               $link = NULL; ?>
