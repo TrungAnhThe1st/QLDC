@@ -99,7 +99,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                   <td><?php echo $row['unit_no']; ?></td>
                   <td><?php echo $ams_helper->currency($localization, $row['rent_pm']); ?></td>
                   <td class="excludeExport">
-                    <a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#nurse_view_<?php echo $row['uid']; ?>').modal('show');" data-original-title="QR code"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#nurse_view_<?php echo $row['uid']; ?>').modal('show');" data-original-title="QR code"><i class="fa fa-qrcode"></i></a>
                     <a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL; ?>unit/addunit.php?id=<?php echo $row['uid']; ?>" data-original-title="<?php echo $_data['edit_text']; ?>"><i class="fa fa-pencil"></i></a>
                     <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onclick="deleteUnit(<?php echo $row['uid']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text']; ?>"><i class="fa fa-trash-o"></i></a>
                     <div id="nurse_view_<?php echo $row['uid']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
