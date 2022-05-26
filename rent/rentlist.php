@@ -65,6 +65,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
               <tr>
                 <th><?php echo $_data['add_new_form_field_text_0']; ?></th>
                 <th><?php echo $_data['add_new_form_field_text_1']; ?></th>
+                <th>Ngày sinh</th>
                 <th><?php echo $_data['add_new_form_field_text_4']; ?></th>
                 <th><?php echo $_data['add_new_form_field_text_8']; ?></th>
                 <th><?php echo $_data['add_new_form_field_text_9']; ?></th>
@@ -75,9 +76,10 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
             </thead>
             <tbody>
               <?php
-              $result = mysqli_query($link, "Select *,f.floor_no as ffloor,u.unit_no, u.rent_pm from tbl_add_rent r 
+              $result = mysqli_query($link, "Select *, f.floor_no as ffloor,u.unit_no, u.rent_pm, br.branch_name from tbl_add_rent r 
                   inner join tbl_add_floor f on f.fid = r.r_floor_id 
                   inner join tbl_add_unit u on u.uid = r.r_unit_id 
+                  inner join tblbranch br on br.branch_id = r.branch_id 
                   where r.branch_id = " . (int)$_SESSION['objLogin']['branch_id'] . " order by r.r_unit_id asc");
               while ($row = mysqli_fetch_array($result)) {
                 $image = WEB_URL . 'img/no_image.jpg';
@@ -89,6 +91,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                 <tr>
                   <td><img class="photo_img_round" style="width:50px;height:50px;" src="<?php echo $image;  ?>" /></td>
                   <td><?php echo $row['r_name']; ?></td>
+                  <td><?php echo $row['r_dob']; ?></td>
                   <td><?php echo $row['r_contact']; ?></td>
                   <td><label class="label label-success ams_label"><?php echo $row['unit_no']; ?></label></td>
                   <td><?php echo $ams_helper->currency($localization, $row['r_advance']); ?></td>
@@ -100,9 +103,9 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                       } ?>
                   </td>
                   <td>
-                  <a class="btn btn-info ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#qr_view_<?php echo $row['rid']; ?>').modal('show');" data-original-title="<?php echo "Mã QR"; ?>"><i class="fa fa-qrcode"></i></a> 
-                    <a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#nurse_view_<?php echo $row['rid']; ?>').modal('show');" data-original-title="<?php echo $_data['view_text']; ?>"><i class="fa fa-eye"></i></a> 
-                    <a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL; ?>rent/addrent.php?id=<?php echo $row['rid']; ?>" data-original-title="<?php echo $_data['edit_text']; ?>"><i class="fa fa-pencil"></i></a> 
+                    <a class="btn btn-info ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#qr_view_<?php echo $row['rid']; ?>').modal('show');" data-original-title="<?php echo "Mã QR"; ?>"><i class="fa fa-qrcode"></i></a>
+                    <a class="btn btn-success ams_btn_special" data-toggle="tooltip" href="javascript:;" onClick="$('#nurse_view_<?php echo $row['rid']; ?>').modal('show');" data-original-title="<?php echo $_data['view_text']; ?>"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-warning ams_btn_special" data-toggle="tooltip" href="<?php echo WEB_URL; ?>rent/addrent.php?id=<?php echo $row['rid']; ?>" data-original-title="<?php echo $_data['edit_text']; ?>"><i class="fa fa-pencil"></i></a>
                     <a class="btn btn-danger ams_btn_special" data-toggle="tooltip" onClick="deleteRent(<?php echo $row['rid']; ?>);" href="javascript:;" data-original-title="<?php echo $_data['delete_text']; ?>"><i class="fa fa-trash-o"></i></a>
                     <div id="nurse_view_<?php echo $row['rid']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
@@ -119,13 +122,16 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                             <h3 style="text-decoration:underline;"><?php echo $_data['details_information']; ?></h3>
                             <div class="row">
                               <div class="col-xs-6"> <b><?php echo $_data['add_new_form_field_text_1']; ?> :</b> <?php echo $row['r_name']; ?><br />
+                                <b><?php echo "Ngày sinh"; ?> :</b> <?php echo $row['r_dob']; ?><br />
                                 <b><?php echo $_data['add_new_form_field_text_2']; ?> :</b> <?php echo $row['r_email']; ?><br />
                                 <b><?php echo $_data['add_new_form_field_text_3']; ?> :</b> <?php echo $converter->decode($row['r_password']); ?><br />
                                 <b><?php echo $_data['add_new_form_field_text_4']; ?> :</b> <?php echo $row['r_contact']; ?><br />
                                 <b><?php echo $_data['add_new_form_field_text_5']; ?> :</b> <?php echo $row['r_address']; ?><br />
                                 <b><?php echo $_data['add_new_form_field_text_6']; ?> :</b> <?php echo $row['r_nid']; ?><br />
                               </div>
-                              <div class="col-xs-6"> <b><?php echo $_data['add_new_form_field_text_7']; ?> :</b> <?php echo $row['ffloor']; ?><br />
+                              <div class="col-xs-6">
+
+                                <b><?php echo $_data['add_new_form_field_text_7']; ?> :</b> <?php echo $row['ffloor']; ?><br />
                                 <b><?php echo $_data['add_new_form_field_text_8']; ?> :</b> <?php echo $row['unit_no']; ?><br />
                                 <b><?php echo $_data['add_new_form_field_text_9']; ?> : </b> <?php echo $ams_helper->currency($localization, $row['r_advance']); ?><br />
                                 <b><?php echo $_data['add_new_form_field_text_10']; ?> : </b> <?php echo $ams_helper->currency($localization, $row['rent_pm']); ?><br />
@@ -143,7 +149,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                         <!-- /.modal-content -->
                       </div>
                     </div>
-                    <div id="qr_view_<?php echo $row['uid']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div id="qr_view_<?php echo $row['rid']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header green_header">
@@ -151,8 +157,8 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                             <h3 class="modal-title">QR code</h3>
                           </div>
                           <div class="modal-body" align="center">
-                            <div id="id-qrcode-<?php echo $row['uid']; ?>"></div>
-                            <p>(Tên cư dân|Email|Số điện thoại|Tên căn hộ|Tầng|Tòa nhà)</p>
+                            <div id="id-qrcode-<?php echo $row['rid']; ?>"></div>
+                            <p>(Tên cư dân|Ngày sinh|Mã CCCD|Email|Số điện thoại|Địa chỉ thường trú|Tên căn hộ|Tầng|Tòa nhà)</p>
                           </div>
                         </div>
                         <!-- /.modal-content -->
@@ -162,8 +168,8 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                 </tr>
                 <!--Qr code generating -->
                 <script>
-                  var qrcode = new QRCode(document.getElementById("id-qrcode-<?php echo $row['uid']; ?>"), {
-                    text: "<?php echo $row['uid'] . '|' . $row['fid'] . '|' . $row['branch_id'] . '|' . $row['unit_no'] . '|' . $row['floor_no'] . '|' . $row['branch_name']; ?>",
+                  var qrcode = new QRCode(document.getElementById("id-qrcode-<?php echo $row['rid']; ?>"), {
+                    text: `<?php echo $row['r_name'] . '|' . $row['r_dob'] . '|' . $row['r_nid'] . '|' . $row['r_email'] . '|' . $row['r_contact'] . '|' .  $row['r_address'] . '|' . $row['unit_no'] . '|' . $row['ffloor'] . '|' . $row['branch_name']; ?>`,
                     width: 200,
                     height: 200,
                     colorDark: "#000000",
@@ -171,7 +177,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                     correctLevel: QRCode.CorrectLevel.M
                   });
 
-                  $("#id-qrcode-<?php echo $row['uid']; ?> img").css("margin", "0 auto");
+                  $("#id-qrcode-<?php echo $row['rid']; ?> img").css("margin", "0 auto");
                 </script>
               <?php }
               mysqli_close($link);

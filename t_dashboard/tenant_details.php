@@ -78,7 +78,7 @@ if(!isset($_SESSION['objLogin'])){
                     <h3 style="text-decoration:underline;"><?php echo $_data['details_information'];?></h3>
                     <div class="row">
                       <div class="col-xs-6"> 
-					    <b><?php echo $_data['text_5'];?> :</b> <?php echo $_SESSION['objLogin']['r_name']; ?><br/>
+					              <b><?php echo $_data['text_5'];?> :</b> <?php echo $_SESSION['objLogin']['r_name']; ?><br/>
                         <b><?php echo $_data['text_6'];?> :</b> <?php echo $_SESSION['objLogin']['r_email']; ?><br/>
                         <b><?php echo $_data['text_7'];?> :</b> <?php echo $_SESSION['objLogin']['r_contact']; ?><br/>
                         <b><?php echo $_data['text_8'];?> :</b> <?php echo $_SESSION['objLogin']['r_address']; ?><br/>

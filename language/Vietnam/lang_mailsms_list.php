@@ -18,11 +18,11 @@ $_data['text_2'] 								= "Chủ đề";
 $_data['text_3'] 								= "Tin nhắn";
 
 $_data['text_4'] 								= "Tất cả";
-$_data['text_5'] 								= "Người thuê nhà cụ thể";
+$_data['text_5'] 								= "cư dân cụ thể";
 $_data['text_6'] 								= "Chủ sở hữu cụ thể";
 $_data['text_7'] 								= "Nhân viên cụ thể";
 
-$_data['text_8'] 								= "Nhập tên người thuê nhà ở đây...";
+$_data['text_8'] 								= "Nhập tên cư dân ở đây...";
 $_data['text_9'] 								= "Nhập tên chủ sở hữu ở đây...";
 $_data['text_10'] 								= "Nhập tên nhân viên ở đây...";
 $_data['text_11'] 								= "Loại tin nhắn";
@@ -33,7 +33,7 @@ $_data['text_15'] 								= "ĐÓNG";
 $_data['text_16'] 								= "Đã được thêm";
 $_data['text_17'] 								= "SMS và Email";
 
-$_data['text_18'] 								= "Người thuê nhà";
+$_data['text_18'] 								= "cư dân";
 $_data['text_19'] 								= "Chủ sở hữu";
 $_data['text_20'] 								= "Nhân viên";
 $_data['text_21'] 								= "Trước khi gửi email hoặc sms, bạn phải thiết lập cấu hình email và sms";

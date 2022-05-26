@@ -21,5 +21,5 @@ $_data['r3'] 			= "Hãy nhập ngày khiếu nại !!!";
 
 
 //tenant complain
-$_data['t_text_1'] 		= "Thêm khiếu nại của người thuê nhà";
+$_data['t_text_1'] 		= "Thêm khiếu nại của cư dân";
 ?>

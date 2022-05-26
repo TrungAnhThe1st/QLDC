@@ -4,9 +4,9 @@
 //
 
 $_data['text_1'] 		= "Chi tiết tiền thuê hàng tháng";
-$_data['text_2'] 		= "Tên người thuê nhà";
+$_data['text_2'] 		= "Tên cư dân";
 $_data['text_3'] 		= "Tầng số";
-$_data['text_4'] 		= "Phòng số";
+$_data['text_4'] 		= "Căn hộ số";
 $_data['text_5'] 		= "Tháng";
 $_data['text_6'] 		= "Tiền thuê";
 $_data['text_7'] 		= "Tổng hóa đơn";
