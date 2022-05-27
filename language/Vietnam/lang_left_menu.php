@@ -87,7 +87,7 @@ $_data['text_1'] 							= "Bảng điều khiển";
 $_data['text_2'] 							= "Chi tiết căn hộ";
 $_data['text_3'] 							= "Chi tiết cho thuê ";
 $_data['text_4'] 							= "Chi tiết thông tin nhân viên";
-$_data['text_5'] 							= "Báo cáo tiền thuê nhà";
+$_data['text_5'] 							= "Báo cáo tiền thuê căn hộ";
 $_data['text_6'] 							= "Báo cá về tiện ích của chủ sở hữu";
 $_data['text_7'] 							= "Chi tiết chi phí bảo trì";
 $_data['text_8'] 							= "Thông tin chi tiết về quỹ";
@@ -115,8 +115,8 @@ $_data['control'] 							= "Bảng điều khiển";
 
 /* Renter Left Menu Start */
 
-$_data['rented_statement'] 					= "Báo cáo tiền thuê nhà";
-$_data['rented_report'] 					= "Báo cáo tiền thuê nhà";
+$_data['rented_statement'] 					= "Báo cáo tiền thuê căn hộ";
+$_data['rented_report'] 					= "Thống kê tiền thuê căn hộ";
 $_data['unit_details'] 						= "Chi tiết căn hộ";
 $_data['renter_complain_details'] 			= "Khiếu nại của cư dân căn hộ";
 $_data['dashboard_total_branch'] 			= "Tổng số nhánh";

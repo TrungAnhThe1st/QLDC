@@ -3,8 +3,8 @@
 //English Package
 //
 
-$_data['text_1'] 		= "Báo cáo cho thuê";
-$_data['text_2'] 		= "Mẫu điền thông tin báo cáo cho thuê";
+$_data['text_1'] 		= "Thống kê hóa đơn căn hộ";
+$_data['text_2'] 		= "";
 $_data['text_3'] 		= "Chọn tháng";
 $_data['text_4'] 		= "Chọn năm";
 $_data['text_5'] 		= "Tình trạng thanh toán";
