@@ -50,7 +50,7 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
                                 <th>Thuộc khu</th>
                                 <th>Giá</th>
                                 <th>Số lần sử dụng</th>
-                                <th>Ngày tham gia</th>
+                                <th>Ngày đăng ký</th>
                                 <th>Ngày hủy</th>
                                 <th>Trạng thái</th>
                             </tr>

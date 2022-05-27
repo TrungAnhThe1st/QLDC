@@ -14,11 +14,14 @@ if (isset($_POST['submit'])) {
     $sql = '';
     $services_id = $_POST['services'];
     foreach ($services_id as $service_id) {
-        if (isset($_POST['status']["$service_id"])) {
+        if (isset($_POST["status"]["$service_id"])) {
             $sql .= "Update tbl_add_subscription set status = 1 where service_id = $service_id and rent_id = " . $_GET['id'] . ";\n";
         } else {
-            $sql .= "Update tbl_add_subscription set status = 0, unsubscribed_at = CURRENT_TIMESTAMP 
-            where service_id = $service_id and rent_id = " . $_GET['id'] . ";\n";
+            $sql .= "Update tbl_add_subscription set status = 0";
+            if($_POST["updated"]["$service_id"] == 1){
+                $sql .= ", unsubscribed_at = CURRENT_TIMESTAMP";
+             }
+            $sql .= " where service_id = $service_id and rent_id = " . $_GET['id'] . ";\n";
         }
     }
 
@@ -72,7 +75,7 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
                                     <th>Thuộc khu</th>
                                     <th>Giá</th>
                                     <th>Số lần sử dụng</th>
-                                    <th>Ngày tham gia</th>
+                                    <th>Ngày đăng ký</th>
                                     <th>Ngày hủy</th>
                                     <th>Trạng thái</th>
                                 </tr>
@@ -96,11 +99,14 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
                                         <td><?php echo $row['usage_count'] == -1 ? "Không giới hạn" : $row['usage_count']; ?></td>
                                         <td><?php echo $row['joined_at'] ?></td>
                                         <td><?php echo $row['unsubscribed_at'] == null ? "" : $row['unsubscribed_at'] ?></td>
-                                        <td><input type="checkbox" name="status[<?php echo $row['id'] ?>]" value="<?php echo $row['status'] ?>" <?php echo $row['status'] == 1 ? "checked" : ""; ?> />
+                                        <td>
+                                            <input type="checkbox" name="status[<?php echo $row['id'] ?>]" value="<?php echo $row['status'] ?>" <?php echo $row['status'] == 1 ? "checked" : ""; ?> 
+                                            onclick="updatedRegconize(<?php echo $row['id'] ?>)"/>
                                             <input type="hidden" name="services[]" value="<?php echo $row['id'] ?>" />
+                                            <input type="hidden" id="updated[<?php echo $row['id'] ?>]" name="updated[<?php echo $row['id'] ?>]" value="0" />
                                         </td>
-
                                     </tr>
+                                    
                                 <?php }
                                 mysqli_close($link);
                                 $link = NULL; ?>
@@ -121,6 +127,14 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
     </div>
     <!-- /.row -->
     <script type="text/javascript">
-
+        function updatedRegconize(id){
+            let el = document.getElementById("updated[" + id + "]");
+            if(el.value == 0){
+                el.value = 1;
+            }
+            else {
+                el.value = 0;
+            }
+        }
     </script>
     <?php include('../footer.php'); ?>

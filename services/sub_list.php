@@ -84,7 +84,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                             <?php
                             $sql = "select r.rid, r.r_name, r.r_email, r.r_contact, sub_count, active_count, u.unit_no from tbl_add_rent r 
                             inner join tbl_add_unit u on u.uid = r.r_unit_id 
-                            left join (select rent_id, count(*) as sub_count from tbl_add_subscription GROUP by rent_id) sc on sc.rent_id = r.rid 
+                            inner join (select rent_id, count(*) as sub_count from tbl_add_subscription GROUP by rent_id) sc on sc.rent_id = r.rid 
                             left join (select rent_id, count(*) as active_count from tbl_add_subscription where status = 1 GROUP by rent_id) ac on ac.rent_id = r.rid 
                             inner join tblbranch br on br.branch_id = r.branch_id 
                             where br.branch_id = " . (int)$_SESSION['objLogin']['branch_id'];

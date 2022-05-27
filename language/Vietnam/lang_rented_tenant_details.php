@@ -3,7 +3,7 @@
 //English Package
 //
 
-$_data['text_1'] 		= "Báo cáo tiền thuê nhà";
+$_data['text_1'] 		= "Báo cáo tiền thuê căn hộ";
 $_data['text_2'] 		= "Hóa đơn tháng";
 $_data['text_3'] 		= "Tổng số tiền";
 $_data['text_4'] 		= "Ngày";
