@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // Sample array
     $qrCitizenData = $_POST['qrCitizenData'];
     $qrUnitData = $_POST['qrUnitData'];
-
+    $additional = $_POST["additional"];
     /*
     0 - new cid, 1 - old cid, 2 - name, 
     3 - dob (ddMMyyyy), 4 - gender, 5 - address, 
@@ -17,7 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     */
     $decoded_datas = explode("|", $qrCitizenData);
     $dob = substr($decoded_datas[3], 0, 2) . "/" . substr($decoded_datas[3], 2, 2) . "/" . substr($decoded_datas[3], 4, 4);
-    $email = $_POST['email'];
+    
+    /* 0 - Phone, 1 - Email */
+    $additionalData = explode("|", $additional);
+    $phone = $additionalData[0];
+    $email = $additionalData[1];
 
     /*0 - uid, 1 - fid, 2 - branch_id */
     $unit_decode_datas = explode("|", $qrUnitData);
@@ -43,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 
     $sql = "Select * from tbl_add_rent 
-    where r_name = '$decoded_datas[2]' and r_nid = '$decoded_datas[0]' and r_email = '$email'";
+    where r_name = '$decoded_datas[2]' and r_nid = '$decoded_datas[0]'";
     $result = mysqli_query($link, $sql);
 
     if ($row = mysqli_fetch_array($result)) {
@@ -63,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $r_date = date('d/m/Y');
         $r_month = date('n');
         $r_password = $converter->encode('123456');
-        $sql = "INSERT INTO tbl_add_rent(r_name,r_dob,r_email,r_address,r_nid,r_advance,r_rent_pm,r_date,r_month,r_year, r_password, r_unit_id, r_floor_id, branch_id) 
-        VALUES('$decoded_datas[2]', '$dob', '$email','$decoded_datas[5]','$decoded_datas[0]',0,0,'$r_date','$r_month',$year_id,'$r_password', $unit_decode_datas[0], $unit_decode_datas[1], $unit_decode_datas[2])";
+        $sql = "INSERT INTO tbl_add_rent(r_name,r_contact,r_dob,r_email,r_address,r_nid,r_advance,r_rent_pm,r_date,r_month,r_year, r_password, r_unit_id, r_floor_id, branch_id) 
+        VALUES('$decoded_datas[2]', '$phone', '$dob', '$email','$decoded_datas[5]','$decoded_datas[0]',0,0,'$r_date','$r_month',$year_id,'$r_password', $unit_decode_datas[0], $unit_decode_datas[1], $unit_decode_datas[2])";
 
         if ($result = mysqli_query($link, $sql)) {
             $sql = "Update tbl_add_unit set status = 1 where uid = $unit_decode_datas[0]";
