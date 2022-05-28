@@ -195,7 +195,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
 
         $("#testExportId .excludeExport").remove();
 
-        tableToExcel("testExportId", "test", "Danh sách phòng");
+        tableToExcel("testExportId", "test", "Danh sách tầng");
 
         $("#testExportId").html(tempTable);
       });
