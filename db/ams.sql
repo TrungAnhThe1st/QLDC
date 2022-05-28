@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2022 at 11:06 PM
+-- Generation Time: May 28, 2022 at 11:18 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -630,8 +630,8 @@ CREATE TABLE `tbl_add_subscription` (
 --
 
 INSERT INTO `tbl_add_subscription` (`id`, `rent_id`, `service_id`, `usage_count`, `month`, `year`, `status`, `joined_at`, `unsubscribed_at`) VALUES
-(2, 20, 3, -1, 5, 15, 1, '2022-05-25 02:32:06', '2022-05-25 05:42:30'),
-(3, 20, 4, -1, 5, 15, 0, '2022-05-25 09:28:11', '2022-05-25 11:12:47');
+(2, 20, 3, -1, 5, 15, 1, '2022-05-25 02:32:06', '2022-05-27 19:10:07'),
+(3, 20, 4, -1, 5, 15, 0, '2022-05-25 09:28:11', '2022-05-27 19:44:33');
 
 -- --------------------------------------------------------
 
@@ -655,10 +655,12 @@ CREATE TABLE `tbl_add_unit` (
 
 INSERT INTO `tbl_add_unit` (`uid`, `floor_no`, `unit_no`, `branch_id`, `rent_pm`, `status`, `added_date`) VALUES
 (30, 13, 'Flat 2C', 8, '50000.00', 1, '2019-08-26 18:56:56'),
-(31, 12, 'Flat 1B', 8, '10000.00', 1, '2019-08-26 18:57:09'),
+(31, 12, 'Căn hộ 1C', 8, '10000.00', 1, '2019-08-26 18:57:09'),
 (32, 13, 'Flat 2A', 8, '0.00', 0, '2019-08-27 04:07:08'),
 (33, 13, 'Flat 2B', 8, '0.00', 0, '2019-08-27 04:07:35'),
-(34, 12, 'Flat 1F', 8, '190000.00', 0, '2022-05-11 09:36:44');
+(34, 12, 'Flat 1F', 8, '190000.00', 0, '2022-05-11 09:36:44'),
+(38, 12, 'Căn hộ 2C', 8, '100000.00', 0, '2022-05-28 20:26:13'),
+(39, 12, 'Căn hộ 3C', 8, '1000000.00', 0, '2022-05-28 21:17:11');
 
 -- --------------------------------------------------------
 
@@ -1368,7 +1370,7 @@ ALTER TABLE `tbl_add_owner_utility`
 -- AUTO_INCREMENT for table `tbl_add_rent`
 --
 ALTER TABLE `tbl_add_rent`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_service`
@@ -1386,7 +1388,7 @@ ALTER TABLE `tbl_add_subscription`
 -- AUTO_INCREMENT for table `tbl_add_unit`
 --
 ALTER TABLE `tbl_add_unit`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_utility`

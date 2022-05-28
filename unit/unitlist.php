@@ -6,6 +6,10 @@ if (!isset($_SESSION['objLogin'])) {
 ?>
 <?php
 include(ROOT_PATH . 'language/' . $lang_code_global . '/lang_unit_list.php');
+require('../utility/PhpExcel/SimpleXLSX.php');
+
+use Shuchkin\SimpleXLSX;
+
 $delinfo = 'none';
 $addinfo = 'none';
 $msg = "";
@@ -21,6 +25,32 @@ if (isset($_GET['m']) && $_GET['m'] == 'add') {
 if (isset($_GET['m']) && $_GET['m'] == 'up') {
   $addinfo = 'block';
   $msg = $_data['update_unit_successfully'];
+}
+
+if (isset($_POST['import_submit'])) {
+  if (isset($_FILES['importFile'])) {
+    if ($xlsx = SimpleXLSX::parse($_FILES['importFile']['tmp_name'])) {
+      $arr = $xlsx->rows();
+      $sql = '';
+      for ($i = 1; $i < count($arr); $i++) {
+        $floor_id = $arr[$i][0];
+        $unit_name = $arr[$i][1];
+        $rpm = $arr[$i][2];
+
+        $sql .= "Insert into tbl_add_unit (floor_no, unit_no, branch_id, rent_pm, status) 
+        SELECT $floor_id, '$unit_name', " . $_SESSION['objLogin']['branch_id'] . ", $rpm, 0 
+        WHERE NOT EXISTS (SELECT * FROM tbl_add_unit WHERE unit_no = '$unit_name' AND floor_no = $floor_id);";
+      }
+
+      if ($sql != '') {
+        if($result = mysqli_multi_query($link, $sql)){
+          mysqli_close($link);
+          $url = WEB_URL . 'unit/unitlist.php?m=add';
+          header("Location: $url");
+        }
+      }
+    }
+  }
 }
 ?>
 <!-- Content Header (Page header) -->
@@ -70,7 +100,20 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
         <!-- /.box-header -->
         <div class="box-body">
           <div style="margin:10px">
-            <button id="btnExport" class="btn btn-success" onclick="ExportToExcel('xlsx')">Xuất file exel</button>
+            <button id="btnExport" class="btn btn-success" onclick="">Xuất file excel</button>
+            <form action="" style="float: right;" method="post" enctype="multipart/form-data">
+              <div>
+                <a class="btn btn-info" href="../assets/examples/UnitExample.xlsx">File excel mẫu</a>
+                <span class="btn btn-file btn btn-default">Tải file lên
+                  <input type="file" name="importFile" value="" id="importFile" />
+                </span>
+                <button class="btn btn-success" type="submit" name="import_submit">Nhập file excel</button>
+              </div>
+            </form>
+            <div style="text-align: right;" style="margin:10px">
+            <p style=" color:red;">*Lưu ý lấy file excel danh sách tầng để có được mã các tầng trước khi tiến hành tạo file excel nhập vào</p>
+            </div>
+
           </div>
           <table id="testExportId" class="table sakotable table-bordered table-striped dt-responsive">
             <thead>
@@ -131,7 +174,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
                   });
 
                   $("#id-qrcode-<?php echo $row['uid']; ?> img").css("margin", "0 auto");
-                </script> 
+                </script>
               <?php }
               mysqli_close($link);
               $link = NULL; ?>
@@ -239,7 +282,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
       txtArea1.document.write(tab_text);
       txtArea1.document.close();
       txtArea1.focus();
-      sa = txtArea1.document.execCommand("SaveAs", false, fileName + ".xls");
+      sa = txtArea1.document.execCommand("SaveAs", false, fileName + ".xlsx");
       $("tbody > tr[data-level='0']").hide();
       return (sa);
     }
@@ -250,7 +293,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
 
         $("#testExportId .excludeExport").remove();
 
-        tableToExcel("testExportId", "test", "trys");
+        tableToExcel("testExportId", "test", "Danh sách căn hộ");
 
         $("#testExportId").html(tempTable);
       });
