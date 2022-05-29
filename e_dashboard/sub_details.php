@@ -50,6 +50,7 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
                                 <th>Thuộc khu</th>
                                 <th>Giá</th>
                                 <th>Số lần sử dụng</th>
+                                <th>Miễn phí tháng đầu</th>
                                 <th>Ngày đăng ký</th>
                                 <th>Ngày hủy</th>
                                 <th>Trạng thái</th>
@@ -57,7 +58,7 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "Select a.name as area_name, util.name as utility_name,s.*, sub.joined_at, sub.unsubscribed_at, sub.status, sub.usage_count from tbl_add_service s 
+                            $sql = "Select a.name as area_name, util.name as utility_name, s.*, sub.joined_at, sub.unsubscribed_at, sub.status, sub.usage_count from tbl_add_service s 
                             inner join tbl_add_subscription sub on sub.service_id = s.id 
                             inner join tbl_add_utility util on util.id = s.utility_id 
                             inner join tbl_area a on a.id = util.area_id 
@@ -72,6 +73,7 @@ if (isset($_GET['mode']) && $_GET['mode'] == 'view') {
                                     <td><?php echo $row['area_name'] ?></td>
                                     <td><?php echo $ams_helper->currency($localization, $row['price']);  ?></td>
                                     <td><?php echo $row['usage_count'] == -1 ? "Không giới hạn" : $row['usage_count']; ?></td>
+                                    <td><?php echo $row['first_month_free'] == 0 ? "Không" : "Có"; ?></td>
                                     <td><?php echo $row['joined_at'] ?></td>
                                     <td><?php echo $row['unsubscribed_at'] == null ? "" : $row['unsubscribed_at'] ?></td>
                                     <td>

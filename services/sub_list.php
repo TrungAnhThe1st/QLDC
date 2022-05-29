@@ -10,7 +10,7 @@ $delinfo = 'none';
 $addinfo = 'none';
 $msg = "";
 if (isset($_GET['id']) && $_GET['id'] != '' && $_GET['id'] > 0) {
-    $sqlx = "DELETE FROM `tbl_add_subscription` WHERE id = " . $_GET['id'];
+    $sqlx = "DELETE FROM `tbl_add_subscription` WHERE rent_id = " . $_GET['id'];
     mysqli_query($link, $sqlx);
     $delinfo = 'block';
 }
@@ -121,7 +121,7 @@ if (isset($_GET['m']) && $_GET['m'] == 'up') {
     function deleteService(Id) {
         var iAnswer = confirm("<?php echo "Bạn có chắc không?"; ?>");
         if (iAnswer) {
-            window.location = '<?php echo WEB_URL; ?>services/service_list.php?id=' + Id;
+            window.location = '<?php echo WEB_URL; ?>services/sub_list.php?id=' + Id;
         }
     }
 
