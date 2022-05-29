@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2022 at 11:18 PM
+-- Generation Time: May 29, 2022 at 01:04 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -564,7 +564,7 @@ CREATE TABLE `tbl_add_rent` (
   `r_date` varchar(200) NOT NULL,
   `r_gone_date` varchar(200) DEFAULT NULL,
   `r_password` varchar(100) NOT NULL,
-  `image` varchar(200) NOT NULL,
+  `image` varchar(200) DEFAULT NULL,
   `r_status` int(1) NOT NULL DEFAULT 1,
   `r_month` int(11) NOT NULL,
   `r_year` int(11) NOT NULL,
@@ -578,7 +578,7 @@ CREATE TABLE `tbl_add_rent` (
 
 INSERT INTO `tbl_add_rent` (`rid`, `r_name`, `r_dob`, `r_email`, `r_contact`, `r_address`, `r_nid`, `r_floor_id`, `r_unit_id`, `r_advance`, `r_rent_pm`, `r_date`, `r_gone_date`, `r_password`, `image`, `r_status`, `r_month`, `r_year`, `branch_id`, `added_date`) VALUES
 (20, 'Nguyễn Văn An', '12/01/2000', 'citizen1@gmail.com', '+8801679110711', '63 Creek St.Eastpointe, MI 48021', '232323-565656-212121', 13, 30, '100000.00', '0.00', '27/08/2019', '', 'MTIzNDU2', '1D7A8F0A-8D07-A9A6-5A2E-08384D592F53.png', 1, 8, 11, 8, '2019-08-26 19:33:04'),
-(34, 'Phạm Tiến Duật', '03/07/2000', 'cuongnew37@gmail.com', '+84 ', 'Số 16A, Ngách 79/40 Dương Quảng Hàm , Tổ 19, Quan Hoa, Cầu Giấy, Hà Nội', '001200006400', 12, 31, '0.00', '0.00', '26/05/2022', NULL, 'MTIzNDU2', '', 1, 5, 15, 8, '2022-05-26 20:53:53');
+(37, 'Phạm Tiến Duật', '03/07/2000', 'tienip@mail.com', '20313923912', 'Số 16A, Ngách 79/40 Dương Quảng Hàm , Tổ 19, Quan Hoa, Cầu Giấy, Hà Nội', '00120000600', 13, 32, '0.00', '0.00', '29/05/2022', NULL, 'MTIzNDU2', '', 1, 5, 15, 8, '2022-05-29 10:44:43');
 
 -- --------------------------------------------------------
 
@@ -656,7 +656,7 @@ CREATE TABLE `tbl_add_unit` (
 INSERT INTO `tbl_add_unit` (`uid`, `floor_no`, `unit_no`, `branch_id`, `rent_pm`, `status`, `added_date`) VALUES
 (30, 13, 'Flat 2C', 8, '50000.00', 1, '2019-08-26 18:56:56'),
 (31, 12, 'Căn hộ 1C', 8, '10000.00', 1, '2019-08-26 18:57:09'),
-(32, 13, 'Flat 2A', 8, '0.00', 0, '2019-08-27 04:07:08'),
+(32, 13, 'Flat 2A', 8, '0.00', 1, '2019-08-27 04:07:08'),
 (33, 13, 'Flat 2B', 8, '0.00', 0, '2019-08-27 04:07:35'),
 (34, 12, 'Flat 1F', 8, '190000.00', 0, '2022-05-11 09:36:44'),
 (38, 12, 'Căn hộ 2C', 8, '100000.00', 0, '2022-05-28 20:26:13'),
@@ -1370,7 +1370,7 @@ ALTER TABLE `tbl_add_owner_utility`
 -- AUTO_INCREMENT for table `tbl_add_rent`
 --
 ALTER TABLE `tbl_add_rent`
-  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `tbl_add_service`
