@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $sql1 = "INSERT INTO tbl_add_rent (r_name,r_contact,r_dob,r_email,r_address,r_nid,r_advance,r_rent_pm,r_date,r_month,r_year, r_password, r_unit_id, r_floor_id, branch_id) 
         VALUES('$decoded_datas[2]', '$phone', '$dob', '$email','$decoded_datas[5]','$decoded_datas[0]',0.00,0.00,'$r_date',$r_month,$year_id,'$r_password', $r_unit_id, $r_floor_id, $branch_id);";
         $sql1 .= "UPDATE tbl_add_unit SET `status` = 1 WHERE `uid` = $unit_decode_datas[0];";
-        if($result = mysqli_multi_query($link, $sql1)){
+        if($result = mysqli_multi_query($link, $sql1) or trigger_error(mysqli_error($link))){
             $signal = 2;
         }
         else $signal = 3;
